@@ -5,8 +5,8 @@
 # Where things are
 source:       .
 destination:  ./_site
-plugins:      ./_plugins
-layouts:      ./_layouts
+plugins_dir:      ./_plugins
+layouts_dir:      ./_layouts
 paginate:     8
 
 # Handling Reading
@@ -17,6 +17,9 @@ keep_files:   [".git", ".svn"]
 encoding:     "utf-8"
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 textile_ext:  "textile"
+
+# Gems
+gems: [jekyll-paginate]
 
 # Filtering Content
 show_drafts:  null
@@ -46,7 +49,7 @@ timezone:      null
 title: Jekyll Theme
 description: Just another Jekyll theme design and code by zhanxin.info.
 keywords: Jekyll Theme
-url: /
+url: ""
 feed: /atom.xml
 favicon: http://jekyllrb.com/favicon.png
 
@@ -116,7 +119,7 @@ disqus:
 #################################### global configure #######################################
 
 username: minixalpha
-baseurl: /
+baseurl: ""
 markdown: redcarpet
 safe: false
 highlighter: pygments
