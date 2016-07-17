@@ -1,120 +1,42 @@
-StrayBirds
-==========
+# Jekyll-Jacman
 
-基于 GitHub Pages 搭建的极简博客，所有操作都可以直接通过浏览器完成。
+Jekyll-Jacman 是为 [Jekyll](http://jekyllrb.com) 设计的一款清新且具有响应式的主题，拥有更丰富的特性并支持了很多的国内服务。Jacman 始于 [Jacman](https://github.com/wuchong/jacman) 移植而来。
 
-## 示例
+[主题演示](http://simpleyyt.github.io/jekyll-jacman/) | [Yitao's Blog](http://simpleyyt.github.io)
 
-可以通过访问 [StrayBirds](http://minixalpha.github.io/StrayBirds/) 看到最终
-的效果，下面是截图:
+[如何使用 Jacman 主题](http://simpleyyt.github.io/jekyll-jacman/jekyll/2015/09/20/how-to-use-jacman/)
 
-![ui-demo](/images/ui_demo.png)
+##功能
+- **菜单 menu**  
+ 主导航菜单
+- **控件 widget**  
+ 侧边栏的控件。包括：分类、标签、RSS、友情链接、微博秀。
+- **图片相关 Image**  
+ 设置网站图标、网站logo、作者头像、博客顶部大图等。还提供了多种图片样式`img-logo`,`img-topic`,`img-center`等。
+- **首页模式 index**  
+ 主题提供了两种首页展示模式。
+- **作者 author**  
+ 作者信息，主要用于展示网站右下角的社交网络链接。包括：微博、豆瓣、知乎、邮箱、GitHub、StackOverflow、Twitter、Facebook、Linkedin、Google+。
+- **目录 toc**  
+ 在文章中和侧边栏可以显示目录。
+- **评论 comments**  
+ 支持 [多说](http://duoshuo.com/) & [disqus](https://disqus.com/) 评论。
+- **分享 jiathis**  
+ 启用 内建分享工具 或 [加网](http://www.jiathis.com/) 分享系统。
+- **网站统计 Analytiscs**  
+ 支持 [谷歌统计](http://www.google.com/analytics/) & [百度统计](http://tongji.baidu.com/) & [CNZZ站长统计](http://www.cnzz.com/)。
+- **Search**  
+ 支持 [谷歌自定义搜索](https://www.google.com/cse/ ) & [百度站内搜索](http://zn.baidu.com/)  &[微搜索](http://tinysou.com/)。
+- **totop**  
+ 回到顶部。
+- **rss**  
+ RSS 订阅链接。
+- **fancybox**  
+ 图片查看的 [Fancybox](http://fancyapps.com/fancybox/) 工具。
+- **自定义主题颜色**
+ 在`_config.yaml`中就可以修改主题的颜色，而不用去找那些奇怪的 stylus 文件。
+- **其他**
+ 你可以设置侧边栏在博文页面中不显示。
 
-## 教程
-
-### 使用方法
-
-1. 注册 GitHub，得到用户名，例如 minixbeta
-2. 到 [StrayBirds](https://github.com/minixalpha/StrayBirds) 页面，单击右上
-角的 Fork
-3. 到你 Fork 后的项目中，将 `_config.yml` 中的 username 修改为你的用户名 minixbeta
-4. 访问你的博客 http://minixbeta.github.io/StrayBirds/
-
-![create_project](/images/create_project.gif)
-
-**注意如果你是第一次使用 GitHub Pages，可能不会马上生效，等一段时间即可**
-
-**按照配置中说的方法修改项目名称可能会加快这一进程**
-
-### 配置
-
-* 修改主题
-
-在 `_confg.yml` 下修改 theme 的值。
-
-**注意修改主题后，并不会马上生效，GitHub 还要反应一段时间，所以请耐心等待**
-
-**修改主题后, 按照配置中说的方法修改项目名称可能会加快这一进程**
-
-可选主题包括：
-
-- hack
-	![hack-demo](/images/hack-demo.png)
-- leap-day
-	![leap-day-demo](/images/leap-day-demo.png)
-- merlot
-	![merlot-demo](/images/merlot-demo.png)
-- midnight
-	![midnight-demo](/images/midnight-demo.png)
-- minimal
-	![minimal-demo](/images/minimal-demo.png)
-- modernist
-	![modernist-demo](/images/modernist-demo.png)
-- slate
-	![slate-demo](/images/slate-demo.png)
-- time-machine
-	![time-machine-demo](/images/time-machine-demo.png) 
-- kunka
-	![kunka-demo](/images/kunka-demo.png)
-
-* 修改项目名
-
-例如将 StrayBirds 修改为 blog，那么你需要做的是
-
-1. 在项目的 Setting 中将 Repository name 从 StrayBirds 修改为 blog
-2. 将 `_config.yml` 中的 baseurl 修改为 /blog
-3. 通过 http://minixbeta.github.io/blog/ 来访问你的新博客
-
-![create_post](/images/change_project_name.gif)
-
-
-* 修改评论系统用户名
-
-我们的评论系统使用的是 [Disqus](https://disqus.com/)，如果你想在这份博客模板中使用，需要先去注册一下，然后得到一个用户名，例如 minixalpha。然后在 `_config.yml` 中将 disqusname 修改为 minixalpha。
-
-**千万注意: 如果你开启评论系统一定要修改这个值，不然就评论到我的评论系统中去了**
-
-### 添加文章
-
-在 `_post` 目录下添加形如 `2014-10-26-title.md` 的文章，用 markdown 格式
-撰写博客。
-
-例如：
-
-```
----
-layout: post
-title: Java 中的并发
-comments: true
-category: 技术
----
-
-
-## 如何创建一个线程
-
-按 Java 语言规范中的说法，创建线程只有一种方式，就是创建一个 Thread 对象。而从 HotSpot 虚拟机的角度看，创建一个虚拟机线程
-有两种方式，一种是创建 Thread 对象，另一种是创建 一个本地线程，加入到虚拟机线程中。
-
-...
-
-```
-
-其中 `layout` 表示布局，不用改变，`title` 表示文章题目，`comments` 表示是否要开户评论。
-
-![create_post](/images/create_post.gif)
-
-## 感谢
-
-Thanks to authors of the themes:
-
-* [hack](https://github.com/sundaykofax/baby-legs), Licence: None
-* [leap-day](https://github.com/mattgraham/leapday), Licence: [Creative Commons Attribution](http://creativecommons.org/licenses/by/3.0/)
-* [merlot](https://github.com/cameronmcefee/headsmart/tree/gh-pages), Licence: None
-* [midnight](https://github.com/briandoll/change-inside-surroundings.vim/tree/gh-pages), Licence: None
-* [minimal](https://github.com/orderedlist/minimal), Licence: [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/)
-* [modernist](https://github.com/orderedlist/modernist), Licence: [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/)
-* [slate](https://github.com/jasoncostello/slate), Licence: MIT
-* [time-machine](https://github.com/jonrohan/time-machine-theme), Licence: None
-* [kunka](https://github.com/pizn/kunka), Licence: MIT, author: [zhanxin.info](http://www.zhanxin.info/)
-
-All the themes are intergrated in the blog template, with some modifies.
+##协议
+[MIT](/LICENSE)
