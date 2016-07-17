@@ -80,8 +80,8 @@ mathjax: false      #enable mathjax if true
 #### Author information
 author:
   name: wangjingfei      ## e.g. wuchong Author name
-  intro_line1:  "Hello ,I'm Larry Page in Google."    ## your introduction on the bottom of the page
-  intro_line2:  "This is my blog,believe it or not."  ## the 2nd line
+  intro_line1:  "曾经沧海难为水，除却巫山不是云。"    ## your introduction on the bottom of the page
+  intro_line2:  "取次花丛懒回顾，半缘修道半缘君。"  ## the 2nd line
   weibo:      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
   weibo_verifier:  ## e.g. b3593ceb Your weibo-show widget verifier ,if you use weibo-show it is needed.
   tsina:      ## e.g. 2176287895  Your weibo ID,It will be used in share button.
@@ -113,7 +113,7 @@ gems: [jekyll-paginate]
 
 #### Comment
 duoshuo_shortname:    ## e.g. wuchong   your duoshuo short name.
-disqus_shortname:     ## e.g. wuchong   your disqus short name.
+disqus_shortname: xiaotanzhu    ## e.g. wuchong   your disqus short name.
 
 #### Share button
 jiathis:
