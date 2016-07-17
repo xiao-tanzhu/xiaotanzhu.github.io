@@ -79,7 +79,7 @@ mathjax: false      #enable mathjax if true
 
 #### Author information
 author:
-  name: wangjingfei      ## e.g. wuchong Author name
+  name: fify      ## e.g. wuchong Author name
   intro_line1:  "曾经沧海难为水，除却巫山不是云。"    ## your introduction on the bottom of the page
   intro_line2:  "取次花丛懒回顾，半缘修道半缘君。"  ## the 2nd line
   weibo:      ## e.g. wuchong1014 or 2176287895 for http://weibo.com/2176287895
