@@ -23,6 +23,11 @@ db.getCollection('webExceptionRecord').find({version: {$not:/v5\.0\.5/}})
 `$not`后边必须跟正则表达式或文档（regex or document）
 
 ```javascript
+db.getCollection('webExceptionRecord').find({version:{$nin:['v5.0.5']}})
+```
+`$nin`: not in
+
+```javascript
 db.getCollection('appStatisticsActiveUser').find({count:{$not: {$lt:100}}})
 ```
 
