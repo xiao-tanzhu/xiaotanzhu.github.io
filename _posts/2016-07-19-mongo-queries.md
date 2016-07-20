@@ -37,5 +37,7 @@ db.getCollection('webExceptionRecord').find({version: {$regex:/.*5\.0\.5.*/}})
 ```
 
 ###查询“不包含”
+```javascript
 db.getCollection('webExceptionRecord').find({version: {$not:/.*v5\.0\.5.*/}})
+```
 <!-- more -->
