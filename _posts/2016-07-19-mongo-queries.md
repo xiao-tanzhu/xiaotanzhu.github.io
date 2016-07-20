@@ -15,4 +15,22 @@ db.getCollection('webExceptionRecord').find({createdDate: {"$gte":ISODate("2016-
 ```javascript
 db.getCollection('webExceptionRecord').find({}).sort({createdDate:-1})
 ```
+
+###查询“不等于”
+```javascript
+db.getCollection('webExceptionRecord').find({version: {$not:/v5\.0\.5/}})
+```
+`$not`后边必须跟正则表达式或文档（regex or document）
+
+```javascript
+db.getCollection('appStatisticsActiveUser').find({count:{$not: {$lt:100}}})
+```
+
+###查询“包含”
+```javascript
+db.getCollection('webExceptionRecord').find({version: {$regex:/.*5\.0\.5.*/}})
+```
+
+###查询“不包含”
+db.getCollection('webExceptionRecord').find({version: {$not:/.*v5\.0\.5.*/}})
 <!-- more -->
