@@ -15,10 +15,9 @@ Provide all parameters needed when running ssh-keygen, as
 ssh-keygen -t rsa -N "" -f my.key
 ```
 in which
-```
-*`-N ""`* tells it to use an empty passphrase (the same as two of the enters in an interactive script)
-*`-f my.key`* tells it to store the key into my.key (change as you see fit).
-```
+
+- *`-N ""`* tells it to use an empty passphrase (the same as two of the enters in an interactive script)
+- *`-f my.key`* tells it to store the key into my.key (change as you see fit).
 
 ##Provide "ENTER"s before running ssh-keygen
 ```bash
