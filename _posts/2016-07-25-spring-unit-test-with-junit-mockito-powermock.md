@@ -194,7 +194,7 @@ public class SignServiceTest {
 
 ## 代码详细分析
 
-### 使用JUnit测试框架启动PowerMockRunner
+### 使用JUnit测试框架启动
 ```java
 @RunWith(PowerMockRunner.class)
 ```
