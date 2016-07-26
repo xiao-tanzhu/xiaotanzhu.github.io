@@ -108,7 +108,9 @@ links:
   i人事: https://www.irenshi.cn
 
 #### Gems
-gems: [jekyll-paginate]
+gems: 
+  - jekyll-paginate
+  - jekyll-sitemap
 
 #### Comment
 duoshuo_shortname:    ## e.g. wuchong   your duoshuo short name.
