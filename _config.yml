@@ -139,6 +139,7 @@ cnzz_tongji:
 #### Miscellaneous
 fancybox: true        ## if you use gallery post or want use fancybox please set the value to true.
 totop: true           ## if you want to scroll to top in every post set the value to true
+busuanzi: true        ## Busuanzi Counter
 
 
 #### Custom Search
