@@ -80,6 +80,7 @@ gzip_types  font/ttf font/otf image/svg+xml
 **字体压缩总结**
 
 |扩展名|是否压缩|Content-type|
+|------|--------|------------|
 |.eot|否|application/vnd.ms-fontobject|
 |.ttf|是|font/ttf|
 |.otf|是|font/opentype|
