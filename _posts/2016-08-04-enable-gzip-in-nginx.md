@@ -71,7 +71,7 @@ gzip_disable "MSIE [1-6]\.";
 #### 选择性的开启字体压缩
 为静态资源开启缓存能够较少服务器带宽的消耗，特别是在css中使用字体时，同时配合gzip压缩能够大大减少下载字体造成的带宽影响。
 
-**需要注意**：只需要为ttf、otf和svg字体启用gzip，对其他字体格式进行gzip压缩时效果不明显。
+>**需要注意**：只需要为ttf、otf和svg字体启用gzip，对其他字体格式进行gzip压缩时效果不明显。
 ```
 gzip_types  font/ttf font/otf image/svg+xml
 ```
