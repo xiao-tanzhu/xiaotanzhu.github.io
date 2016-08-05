@@ -35,9 +35,10 @@ gzip_disable "MSIE [1-6]\.";
 
 #### `gzip_comp_level`参数的推荐值
 
-来自[serverfault][http://serverfault.com/questions/253074/what-is-the-best-nginx-compression-gzip-level]的一个讨论，有人做了压缩比的实验，结果如下：
+来自[serverfault](http://serverfault.com/questions/253074/what-is-the-best-nginx-compression-gzip-level)的一个讨论，有人做了压缩比的实验，结果如下：
 
 **压缩HTML文件**
+```
 >级别	压缩之后的大小（压缩比）
 >0    55.38 KiB (100.00% of original size)
 >1    11.22 KiB ( 20.26% of original size)
@@ -49,19 +50,21 @@ gzip_disable "MSIE [1-6]\.";
 >7     9.50 KiB ( 17.15% of original size)
 >8     9.45 KiB ( 17.06% of original size)
 >9     9.44 KiB ( 17.05% of original size)
+```
 
-**压缩JS文件（jQuery 1.8.3）
->级别	压缩之后的大小（压缩比）
->0    261.46 KiB (100.00% of original size)
->1     95.01 KiB ( 36.34% of original size)
->2     90.60 KiB ( 34.65% of original size)
->3     87.16 KiB ( 33.36% of original size)
->4     81.89 KiB ( 31.32% of original size)
->5     79.33 KiB ( 30.34% of original size)
->6     78.04 KiB ( 29.85% of original size)
->7     77.85 KiB ( 29.78% of original size)
->8     77.74 KiB ( 29.73% of original size)
->9     77.75 KiB ( 29.74% of original size)
+**压缩JS文件（jQuery 1.8.3）**
+
+	级别	压缩之后的大小（压缩比）
+	0    261.46 KiB (100.00% of original size)
+	1     95.01 KiB ( 36.34% of original size)
+	2     90.60 KiB ( 34.65% of original size)
+	3     87.16 KiB ( 33.36% of original size)
+	4     81.89 KiB ( 31.32% of original size)
+	5     79.33 KiB ( 30.34% of original size)
+	6     78.04 KiB ( 29.85% of original size)
+	7     77.85 KiB ( 29.78% of original size)
+	8     77.74 KiB ( 29.73% of original size)
+	9     77.75 KiB ( 29.74% of original size)
 
 从图中可以看出`gzip_comp_level`大于2时效果并不是很明显。所以可以将值设置为1或者2。
 
@@ -75,6 +78,7 @@ gzip_types  font/ttf font/otf image/svg+xml
 各种字体类型压缩效果可以参考引用原文[reference](http://www.darrenfang.com/2015/01/setting-up-http-cache-and-gzip-with-nginx/ "引用原文")。
 
 **字体压缩总结**
+
 |扩展名|是否压缩|Content-type|
 |.eot|否|application/vnd.ms-fontobject|
 |.ttf|是|font/ttf|
