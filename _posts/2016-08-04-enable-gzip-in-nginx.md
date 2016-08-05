@@ -39,17 +39,17 @@ gzip_disable "MSIE [1-6]\.";
 
 **压缩HTML文件**
 ```
->级别	压缩之后的大小（压缩比）
->0    55.38 KiB (100.00% of original size)
->1    11.22 KiB ( 20.26% of original size)
->2    10.89 KiB ( 19.66% of original size)
->3    10.60 KiB ( 19.14% of original size)
->4    10.17 KiB ( 18.36% of original size)
->5     9.79 KiB ( 17.68% of original size)
->6     9.62 KiB ( 17.37% of original size)
->7     9.50 KiB ( 17.15% of original size)
->8     9.45 KiB ( 17.06% of original size)
->9     9.44 KiB ( 17.05% of original size)
+级别	压缩之后的大小（压缩比）
+0    55.38 KiB (100.00% of original size)
+1    11.22 KiB ( 20.26% of original size)
+2    10.89 KiB ( 19.66% of original size)
+3    10.60 KiB ( 19.14% of original size)
+4    10.17 KiB ( 18.36% of original size)
+5     9.79 KiB ( 17.68% of original size)
+6     9.62 KiB ( 17.37% of original size)
+7     9.50 KiB ( 17.15% of original size)
+8     9.45 KiB ( 17.06% of original size)
+9     9.44 KiB ( 17.05% of original size)
 ```
 
 **压缩JS文件（jQuery 1.8.3）**
