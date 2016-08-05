@@ -7,7 +7,9 @@ tags:
 categories: Ubuntu
 description: Install the latest node.js on Ubuntu
 ---
-**NOTE:** If you are using Ubuntu Precise or Debian Wheezy, you might want to read about [running Node.js >= 4.x on older distros](https://github.com/nodesource/distributions/blob/master/OLDER_DISTROS.md "running Node.js >= 4.x on older distros").
+
+> **NOTE:** If you are using Ubuntu Precise or Debian Wheezy, you might want to read about [running Node.js >= 4.x on older distros](https://github.com/nodesource/distributions/blob/master/OLDER_DISTROS.md "running Node.js >= 4.x on older distros").
+
 
 #### Node.js v6.x:
 ```
