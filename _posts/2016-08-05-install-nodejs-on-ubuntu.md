@@ -42,4 +42,4 @@ curl -sL https://deb.nodesource.com/setup_4.x | bash -
 apt-get install -y nodejs
 ```
 
-For installations on other platforms, you can refer to: ![https://github.com/nodesource/distributions#debinstall](https://github.com/nodesource/distributions#debinstall)
+For installations on other platforms, you can refer to: [https://github.com/nodesource/distributions#debinstall](https://github.com/nodesource/distributions#debinstall)
