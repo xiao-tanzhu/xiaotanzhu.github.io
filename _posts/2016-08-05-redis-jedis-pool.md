@@ -1,14 +1,17 @@
 ---
 layout: post
-title: Install the latest Node.js on Ubuntu 14.04
+title: Redis提示Could not get a resource from the pool（jedis连接池配置）
 tags:
-- Nodejs
-- Ubuntu
-categories: Linux
-description: Install the latest node.js on Ubuntu
+- Redis
+- Jedis
+- 转载
+categories: 分布式系统
+description: Redis提示Could not get a resource from the pool（jedis连接池配置）
 ---
 
-> **NOTE:** If you are using Ubuntu Precise or Debian Wheezy, you might want to read about [running Node.js >= 4.x on older distros](https://github.com/nodesource/distributions/blob/master/OLDER_DISTROS.md "running Node.js >= 4.x on older distros").
+起初在JedisPool中配置了50个活动连接，但是程序还是经常报错：Could not get a resource from the pool
+
+连接池刚开始是这样配置的：
 
 
 #### Node.js v6.x:
