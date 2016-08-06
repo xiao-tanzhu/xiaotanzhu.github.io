@@ -4,7 +4,7 @@ title: Nginx加速：启用gzip压缩和浏览器缓存
 tags:
 - Nginx
 - 转载
-categories: Web
+categories: Web服务器
 description: Nginx是一个高性能的Web服务器，之前也写过一些关于nginx的文章。为了提高博客的响应速度，可以从设置nginx的gzip和浏览器缓存这两个方面入手。为字体开启gzip和缓存能大大减少带宽的消耗。
 ---
 Nginx是一个高性能的Web服务器，之前也写过一些关于nginx的文章。为了提高博客的响应速度，可以从设置nginx的gzip和浏览器缓存这两个方面入手。为字体开启gzip和缓存能大大减少带宽的消耗。
