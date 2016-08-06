@@ -17,8 +17,6 @@ description: 使用zabbix监控Nginx
 - ZABBIX客户端：192.168.5.251
 - 依赖软件包： net-tools
 
-模板以及脚本：http://pan.baidu.com/s/1dEZMTcl
-
 #### 配置nginx.conf
 ```bash
 [root@master zabbix_agentd.d]# vim /etc/nginx/nginx.conf
