@@ -11,3 +11,11 @@ article .article-content img.emoji {
     padding: 0px;
     margin: 0em 0.2em 0.25em 0.2em;
 }
+
+article .article-content .source-link .separator {
+    margin-top: 15px;
+    padding-top: 5px;
+    border-top: solid 1px #ccc;
+    width: 20%;
+}
+
