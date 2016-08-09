@@ -40,7 +40,7 @@ description:
 
 不考虑seqsvr的具体架构的话，它应该是一个巨大的64位数组，而我们每一个微信用户，都在这个大数组里独占一格8bytes的空间，这个格子就放着用户已经分配出去的最后一个sequence：cur_seq。每个用户来申请sequence的时候，只需要将用户的cur_seq+=1，保存回数组，并返回给用户。
 
-![]("/upload/images/1.riff")
+![](/upload/images/1.riff)
 图1. 小明申请了一个sequence，返回101
 
 #### 预分配中间层
@@ -53,7 +53,7 @@ description:
 2. 分配sequence时，将cur_seq++，同时与分配上限max_seq比较：如果cur_seq > max_seq，将分配上限提升一个步长max_seq += step，并持久化max_seq
 3. 重启时，读出持久化的max_seq，赋值给cur_seq
 
-![]("/upload/images/2.riff")
+![](/upload/images/2.riff)
 图2. 小明、小红、小白都各自申请了一个sequence，但只有小白的max_seq增加了步长100
 
 这样通过增加一个预分配sequence的中间层，在保证sequence不回退的前提下，大幅地提升了分配sequence的性能。实际应用中每次提升的步长为10000，那么持久化的硬盘IO次数从之前~10^7 QPS降低到~10^3 QPS，处于可接受范围。在正常运作时分配出去的sequence是顺序递增的，只有在机器重启后，第一次分配的sequence会产生一个比较大的跳跃，跳跃大小取决于步长大小。
@@ -66,7 +66,7 @@ description:
 
 为了解决这个问题，我们引入号段Section的概念，uid相邻的一段用户属于一个号段，而同个号段内的用户共享一个max_seq，这样大幅减少了max_seq数据的大小，同时也降低了IO次数。
 
-![]("/upload/images/3.riff")
+![](/upload/images/3.riff)
 图3. 小明、小红、小白属于同个Section，他们共用一个max_seq。在每个人都申请一个sequence的时候，只有小白突破了max_seq上限，需要更新max_seq并持久化
 
 目前seqsvr一个Section包含10万个uid，max_seq数据只有300+KB，为我们实现从可靠存储系统读取max_seq数据重启打下基础。
@@ -79,7 +79,7 @@ description:
 
 2. 整个系统又按uid范围进行分Set，每个Set都是一个完整的、独立的StoreSvr+AllocSvr子系统。分Set设计目的是为了做灾难隔离，一个Set出现故障只会影响该Set内的用户，而不会影响到其它用户。
 
-![]("/upload/images/4.riff")
+![](/upload/images/4.riff)
 图4. 原型架构图
 
 #### 容灾设计
@@ -95,6 +95,6 @@ seqsvr的容灾模型在五年中进行过一次比较大的重构，提升了�
 
 那么，seqsvr最核心的点是什么呢？每个uid的sequence申请要递增不回退。这里我们发现，如果seqsvr满足这么一个约束：任意时刻任意uid有且仅有一台AllocSvr提供服务，就可以比较容易地实现sequence递增不回退的要求。
 
-![]("/upload/images/5.riff")
+![](/upload/images/5.riff)
 图5. 两台AllocSvr服务同个uid造成sequence回退。Client读取到的sequence序列为101、201、102
 
