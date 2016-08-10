@@ -88,4 +88,10 @@ public StaffInfo(String companyId, String staffNo, String staffName, String idCa
       this.idCardNo = idCardNo;
 }
 ```
+Change log level of hibernate library to debug and we can see the following output:
+```
+[20160808 14:30:14][DEBUG][org.hibernate.SQL](SqlStatementLogger.java:109) - select staffinfo0_.companyId as col_0_0_, staffinfo0_.staffNo as col_1_0_, staffinfo0_.staffName as col_2_0_, staffinfo0_.idCardNo as col_3_0_ from tab_staff_info staffinfo0_ where staffinfo0_.companyId=?
+[20160808 14:30:14][DEBUG][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:226) - Obtaining JDBC connection
+[20160808 14:30:14][DEBUG][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:232) - Obtained JDBC connection
+```
 
