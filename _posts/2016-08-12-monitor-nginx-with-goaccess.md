@@ -132,7 +132,7 @@ goaccess -f /var/log/nginx/access.log -o /data/www/access/index.html --real-time
 
 ### 监控界面
 
-![](upload/images/10.png)
+![](/upload/images/10.png)
 
 我们可以看到其中的数据在实时变化。
 
