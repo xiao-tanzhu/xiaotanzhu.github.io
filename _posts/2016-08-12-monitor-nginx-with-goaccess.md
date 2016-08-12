@@ -140,6 +140,7 @@ goaccess -f /var/log/nginx/access.log -o /data/www/access/index.html --real-time
 
 使用`top`命令查看内存占用情况如下：
 ```
-  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND                                               26727 root      20   0  219624  51136   1612 S   1.3  0.6   0:52.13 goaccess
+  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND
+26727 root      20   0  219624  51136   1612 S   1.3  0.6   0:52.13 goaccess
 ```
 现在来看处理百兆的日志时，资源还是比较省的。
