@@ -1246,7 +1246,7 @@ article .article-content .right {
 }
 
 footer.article-footer {
-    background: #fafafa;
+    background: url("/assets/img/post-bg.jpg") center #ddd;
     padding: 0 4%;
     margin: 0;
     border-top: 1px solid #dbdbdb
