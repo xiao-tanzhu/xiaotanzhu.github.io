@@ -69,7 +69,7 @@ a img {
 }
 
 body {
-    background: #ddd;
+    background: url("/assets/img/page-bg.jpg") center #ddd;
     font-family: "Helvetica Neue","Helvetica","Microsoft YaHei","WenQuanYi Micro Hei",Arial,sans-serif;
     font-size: 100%;
     color: #817c7c;
@@ -359,7 +359,8 @@ body >header {
     width: 100%;
     -webkit-box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
     box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
-    background: url("/assets/img/background.png") center #2ca6cb;
+    background: url("/assets/img/header-bg.png") center #2ca6cb;
+    background-repeat: repeat-x;
     color: #fff;
     padding: 1em 0 .8em;
 }
