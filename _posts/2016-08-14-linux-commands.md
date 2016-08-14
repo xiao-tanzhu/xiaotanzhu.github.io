@@ -7,6 +7,7 @@ tags:
 categories: Linux
 description: Linux常用命令，包含Ubuntu等
 ---
+**注意：**常用命令中，会有一些命令仅限于特定的操作系统使用，如Ubuntu或CentOS等特定的Linux发行版本。
 
 ## 系统相关
 
