@@ -630,7 +630,7 @@ header nav ul li a:hover {
 }
 
 #main section.post {
-    background: #fafafa;
+    background: url("/assets/img/post-bg.jpg") center #ddd;
     margin-bottom: .125em;
 }
 
@@ -713,6 +713,10 @@ header nav ul li a:hover {
     background: #2ca6cb;
     color: #fff;
     text-decoration: none
+}
+
+#main.archive-part {
+    background:none;
 }
 
 #archive-page section.post a {
