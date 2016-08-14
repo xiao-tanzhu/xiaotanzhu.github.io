@@ -1738,6 +1738,7 @@ section.comment {
 
 #toc.toc-aside strong {
     padding: .3em 0;
+    color: #817c7c;
 }
 
 #toc.toc-aside:hover {
