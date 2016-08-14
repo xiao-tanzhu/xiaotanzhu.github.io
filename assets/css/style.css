@@ -613,7 +613,7 @@ header nav ul li a:hover {
 #main {
     margin: 1em 0 0;
     line-height: 1.8;
-    background: url("/assets/img/post-bg.jpg") center #ddd;
+    background: url("/assets/img/post-bg.jpg") center #efefef;
 }
 
 @media only screen and (min-width: 1024px) {
@@ -630,7 +630,7 @@ header nav ul li a:hover {
 }
 
 #main section.post {
-    background: url("/assets/img/post-bg.jpg") center #ddd;
+    background: url("/assets/img/post-bg.jpg") center #efefef;
     margin-bottom: .125em;
 }
 
@@ -672,7 +672,7 @@ header nav ul li a:hover {
 }
 
 #main article.post-expand {
-    background: url("/assets/img/post-bg.jpg") center #ddd;
+    background: url("/assets/img/post-bg.jpg") center #efefef;
     margin-bottom: 3.5em;
 }
 
@@ -843,7 +843,7 @@ header nav ul li a:hover {
 .archive-title {
     margin: 1em 0;
     padding: 2em;
-    background: #fafafa;
+    background: url("/assets/img/post-bg.jpg") center #efefef;
     border-left: .5em solid #ccc;
 }
 
@@ -1250,7 +1250,7 @@ article .article-content .right {
 }
 
 footer.article-footer {
-    background: url("/assets/img/post-bg.jpg") center #ddd;
+    background: url("/assets/img/post-bg.jpg") center #efefef;
     padding: 0 4%;
     margin: 0;
     border-top: 1px solid #dbdbdb
@@ -1830,7 +1830,7 @@ section.comment {
 }
 
 #asidepart {
-    background: url("/assets/img/post-bg.jpg") center #ddd;
+    background: url("/assets/img/post-bg.jpg") center #efefef;
     margin: 1em 0 0;
     padding: .5em 2% 1em;
 }
