@@ -359,7 +359,7 @@ body >header {
     width: 100%;
     -webkit-box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
     box-shadow: 2px 4px 5px rgba(3,3,3,0.2);
-    background: url("../../") center #2ca6cb;
+    background: url("/assets/img/background.png") center #2ca6cb;
     color: #fff;
     padding: 1em 0 .8em;
 }
@@ -2147,7 +2147,7 @@ section.comment {
 
 footer {
     margin-top: 1em;
-    background: #1f1f1f;
+    background: url("/assets/img/background.png") center #1f1f1f;
     padding: 0 2% .5em
 }
 
