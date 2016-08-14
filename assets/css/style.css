@@ -672,7 +672,7 @@ header nav ul li a:hover {
 }
 
 #main article.post-expand {
-    background: #fafafa;
+    background: url("/assets/img/post-bg.jpg") center #ddd;
     margin-bottom: 3.5em;
 }
 
@@ -1826,7 +1826,7 @@ section.comment {
 }
 
 #asidepart {
-    background: #fafafa;
+    background: url("/assets/img/post-bg.jpg") center #ddd;
     margin: 1em 0 0;
     padding: .5em 2% 1em;
 }
