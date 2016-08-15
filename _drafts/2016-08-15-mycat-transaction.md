@@ -1,12 +1,12 @@
 ---
 layout: post
-title: MyCat实现数据库表水平切分
+title: MyCat分布式事务
 tags:
 - MySQL
-- 水平切分
 - MyCat
+- 事务
 categories: 数据库
-description: MyCat实现数据库表水平切分
+description: MyCat分布式事务
 ---
 
 http://blog.csdn.net/chenshengzun721/article/details/51459774
