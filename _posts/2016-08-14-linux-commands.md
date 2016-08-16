@@ -83,3 +83,9 @@ groups fify
 fify@fify-PC:~$ groups fify
 fify : fify adm cdrom sudo dip plugdev lpadmin sambashare docker
 ```
+
+#### 以其他用户的身份执行命令
+以下命令以jenkins用户的身份执行`jstack 36730`命令。
+```bash
+sudo -u jenkins -H jstack 36730
+```
