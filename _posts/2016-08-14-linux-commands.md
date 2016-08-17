@@ -99,3 +99,9 @@ sudo -u jenkins -H jstack 36730
 sed -e 's/\(.*\)wrapper.daemonize=FALSE\(.*\)/\1wrapper.daemonize=TRUE\2/g' -i mycat
 ```
 替换mycat文件中包含`wrapper.daemonize=FALSE`的行，并把`wrapper.daemonize=FALSE`替换为`wrapper.daemonize=TRUE`。
+
+#### 查看文件的第m-n行
+```bash
+sed -n '5,10p' filename
+```
+这样你就可以只查看文件的第5行到第10行。
