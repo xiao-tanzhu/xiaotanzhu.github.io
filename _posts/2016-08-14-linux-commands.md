@@ -89,3 +89,13 @@ fify : fify adm cdrom sudo dip plugdev lpadmin sambashare docker
 ```bash
 sudo -u jenkins -H jstack 36730
 ```
+
+## 实用工具
+
+### 文字处理
+
+#### 替换某行中间的文字
+```bash
+sed -e 's/\(.*\)wrapper.daemonize=FALSE\(.*\)/\1wrapper.daemonize=TRUE\2/g' -i mycat
+```
+替换mycat文件中包含`wrapper.daemonize=FALSE`的行，并把`wrapper.daemonize=FALSE`替换为`wrapper.daemonize=TRUE`。
