@@ -105,3 +105,18 @@ sed -e 's/\(.*\)wrapper.daemonize=FALSE\(.*\)/\1wrapper.daemonize=TRUE\2/g' -i m
 sed -n '5,10p' filename
 ```
 这样你就可以只查看文件的第5行到第10行。
+
+#### 删除文件的某一行
+
+删除文件的第三行：
+```bash
+sed -i '3d' 1.txt
+```
+删除文件的第三至第五行：
+```bash
+sed -i '3,5d' 1.txt
+```
+删除符合特定正则表达式的行：
+```bash
+sed -i '/^Love/d' 1.txt
+```
