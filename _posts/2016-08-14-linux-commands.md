@@ -120,3 +120,24 @@ sed -i '3,5d' 1.txt
 ```bash
 sed -i '/^Love/d' 1.txt
 ```
+#### 在`sed`正则表达式匹配中使用Lazy策略：
+`sed`命令的正则表达式并不支持懒匹配，但是我们可以通过绕过的方法来做。比如我要查找以下内容中"和"之间的单词：
+```
+  "departmentId" bigint(20) NOT NULL,
+  "departmentName" varchar(128) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  "monthly" varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  "positionName" varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  "staffId" varchar(40) COLLATE utf8mb4_unicode_ci NOT NULL,
+```
+那么我们可以通过`"[^\"]*"查找""之间的内容。如下：
+```bash
+sed -e 's/"\([^"]*\)"[^,]*,/\1,/g'
+```
+可以获取到：
+```
+  "departmentId",
+  "departmentName",
+  "monthly",
+  "positionName",
+  "staffId",
+```

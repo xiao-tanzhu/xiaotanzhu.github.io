@@ -44,7 +44,7 @@ max_allowed_packet=32M
 其中`lower-case-table-names=1`和`max_allowed_packet=32M`为非默认参数：
 
 - `lower-case-table-names=1`忽略表格名字大小写，否则MyCAT会无法找到表格
-- `max_allowed_packet=32M`该参数需要配合mysqldump，参考[使用`mysqldump`导出](#使用`mysqldump`导出)。
+- `max_allowed_packet=32M`该参数需要配合mysqldump，参考[使用`mysqldump`导出](#使用mysqldump导出)。
 
 ## 准备MyCAT
 
@@ -82,9 +82,45 @@ mysqldump -h192.168.1.3 -ulinahr -plinahr -c --skip-add-locks --skip-extended-in
 - `--skip-extended-insert`默认情况下，mysqldump会把每个表格的所有数据写到同一个SQL中。但在分库分表情况下执行导入的时候，对于Boolean类型的数据并且值为`True`的数据，会报[Data too long](https://github.com/MyCATApache/Mycat-Server/issues/1054)错误。目前还不能确认是否是MyCAT的Bug。增加该参数，将每行数据输出为一个单独的insert语句，就不会出现类似错误了。
 - `--no-autocommit`参数在每个表格所有的插入语句的前后分别增加`SET autocommit = 0`和`COMMIT`语句。相比没有这个参数，插入速度能差出至少200倍，分别是10000QPS和50QPS。
 
+**如果需要在mysqldump的时候忽略一些表格**，可以使用`--ignore-table`参数。如果需要一次性忽略一批表格，可以使用这个脚本：
+```bash
+#!/bin/bash
+
+PASSWORD=linahr
+HOST=192.168.1.3
+USER=linahr
+DATABASE=linahr
+DB_FILE=linahr.sql
+EXCLUDED_TABLES=(
+                qrtz_blob_triggers
+                qrtz_calendars
+                qrtz_cron_triggers
+                qrtz_fired_triggers
+                qrtz_job_details
+                qrtz_locks
+                qrtz_paused_trigger_grps
+                qrtz_scheduler_state
+                qrtz_simple_triggers
+                qrtz_simprop_triggers
+                qrtz_triggers
+                )
+
+IGNORED_TABLES_STRING=''
+for TABLE in "${EXCLUDED_TABLES@]}"
+do :
+	IGNORED_TABLES_STRING+=" --ignore-table=${DATABASE}.${TABLE}"
+done
+
+#echo "Dump structure"
+#mysqldump --host=${HOST} --user=${USER} --password=${PASSWORD} --single-transaction --no-data ${IGNORED_TABLES_STRING} ${DATABASE} > irenshi-tables.sql
+
+echo "Dump content"
+mysqldump --host=${HOST} --user=${USER} --password=${PASSWORD} --opt -c --skip-add-locks --no-autocommit --skip-extended-insert ${DATABASE} ${IGNORED_TABLES_STRING} > irenshi-data.sql
+```
+
 ### 使用`mysql`命令导入
 
-首先需要修改`[mysqld]`的`max_allowed_packet`参数。这个参数默认为1MB，但mysqldump导出的最大允许为16MB，会造成错误，见[使用`mysqldump`导出](#使用`mysqldump`导出)章节
+首先需要修改`[mysqld]`的`max_allowed_packet`参数。这个参数默认为1MB，但mysqldump导出的最大允许为16MB，会造成错误，见[使用`mysqldump`导出](#使用mysqldump导出)章节
 
 ```ini
 [mysqld]
@@ -97,3 +133,5 @@ mysql -ulinahr -plinahr -h192.168.1.4 -P8066 irenshi < irenshi-data.sql
 ```
 
 ## 数据库扩容
+
+## 监控
