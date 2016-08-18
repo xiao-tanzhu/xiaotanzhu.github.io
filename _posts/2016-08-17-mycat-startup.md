@@ -54,7 +54,7 @@ max_allowed_packet=32M
 
 ### 设置MyCAT水平切分
 
-## 导入数据
+## 导入数据I：使用`mysqldump`+`source`命令
 
 ### 使用`mysqldump`导出
 
@@ -130,6 +130,69 @@ max_allowed_packet=32M
 开始导入：
 ```bash
 mysql -ulinahr -plinahr -h192.168.1.4 -P8066 irenshi < irenshi-data.sql
+```
+或者也可以执行SQL命令：
+```sql
+source irenshi-data.sql
+```
+
+## 导入数据II：使用`mysqldump`+`LOAD DATA INFILE`命令
+
+在某些数据库表比较大的情况下，使用以上方法导入的速度就比较难以接受了。MyCAT1.4以后还提供了类似MySQL的`LOAD DATA INFILE`命令，供导入大批量数据使用。据说这种方式比`insert`语句要快20倍。
+
+### 同样使用`mysqldump`导出
+
+对于小表，使用上面的导入方式还是比较方便的。我们只针对大表使用`LOAD DATA INFILE`。
+```bash
+mysqldump -h192.168.1.3 -uroot -proot --fields-optionally-enclosed-by='"' --fields-terminated-by=',' --tab /tmp/irenshi/ --lines-terminated-by='\n' linahr tab_sign_record_info
+```
+这个命令会将`irenshi`库中的`tab_sign_record_info`以文件形式导入到`/tmp/irenshi/`目录下。对于每一个导出的数据库表，将生成两个文件：tab_sign_record_info.sql和tab_sign_record_info.txt，其中tab_sign_record_info.sql存放了数据库表DDL，tab_sign_record_info.txt存放数据库表中的数据。
+
+`--fields-optionally-enclosed-by='"'`，`--fields-terminated-by=','`和`--lines-terminated-by='\n'`分别指定了数据库文件的格式。这几个命令应和`LOAD DATA INFILE`给定的参数一致。
+
+**执行此命令需要注意几点：**
+
+1. `mysqldump`必须在MySQL服务器同一台主机上执行
+2. 必须拥有写文件权限
+3. MySQL服务器必须对给定的目录`/tmp/irenshi/`有写权限
+
+### 使用`LOAD DATA INFILE`导入数据
+```sql
+LOAD DATA local INFILE '/tmp/irenshi/tab_sign_record_info.txt'
+IGNORE INTO TABLE tab_sign_record_info CHARACTER SET 'utf8mb4' FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n' (column1, column2, column3, ...)
+```
+其中：
+- `local`表示从执行该命令的机器上获取文件。如果没有该参数，则从MySQL服务器上获取文件
+- `IGNORE`指定了在服务器上如果已经存在了相同数据则忽略该行。还可以为`REPLACE`，表示替换已经存在的数据
+- `CHARACTER SET 'utf8mb4'`指定数据库表的编码集。这里需要和数据的编码保持一致，否则可能会出现乱码甚至执行失败
+- `FIELDS TERMINATED BY ',' OPTIONALLY ENCLOSED BY '"' LINES TERMINATED BY '\n'`和`mysqldump`中的参数对应
+- `(column1, column2, column3, ...)`给定数据库的列。在MyCAT中必须要给定所有列，并且列的顺序要和建表时的顺序一致
+
+**使用`local`文件加载数据时，需指定`local-infile = 1`参数**。如果不指定可能会报以下错误：
+在MySQL上报以下错误：
+```
+ERROR 1148 (42000): The used command is not allowed with this MySQL version
+```
+而在MyCAT上则会报：
+```
+ERROR 2027 (HY000): Malformed packet
+```
+这个错误着实让人莫名其妙。
+
+**使用该参数的方法有三种：**
+
+1. 直接在`mysql`命令中指定：
+```
+mysql -h192.168.1.4 -ulinahr --local-infile=1 -plinahr -P 8066 irenshi
+```
+2. 在mysql客户端的配置文件中设置：
+```ini
+[client]
+local-infile = 1
+```
+3. 在mysql连接之后的session中执行SQL命令:
+```sql
+SET local_infile=1;
 ```
 
 ## 数据库扩容
