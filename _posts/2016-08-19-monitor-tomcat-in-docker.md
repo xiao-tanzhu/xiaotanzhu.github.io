@@ -34,7 +34,7 @@ make install
 这里只提及几个比较重要的设置，其他设置可以参考Linux手册。
 
 ### 监控进程检查周期，默认为120秒检查一次
-```ini
+```
 ###############################################################################
 ## Global section
 ###############################################################################
@@ -47,7 +47,7 @@ make install
 #
 ```
 ### 使用本地Sendmail发送邮件
-```ini
+```
 ## Set the list of mail servers for alert delivery. Multiple servers may be 
 ## specified using a comma separator. If the first mail server fails, Monit 
 # will use the second mail server in the list and so on. By default Monit uses 
@@ -59,7 +59,7 @@ make install
  set mailserver localhost               # primary mailserver
 ```
 ### 邮件发件人，我用来区别是哪台服务器发送的报警
-```ini
+```
 ## You can override this message format or parts of it, such as subject
 ## or sender using the MAIL-FORMAT statement. Macros such as $DATE, etc.
 ## are expanded at runtime. For example, to override the sender, use:
@@ -67,7 +67,7 @@ make install
  set mail-format { from: node1@anying.me }
 ```
 ### 报警邮件接收人
-```ini
+```
 ## You can set alert recipients whom will receive alerts if/when a 
 ## service defined in this file has errors. Alerts may be restricted on 
 ## events by using a filter as in the second example below. 
@@ -75,7 +75,7 @@ make install
  set alert fify@xiaotanzhu.com                       # receive all alerts
 ```
 ### 监控的Web服务
-```ini
+```
 ## Monit has an embedded web server which can be used to view status of 
 ## services monitored and manage services from a web interface. See the
 ## Monit Wiki if you want to enable SSL for the web server. 
