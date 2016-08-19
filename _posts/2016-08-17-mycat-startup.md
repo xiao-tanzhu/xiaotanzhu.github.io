@@ -50,9 +50,92 @@ max_allowed_packet=32M
 
 ### 设置MyCAT虚拟schema
 
+#### 定义虚拟schema：schema.xml
+```xml
+<?xml version="1.0"?>
+<!DOCTYPE mycat:schema SYSTEM "schema.dtd">
+<mycat:schema xmlns:mycat="http://org.opencloudb/" >
+        <schema name="irenshi" checkSQLschema="false" sqlMaxLimit="10000" dataNode="dn001">
+                <table name="tab_sign_record_info" primaryKey="id" dataNode="dn001,dn002,dn003" rule="sharding-by-company-id" />
+        </schema>
+        </schema>
+        <dataNode name="dn001" dataHost="mysql-001" database="irenshi001" />
+        <dataNode name="dn002" dataHost="mysql-001" database="irenshi002" />
+        <dataNode name="dn003" dataHost="mysql-001" database="irenshi003" />
+        <dataHost name="mysql-001" maxCon="1000" minCon="10" balance="0" writeType="0" dbType="mysql" dbDriver="native" switchType="1"  slaveThreshold="100">
+                <heartbeat>select user();</heartbeat>
+                <writeHost host="m001" url="192.168.1.4:3306" user="root" password="root">
+                        <!--<readHost host="s001" url="192.168.1.4:3306" user="root" password="root" />-->
+                </writeHost>
+        </dataHost>
+</mycat:schema>
+```
+**`<schema>`标签：**
+- `name="irenshi"`定义的数据库名称为`irenshi`
+- `checkSQLschema="false"`不对select语句中的schema名称做处理。该值置为`true`时，如果我们执行询句`select * from TESTDB.travelrecord;`则MyCat会把询句修改为`select * from travelrecord;`。即把表示schema字符去捧，避免发送到后端数据库执行时报：*（ERROR1146 (42S02): Table ‘testdb.travelrecord’ doesn’t exist）*。
+- `sqlMaxLimit="10000"`在selecct语句不指定`limit`的时候，最多返回10000条数据
+- `dataNode="dn001"`在不使用`<table>`指明的情况下，数据库表存放到`dn001`节点
+
+**`<table>`标签：**
+`<table>`标签不指定的数据库表均以`<schema>`的设置为准，指定的话以指定的为准。
+- `name="tab_sign_record_info"`指定要设置的数据库表
+- `primaryKey="id"`指定数据库表的主键。设置该值之后，如果MyCAT第一次执行主键查询时，会把请求发送到所有后端服务器，并且将主键所对应的数据库位置缓存，下次查询的时候直接根据该缓存向对应的数据库发送请求
+- `dataNode="dn001,dn002,dn003"`表明该表将被存放到`dn001,dn002,dn003`三个MySQL中
+- `rule="sharding-by-company-id"`给出表中的数据如何分布到上边给定的三个MySQL中
+
+**`<dataNode>`标签：**
+`<dataNode`标签定义MyCAT的数据节点。每个数据节点定位到某个MySQL主机的某个数据库schema上。
+
+**`<dataHost>`标签：**
+`<dataHost>`定义MySQL物理节点以及其连接方式。具体可以参考[《MyCAT权威指南》](http://mycat.io/document/Mycat_V1.6.0.pdf)。
+
 ### 设置MyCAT读写分离
 
+MyCAT的读写分离通过`schema.xml`中的`<dataNode>`标签来定义。其中一个`<dataNode>`可以对应一个或者多个`<writeHost>`，而一个`<writeHost>`又可以有零个或者多个`<readHost>`。
+其中`<writeHost>`之间可以互为备份，取决于`balance="0"`的设置；当一个`<writeNode>`挂掉的时候，它下边的所有`<readHost>`也不可访问。
+
+**`balance`参数可取的值：**
+- `balance="0"`, 不开启读写分离机制，所有读操作都都发送到当前可用的`writeHost`上
+- `balance="1"`，全部`readHost`与`stand by writeHost`参与`select`语句的负载均衡，简单的说，当双主双从模式(M1->S1，M2->S2，并且 M1 与 M2 互为主备)，正常情冴下，M2,S1,S2 都参与`select`语句的负载均衡
+- `balance="2"`，所有读操作都随机在`writeHost`、`readhost`上分发
+- `balance="3"`，所有读请求随机分发到`wiriterHost`对应的`readhost`执行，`writerHost`不负担读压力，注意`balance=3`只在1.4 及其以后版本有，1.3没有
+
 ### 设置MyCAT水平切分
+`<table name="tab_sign_record_info" primaryKey="id" dataNode="dn001,dn002,dn003" rule="sharding-by-company-id" />`指定了数据库表`tab_sign_record_info`的水平切分方式。其中的数据由`rule="sharding-by-company-id"`指定的算法切分。
+
+在`rule.xml`中我们可以看到`sharding-by-company-id`的定义：
+```xml
+<tableRule name="sharding-by-company-id">
+        <rule>
+                <columns>companyId</columns>
+                <algorithm>sharding-by-pattern</algorithm>
+        </rule>
+</tableRule>
+<function name="sharding-by-pattern" class="org.opencloudb.route.function.PartitionByPrefixPattern">
+        <property name="patternValue">64</property>
+        <property name="prefixLength">5</property>
+        <property name="mapFile">partition-pattern.txt</property>
+</function>
+```
+
+由于CompanyID使用了UUID，为字符串类型。所以使用`PartitionByPrefixPattern`来进行计算：
+- `prefixLength` 将CompanyId中的前5个字母以ASCII的方式求和
+- `patternValue` 将求和之后数值MOD 64得出最终结果
+- `mapFile` 将计算的最终结果按照`partition-pattern.txt`文件给定的分片规则进行分片
+
+其中partition-pattern.txt内容如下：
+```
+# range start-end ,data node index
+# ASCII
+# 8-57=0-9 阿拉伯数字
+# 64、65-90=@、A-Z
+# 97-122=a-z
+###### first host configuration
+0-20=0
+21-40=1
+41-63=2
+```
+结合`dataNode="dn001,dn002,dn003"`设置，结果为0-20的数据将分布在dn001中，21-40的数据将分布到dn002中，41-63的数据将分布到dn003中。
 
 ## 导入数据I：使用`mysqldump`+`source`命令
 
