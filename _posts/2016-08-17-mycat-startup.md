@@ -181,19 +181,15 @@ ERROR 2027 (HY000): Malformed packet
 
 **使用该参数的方法有三种：**
 
-1. 直接在`mysql`命令中指定：
-```
-mysql -h192.168.1.4 -ulinahr --local-infile=1 -plinahr -P 8066 irenshi
-```
-2. 在mysql客户端的配置文件中设置：
-```ini
-[client]
-local-infile = 1
-```
-3. 在mysql连接之后的session中执行SQL命令:
-```sql
-SET local_infile=1;
-```
+- 直接在`mysql`命令中指定：
+>mysql -h192.168.1.4 -ulinahr --local-infile=1 -plinahr -P 8066 irenshi
+
+- 在mysql客户端的配置文件中设置：
+>[client]
+>local-infile = 1
+
+- 在mysql连接之后的session中执行SQL命令:
+>SET local_infile=1;
 
 ## 数据库扩容
 
