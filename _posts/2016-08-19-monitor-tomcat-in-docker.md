@@ -33,7 +33,9 @@ make install
 
 这里只提及几个比较重要的设置，其他设置可以参考Linux手册。
 
-### 监控进程检查周期，默认为120秒检查一次
+### 监控进程检查周期
+
+默认为120秒检查一次
 ```
 ###############################################################################
 ## Global section
@@ -58,7 +60,9 @@ make install
 #                localhost                   # fallback relay
  set mailserver localhost               # primary mailserver
 ```
-### 邮件发件人，我用来区别是哪台服务器发送的报警
+### 邮件发件人
+
+我用来区别是哪台服务器发送的报警
 ```
 ## You can override this message format or parts of it, such as subject
 ## or sender using the MAIL-FORMAT statement. Macros such as $DATE, etc.
