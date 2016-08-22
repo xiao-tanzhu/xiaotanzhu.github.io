@@ -58,6 +58,8 @@ max_allowed_packet=32M
         <schema name="irenshi" checkSQLschema="false" sqlMaxLimit="10000" dataNode="dn001">
                 <table name="tab_sign_record_info" primaryKey="id" dataNode="dn001,dn002,dn003" rule="sharding-by-company-id" />
         </schema>
+        <schema name="linahr" checkSQLschema="false" sqlMaxLimit="10000" dataNode="dn004">
+                <table name="tab_web_user" primaryKey="id" dataNode="dn004,dn005" rule="sharding-by-company-id-murmur" />
         </schema>
         <dataNode name="dn001" dataHost="mysql-001" database="irenshi001" />
         <dataNode name="dn002" dataHost="mysql-001" database="irenshi002" />
@@ -101,7 +103,16 @@ MyCAT的读写分离通过`schema.xml`中的`<dataNode>`标签来定义。其中
 - `balance="3"`，所有读请求随机分发到`wiriterHost`对应的`readhost`执行，`writerHost`不负担读压力，注意`balance=3`只在1.4 及其以后版本有，1.3没有
 
 ### 设置MyCAT水平切分
-`<table name="tab_sign_record_info" primaryKey="id" dataNode="dn001,dn002,dn003" rule="sharding-by-company-id" />`指定了数据库表`tab_sign_record_info`的水平切分方式。其中的数据由`rule="sharding-by-company-id"`指定的算法切分。
+
+#### 使用字符串前缀切分
+
+`<table>`指定了数据库表`tab_sign_record_info`的水平切分方式：
+```xml
+<schema name="irenshi" checkSQLschema="false" sqlMaxLimit="10000" dataNode="dn001">
+    <table name="tab_sign_record_info" primaryKey="id" dataNode="dn001,dn002,dn003" rule="sharding-by-company-id" />
+</schema>
+```
+其中的数据由`rule="sharding-by-company-id"`指定的算法切分。
 
 在`rule.xml`中我们可以看到`sharding-by-company-id`的定义：
 ```xml
@@ -136,6 +147,35 @@ MyCAT的读写分离通过`schema.xml`中的`<dataNode>`标签来定义。其中
 41-63=2
 ```
 结合`dataNode="dn001,dn002,dn003"`设置，结果为0-20的数据将分布在dn001中，21-40的数据将分布到dn002中，41-63的数据将分布到dn003中。
+
+#### 使用一致性哈希切分
+
+`<table>`标签的配置如下：
+```xml
+<schema name="linahr" checkSQLschema="false" sqlMaxLimit="10000" dataNode="dn004">
+    <table name="tab_web_user" primaryKey="id" dataNode="dn004,dn005" rule="sharding-by-company-id-murmur" />
+</schema>
+```
+同样查看rule.xml中`sharding-by-company-id-murmur`的定义：
+```xml
+<tableRule name="sharding-by-company-id-murmur">
+        <rule>
+                <columns>companyId</columns>
+                <algorithm>murmur</algorithm>
+        </rule>
+</tableRule>
+<function name="murmur" class="org.opencloudb.route.function.PartitionByMurmurHash">
+        <property name="seed">0</property>
+        <property name="count">2</property>
+        <property name="virtualBucketTimes">160</property>
+        <!-- <property name="weightMapFile">weightMapFile</property> -->
+</function>
+```
+其中：
+- `<property name="seed">0</property>`指定了murmur算法的种子。一般不需要改，使用默认的0即可
+- `<property name="count">2</property>`表示物理节点的个数，对应实际dataNode的数量。如上配置中，dataNode为`dn004,dn005`，则此处值为2
+- `<property name="virtualBucketTimes">160</property>`指定一致性哈希中虚拟bucket的数量。默认为160，在这里节点数为2，那么虚拟bucket的数量为320个（假设下边介绍的weight值为默认值1）。若扩容把count的数量改为3，则虚拟bucket的数量变为480。
+- `<property name="weightMapFile">weightMapFile</property>`默认值为1。每个节点对应一个weight值，假设第i个节点的weight值为`weight[i]`，则第i个节点对应的虚拟bucket数量为`weight[i]*virtualBucketTimes`。所有虚拟节点的总数为`sum(weight[i]*virtualBucketTimes)`。
 
 ## 导入数据I：使用`mysqldump`+`source`命令
 
