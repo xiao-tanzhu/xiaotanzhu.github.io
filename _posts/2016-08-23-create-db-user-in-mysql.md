@@ -9,7 +9,7 @@ description: 在MySQL中创建库和用户
 
 ### 创建数据库
 ```sql
-CREATE DATABASE `irenshi` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci
+CREATE DATABASE `irenshi` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 ```
 
 ### 创建用户
