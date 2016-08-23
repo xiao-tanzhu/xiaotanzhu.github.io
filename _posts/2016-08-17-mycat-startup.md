@@ -177,6 +177,10 @@ MyCAT的读写分离通过`schema.xml`中的`<dataNode>`标签来定义。其中
 - `<property name="virtualBucketTimes">160</property>`指定一致性哈希中虚拟bucket的数量。默认为160，在这里节点数为2，那么虚拟bucket的数量为320个（假设下边介绍的weight值为默认值1）。若扩容把count的数量改为3，则虚拟bucket的数量变为480。
 - `<property name="weightMapFile">weightMapFile</property>`默认值为1。每个节点对应一个weight值，假设第i个节点的weight值为`weight[i]`，则第i个节点对应的虚拟bucket数量为`weight[i]*virtualBucketTimes`。所有虚拟节点的总数为`sum(weight[i]*virtualBucketTimes)`。
 
+当在机器中增加节点时，即增大count值时，对于每一条数据，则要么落到原有节点中、要么落到新节点中。**但是如果增大`virtualBucketTimes`或者`weight`的值，则一致性哈希的这个性质不能被保证。**所以对`virtualBucketTimes`和`weight`的修改一定要谨慎！
+
+之前`murmur`的配置中还包含`bucketMapPath`参数，但在1.5的代码中该参数相关的代码已经被注释掉，不能使用了：https://github.com/MyCATApache/Mycat-Server/commit/c9cb201992564c315436792572e96c3beaed3b37
+
 ## 导入数据I：使用`mysqldump`+`source`命令
 
 ### 使用`mysqldump`导出
@@ -317,3 +321,18 @@ ERROR 2027 (HY000): Malformed packet
 ## 数据库扩容
 
 ## 监控
+
+MyCAT官方提供了MyCAT-Eye作为监控软件。如图所示：
+![](/upload/images/11.png)
+
+启动MyCAT-Eye需要指定ZooKeeper的服务路径，修改`$MYCAT_WEB_DIR/mycat-web/WEB-INF/classes/mycat.properties`：
+```diff
+- zookeeper=localhost:2181
++ zookeeper=192.168.1.2:2181
+```
+
+然后进入MyCAT-Eye所在目录，执行`./start.sh`即可启动MyCAT-Eye。MyCAT-Eye默认服务路径为：
+```
+http://localhost:8082/mycat/
+```
+进入后可以对MyCAT和MySQL等进行配置。
