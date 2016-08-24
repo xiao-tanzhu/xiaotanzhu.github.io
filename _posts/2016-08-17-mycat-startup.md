@@ -21,7 +21,7 @@ MyCAT是基于阿里巴巴开源数据库中间件Cobar开发并维护的数据�
 
 用Docker启动，其他安装方式不再介绍。
 ```bash
-docker run --name mysql-001 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.6 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+docker run --name mysql-001 -p 3306:3306 -e MYSQL_ROOT_PASSWORD=root -d mysql:5.6 --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
 ```
 
 ### 修改MySQL服务器配置
@@ -319,6 +319,8 @@ ERROR 2027 (HY000): Malformed packet
 >SET local_infile=1;
 
 ## 数据库扩容
+
+*&lt;等用到的时候我再写吧&gt;*
 
 ## 监控
 
