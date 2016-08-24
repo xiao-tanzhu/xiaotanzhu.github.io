@@ -8,6 +8,9 @@ tags:
 categories: 数据库
 description: 将现有数据库的数据导入MyCAT
 ---
+**特别注意：**请谨慎使用该方法，目前遇到了两个问题，还尚未确定是Bug还是设置问题：
+1. 当导入数据的某列很大时（其实也不大，大于4096的时候就会出问题），导入失败：https://github.com/MyCATApache/Mycat-Server/issues/1073
+2. 导入表格的Boolean类型的数据都变成了False：https://github.com/MyCATApache/Mycat-Server/issues/1074
 
 ## 版本及其他信息
 
