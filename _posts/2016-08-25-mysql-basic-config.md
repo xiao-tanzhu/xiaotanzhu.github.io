@@ -123,6 +123,12 @@ max_binlog_size         = 100M
 + binlog-ignore-db        = mysql
 + binlog-ignore-db        = information_schema
 + binlog-ignore-db        = performance_schema
++ ## GTID: Global Transaction ID
++ gtid_mode               = on
++ enforce_gtid_consistency= on
++ log-slave-updates       = 1
++ # For all slave servers
++ skip_slave_start        = 1
 #
 # * InnoDB
 #
