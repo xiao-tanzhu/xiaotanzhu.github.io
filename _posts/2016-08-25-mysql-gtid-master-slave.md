@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 使用GTID机制创建MySQL主从备份
+title: 使用GTID机制创建MySQL主从备份和主主备份
 tags:
 - MySQL
 - GTID
@@ -95,7 +95,7 @@ ERROR:
 No query specified
 ```
 
-## 启动slave
+## 启动主从复制
 
 ### 创建Master的Replica帐号：
 ```sql
@@ -194,3 +194,17 @@ SET @@GLOBAL.GTID_PURGED='7800a22c-95ae-11e4-983d-080027de205a:1-8';
 ```
 3. 将备份还原到slave后，使用change master to命令挂载master端。
 
+## 启动主主复制
+
+主主复制只是需要将两个MySQL服务器互为主从。在上节的从服务器中执行主服务器的操作：
+```sql
+CREATE USER 'repl'@'%' IDENTIFIED BY 'slave';
+GRANT REPLICATION SLAVE ON *.* TO 'repl'@'%';
+```
+在上节中的主服务器执行从服务器的操作：
+```sql
+stop slave;
+change master to master_host='192.168.1.3', master_port=3308, master_user='repl', master_password='slave', master_auto_position=1;
+start slave;
+```
+这时候两台服务器为互为备份的状态。
