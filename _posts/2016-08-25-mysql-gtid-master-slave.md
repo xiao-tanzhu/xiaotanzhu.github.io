@@ -63,7 +63,24 @@ skip_slave_start        = 1
 > **Warning**
 > When using statement-based logging for replication, it is possible for the data on the master and slave to become different if a statement is designed in such a way that the data modification is nondeterministic; that is, it is left to the will of the query optimizer. In general, this is not a good practice even outside of replication. For a detailed explanation of this issue, see Section B.5.7, “Known Issues in MySQL”.
 
-重新启动MySQL服务器，执行一条更新语句，然后就可以看到GTID的状态了：
+重新启动MySQL服务器，可以查看GTID是否正常启动：
+```
+mysql> show global variables like '%gtid%';
++---------------------------------+-----------------------------------------------+
+| Variable_name                   | Value                                         |
++---------------------------------+-----------------------------------------------+
+| binlog_gtid_simple_recovery     | OFF                                           |
+| enforce_gtid_consistency        | ON                                            |
+| gtid_executed                   | 3591a291-699c-11e6-8386-0242ac1100f2:1-1830   |
+| gtid_mode                       | ON                                            |
+| gtid_owned                      | 3591a291-699c-11e6-8386-0242ac1100f2:1831#127 |
+| gtid_purged                     |                                               |
+| simplified_binlog_gtid_recovery | OFF                                           |
++---------------------------------+-----------------------------------------------+
+7 rows in set (0.02 sec)
+```
+
+执行一条更新语句，然后就可以看到GTID的状态了：
 ```
 mysql> show master status\G;
 *************************** 1. row ***************************
@@ -158,6 +175,11 @@ Master_SSL_Verify_Server_Cert: No
 
 ERROR: 
 No query specified
+```
+需要注意的是以下两个字段都应该为Yes：
+```
+             Slave_IO_Running: Yes
+            Slave_SQL_Running: Yes
 ```
 
 ### 在已有系统中启动Slave
