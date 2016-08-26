@@ -208,3 +208,43 @@ change master to master_host='192.168.1.3', master_port=3308, master_user='repl'
 start slave;
 ```
 这时候两台服务器为互为备份的状态。
+
+## 常见问题
+
+### 如果mysql导入的过程中失败
+
+如果导入过程中MySQL报错，则再次执行的时候会报：
+```
+fify@server-base:/tmp/irenshi⟫ mysql -uroot -proot -h192.168.1.4 -P3307 < irenshi.sql
+ERROR 1840 (HY000) at line 24: @@GLOBAL.GTID_PURGED can only be set when @@GLOBAL.GTID_EXECUTED is empty.
+```
+此时只需要在从服务器中执行reset命令即可：
+```sql
+reset master
+```
+
+> **参考：**https://avdeo.com/tag/error-1840-hy000-global-gtid_purged-can-only-be-set-when/
+
+### 启动salve之后报错
+
+如我的slave报了如下错误：
+```
+Last_SQL_Errno: 1049
+Last_SQL_Error: Error 'Unknown database 'irenshi'' on query. Default database: 'irenshi'. Query: 'CREATE TABLE `C3P0_TEST_TABLE` (
+  `a` char(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8'
+Retrieved_Gtid_Set: 3591a291-699c-11e6-8386-0242ac1100f2:1-1751
+Executed_Gtid_Set: 3591a291-699c-11e6-8386-0242ac1100f2:1-7
+```
+因为我的从数据库中多了`irenshi`这个表格，并且默认表格也为`irenshi`，导致无法执行。
+
+可以看到我的从库目前获取到主库的GtidSet为1-1751，但是只执行到了1-7，那么可以通过以下方式跳过第8个GTID：
+
+> 1. stop slave;
+> 2. set GTID_NEXT='3591a291-699c-11e6-8386-0242ac1100f2:8';
+> 3. begin;
+> 4. commit;
+> 5. set GTID_NEXT='AUTOMATIC';
+> 6. start slave;
+
+此时再看slave的状态，已经跳过了第8个GTID。
