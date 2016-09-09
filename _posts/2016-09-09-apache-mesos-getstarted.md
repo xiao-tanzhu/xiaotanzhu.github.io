@@ -55,7 +55,7 @@ docker run --net="host" --name mesos_master -p 5050:5050 \
 
 ```bash
 export HOST_IP=192.168.1.2
-docker run -d --name mesos_marathon -p 8080:8080 --master zk://${HOST_IP}:2181/mesos --zk zk://${HOST_IP}:2181/marathon garland/mesosphere-docker-marathon
+docker run -d --name mesos_marathon -p 8080:8080 garland/mesosphere-docker-marathon --master zk://${HOST_IP}:2181/mesos --zk zk://${HOST_IP}:2181/marathon
 ```
 
 ### 启动从节点相关服务
