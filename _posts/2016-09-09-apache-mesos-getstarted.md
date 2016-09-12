@@ -18,13 +18,13 @@ Marathon 是可以跟 Mesos 一起协作的一个 framework，用来运行持久
 
 在主节点上拉取mesos-master、marathon、zookeeper相关镜像：
 ```bash
-docker pull garland/zookeeper
-docker pull garland/mesosphere-docker-mesos-master
-docker pull garland/mesosphere-docker-marathon
+docker pull mesoscloud/zookeeper
+docker pull mesoscloud/mesos-master
+docker pull fify/marathon
 ```
-在从节点上拉取mesos-slave镜像，其实它和mesos-master是同一个镜像，只是启动参数不同：
+在从节点上拉取mesos-slave镜像：
 ```bash
-docker pull garland/mesosphere-docker-mesos-master
+docker pull mesoscloud/mesos-slave
 ```
 
 ### 启动主节点相关服务
@@ -32,41 +32,29 @@ docker pull garland/mesosphere-docker-mesos-master
 **启动zookeeper**
 
 ```bash
-docker run -d -p 2181:2181 -p 2888:2888 -p 3888:3888 garland/zookeeper
+docker run -d -e MYID=1 -e SERVERS=192.168.1.2 --name=zookeeper --net=host --restart=always mesoscloud/zookeeper
 ```
+如果有多个节点，则`SERVERS`参数为多个IP，用“,”隔开。
+
 
 **启动mesos-master**
 
 ```bash
-export HOST_IP=192.168.1.2
-docker run --net="host" --name mesos_master -p 5050:5050 \
--e "MESOS_HOSTNAME=${HOST_IP}" \
--e "MESOS_IP=${HOST_IP}" \
--e "MESOS_ZK=zk://${HOST_IP}:2181/mesos" \
--e "MESOS_PORT=5050" \
--e "MESOS_LOG_DIR=/var/log/mesos" \
--e "MESOS_QUORUM=1" \
--e "MESOS_REGISTRY=in_memory" \
--e "MESOS_WORK_DIR=/var/lib/mesos" \
--d garland/mesosphere-docker-mesos-master
+docker run -d -e MESOS_HOSTNAME=192.168.1.2 -e MESOS_IP=192.168.1.2 -e MESOS_QUORUM=1 -e MESOS_ZK=zk://192.168.1.2:2181/mesos --name mesos-master --net host --restart always mesoscloud/mesos-master
 ```
 
 **启动marathon**
 
 ```bash
-export HOST_IP=192.168.1.2
-docker run -d --name mesos_marathon -p 8080:8080 garland/mesosphere-docker-marathon --master zk://${HOST_IP}:2181/mesos --zk zk://${HOST_IP}:2181/marathon
+docker run -d -e MARATHON_HOSTNAME=192.168.1.2 -e MARATHON_MASTER=zk://192.168.1.2:2181/mesos -e MARATHON_ZK=zk://192.168.1.2:2181/marathon --name marathon -p 8097:8080 --restart always fify/marathon
 ```
 
 ### 启动从节点相关服务
 
+分别启动三个从节点：
 ```bash
-export HOST_IP=192.168.1.2
-docker run -d --name mesos_slave_1 \
---entrypoint="mesos-slave" \
--e "MESOS_MASTER=zk://${HOST_IP}:2181/mesos" \
--e "MESOS_LOG_DIR=/var/log/mesos" \
--e "MESOS_LOGGING_LEVEL=INFO" \
-garland/mesosphere-docker-mesos-master
+docker run -d -e MESOS_HOSTNAME=192.168.1.2 -e MESOS_IP=192.168.1.2 -e MESOS_MASTER=zk://192.168.1.2:2181/mesos -v /sys/fs/cgroup:/sys/fs/cgroup -v /var/run/docker.sock:/var/run/docker.sock --name mesos-slave --net host --privileged --restart always mesoscloud/mesos-slave
+docker run -d -e MESOS_HOSTNAME=192.168.1.3 -e MESOS_IP=192.168.1.3 -e MESOS_MASTER=zk://192.168.1.2:2181/mesos -v /sys/fs/cgroup:/sys/fs/cgroup -v /var/run/docker.sock:/var/run/docker.sock --name mesos-slave --net host --privileged --restart always mesoscloud/mesos-slave
+docker run -d -e MESOS_HOSTNAME=192.168.1.4 -e MESOS_IP=192.168.1.4 -e MESOS_MASTER=zk://192.168.1.2:2181/mesos -v /sys/fs/cgroup:/sys/fs/cgroup -v /var/run/docker.sock:/var/run/docker.sock --name mesos-slave --net host --privileged --restart always mesoscloud/mesos-slave
 ```
 
