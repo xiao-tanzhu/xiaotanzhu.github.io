@@ -141,3 +141,19 @@ sed -e 's/"\([^"]*\)"[^,]*,/\1,/g'
   "positionName",
   "staffId",
 ```
+
+### 文件工具
+
+#### 查看文件类型
+
+```bash
+file xxxx.jpg
+```
+
+`file`命令不跟据文件后缀名判断文件类型，而是根据文件最头部的几位Magic Number进行判断。对于乱改文件后缀的情况非常适合。
+
+如：
+```
+fify@fify-Vostro-3902:~/Desktop$ file 1945300044.png 
+1945300044.png: JPEG image data
+```
