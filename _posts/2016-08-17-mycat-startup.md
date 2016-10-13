@@ -265,6 +265,8 @@ source irenshi-data.sql
 
 ## 导入数据II：使用`mysqldump`+`LOAD DATA INFILE`命令
 
+> **注意：**以下内容适合导入单个表，如果需要批量导入大量表，可以参考：http://www.xiaotanzhu.com/2016/08/24/import-data-into-mycat.html
+
 在某些数据库表比较大的情况下，使用以上方法导入的速度就比较难以接受了。MyCAT1.4以后还提供了类似MySQL的`LOAD DATA INFILE`命令，供导入大批量数据使用。据说这种方式比`insert`语句要快20倍。
 
 ### 同样使用`mysqldump`导出
