@@ -144,6 +144,11 @@ sed -e 's/"\([^"]*\)"[^,]*,/\1,/g'
 
 ### 文件工具
 
+#### 获取目录中最新的文件
+```bash
+ls *.war -Art | tail -n 1
+```
+
 #### 查看文件类型
 
 ```bash
@@ -154,6 +159,6 @@ file xxxx.jpg
 
 如：
 ```
-fify@fify-Vostro-3902:~/Desktop$ file 1945300044.png 
+fify@fify-Vostro-3902:~/Desktop$ file 1945300044.png
 1945300044.png: JPEG image data
 ```
