@@ -36,7 +36,7 @@ MYSQL_Host=$4
 [ "${MYSQL_USER}"     = '' ] &&  MYSQL_USER=zabbix   #mysql的zabbix用户
 [ "${MYSQL_PASSWORD}" = '' ] &&  MYSQL_PASSWORD=zabbix  #mysql的zabbix密码
 [ "${MYSQL_Host}"     = '' ] &&  MYSQL_Host=192.168.1.3
-[ "${var}" = '' ] && echo ""||${mysql} -h${MYSQL_Host} -u${MYSQL_USER} -p${MYSQL_PASSWORD} -e 'show global status'|grep -v Variable_name|grep "\b${var}\b"|awk '{print $2}'
+[ "${var}" = '' ] && echo ""||${mysql} -h${MYSQL_Host} -u${MYSQL_USER} -p${MYSQL_PASSWORD} -e 'show global status' 2>/dev/null |grep -v Variable_name|grep "\b${var}\b"|awk '{print $2}'
 ```
 
 ## 配置Zabbix Agent
