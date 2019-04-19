@@ -1,42 +1,72 @@
-# Jekyll-Jacman
+## My Stack Problems
 
-Jekyll-Jacman 是为 [Jekyll](http://jekyllrb.com) 设计的一款清新且具有响应式的主题，拥有更丰富的特性并支持了很多的国内服务。Jacman 始于 [Jacman](https://github.com/wuchong/jacman) 移植而来。
+> This project forked and has been modified from [A simple grey theme for Jekyll](https://github.com/liamsymonds/simplygrey-jekyll),
+> and the search posts using [Super Search](https://github.com/chinchang/super-search)
 
-[主题演示](http://simpleyyt.github.io/jekyll-jacman/) | [Yitao's Blog](http://simpleyyt.github.io)
+### Demo
+* [https://agusmakmun.github.io](https://agusmakmun.github.io)
 
-[如何使用 Jacman 主题](http://simpleyyt.github.io/jekyll-jacman/jekyll/2015/09/20/how-to-use-jacman/)
+#### Features
 
-##功能
-- **菜单 menu**  
- 主导航菜单
-- **控件 widget**  
- 侧边栏的控件。包括：分类、标签、RSS、友情链接、微博秀。
-- **图片相关 Image**  
- 设置网站图标、网站logo、作者头像、博客顶部大图等。还提供了多种图片样式`img-logo`,`img-topic`,`img-center`等。
-- **首页模式 index**  
- 主题提供了两种首页展示模式。
-- **作者 author**  
- 作者信息，主要用于展示网站右下角的社交网络链接。包括：微博、豆瓣、知乎、邮箱、GitHub、StackOverflow、Twitter、Facebook、Linkedin、Google+。
-- **目录 toc**  
- 在文章中和侧边栏可以显示目录。
-- **评论 comments**  
- 支持 [多说](http://duoshuo.com/) & [disqus](https://disqus.com/) 评论。
-- **分享 jiathis**  
- 启用 内建分享工具 或 [加网](http://www.jiathis.com/) 分享系统。
-- **网站统计 Analytiscs**  
- 支持 [谷歌统计](http://www.google.com/analytics/) & [百度统计](http://tongji.baidu.com/) & [CNZZ站长统计](http://www.cnzz.com/)。
-- **Search**  
- 支持 [谷歌自定义搜索](https://www.google.com/cse/ ) & [百度站内搜索](http://zn.baidu.com/)  &[微搜索](http://tinysou.com/)。
-- **totop**  
- 回到顶部。
-- **rss**  
- RSS 订阅链接。
-- **fancybox**  
- 图片查看的 [Fancybox](http://fancyapps.com/fancybox/) 工具。
-- **自定义主题颜色**
- 在`_config.yaml`中就可以修改主题的颜色，而不用去找那些奇怪的 stylus 文件。
-- **其他**
- 你可以设置侧边栏在博文页面中不显示。
+* Sitemap and XML Feed
+* Pagination in homepage
+* Posts under category
+* Realtime Search Posts _(title & description)_ by query.
+* Related Posts
+* Highlight pre
+* Next & Previous Post
+* Disqus comment
+* Projects page & Detail Project page
+* Share on social media
+* Google analytics
+* HTML Minify _(Compress HTML)_ using [Jekyll Compress HTML](https://github.com/penibelst/jekyll-compress-html)
 
-##协议
-[MIT](/LICENSE)
+#### Screenshot
+
+![Screenshot Post Page](https://raw.githubusercontent.com/agusmakmun/agusmakmun.github.io/master/static/img/screenshot-post-page.png  "Screenshot Post Page")
+
+### Install & Configuration
+
+1. Fork this repository
+2. Edit site settings inside file of `_config.yml`
+3. Edit your projects at file of `projects.md`, `_data/projects.json` and inside path of `_project/` _(for detail project)_.
+4. Edit about yourself inside file of `about.md`
+
+### How to Use?
+
+**a. Add new Category**
+
+All categories saved inside path of `category/`, you can see the existed categories.
+
+**b. Add new Posts**
+
+* All posts bassed on markdown syntax _(please googling)_. allowed extensions is `*.markdown` or `*.md`.
+* This files can found at the path of `_posts/`.
+* and the name of files are following `<date:%Y-%m-%d>-<slug>.<extension>`, for example:
+
+```
+2013-09-23-welcome-to-jekyll.md
+
+# or
+
+2013-09-23-welcome-to-jekyll.markdown
+```
+
+Inside the file of it,
+
+```
+---
+layout: post                          # (require) default post layout
+title: "Your Title"                   # (require) a string title
+date: 2016-04-20 19:51:02 +0700       # (require) a post date
+categories: [python, django]          # (custom) some categories, but makesure these categories already exists inside path of `category/`
+tags: [foo, bar]                      # (custom) tags only for meta `property="article:tag"`
+image: Broadcast_Mail.png             # (custom) image only for meta `property="og:image"`, save your image inside path of `static/img/_posts`
+---
+
+# your content post with markdown syntax goes here...
+```
+
+### Contributing
+
+Feel free to [open a bug](https://github.com/agusmakmun/agusmakmun.github.io/issues) or [contribute to code](https://github.com/agusmakmun/agusmakmun.github.io/pulls)!
