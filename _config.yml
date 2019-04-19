@@ -1,11 +1,11 @@
-title: Stack Problems
-description: My Personal Stack Problems
-author: Agus Makmun
-github: https://github.com/agusmakmun
-about: I'm Programmer for Python & Django. I've made quite a few web apps, especially on Django.
+title: 一痕沙
+description: 一夕一绽一缕芳，一生一叹一痕沙
+author: Fify Wang
+github: https://github.com/wangjingfei
+about: 曾经沧海难为水，除却巫山不是云。取次花丛懒回顾，半缘修道半缘君。
 disqus_shortname: stackproblems
-google_analytics: UA-XXXXXXXX-Y
-avatar_url: /static/img/avatar.jpg
+google_analytics: UA-27161228-2
+avatar_url: img/author.jpg
 
 enableTags: true
 tagarray: []
@@ -34,15 +34,17 @@ share:
 urls:
     - text: About Me
       url: /about/
-    - text: My Projects
-      url: /projects/
+    - text: Categories
+      url: /category/
+      #- text: My Projects
+      #url: /projects/
     - text: XML Feed
       url: /feed.xml
 
-url: "https://agusmakmun.github.io"
+url: "https://wangjingfei.github.io"
 baseurl: ""
 paginate: 20
-per_page: 20
+per_page: 30
 paginate_path: "/page/:num/"
 markdown: kramdown
 gems:
