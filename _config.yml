@@ -42,7 +42,7 @@ urls:
       #url: /feed.xml
 
 url: "https://wangjingfei.github.io"
-baseurl: "http://www.xiaotanzhu.com/"
+baseurl: ""
 paginate: 25
 per_page: 25
 paginate_path: "/page/:num/"
