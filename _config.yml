@@ -43,8 +43,8 @@ urls:
 
 url: "https://wangjingfei.github.io"
 baseurl: "http://www.xiaotanzhu.com/"
-paginate: 30
-per_page: 30
+paginate: 25
+per_page: 25
 paginate_path: "/page/:num/"
 markdown: kramdown
 gems:
