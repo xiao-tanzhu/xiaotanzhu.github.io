@@ -2,7 +2,7 @@ title: 一痕沙
 description: 一夕一绽一缕芳，一生一叹一痕沙
 author: Fify Wang
 github: https://github.com/wangjingfei
-about: 曾经沧海难为水，除却巫山不是云。取次花丛懒回顾，半缘修道半缘君。
+about: 曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。
 disqus_shortname: stackproblems
 google_analytics: UA-27161228-2
 avatar_url: assets/img/author.jpg
@@ -32,14 +32,14 @@ share:
   fb_appid: 1749788565247320
 
 urls:
-    - text: About Me
-      url: /about/
     - text: Categories
       url: /category/
+    - text: About Me
+      url: /about/
       #- text: My Projects
       #url: /projects/
-    - text: XML Feed
-      url: /feed.xml
+      #- text: XML Feed
+      #url: /feed.xml
 
 url: "https://wangjingfei.github.io"
 baseurl: "http://www.xiaotanzhu.com/"
