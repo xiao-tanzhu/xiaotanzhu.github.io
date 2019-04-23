@@ -3,7 +3,7 @@ layout: post
 title: "Spring Framework: Modules"
 tags: [Spring, "Spring Modules"]
 categories: [Spring]
-description: Spring Framework: Modules
+description: "Spring Framework: Modules"
 ---
 
 > Reference: https://docs.spring.io/spring/docs/4.3.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/#overview-modules
@@ -86,5 +86,7 @@ The `spring-webmvc` module (also known as the Web-Servlet module) contains Sprin
 The `spring-webmvc-portlet` module (also known as the Web-Portlet module) provides the MVC implementation to be used in a Portlet environment and mirrors the functionality of the spring-webmvc module.
 
 ### 6. Test
+
+> - spring-test
 
 The `spring-test` module supports the unit testing and integration testing of Spring components with JUnit or TestNG. It provides consistent loading of Spring ApplicationContexts and caching of those contexts. It also provides mock objects that you can use to test your code in isolation.
