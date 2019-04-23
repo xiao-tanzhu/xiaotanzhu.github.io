@@ -1,9 +1,8 @@
 ---
 layout: post
 title: Spring 模块介绍
-tags:
-- Spring
-categories: Spring
+tags: [Spring]
+categories: [Spring]
 description: Spring 模块介绍
 ---
 
