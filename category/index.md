@@ -1,6 +1,6 @@
 ---
 layout: posts_by_category
-categories: readme
-title: Readme
+categories: index
+title: Categories
 permalink: /category/
 ---
