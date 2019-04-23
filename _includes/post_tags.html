@@ -1,0 +1,8 @@
+{% if site.enableTags ==  true %}
+<div>[
+  {% for tag in page.tags %}
+    {% capture tag_name %}{{ tag }}{% endcapture %}
+    <span class="tags"><a href="/tag/{{ tag_name }}"><code class="highligher-rouge"><nobr>{{ tag_name }}</nobr></code>&nbsp;</a></span>
+  {% endfor %}
+]</div>
+{% endif %}
