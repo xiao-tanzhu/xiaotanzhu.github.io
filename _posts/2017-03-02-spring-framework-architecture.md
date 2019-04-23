@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Spring 模块介绍
+title: "Spring Framework的整体架构"
 tags: [Spring]
 categories: [Spring]
-description: Spring 模块介绍
+description: "Spring Framework的整体架构"
 ---
 
 ## 前言
