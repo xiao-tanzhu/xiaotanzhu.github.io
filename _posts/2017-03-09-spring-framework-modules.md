@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Spring Framework: Modules
-tags: [Spring, Spring Modules]
+title: "Spring Framework: Modules"
+tags: [Spring, "Spring Modules"]
 categories: [Spring]
 description: Spring Framework: Modules
 ---
