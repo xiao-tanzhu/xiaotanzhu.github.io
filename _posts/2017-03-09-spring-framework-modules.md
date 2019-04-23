@@ -8,6 +8,8 @@ categories: Spring
 description: Spring Framework: Modules
 ---
 
+> Reference: https://docs.spring.io/spring/docs/4.3.0.BUILD-SNAPSHOT/spring-framework-reference/htmlsingle/#overview-modules
+
 ## Spring Framework: Modules
 
 The Spring Framework consists of features organized into about 20 modules. These modules are grouped into `Core Container`, `Data Access/Integration`, `Web`, `AOP (Aspect Oriented Programming)`, `Instrumentation`, `Messaging`, and `Test`, as shown in the following diagram.
