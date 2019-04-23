@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Spring Framework 整体架构
+title: Spring 模块介绍
 tags:
 - Spring
 categories: Spring
-description: Spring Framework 整体架构
+description: Spring 模块介绍
 ---
 
 ## 前言
