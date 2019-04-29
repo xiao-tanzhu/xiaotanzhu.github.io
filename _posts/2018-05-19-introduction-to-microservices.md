@@ -6,9 +6,6 @@ categories: [Microservice, 微服务]
 description: "Introduction to Microservices"
 ---
 
-[toc]
-{:toc}
-
 ## Introduction to Microservices
 
 Microservices are currently getting a lot of attention: articles, blogs, discussions on social media, and conference presentations. They are rapidly heading towards the peak of inflated expectations on the Gartner Hype cycle. At the same time, there are skeptics in the software community who dismiss microservices as nothing new. Naysayers claim that the idea is just a rebranding of SOA. However, despite both the hype and the skepticism, the Microservices Architecture pattern has significant benefits – especially when it comes to enabling the agile development and delivery of complex enterprise applications.
