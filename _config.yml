@@ -3,7 +3,7 @@ description: 一夕一绽一缕芳，一生一叹一痕沙
 author: Fify Wang
 github: https://github.com/wangjingfei
 about: 曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。
-disqus_shortname: stackproblems
+disqus_shortname: xiaotanzhu
 google_analytics: UA-139248857-1
 avatar_url: /assets/img/author.jpg
 
@@ -25,7 +25,7 @@ social:
     - icon: fa-stack-exchange
       link: "#"
     - icon: fa-github
-      link: "https://github.com/agusmakmun"
+      link: "https://github.com/wangjingfei"
 
 share:
   twitter_username: github.io
