@@ -9,6 +9,7 @@ description: "Spring Cloud组件介绍"
 > Reference:
 > - [Spring Cloud全家桶主要组件及简要介绍](https://blog.csdn.net/xlgen157387/article/details/77773908)
 > - [SpringCloud分布式开发五大组件详解](https://blog.csdn.net/wxb880114/article/details/79467779)
+> - [配置中心和消息总线（配置中心终结版）](http://www.ityouknow.com/springcloud/2017/05/26/springcloud-config-eureka-bus.html)
 
 ## 什么是微服务？
 
