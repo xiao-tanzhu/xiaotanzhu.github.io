@@ -12,10 +12,12 @@ description: 利用telnet进行SMTP的验证
 ---
 先计算BASE64编码的用户名密码，认证登录需要用到：
 
->**fify@fify-Vostro-3902:~$ perl -MMIME::Base64 -e 'print encode_base64("wangjingfei");'**
+```
+**fify@fify-Vostro-3902:~$ perl -MMIME::Base64 -e 'print encode_base64("wangjingfei");'**
 d2FuZ2ppbmdmZWk=
 **fify@fify-Vostro-3902:~$ perl -MMIME::Base64 -e 'print encode_base64("fakepassword");'**
 ZmFrZXBhc3N3b3Jk
+```
 
 开始登录并使用SMTP发送邮件：
 
