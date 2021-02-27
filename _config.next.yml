@@ -90,7 +90,7 @@ comments:
 disqus:
   enable: true
   shortname: xiaotanzhu
-  count: true
+  count: false
   #post_meta_order: 0
 
 # Google Analytics
@@ -124,14 +124,22 @@ firestore:
   apiKey: AIzaSyBP2MkUwn-twN58EehqUgRPv1M9jYGXe6I
   projectId: xiaotanzhu-b5785
 
-# Algolia Search
-# For more information: https://www.algolia.com
-algolia_search:
+# Local Search
+# Dependencies: https://github.com/theme-next/hexo-generator-searchdb
+local_search:
   enable: true
-  hits:
-    per_page: 10
-  labels:
-    input_placeholder: Search for Posts
-    hits_empty: "We didn't find any results for the search: ${query}"
-    hits_stats: "${hits} results found in ${time} ms"
+  # If auto, trigger search by changing input.
+  # If manual, trigger search by pressing enter key or search button.
+  trigger: auto
+  # Show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+  # Unescape html strings to the readable one.
+  unescape: false
+  # Preload the search data when the page loads.
+  preload: false
 
+search:
+  path: search.xml
+  field: post
+  content: true
+  format: html
