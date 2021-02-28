@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 以SQL方式读取MySQL的GTID格式Binlog
+date: 2016-10-31
 tags:
 - MySQL
 - Binlog

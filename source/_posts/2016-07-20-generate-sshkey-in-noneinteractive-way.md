@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Generate SSH key in none-interactive way
+date: 2016-07-20
 tags:
 - Shell
 - Bash

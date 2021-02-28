@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Ubuntu上使用USB安装APK到手机
+date: 2016-09-20
 tags:
 - Ubuntu
 - Android

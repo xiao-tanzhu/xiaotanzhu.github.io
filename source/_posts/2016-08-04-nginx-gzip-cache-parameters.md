@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Nginx的浏览器缓存和Gzip压缩参数
+date: 2016-08-04
 tags:
 - Nginx
 - Browser Caching

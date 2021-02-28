@@ -1,6 +1,7 @@
 ---
 layout: post
 title: How to support full Unicode in MySQL databases
+date: 2016-08-14
 tags:
 - MySQL
 - utf8mb4

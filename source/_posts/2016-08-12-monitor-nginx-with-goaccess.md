@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用Goaccess监控Nginx的运行状态
+date: 2016-08-12
 tags:
 - Nginx
 - 监控

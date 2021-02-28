@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 设置VIM的编码格式
+date: 2016-10-10
 tags:
 - Linux
 - 编码

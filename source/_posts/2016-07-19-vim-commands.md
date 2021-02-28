@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Vim常用命令
+date: 2016-07-19
 tags:
 - Vim
 categories: Linux

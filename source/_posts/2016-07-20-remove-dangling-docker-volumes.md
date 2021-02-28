@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 删除Docker中没有被挂载的卷（dangling volumes）
+date: 2016-07-20
 tags:
 - Docker
 - Volumes

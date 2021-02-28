@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 在MySQL中创建库和用户
+date: 2016-08-23
 tags:
 - MySQL
 categories: 数据库

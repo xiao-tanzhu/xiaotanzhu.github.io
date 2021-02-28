@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Mongo常用命令
+date: 2016-07-19
 tags:
 - Mongo
 categories: 分布式系统

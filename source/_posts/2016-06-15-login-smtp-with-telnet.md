@@ -1,12 +1,11 @@
 ---
 layout: post
 title: 利用telnet进行SMTP的验证
+date: 2016-06-15
 tags:
 - SMTP
 - Telnet
 - Email
-date: 2016-06-15 12:00:00
-updated: 2016-06-15 12:00:00
 categories: 其他
 description: 利用telnet进行SMTP的验证
 ---

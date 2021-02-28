@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Linux常用命令
+date: 2016-08-14
 tags:
 - Shell
 - Script

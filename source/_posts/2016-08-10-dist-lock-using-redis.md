@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用Redis SETNX命令实现分布式锁
+date: 2016-08-10
 tags:
 - Redis
 - 分布式锁

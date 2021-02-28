@@ -1,6 +1,7 @@
 ---
 layout: post
 title: ZooKeeper典型使用场景总结
+date: 2016-09-09
 tags:
 - Zookeeper
 categories: 分布式系统

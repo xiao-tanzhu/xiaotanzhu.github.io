@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 开始使用Mesos和Marathon
+date: 2016-09-09
 tags:
 - Mesos
 - Marathon

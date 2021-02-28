@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Spring Framework: Modules"
+date: 2017-03-09
 tags: [Spring, "Spring Modules"]
 categories: [Spring]
 description: "Spring Framework: Modules"

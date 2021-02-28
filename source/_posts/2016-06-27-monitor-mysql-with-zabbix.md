@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用Zabbix监控MySQL服务器
+date: 2016-06-27
 tags:
 - Zabbix
 - 监控

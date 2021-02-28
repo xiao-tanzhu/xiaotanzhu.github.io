@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Nginx加速：启用gzip压缩和浏览器缓存
+date: 2016-08-04
 tags:
 - Nginx
 - 转载

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 创建支持emoji表情的MySQL数据库（utf8mb4）
+date: 2016-08-14
 tags:
 - MySQL
 - emoji

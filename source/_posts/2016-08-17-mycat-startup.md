@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 开始使用MyCAT
+date: 2016-08-17
 tags:
 - MyCAT
 - MySQL

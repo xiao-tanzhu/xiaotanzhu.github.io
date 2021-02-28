@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Android包（apk）手动签名
+date: 2016-09-21
 tags:
 - apk
 - 安卓

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Download specified oracle JDK (archived) version
+date: 2016-08-06
 tags:
 - JDK
 - Java

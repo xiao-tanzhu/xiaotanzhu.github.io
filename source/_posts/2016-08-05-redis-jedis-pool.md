@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Redis提示Could not get a resource from the pool（jedis连接池配置）
+date: 2016-08-05
 tags:
 - Redis
 - Jedis

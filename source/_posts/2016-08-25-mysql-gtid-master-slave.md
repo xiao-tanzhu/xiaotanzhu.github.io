@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用GTID机制创建MySQL主从备份和主主备份
+date: 2016-08-25
 tags:
 - MySQL
 - GTID

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 使用zabbix监控Nginx
+date: 2016-07-30
 tags:
 - Nginx
 - 监控

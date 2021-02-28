@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 批量删除Redis数据库中的Key
+date: 2016-06-16
 tags:
 - Redis
 - 转载

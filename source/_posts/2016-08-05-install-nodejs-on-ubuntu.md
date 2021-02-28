@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Install the latest Node.js on Ubuntu 14.04
+date: 2016-08-05
 tags:
 - Nodejs
 - Ubuntu

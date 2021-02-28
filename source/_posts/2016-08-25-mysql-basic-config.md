@@ -1,6 +1,7 @@
 ---
 layout: post
 title: MySQL服务器配置
+date: 2016-08-25
 tags:
 - MySQL
 categories: 数据库

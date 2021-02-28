@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 将现有数据库的数据导入MyCAT
+date: 2016-08-24
 tags:
 - MySQL
 - MyCAT

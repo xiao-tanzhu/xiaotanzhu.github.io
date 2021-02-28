@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Where to find all available Java mail properties?
+date: 2016-08-06
 tags:
 - Java Mail
 categories: Java

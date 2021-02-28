@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 阿里云ECS Linux开启swap（虚拟内存）
+date: 2016-08-26
 tags:
 - 阿里云
 - ECS

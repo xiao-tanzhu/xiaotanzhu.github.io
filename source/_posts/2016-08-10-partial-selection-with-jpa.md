@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Partial selection of Spring Data JPA
+date: 2016-08-10
 tags:
 - Spring
 - Spring Data JPA

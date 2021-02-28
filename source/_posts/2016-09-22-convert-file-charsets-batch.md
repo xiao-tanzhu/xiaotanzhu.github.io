@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 批量转换文件编码
+date: 2016-09-22
 tags:
 - Linux
 - 编码

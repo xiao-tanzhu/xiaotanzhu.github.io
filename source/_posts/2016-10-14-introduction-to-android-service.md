@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 关于 Android Service 的介绍
+date: 2016-10-14
 tags:
 - Android Service
 - 安卓
