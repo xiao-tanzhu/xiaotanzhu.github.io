@@ -142,6 +142,10 @@ sed -e 's/"\([^"]*\)"[^,]*,/\1,/g'
   "positionName",
   "staffId",
 ```
+将文字分隔显示：
+```bash
+grep abc.pl * | awk -F 'abc.pl' '{print $2}'
+```
 
 ### 文件工具
 
