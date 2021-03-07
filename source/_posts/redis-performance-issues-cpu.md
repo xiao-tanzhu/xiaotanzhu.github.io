@@ -11,17 +11,17 @@ description: "解码Redis的最易被忽视的CPU和内存占用高问题"
 
 我们在使用 Redis 时，总会碰到一些 redis-server 端 CPU 及内存占用比较高的问题。下面以几个实际案例为例，来讨论一下在使用 Redis 时容易忽视的几种情形。
 
-## 一、短连接导致 CPU 高
+## 短连接导致 CPU 高
 
 某用户反映 QPS 不高，从监控看 CPU 确实偏高。既然 QPS 不高，那么 redis-server 自身很可能在做某些清理工作或者用户在执行复杂度较高的命令，经排查无没有进行 key 过期删除操作，没有执行复杂度高的命令。
 
 上机器对 redis-server 进行 perf 分析，发现函数 listSearchKey 占用 CPU 比较高，分析调用栈发现在释放连接时会频繁调用 listSearchKey，且用户反馈说是使用的短连接，所以推断是频繁释放连接导致 CPU 占用有所升高。
 
-### 1、对比实验
+### 对比实验
 
 下面使用 redis-benchmark 工具分别使用长连接和短连接做一个对比实验，redis-server 为社区版 4.0.10。
 
-#### 1）长连接测试
+#### 长连接测试
 使用 10000 个长连接向 redis-server 发送 50w 次 ping 命令：
 ```bash
 ./redis-benchmark -h host -p port -t ping -c 10000 -n 500000 -k 1（k=1表示使用长连接，k=0表示使用短连接)
@@ -33,9 +33,9 @@ PING_BULK: 93580.38 requests per second
 ```
 对 redis-server 分析，发现占用 CPU 最高的是 readQueryFromClient，即主要是在处理来自用户端的请求。
 
-![占用 CPU 最高的是 readQueryFromClient](/images/1.png)
+![占用 CPU 最高的是 readQueryFromClient](/images/0001.png)
 
-#### 2）短连接测试
+#### 短连接测试
 使用 10000 个短连接向 redis-server 发送 50w 次 ping 命令：
 
 ```
@@ -56,7 +56,7 @@ PING_BULK: 16471.75 requests per second
 - 每次重新建连接引入的网络开销。
 - 释放连接时，redis-server 需消耗额外的 CPU 周期做清理工作。（这一点可以尝试从 redis-server 端做优化）
 
-### 2、Redis 连接释放
+### Redis 连接释放
 
 我们从代码层面来看下 redis-server 在用户端发起连接释放后都会做哪些事情，redis-server 在收到用户端的断连请求时会直接进入到 freeClient。
 
@@ -125,7 +125,8 @@ void unlinkClient(client *c) {
 
 所以在每次连接断开时，都存在一个 O(N)的运算。对于 redis 这样的内存数据库，我们应该尽量避开 O(N)运算，特别是在连接数比较大的场景下，对性能影响比较明显。虽然用户只要不使用短连接就能避免，但在实际的场景中，用户端连接池被打满后，用户也可能会建立一些短连接。
 
-### 3、优化
+### 优化
+
 从上面的分析看，每次连接释放时都会进行 O(N)的运算，那能不能降复杂度降到 O(1)呢？
 
 这个问题非常简单，server.clients 是个双向链表，只要当 client 对象在创建时记住自己的内存地址，释放时就不需要遍历 server.clients。接下来尝试优化下：
@@ -185,7 +186,7 @@ PING_BULK: 21454.62 requests per second
 ```
 与优化前相比，短连接性能能够提升 30+%，所以能够保证存在短连接的情况下，性能不至于太差。
 
-## 二、info 命令导致 CPU 高
+## info 命令导致 CPU 高
 
 有用户通过定期执行 info 命令监视 redis 的状态，这会在一定程度上导致 CPU 占用偏高。频繁执行 info 时通过 perf 分析发现 getClientsMaxBuffers、getClientOutputBufferMemoryUsage 及 getMemoryOverheadData 这几个函数占用 CPU 比较高。
 
@@ -273,7 +274,7 @@ struct redisMemOverhead *getMemoryOverheadData(void) {
 
 从上面的分析知道，当连接数较高时（O(N)的 N 大），如果频率执行 info 命令，会占用较多 CPU。
 
-#### 1）建立一个连接，不断执行 info 命令
+#### 建立一个连接，不断执行 info 命令
 
 ```go
 func main() {
@@ -325,7 +326,7 @@ func main() {
 
 ![CPU 能够达到 80%](/images/0004.png)
 
-## 三、pipeline 导致内存占用高
+## pipeline 导致内存占用高
 
 有用户发现在使用 pipeline 做只读操作时，redis-server 的内存容量偶尔也会出现明显的上涨, 这是对 pipeline 的使不当造成的。下面先以一个简单的例子来说明 Redis 的 pipeline 逻辑是怎样的。
 
