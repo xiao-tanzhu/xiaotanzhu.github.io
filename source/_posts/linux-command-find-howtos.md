@@ -4,7 +4,7 @@ title: "Linux find命令高阶用法"
 date: 2021-03-28
 tags: ["Linux", "Shell"]
 categories: [Linux]
-description: "Find命令是程序员每天都会使用的命令，是一个无处不在是命令，是linux中最有用的命令之一。你可以使用它在任意一个目录（及子目录）中搜索文件，你也可以定义一些特定的条件，如按文件名、文件类型、用户甚至是时间节点去查找文件。本文大家分享几个 find 命令的简单却又高级的用法"
+description: "几个 find 命令的简单却又高级的用法"
 ---
 
 > linux 下一切皆文件。
