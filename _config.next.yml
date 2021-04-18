@@ -23,7 +23,7 @@ menu:
   tags: /tags/ || fa fa-tags
   #schedule: /schedule/ || fa fa-calendar
   about: /about/ || fa fa-user
-  #sitemap: /sitemap.xml || fa fa-sitemap
+  sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
 
 # Sidebar Avatar
