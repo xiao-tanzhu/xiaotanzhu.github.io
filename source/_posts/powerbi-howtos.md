@@ -7,6 +7,12 @@ categories: [PowerBI]
 description: "常见的一些PowerBI的使用方法"
 ---
 
+## 分析方法
+
+### 按周进行数据分析
+
+Source：https://zhuanlan.zhihu.com/p/58948031
+
 ## 类Excel的计算
 
 ### VLOOKUP (DAX)
