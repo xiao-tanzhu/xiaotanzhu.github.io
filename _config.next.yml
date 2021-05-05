@@ -144,3 +144,6 @@ search:
   field: post
   content: true
   format: html
+
+baidu_push: true
+
