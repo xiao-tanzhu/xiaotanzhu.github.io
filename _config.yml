@@ -125,8 +125,12 @@ leancloud_counter_security:
 
 feed:
   enable: true
-  type: atom
-  path: feed.xml
+  type: 
+    - atom
+    - rss2
+  path: 
+    - atom.xml
+    - rss2.xml
   limit: 20
   hub:
   content:
