@@ -107,14 +107,17 @@ google_analytics:
 # Do not enable both `valine.visitor` and `leancloud_visitors`.
 leancloud_visitors:
   enable: true
-  app_id: VQn55tdJHgUOORAMSaVA2lzR-gzGzoHsz
-  app_key: 59mHg7kbeteRALdJyvkLp9uy
+  #app_id: VQn55tdJHgUOORAMSaVA2lzR-gzGzoHsz
+  #app_key: 59mHg7kbeteRALdJyvkLp9uy
+  app_id: jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI
+  app_key: 7ejdgq34iVUrKwhqPjLYqAQX
   # Required for apps from CN region
-  server_url: https://vqn55tdj.lc-cn-n1-shared.com
+  #server_url: https://vqn55tdj.lc-cn-n1-shared.com
+  server_url: 
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
-  security: false
+  security: true
 
 # Another tool to show number of visitors to each article.
 # Visit https://console.firebase.google.com/u/0/ to get apiKey and projectId.

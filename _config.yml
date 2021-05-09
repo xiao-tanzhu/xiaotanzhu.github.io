@@ -115,9 +115,18 @@ baidu_url_submit:
   token: 3Aswi6SdRTrJ45rD             # 秘钥
   path: baidu_urls.txt                # 文本文档的地址,新链接会保存在此文本文档里
 
+# Leancloud Counter Security
+leancloud_counter_security:
+  enable_sync: true
+  app_id: jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI
+  app_key: 7ejdgq34iVUrKwhqPjLYqAQX
+  username: wangjingfei
+  password: FiIJEvSPFmU8l
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   - type: ''
   - type: baidu_url_submitter 	## 在这里添加新内容即可
+  - type: leancloud_counter_security_sync
 
