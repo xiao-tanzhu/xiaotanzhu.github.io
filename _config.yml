@@ -78,6 +78,9 @@ sitemap:
   tags: true
   categories: true
 
+baidusitemap: 
+  path: baidusitemap.xml
+
 # Metadata elements
 ## https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta
 meta_generator: true
