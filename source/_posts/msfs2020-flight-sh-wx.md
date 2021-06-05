@@ -2,7 +2,7 @@
 layout: post
 title: "微软模拟飞行2020：从上海浦东飞无锡硕放"
 date: 2021-05-05
-tags: ["MSFS2020", "微软模拟飞行", "G1000"]
+tags: ["MSFS2020", "微软模拟飞行", "G1000", "新手教程"]
 categories: [MSFS2020]
 description: "在微软模拟飞行中，使用自动驾驶从上海浦东机场飞无锡硕放机场"
 ---
@@ -22,7 +22,9 @@ Cessna 172 (G1000)，操作系统G1000
 
 ### 面板说明
 
-#### 左侧面板
+Cessna 172主要有两个屏幕，为PFD和MFD，即主屏幕和多功能屏幕，分别为左侧和右侧两块屏幕。具体说明可以参考：https://www.bilibili.com/video/BV1Mf4y1z7Lm/
+
+#### 面板左侧（PFD）
 
 - AP：AutoPilot，开启/关闭自动驾驶
 - FD：Flight Director，飞行指引，打开之后屏幕上会出现红色导航标记
@@ -36,12 +38,12 @@ Cessna 172 (G1000)，操作系统G1000
 - NoseUP：结合VS和FLC使用，提高VS或FLC的设置值
 - NoseDN：结合VS和FLC使用，降低VS或FLC的设置值
 
-#### 下侧面板
+#### 面板右侧（PFD）
 
 - CDI：Change Direct Indicator，调整导航器。G1000中包含三种：VOR1，VOR2和GPS，分别对应频率导航NAV1、NAV2和GPS导航
 - TMR/REF：计时器和速度参考，Vr速度后的OFF调整为ON之后，会在速度计中标记出来抬轮速度
 
-#### 右侧面板
+#### 面板右侧（PFD）
 
 - Direct Course：一个比较奇怪的图标按钮，代表直接飞行到某个点
 - MENU：
