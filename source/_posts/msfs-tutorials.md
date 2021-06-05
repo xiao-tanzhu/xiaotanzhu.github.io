@@ -16,4 +16,8 @@ https://www.zhihu.com/question/23038548/answer/859728438
 
 ### Garmin 1000 操作教程
 
+面板操作说明：
+https://yinlei.org/x-plane10/2017/11/x-plane-11-g1000.html
+
+使用G1000进行完整的起飞-降落过程：
 <iframe src="//player.bilibili.com/player.html?aid=754656614&bvid=BV1Lk4y117Uy&cid=237790800&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
