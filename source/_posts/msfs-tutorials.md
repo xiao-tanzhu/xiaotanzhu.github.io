@@ -2,7 +2,7 @@
 layout: post
 title: "微软模拟飞行教程"
 date: 2021-05-30
-tags: ["MSFS2020", "微软模拟飞行"]
+tags: ["MSFS2020", "微软模拟飞行", "新手教程"]
 categories: [MSFS2020]
 description: "微软模拟飞行的上手教程"
 ---
