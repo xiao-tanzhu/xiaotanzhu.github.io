@@ -16,7 +16,7 @@ timezone: Asia/Shanghai
 url: http://www.xiaotanzhu.com
 root: /
 #permalink: :category/:year/:month/:day/:title.html
-#permalink: :category/:title.html
+permalink: :category/:title.html
 permalink_defaults:
 pretty_urls:
   trailing_index: true # Set to false to remove trailing 'index.html' from permalinks
