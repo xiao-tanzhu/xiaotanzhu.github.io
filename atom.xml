@@ -6,7 +6,7 @@
   <link href="http://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="http://www.xiaotanzhu.com/"/>
-  <updated>2021-05-29T16:00:00.000Z</updated>
+  <updated>2021-05-25T16:00:00.000Z</updated>
   <id>http://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,50 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>微软模拟飞行基本概念</title>
-    <link href="http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html"/>
-    <id>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</id>
-    <published>2021-05-29T16:00:00.000Z</published>
-    <updated>2021-05-29T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">微软模拟飞行中使用到的一些基本概念和名词对照</summary>
-    
-    
-    
-    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/categories/msfs2020/"/>
-    
-    
-    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/tags/msfs2020/"/>
-    
-    <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微软模拟飞行教程</title>
-    <link href="http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html"/>
-    <id>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</id>
-    <published>2021-05-29T16:00:00.000Z</published>
-    <updated>2021-05-29T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">微软模拟飞行的上手教程</summary>
-    
-    
-    
-    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/categories/msfs2020/"/>
-    
-    
-    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/tags/msfs2020/"/>
-    
-    <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
-    
-    <category term="新手教程" scheme="http://www.xiaotanzhu.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
   
   <entry>
     <title>千亿数据扛不住，三思后还是从MySQL迁走了……</title>
@@ -172,31 +128,6 @@
     <category term="SSL" scheme="http://www.xiaotanzhu.com/tags/ssl/"/>
     
     <category term="Github Pages" scheme="http://www.xiaotanzhu.com/tags/github-pages/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>微软模拟飞行2020：从上海浦东飞无锡硕放</title>
-    <link href="http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html"/>
-    <id>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</id>
-    <published>2021-05-04T16:00:00.000Z</published>
-    <updated>2021-05-04T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">在微软模拟飞行中，使用自动驾驶从上海浦东机场飞无锡硕放机场</summary>
-    
-    
-    
-    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/categories/msfs2020/"/>
-    
-    
-    <category term="MSFS2020" scheme="http://www.xiaotanzhu.com/tags/msfs2020/"/>
-    
-    <category term="微软模拟飞行" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/"/>
-    
-    <category term="新手教程" scheme="http://www.xiaotanzhu.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/"/>
-    
-    <category term="G1000" scheme="http://www.xiaotanzhu.com/tags/g1000/"/>
     
   </entry>
   
@@ -430,21 +361,96 @@
   </entry>
   
   <entry>
-    <title>好用的电子书搜索和格式转换平台</title>
-    <link href="http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html"/>
-    <id>http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html</id>
+    <title>设置VIM的编码格式</title>
+    <link href="http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html"/>
+    <id>http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</id>
     <published>2016-10-09T16:00:00.000Z</published>
     <updated>2016-10-09T16:00:00.000Z</updated>
     
     
-    <summary type="html">好用的电子书搜索和格式转换平台</summary>
+    <summary type="html">设置vim的编码格式</summary>
     
     
     
-    <category term="其他" scheme="http://www.xiaotanzhu.com/categories/%E5%85%B6%E4%BB%96/"/>
+    <category term="Linux" scheme="http://www.xiaotanzhu.com/categories/linux/"/>
     
     
-    <category term="电子书" scheme="http://www.xiaotanzhu.com/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/"/>
+    <category term="Linux" scheme="http://www.xiaotanzhu.com/tags/linux/"/>
+    
+    <category term="编码" scheme="http://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
+    
+    <category term="vim" scheme="http://www.xiaotanzhu.com/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>批量转换文件编码</title>
+    <link href="http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html"/>
+    <id>http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html</id>
+    <published>2016-09-21T16:00:00.000Z</published>
+    <updated>2016-09-21T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">批量转换文件编码</summary>
+    
+    
+    
+    <category term="Linux" scheme="http://www.xiaotanzhu.com/categories/linux/"/>
+    
+    
+    <category term="Linux" scheme="http://www.xiaotanzhu.com/tags/linux/"/>
+    
+    <category term="编码" scheme="http://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
+    
+    <category term="enca" scheme="http://www.xiaotanzhu.com/tags/enca/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android包（apk）手动签名</title>
+    <link href="http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html"/>
+    <id>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html</id>
+    <published>2016-09-20T16:00:00.000Z</published>
+    <updated>2016-09-20T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Android包（apk）手动签名</summary>
+    
+    
+    
+    <category term="安卓" scheme="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/"/>
+    
+    
+    <category term="安卓" scheme="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
+    
+    <category term="apk" scheme="http://www.xiaotanzhu.com/tags/apk/"/>
+    
+    <category term="签名" scheme="http://www.xiaotanzhu.com/tags/%E7%AD%BE%E5%90%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Ubuntu上使用USB安装APK到手机</title>
+    <link href="http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html"/>
+    <id>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html</id>
+    <published>2016-09-19T16:00:00.000Z</published>
+    <updated>2016-09-19T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">Ubuntu上使用USB安装APK到手机</summary>
+    
+    
+    
+    <category term="安卓" scheme="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/"/>
+    
+    
+    <category term="Ubuntu" scheme="http://www.xiaotanzhu.com/tags/ubuntu/"/>
+    
+    <category term="Android" scheme="http://www.xiaotanzhu.com/tags/android/"/>
+    
+    <category term="安卓" scheme="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
+    
+    <category term="USB" scheme="http://www.xiaotanzhu.com/tags/usb/"/>
     
   </entry>
   

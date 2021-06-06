@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#x61;&#110;&#103;&#x6a;&#x69;&#110;&#x67;&#102;&#101;&#x69;&#x40;&#x31;&#54;&#x33;&#46;&#x63;&#x6f;&#109;">&#119;&#x61;&#110;&#103;&#x6a;&#x69;&#110;&#x67;&#102;&#101;&#x69;&#x40;&#x31;&#54;&#x33;&#46;&#x63;&#x6f;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#x6e;&#103;&#x6a;&#105;&#110;&#x67;&#102;&#x65;&#x69;&#x40;&#x32;&#54;&#51;&#46;&#99;&#x6f;&#x6d;">&#x77;&#x61;&#x6e;&#103;&#x6a;&#105;&#110;&#x67;&#102;&#x65;&#x69;&#x40;&#x32;&#54;&#51;&#46;&#99;&#x6f;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#97;&#x6d;&#97;&#x40;&#119;&#x68;&#x69;&#116;&#101;&#x68;&#x6f;&#117;&#115;&#x65;&#x2e;&#99;&#111;&#x6d;">&#111;&#x62;&#97;&#x6d;&#97;&#x40;&#119;&#x68;&#x69;&#116;&#101;&#x68;&#x6f;&#117;&#115;&#x65;&#x2e;&#99;&#111;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#105;&#x6a;&#x69;&#x6e;&#112;&#x69;&#110;&#x67;&#x40;&#122;&#x68;&#x6f;&#x6e;&#x67;&#x6e;&#97;&#110;&#104;&#97;&#105;&#46;&#x63;&#111;&#109;">&#120;&#105;&#x6a;&#x69;&#x6e;&#112;&#x69;&#110;&#x67;&#x40;&#122;&#x68;&#x6f;&#x6e;&#x67;&#x6e;&#97;&#110;&#104;&#97;&#105;&#46;&#x63;&#111;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#x61;&#x6e;&#x67;&#x6a;&#x69;&#110;&#103;&#102;&#101;&#105;&#64;&#x31;&#54;&#x33;&#46;&#99;&#x6f;&#x6d;">&#119;&#x61;&#x6e;&#x67;&#x6a;&#x69;&#110;&#103;&#102;&#101;&#105;&#64;&#x31;&#54;&#x33;&#46;&#99;&#x6f;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#110;&#103;&#x6a;&#105;&#x6e;&#x67;&#102;&#x65;&#105;&#x40;&#50;&#x36;&#51;&#46;&#x63;&#x6f;&#x6d;">&#x77;&#x61;&#110;&#103;&#x6a;&#105;&#x6e;&#x67;&#102;&#x65;&#105;&#x40;&#50;&#x36;&#51;&#46;&#x63;&#x6f;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#x62;&#97;&#109;&#x61;&#64;&#119;&#x68;&#x69;&#x74;&#101;&#x68;&#111;&#117;&#115;&#101;&#46;&#x63;&#111;&#x6d;">&#x6f;&#x62;&#97;&#109;&#x61;&#64;&#119;&#x68;&#x69;&#x74;&#101;&#x68;&#111;&#117;&#115;&#101;&#46;&#x63;&#111;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#x69;&#x6a;&#x69;&#110;&#112;&#105;&#x6e;&#103;&#x40;&#x7a;&#x68;&#111;&#x6e;&#103;&#110;&#x61;&#x6e;&#x68;&#97;&#105;&#46;&#x63;&#111;&#109;">&#120;&#x69;&#x6a;&#x69;&#110;&#112;&#105;&#x6e;&#103;&#x40;&#x7a;&#x68;&#111;&#x6e;&#103;&#110;&#x61;&#x6e;&#x68;&#97;&#105;&#46;&#x63;&#111;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -1906,31 +1906,6 @@ with these **parameters**
       </tags>
   </entry>
   <entry>
-    <title>好用的电子书搜索和格式转换平台</title>
-    <url>/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html</url>
-    <content><![CDATA[<p>小蜜蜂在线电子书转换器，免费电子书格式转换，转换的格式支持各种阅读软件与设备。质量无损，转换速度快，简单易用。</p>
-<p>传送门：<a href="http://cn.epubee.com/">http://cn.epubee.com/</a></p>
-<h2 id="电子书格式转换"><a href="#电子书格式转换" class="headerlink" title="电子书格式转换"></a>电子书格式转换</h2><p>它支持 ePub，PDF，Mobi，AZW，AZW3，AZW4，htmlz，PRC，TXT，LIT，LRF，FB2，PDB，TXT等电子书格式的转换。</p>
-<p>支持三种输出格式： EPUB，PDF，Mobi。</p>
-<p>无损，免费，简单且功能强大，在线电子书转换器致力于为读者提供最好的电子书相关解决方案。充分利用这一工具，并将电子书转换成您最喜爱的格式，在任何便利的电子阅读器上都能得到最佳阅读体验。</p>
-<p><strong>优势:</strong></p>
-<ul>
-<li>支持单个文件大小高达60MB</li>
-<li>支持批量上传和处理</li>
-<li>页面上没有烦人的广告，清晰安全</li>
-<li>独具优势的文件转换核心，更快更好</li>
-</ul>
-<h2 id="图书搜索"><a href="#图书搜索" class="headerlink" title="图书搜索"></a>图书搜索</h2><p>简单不用说，输入名字、ASIN或ISBN就可以搜索了。</p>
-<h2 id="传送门"><a href="#传送门" class="headerlink" title="传送门"></a>传送门</h2><p><a href="http://cn.epubee.com/">http://cn.epubee.com/</a></p>
-]]></content>
-      <categories>
-        <category>其他</category>
-      </categories>
-      <tags>
-        <tag>电子书</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>设置VIM的编码格式</title>
     <url>/linux/2016-10-10-set-vim-encoding.html</url>
     <content><![CDATA[<p>有的时候使用vim打开中文文件的时候会出现乱码，原因是vim打开文件时使用的编码格式和文件的编码格式不一致。</p>
@@ -2661,122 +2636,6 @@ with these **parameters**
       <tags>
         <tag>MacOS</tag>
         <tag>MacBook</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微软模拟飞行基本概念</title>
-    <url>/msfs2020/msfs-concepts.html</url>
-    <content><![CDATA[<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><ul>
-<li><p>FLAPS</p>
-</li>
-<li><p>TRIM</p>
-</li>
-<li><p>SPOLIERS</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>MSFS2020</category>
-      </categories>
-      <tags>
-        <tag>MSFS2020</tag>
-        <tag>微软模拟飞行</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微软模拟飞行教程</title>
-    <url>/msfs2020/msfs-tutorials.html</url>
-    <content><![CDATA[<h2 id="入门教程"><a href="#入门教程" class="headerlink" title="入门教程"></a>入门教程</h2><h3 id="尾翼的作用"><a href="#尾翼的作用" class="headerlink" title="尾翼的作用"></a>尾翼的作用</h3><p>飞机尾翼在飞行中的作用及原理是什么？ - 迷惘的熊猫的回答 - 知乎<br><a href="https://www.zhihu.com/question/23038548/answer/859728438">https://www.zhihu.com/question/23038548/answer/859728438</a></p>
-<h3 id="Garmin-1000-操作教程"><a href="#Garmin-1000-操作教程" class="headerlink" title="Garmin 1000 操作教程"></a>Garmin 1000 操作教程</h3><p>面板操作说明：<br><a href="https://yinlei.org/x-plane10/2017/11/x-plane-11-g1000.html">https://yinlei.org/x-plane10/2017/11/x-plane-11-g1000.html</a></p>
-<p>使用G1000进行完整的起飞-降落过程：</p>
-<iframe src="//player.bilibili.com/player.html?aid=754656614&bvid=BV1Lk4y117Uy&cid=237790800&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
-]]></content>
-      <categories>
-        <category>MSFS2020</category>
-      </categories>
-      <tags>
-        <tag>MSFS2020</tag>
-        <tag>微软模拟飞行</tag>
-        <tag>新手教程</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微软模拟飞行2020：从上海浦东飞无锡硕放</title>
-    <url>/msfs2020/msfs2020-flight-sh-wx.html</url>
-    <content><![CDATA[<h2 id="基本说明"><a href="#基本说明" class="headerlink" title="基本说明"></a>基本说明</h2><h3 id="飞行起止"><a href="#飞行起止" class="headerlink" title="飞行起止"></a>飞行起止</h3><p>出发：浦东国际机场（ZSPD），跑道36R<br>到达：无锡硕放机场（ZSWX），跑道21</p>
-<blockquote>
-<p>注：为什么选择无锡机场，主要考虑对新手友好，不至于距离太短而手忙脚乱，也不至于距离太远而过于无聊。</p>
-</blockquote>
-<h3 id="飞机型号"><a href="#飞机型号" class="headerlink" title="飞机型号"></a>飞机型号</h3><p>Cessna 172 (G1000)，操作系统G1000</p>
-<h3 id="面板说明"><a href="#面板说明" class="headerlink" title="面板说明"></a>面板说明</h3><p>Cessna 172主要有两个屏幕，为PFD和MFD，即主屏幕和多功能屏幕，分别为左侧和右侧两块屏幕。具体说明可以参考：<a href="https://www.bilibili.com/video/BV1Mf4y1z7Lm/">https://www.bilibili.com/video/BV1Mf4y1z7Lm/</a></p>
-<h4 id="面板左侧（PFD）"><a href="#面板左侧（PFD）" class="headerlink" title="面板左侧（PFD）"></a>面板左侧（PFD）</h4><ul>
-<li>AP：AutoPilot，开启/关闭自动驾驶</li>
-<li>FD：Flight Director，飞行指引，打开之后屏幕上会出现红色导航标记</li>
-<li>HDG：Heading Select或Heading Hold，制定航向飞行</li>
-<li>ALT：Altitude，自动驾驶的飞行高度设定，可结合左下角ALT旋钮设置，显示在高度计上方</li>
-<li>VNV：垂直导航（这个飞机貌似没有？）</li>
-<li>APR：Approach Mode，进近模式</li>
-<li>BC：Back Course</li>
-<li>VS：Virtual Speed，点击之后，垂直速度计顶端会显示设置值，可结合NoseUP和NoseDN使用</li>
-<li>FLC：Flight Level Change，按照现有速度，计算爬升速度</li>
-<li>NoseUP：结合VS和FLC使用，提高VS或FLC的设置值</li>
-<li>NoseDN：结合VS和FLC使用，降低VS或FLC的设置值</li>
-</ul>
-<h4 id="面板右侧（PFD）"><a href="#面板右侧（PFD）" class="headerlink" title="面板右侧（PFD）"></a>面板右侧（PFD）</h4><ul>
-<li>CDI：Change Direct Indicator，调整导航器。G1000中包含三种：VOR1，VOR2和GPS，分别对应频率导航NAV1、NAV2和GPS导航</li>
-<li>TMR/REF：计时器和速度参考，Vr速度后的OFF调整为ON之后，会在速度计中标记出来抬轮速度</li>
-</ul>
-<h4 id="面板右侧（PFD）-1"><a href="#面板右侧（PFD）-1" class="headerlink" title="面板右侧（PFD）"></a>面板右侧（PFD）</h4><ul>
-<li>Direct Course：一个比较奇怪的图标按钮，代表直接飞行到某个点</li>
-<li>MENU：</li>
-<li>FPL：Flight Plan，查看和设置飞行计划</li>
-<li>PROC：Procedure，设置离场、进场和进近等程序</li>
-</ul>
-<h2 id="飞行过程"><a href="#飞行过程" class="headerlink" title="飞行过程"></a>飞行过程</h2><h3 id="起飞准备"><a href="#起飞准备" class="headerlink" title="起飞准备"></a>起飞准备</h3><ol>
-<li>设置自动驾驶巡航高度：点击“ALT”，高度计顶端显示数字，旋转左下角ALT旋钮调整巡航高度，我们设置3500；</li>
-<li>设置自动驾驶爬升速度（VS）：点击VS，垂直速度计顶端显示设置值，点击5次“NoseUP”按钮，调整数值为500；</li>
-</ol>
-<h3 id="起飞"><a href="#起飞" class="headerlink" title="起飞"></a>起飞</h3><ol>
-<li>按下左侧“HDG”旋钮，将航向设定为当前飞机机头方向，然后点击“HDG”按钮可选择让飞机按指定方向飞行；</li>
-<li>放开手刹；</li>
-<li>推动节流阀至最大，待飞机空速达到70左右时，抬轮起飞；</li>
-<li>待飞机飞行高度为500英尺左右时，点击“AP”按钮启动自动驾驶，飞机将按照500英尺/分的爬升率上升至3500英尺；</li>
-<li>飞机达到巡航高度之后，降低节流阀到巡航速度。</li>
-</ol>
-<h3 id="飞行导航"><a href="#飞行导航" class="headerlink" title="飞行导航"></a>飞行导航</h3><p>飞行导航的控制在右侧屏幕，即副驾驶侧的屏幕</p>
-<h4 id="直线导航（Direct-Course）"><a href="#直线导航（Direct-Course）" class="headerlink" title="直线导航（Direct Course）"></a>直线导航（Direct Course）</h4><ol>
-<li>点击“Direct Course”按钮，通过FMS旋钮设置地点为ZSWX，选择之后按“ENT”生效（FMS大旋钮选择位置，小旋钮选择字母）。此时可看到一条直线飞向硕放机场；</li>
-<li>点击面板左侧“NAV”按钮，此时屏幕上方标记HDG会变为GPS，飞机会飞向航向并按航向保持；</li>
-</ol>
-<h4 id="飞行计划"><a href="#飞行计划" class="headerlink" title="飞行计划"></a>飞行计划</h4><ol>
-<li>点击面板右侧“FPL”，可以看到刚才设定的直线飞行计划，点击“MENU”，选择“DELETE FLIGHT PLAN”，按“ENT”删除刚才的直线飞行计划；</li>
-<li>回到飞行计划页面，按下“FMS”旋钮，输入位置开始闪烁，旋转“FMS”大小按钮，分别设置出发和到达为ZSPD（浦东）和ZSWX（硕放），然后按“ENT”确认选择，可以看到飞行计划页面出现了ZSPD-&gt;ZSWX这个飞行计划；</li>
-<li>按“PROC”按钮，选择“SELECT APPROACH”，按下“ENT”选择进近跑道，按“ENT”键选择“ILS 21”，即选择21跑道的进近方向；</li>
-<li>使用大旋钮选择“Load?”，点击“ENT”按钮之后，可以看到进近计划已经添加到了飞行计划中；</li>
-<li>使用“NAV”按钮启动GPS导航（屏幕上方标记GPS为准），飞机会按照整个飞行计划自动飞行。</li>
-</ol>
-<h3 id="进场准备"><a href="#进场准备" class="headerlink" title="进场准备"></a>进场准备</h3><ol>
-<li>在右侧屏幕地图状态下，（1）旋转FMS大按钮，由MAP旋转至NRST（旋转过程共有四个状态：MAP、WPT、AUX、NRST），即附近机场。（2）通过FMS大旋钮选择ZSWX，点击面板下侧“FREQ”按钮，光标指向频率，（3）使用FMS大旋钮选择RW21，按下“ENT”按钮，此导航频率会自动填写到左侧屏幕左上角NAV1中，（4）此时按下面板左侧“&lt;-&gt;”按钮，将选择的频率切换至生效状态；</li>
-<li>飞行计划飞至最后阶段和跑道对齐时，按下HDG按钮，再按下HDG，飞机会临时按照机头方向飞行；</li>
-<li>点击面板下方“CDI”将GPS切换为VOR1，此时由于已接通地面导航，VOR1会显示为LOC1；</li>
-<li>按下面板左侧“APR”按钮，屏幕上方的GPS标志切换为LOC，并为绿色，说明已经按本地进近指引执行；后边有个一GS（下滑道）标记，但为白色。</li>
-</ol>
-<h3 id="降落"><a href="#降落" class="headerlink" title="降落"></a>降落</h3><ol>
-<li>当进入下滑道之后，GS标记会变为绿色，飞机跟随进近指引开始下降，此时需要进行减速（收起一些节流阀），控制速度在75节左右；</li>
-<li>进近距离为2NM左右时，放下FLAPS，并控制速度在60节左右；</li>
-<li>飞机即将触底时，节流阀拉至IDLE，轻轻拉起机头，平稳着陆；</li>
-<li>按下BRAKE，减速，并收起FLAPS。</li>
-</ol>
-<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>G1000导航仪基本操作：<a href="https://yinlei.org/x-plane10/2017/11/x-plane-11-g1000.html">https://yinlei.org/x-plane10/2017/11/x-plane-11-g1000.html</a></p>
-]]></content>
-      <categories>
-        <category>MSFS2020</category>
-      </categories>
-      <tags>
-        <tag>MSFS2020</tag>
-        <tag>微软模拟飞行</tag>
-        <tag>新手教程</tag>
-        <tag>G1000</tag>
       </tags>
   </entry>
   <entry>

@@ -15,56 +15,8 @@
     <atom:link href="http://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Sat, 29 May 2021 16:00:00 GMT</pubDate>
+    <pubDate>Tue, 25 May 2021 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
-    
-    <item>
-      <title>微软模拟飞行基本概念</title>
-      <link>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</link>
-      <guid>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</guid>
-      <pubDate>Sat, 29 May 2021 16:00:00 GMT</pubDate>
-      
-      <description>微软模拟飞行中使用到的一些基本概念和名词对照</description>
-      
-      
-      
-      
-      <category domain="http://www.xiaotanzhu.com/categories/msfs2020/">MSFS2020</category>
-      
-      
-      <category domain="http://www.xiaotanzhu.com/tags/msfs2020/">MSFS2020</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/">微软模拟飞行</category>
-      
-      
-      <comments>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>微软模拟飞行教程</title>
-      <link>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</link>
-      <guid>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</guid>
-      <pubDate>Sat, 29 May 2021 16:00:00 GMT</pubDate>
-      
-      <description>微软模拟飞行的上手教程</description>
-      
-      
-      
-      
-      <category domain="http://www.xiaotanzhu.com/categories/msfs2020/">MSFS2020</category>
-      
-      
-      <category domain="http://www.xiaotanzhu.com/tags/msfs2020/">MSFS2020</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/">微软模拟飞行</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/">新手教程</category>
-      
-      
-      <comments>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html#disqus_thread</comments>
-      
-    </item>
     
     <item>
       <title>千亿数据扛不住，三思后还是从MySQL迁走了……</title>
@@ -188,33 +140,6 @@
       
       
       <comments>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>微软模拟飞行2020：从上海浦东飞无锡硕放</title>
-      <link>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</link>
-      <guid>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</guid>
-      <pubDate>Tue, 04 May 2021 16:00:00 GMT</pubDate>
-      
-      <description>在微软模拟飞行中，使用自动驾驶从上海浦东机场飞无锡硕放机场</description>
-      
-      
-      
-      
-      <category domain="http://www.xiaotanzhu.com/categories/msfs2020/">MSFS2020</category>
-      
-      
-      <category domain="http://www.xiaotanzhu.com/tags/msfs2020/">MSFS2020</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/">微软模拟飞行</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/">新手教程</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/g1000/">G1000</category>
-      
-      
-      <comments>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html#disqus_thread</comments>
       
     </item>
     
@@ -470,23 +395,104 @@
     </item>
     
     <item>
-      <title>好用的电子书搜索和格式转换平台</title>
-      <link>http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html</link>
-      <guid>http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html</guid>
+      <title>设置VIM的编码格式</title>
+      <link>http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</link>
+      <guid>http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</guid>
       <pubDate>Sun, 09 Oct 2016 16:00:00 GMT</pubDate>
       
-      <description>好用的电子书搜索和格式转换平台</description>
+      <description>设置vim的编码格式</description>
       
       
       
       
-      <category domain="http://www.xiaotanzhu.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
+      <category domain="http://www.xiaotanzhu.com/categories/linux/">Linux</category>
       
       
-      <category domain="http://www.xiaotanzhu.com/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/">电子书</category>
+      <category domain="http://www.xiaotanzhu.com/tags/linux/">Linux</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/">编码</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/vim/">vim</category>
       
       
-      <comments>http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html#disqus_thread</comments>
+      <comments>http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>批量转换文件编码</title>
+      <link>http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html</link>
+      <guid>http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html</guid>
+      <pubDate>Wed, 21 Sep 2016 16:00:00 GMT</pubDate>
+      
+      <description>批量转换文件编码</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/linux/">Linux</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/linux/">Linux</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/">编码</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/enca/">enca</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Android包（apk）手动签名</title>
+      <link>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html</link>
+      <guid>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html</guid>
+      <pubDate>Tue, 20 Sep 2016 16:00:00 GMT</pubDate>
+      
+      <description>Android包（apk）手动签名</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/">安卓</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/">安卓</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/apk/">apk</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E7%AD%BE%E5%90%8D/">签名</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Ubuntu上使用USB安装APK到手机</title>
+      <link>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html</link>
+      <guid>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html</guid>
+      <pubDate>Mon, 19 Sep 2016 16:00:00 GMT</pubDate>
+      
+      <description>Ubuntu上使用USB安装APK到手机</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/">安卓</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/android/">Android</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/">安卓</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/usb/">USB</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html#disqus_thread</comments>
       
     </item>
     

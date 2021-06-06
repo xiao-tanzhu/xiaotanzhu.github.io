@@ -1,11 +1,8 @@
-http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html
-http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html
 http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html
 http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html
 http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html
 http://www.xiaotanzhu.com/macos/macos-howtos.html
 http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html
-http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html
 http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html
 http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html
 http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html
@@ -17,7 +14,6 @@ http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html
 http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html
 http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html
 http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html
-http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html
 http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html
 http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html
 http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html

@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</loc>
-    <lastmod>2021-05-29</lastmod>
-  </url>
-  <url>
-    <loc>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</loc>
-    <lastmod>2021-05-29</lastmod>
-  </url>
-  <url>
     <loc>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</loc>
     <lastmod>2021-05-25</lastmod>
   </url>
@@ -27,10 +19,6 @@
   <url>
     <loc>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</loc>
     <lastmod>2021-05-08</lastmod>
-  </url>
-  <url>
-    <loc>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</loc>
-    <lastmod>2021-05-04</lastmod>
   </url>
   <url>
     <loc>http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</loc>
@@ -75,10 +63,6 @@
   <url>
     <loc>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</loc>
     <lastmod>2016-10-13</lastmod>
-  </url>
-  <url>
-    <loc>http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html</loc>
-    <lastmod>2016-10-09</lastmod>
   </url>
   <url>
     <loc>http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</loc>
