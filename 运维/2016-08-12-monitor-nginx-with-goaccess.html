@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="使用Goaccess监控Nginx的运行状态">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用Goaccess监控Nginx的运行状态">
+<meta property="og:url" content="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-12-monitor-nginx-with-goaccess.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="使用Goaccess监控Nginx的运行状态">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xiaotanzhu.com/upload/images/10.png">
+<meta property="article:published_time" content="2016-08-11T16:00:00.000Z">
+<meta property="article:modified_time" content="2016-08-11T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="监控">
+<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="Goaccess">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xiaotanzhu.com/upload/images/10.png">
+
+<link rel="canonical" href="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-12-monitor-nginx-with-goaccess.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>使用Goaccess监控Nginx的运行状态 | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-139248857-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小炭猪</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-12-monitor-nginx-with-goaccess.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          使用Goaccess监控Nginx的运行状态
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-08-12 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-12T00:00:00+08:00">2016-08-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E8%BF%90%E7%BB%B4/" itemprop="url" rel="index"><span itemprop="name">运维</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/%E8%BF%90%E7%BB%B4/2016-08-12-monitor-nginx-with-goaccess.html" class="post-meta-item leancloud_visitors" data-flag-title="使用Goaccess监控Nginx的运行状态" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">使用Goaccess监控Nginx的运行状态</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="最终启动命令"><a href="#最终启动命令" class="headerlink" title="最终启动命令"></a>最终启动命令</h2><p>如果你只需要知道最终的启动命令，可以跳过下边所有内容。启动命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">goaccess -f /var/<span class="built_in">log</span>/nginx/access.log -o /data/www/access/index.html --real-time-html --ws-url=access1.xiaotanzhu.com</span><br></pre></td></tr></table></figure>
+
+<h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>系统版本：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@www:~# lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 14.04.2 LTS</span><br><span class="line">Release:        14.04</span><br><span class="line">Codename:       trusty</span><br></pre></td></tr></table></figure>
+<p>Nginx日志配置</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">log_format</span> access <span class="string">&#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; $status $body_bytes_sent &quot;$http_referer&quot; &quot;$http_user_agent&quot; $http_x_forwarded_for $request_time $upstream_response_time&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>Nginx日志样例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">180.98.186.40 - - [12/Aug/2016:14:39:43 +0800] &quot;POST /api/heartbeat/alive HTTP/1.1&quot; 200 73 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.002 0.002</span><br><span class="line">202.112.25.39 - - [12/Aug/2016:14:39:43 +0800] &quot;POST /api/attendance/signin/time/detail/v2 HTTP/1.1&quot; 200 110 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.197 0.197</span><br><span class="line">180.98.186.40 - - [12/Aug/2016:14:39:43 +0800] &quot;POST /api/message/unread/v5 HTTP/1.1&quot; 200 2322 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.085 0.085</span><br><span class="line">180.98.186.40 - - [12/Aug/2016:14:39:43 +0800] &quot;POST /api/common/app/advertisement/v2 HTTP/1.1&quot; 200 59 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.076 0.076</span><br><span class="line">180.98.186.40 - - [12/Aug/2016:14:39:43 +0800] &quot;POST /api/common/version/v1 HTTP/1.1&quot; 200 532 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.097 0.097</span><br><span class="line">180.98.186.40 - - [12/Aug/2016:14:39:43 +0800] &quot;POST /api/honour/queryFavoriteImageList/v1 HTTP/1.1&quot; 200 1172 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.108 0.108</span><br><span class="line">180.98.186.40 - - [12/Aug/2016:14:39:43 +0800] &quot;POST /api/log/info HTTP/1.1&quot; 200 47 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.119 0.119</span><br><span class="line">202.112.25.39 - - [12/Aug/2016:14:39:44 +0800] &quot;POST /api/attendance/signin/time/detail/v2 HTTP/1.1&quot; 200 110 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.235 0.235</span><br><span class="line">202.112.25.39 - - [12/Aug/2016:14:39:44 +0800] &quot;POST /api/attendance/signin/condition/v4 HTTP/1.1&quot; 200 305 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.134 0.134</span><br><span class="line">202.112.25.39 - - [12/Aug/2016:14:39:44 +0800] &quot;POST /api/attendance/signin/time/detail/v2 HTTP/1.1&quot; 200 110 &quot;-&quot; &quot;okhttp/3.3.1&quot; - 0.165 0.165</span><br></pre></td></tr></table></figure>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>安装方法官方网站给的很清楚，传送门：<a target="_blank" rel="noopener" href="https://goaccess.io/download">https://goaccess.io/download</a></p>
+<p>这里节选出Ubuntu上的安装方法</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;deb http://deb.goaccess.io/ <span class="subst">$(lsb_release -cs)</span> main&quot;</span> | sudo tee -a /etc/apt/sources.list.d/goaccess.list</span><br><span class="line">wget -O - https://deb.goaccess.io/gnugpg.key | sudo apt-key add - </span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install goaccess</span><br></pre></td></tr></table></figure>
+<p>最简单的使用方法：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">goaccess -f /var/<span class="built_in">log</span>/nginx/access.log</span><br></pre></td></tr></table></figure>
+<p>分析完成之后可以看到一个终端显示（libncurses）的页面，也可以对这个页面进行交互，具体的交互方式可以参考<code>man goaccess</code>。</p>
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><p>如果使用Nginx默认的日志格式，那么Goaccess不需要任何设置即可使用。但是我们的日志为自定义格式，在默认日志的最后增加了响应时间<code>$request_time</code>和upstream的响应时间<code>$upstream_response_time</code>，如下：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">log_format</span> access <span class="string">&#x27;$remote_addr - $remote_user [$time_local] &quot;$request&quot; $status $body_bytes_sent &quot;$http_referer&quot; &quot;$http_user_agent&quot; $http_x_forwarded_for $request_time $upstream_response_time&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>于是需要修改Goaccess监控的日志的格式，原格式</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">- log-format %h %^[%d:%t %^] &quot;%r&quot; %s %b &quot;%R&quot; &quot;%u&quot;</span></span><br><span class="line"><span class="addition">+ log-format %h %^[%d:%t %^] &quot;%r&quot; %s %b &quot;%R&quot; &quot;%u&quot; %^ %^ %T</span></span><br></pre></td></tr></table></figure>
+<p>最后三个元素<code>%^ %^ %T</code>，<code>%^</code>表示忽略，<code>%T</code>表示“以秒为单位的响应时间，精确到毫秒”。</p>
+<p>完整的日志格式可以参考<code>man goaccess</code>，这里节选其中的日志格式部分：</p>
+<pre><code>   log-format
+          The log-format variable followed by a space or \t , specifies the log format string.
+
+   %x     A date and time field matching the time-format and date-format variables. This is used when a timestamp is given instead of the date and time being in two separated vari‐
+          ables.
+   %t     time field matching the time-format variable.
+   %d     date field matching the date-format variable.
+   %v     The canonical Server Name of the server serving the request (Virtual Host).
+   %h     host (the client IP address, either IPv4 or IPv6)
+   %r     The request line from the client. This requires specific delimiters around the request (as single quotes, double quotes, or anything else) to be parsable. If not, we have
+          to use a combination of special format specifiers as %m %U %H.
+   %q     The query string.
+   %m     The request method.
+   %U     The URL path requested.
+          Note:  If the query string is in %U, there is no need to use %q.  However, if the URL path, does not include any query string, you may use %q and the query string will be
+          appended to the request.
+   %H     The request protocol.
+   %s     The status code that the server sends back to the client.
+   %b     The size of the object returned to the client.
+   %R     The &quot;Referrer&quot; HTTP request header.
+   %u     The user-agent HTTP request header.
+   %D     The time taken to serve the request, in microseconds as a decimal number.
+   %T     The time taken to serve the request, in seconds with milliseconds resolution.
+   %L     The time taken to serve the request, in milliseconds as a decimal number.
+
+          Note: If multiple time served specifiers are used at the same time, the first option specified in the format string will take priority over the other specifiers.
+
+   %^     Ignore this field.
+   %~     Move forward through the log string until a non-space (!isspace) char is found.
+
+   GoAccess requires the following fields:
+          %h a valid IPv4/6
+          %d a valid date
+          %r the request
+</code></pre>
+<h2 id="监控"><a href="#监控" class="headerlink" title="监控"></a>监控</h2><p>实际监控还是用HTML来的方便，而且Goaccess号称实时监控，那这个特性肯定也要用一下了。</p>
+<p>实时监控启动命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">goaccess -f /var/<span class="built_in">log</span>/nginx/access.log -o /data/www/access/index.html --real-time-html --ws-url=access1.xiaotanzhu.com</span><br></pre></td></tr></table></figure>
+
+<p>下边每个参数分别介绍一下。</p>
+<ol>
+<li><code>-f /var/log/nginx/access.log</code> 指定要分析的Nginx日志文件，没什么好说的</li>
+<li><code>-o /data/www/access/index.html</code> 指定输出的HTML文件</li>
+<li><code>--real-time-html</code> 启动实时HTML。这里需要注意的是，所谓实时并不是goaccess不停的更新HTML文件。事实上，HTML文件生成之后，就不再变化，而页面上是通过WebSocket对页面上的数据进行更新</li>
+<li><code>--ws-url=access1.irenshi.cn</code> 指定WebSocket的地址。由于我使用<code>access1.xiaotanzhu.com</code>访问生成的HTML，所以<code>--ws-url</code>必须指定为<code>access1.xiaotanzhu.com</code>，这样生成的HTML才知道应该去<code>ws://access1.xiaotanzhu.com:7890</code>访问这个WebSocket。</li>
+<li><code>--port=7890</code> 我们这里并没有使用这个参数。这个参数用来控制goaccess生成的WebSocket的端口。默认值：7890。</li>
+</ol>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><h3 id="监控界面"><a href="#监控界面" class="headerlink" title="监控界面"></a>监控界面</h3><p><img src="/upload/images/10.png"></p>
+<p>我们可以看到其中的数据在实时变化。</p>
+<h3 id="资源占用"><a href="#资源占用" class="headerlink" title="资源占用"></a>资源占用</h3><p>使用<code>top</code>命令查看内存占用情况如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">  PID USER      PR  NI    VIRT    RES    SHR S  %CPU %MEM     TIME+ COMMAND</span><br><span class="line">26727 root      20   0  219624  51136   1612 S   1.3  0.6   0:52.13 goaccess</span><br></pre></td></tr></table></figure>
+<p>现在来看处理百兆的日志时，资源还是比较省的。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag"># 监控</a>
+              <a href="/tags/nginx/" rel="tag"># Nginx</a>
+              <a href="/tags/goaccess/" rel="tag"># Goaccess</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-08-10-dist-lock-using-redis.html" rel="prev" title="使用Redis SETNX命令实现分布式锁">
+      <i class="fa fa-chevron-left"></i> 使用Redis SETNX命令实现分布式锁
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/linux/2016-08-14-linux-commands.html" rel="next" title="Linux常用命令">
+      Linux常用命令 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E7%BB%88%E5%90%AF%E5%8A%A8%E5%91%BD%E4%BB%A4"><span class="nav-number">1.</span> <span class="nav-text">最终启动命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">环境准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85"><span class="nav-number">3.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%91%E6%8E%A7"><span class="nav-number">5.</span> <span class="nav-text">监控</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%88%E6%9E%9C"><span class="nav-number">6.</span> <span class="nav-text">效果</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%9B%91%E6%8E%A7%E7%95%8C%E9%9D%A2"><span class="nav-number">6.1.</span> <span class="nav-text">监控界面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%84%E6%BA%90%E5%8D%A0%E7%94%A8"><span class="nav-number">6.2.</span> <span class="nav-text">资源占用</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">96</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/2016-08-12-monitor-nginx-with-goaccess.html";
+    this.page.identifier = "运维/2016-08-12-monitor-nginx-with-goaccess.html";
+    this.page.title = "使用Goaccess监控Nginx的运行状态";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xiaotanzhu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

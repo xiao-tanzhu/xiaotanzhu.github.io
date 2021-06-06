@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Spring中使用JUnit+mockito+powermock进行单元测试">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring中使用JUnit+mockito+powermock进行单元测试">
+<meta property="og:url" content="http://www.xiaotanzhu.com/spring/2016-07-25-spring-unit-test-with-junit-mockito-powermock.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="Spring中使用JUnit+mockito+powermock进行单元测试">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-07-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2016-07-24T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="Spring">
+<meta property="article:tag" content="单元测试">
+<meta property="article:tag" content="JUnit">
+<meta property="article:tag" content="Mockito">
+<meta property="article:tag" content="PowerMock">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.xiaotanzhu.com/spring/2016-07-25-spring-unit-test-with-junit-mockito-powermock.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Spring中使用JUnit+mockito+powermock进行单元测试 | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-139248857-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小炭猪</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/spring/2016-07-25-spring-unit-test-with-junit-mockito-powermock.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Spring中使用JUnit+mockito+powermock进行单元测试
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-07-25 00:00:00" itemprop="dateCreated datePublished" datetime="2016-07-25T00:00:00+08:00">2016-07-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring/" itemprop="url" rel="index"><span itemprop="name">Spring</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/spring/2016-07-25-spring-unit-test-with-junit-mockito-powermock.html" class="post-meta-item leancloud_visitors" data-flag-title="Spring中使用JUnit+mockito+powermock进行单元测试" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">Spring中使用JUnit+mockito+powermock进行单元测试</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Spring中执行单元测试，最麻烦的就是解决Bean的定义以及注入的问题。最开始使用Spring的上下文初始化进行测试，开头是这样的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(SpringJUnit4ClassRunner.class)</span> </span><br><span class="line"><span class="meta">@ContextConfiguration(&quot;/config/Spring-db1.xml&quot;)</span> </span><br></pre></td></tr></table></figure>
+<p>于是，为了能让这个单元测试正常运行起来，我又Mock了一堆其他的如：MySQL，MongoDB，Redis等等无数的组件。最终测试终于可以运行起来，但是运行的时候又需要对整个Spring的上下文进行初始化，跑一个单元测试需要0.1秒，跑初始化流程就需要1分钟。不过当时单元测试并不是团队高优先级的任务，后来也就没有再研究。   </p>
+<p>最近回归Bug频频出现，单元测试又开始提上日程。花了大半天时间研究了JUnit+mockito+powermock进行可行的单元测试。</p>
+<h2 id="三个软件的定位"><a href="#三个软件的定位" class="headerlink" title="三个软件的定位"></a>三个软件的定位</h2><ul>
+<li><strong>JUnit</strong> 作为优秀的测试框架，在Spring单元测试占有相当大的市场份额</li>
+<li><strong>Mockito</strong> 管理Spring的Mock对象管理，以及依赖注入等</li>
+<li><strong>PowerMock</strong> Mockito不能对构造函数、静态函数以及私有函数进行Stunning，PowerMock是Mockito基础上的增强，填补了后者这方面的空白</li>
+</ul>
+<h2 id="从一个例子开始：签到"><a href="#从一个例子开始：签到" class="headerlink" title="从一个例子开始：签到"></a>从一个例子开始：签到</h2><p>凡事从简单的开始，我选择了系统中最复杂模块之一————“签到”的最简单部分进行单元测试。以下是需要进行测试的代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> SigninResult <span class="title">signV3</span><span class="params">(String staffId, SigninType signType, String wifiName, String wifiMac, Double longitude,</span></span></span><br><span class="line"><span class="params"><span class="function">                           Double latitude, Double radius, String locationName, String mobileId, Date signDate, String companyId, <span class="keyword">boolean</span> isSigninOnlyOnce)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.checkOutSign(signType, companyId, staffId, signDate);<span class="comment">//校验是否有相同类型的外出签到在申请中或已经审批通过了</span></span><br><span class="line">    <span class="keyword">return</span> actualSignV3(staffId, signType, wifiName, wifiMac, longitude, latitude, radius, locationName, mobileId, signDate, companyId, <span class="keyword">new</span> Date(), isSigninOnlyOnce, <span class="keyword">false</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>大家可以忽略乱七八糟的参数，只关注函数的两步：</p>
+<ol>
+<li>校验和外出签到关联的条件：checkOutSign</li>
+<li>实际执行签到的逻辑：actualSignV3<br>另外需要注意的是：</li>
+<li>checkOutSign是私有函数，如果其中不符合签到条件的话会抛出异常</li>
+<li>actualSignV3是共有函数，在某些版本的接口中可以被其他模块直接调用<br>由于我们要演示对私有函数的测试，所以<code>checkOutSign</code>内的大致流程为：</li>
+<li>获取一个外出签到记录，<code>signinOutRecordDao.findByCompanyIdAndStaffIdAndSignTypeAndSignDateAndApplicationStatusIn(xxx, xxx)</code>。（JPA实现，函数名比较长，勿喷）</li>
+<li>校验外出签到，如果有异常的时候，抛出<code>IrenshiException</code></li>
+</ol>
+<h2 id="单元测试代码"><a href="#单元测试代码" class="headerlink" title="单元测试代码"></a>单元测试代码</h2><p>先从代码开始，然后一步步讲解</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.irenshi.biz.attendance.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.irenshi.biz.attendance.dao.mysql.SigninOutRecordDao;</span><br><span class="line"><span class="keyword">import</span> cn.irenshi.biz.attendance.service.impl.SignServiceImpl;</span><br><span class="line"><span class="keyword">import</span> cn.irenshi.meta.dto.attendance.mysql.SigninOutRecord;</span><br><span class="line"><span class="keyword">import</span> cn.irenshi.meta.entity.attendance.SigninResult;</span><br><span class="line"><span class="keyword">import</span> cn.irenshi.meta.exception.IrenshiException;</span><br><span class="line"><span class="keyword">import</span> cn.irenshi.meta.type.ApplicationStatus;</span><br><span class="line"><span class="keyword">import</span> cn.irenshi.meta.type.SigninType;</span><br><span class="line"><span class="keyword">import</span> com.google.common.collect.Lists;</span><br><span class="line"><span class="keyword">import</span> org.junit.Test;</span><br><span class="line"><span class="keyword">import</span> org.junit.runner.RunWith;</span><br><span class="line"><span class="keyword">import</span> org.mockito.InjectMocks;</span><br><span class="line"><span class="keyword">import</span> org.mockito.Mock;</span><br><span class="line"><span class="keyword">import</span> org.powermock.core.classloader.annotations.PrepareOnlyThisForTest;</span><br><span class="line"><span class="keyword">import</span> org.powermock.modules.junit4.PowerMockRunner;</span><br><span class="line"><span class="keyword">import</span> org.powermock.reflect.Whitebox;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.junit.Assert.assertTrue;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.mockito.Matchers.any;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.mockito.Matchers.eq;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.mockito.Mockito.doReturn;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.mockito.Mockito.*;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.powermock.api.mockito.PowerMockito.doNothing;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.powermock.api.mockito.PowerMockito.spy;</span><br><span class="line"><span class="keyword">import</span> <span class="keyword">static</span> org.powermock.api.mockito.PowerMockito.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 使用名称为PowerMockRunner的JUnit模块执行单元测试</span></span><br><span class="line"><span class="meta">@RunWith(PowerMockRunner.class)</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SignServiceTest</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 2. 使用Mockito的@InjectMocks注解将待测试的实现类注入</span></span><br><span class="line">    <span class="meta">@InjectMocks</span></span><br><span class="line">    <span class="keyword">private</span> SignServiceImpl signService;</span><br><span class="line">    <span class="comment">// 3. 将生成MockDao，并注入到@InjectMocks指定的类中</span></span><br><span class="line">    <span class="meta">@Mock</span></span><br><span class="line">    <span class="keyword">private</span> SigninOutRecordDao signinOutRecordDao;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="comment">// 4. 对于final类，有private函数及static函数的类等，必须使用此注解，之后才能着Stubbing</span></span><br><span class="line">    <span class="meta">@PrepareOnlyThisForTest(SignServiceImpl.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSignV3</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String staffId = <span class="string">&quot;mockStaffId&quot;</span>;</span><br><span class="line">        SigninType signType = SigninType.SIGNIN_AFTERNOON;</span><br><span class="line">        String wifiName = <span class="string">&quot;mockWifiName&quot;</span>;</span><br><span class="line">        String wifiMac = <span class="string">&quot;mockWifiMac&quot;</span>;</span><br><span class="line">        Double longitude = <span class="number">0.0</span>;</span><br><span class="line">        Double latitude = <span class="number">0.0</span>;</span><br><span class="line">        Double radius = <span class="number">0.0</span>;</span><br><span class="line">        String locationName = <span class="string">&quot;mockLocationName&quot;</span>;</span><br><span class="line">        String mobileId = <span class="string">&quot;mockMobileId&quot;</span>;</span><br><span class="line">        Date signDate = <span class="keyword">new</span> Date();</span><br><span class="line">        String companyId = <span class="string">&quot;mockCompanyId&quot;</span>;</span><br><span class="line">        <span class="keyword">boolean</span> isSigninOnlyOnce = <span class="keyword">true</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 5. 对实体类进行Stubbing，从spy()开始</span></span><br><span class="line">        SignServiceImpl spy = spy(signService);</span><br><span class="line"></span><br><span class="line">        SigninResult signinResult = <span class="keyword">new</span> SigninResult();</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 6. 对私有函数进行Stubbing</span></span><br><span class="line">        doNothing().when(spy, <span class="string">&quot;checkOutSign&quot;</span>, signType, companyId, staffId, signDate);</span><br><span class="line">        <span class="comment">// 7. 对共有和函数进行Stubbing</span></span><br><span class="line">        <span class="comment">// 8. 因为actualSignV3含有不确定的变量，所以必须使用Matchers进行参数处理</span></span><br><span class="line">        doReturn(signinResult).when(spy).actualSignV3(eq(staffId), eq(signType), eq(wifiName), eq(wifiMac),</span><br><span class="line">                eq(longitude), eq(latitude), eq(radius), eq(locationName), eq(mobileId), eq(signDate), eq(companyId),</span><br><span class="line">                any(), eq(isSigninOnlyOnce), eq(<span class="keyword">false</span>));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 9. 执行即将进行测试的代码</span></span><br><span class="line">        SigninResult result = spy.signV3(staffId, signType, wifiName, wifiMac, longitude, latitude, radius, locationName, mobileId,</span><br><span class="line">                signDate, companyId, isSigninOnlyOnce);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 10. 检查该私有函数是否以给定的参数被调用了1次</span></span><br><span class="line">        verifyPrivate(spy, times(<span class="number">1</span>)).invoke(<span class="string">&quot;checkOutSign&quot;</span>, signType, companyId, staffId, signDate);</span><br><span class="line">        <span class="comment">// 11. 检查该共有函数是否以给定的参数被调用了1次</span></span><br><span class="line">        <span class="comment">// 12. 同样由于含有不确定变量，校验的时候也需要使用Matchers对参数进行处理</span></span><br><span class="line">        verify(spy, times(<span class="number">1</span>)).actualSignV3(eq(staffId), eq(signType), eq(wifiName), eq(wifiMac),</span><br><span class="line">                eq(longitude), eq(latitude), eq(radius), eq(locationName), eq(mobileId), eq(signDate), eq(companyId),</span><br><span class="line">                any(), eq(isSigninOnlyOnce), eq(<span class="keyword">false</span>));</span><br><span class="line">        <span class="comment">// 13. 校验函数的返回值是否正确</span></span><br><span class="line">        assertTrue(signinResult == result);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCheckOutSign1</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String staffId = <span class="string">&quot;mockStaffId&quot;</span>;</span><br><span class="line">        SigninType signType = SigninType.SIGNIN_AFTERNOON;</span><br><span class="line">        Date signDate = <span class="keyword">new</span> Date();</span><br><span class="line">        String companyId = <span class="string">&quot;mockCompanyId&quot;</span>;</span><br><span class="line"></span><br><span class="line">        SigninOutRecord record1 = <span class="keyword">new</span> SigninOutRecord();</span><br><span class="line">        SigninOutRecord record2 = <span class="keyword">new</span> SigninOutRecord();</span><br><span class="line">        SigninOutRecord record3 = <span class="keyword">new</span> SigninOutRecord();</span><br><span class="line">        SigninOutRecord record4 = <span class="keyword">new</span> SigninOutRecord();</span><br><span class="line">        SigninOutRecord record5 = <span class="keyword">new</span> SigninOutRecord();</span><br><span class="line">        record1.setApplicationStatus(ApplicationStatus.CANCEL_APPROVED);</span><br><span class="line">        record2.setApplicationStatus(ApplicationStatus.CANCEL_PROCESSING);</span><br><span class="line">        record3.setApplicationStatus(ApplicationStatus.DELETE);</span><br><span class="line">        record4.setApplicationStatus(ApplicationStatus.DENIED);</span><br><span class="line">        record5.setApplicationStatus(ApplicationStatus.PROCESSING);</span><br><span class="line">        <span class="comment">// 14. 对Mock的接口进行处理，定义接口的返回值</span></span><br><span class="line">        doReturn(Lists.newArrayList(record1, record2, record3, record4)).when(signinOutRecordDao)</span><br><span class="line">                .findByCompanyIdAndStaffIdAndSignTypeAndSignDateAndApplicationStatusIn(companyId, staffId,</span><br><span class="line">                        signType, signDate, Lists.newArrayList(ApplicationStatus.APPROVED,</span><br><span class="line">                                ApplicationStatus.WAITING_HR_APPROVAL, ApplicationStatus.PROCESSING));</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 15. 执行私有函数进行测试</span></span><br><span class="line">        Whitebox.invokeMethod(signService, <span class="string">&quot;checkOutSign&quot;</span>, signType, companyId, staffId, signDate);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 16. 校验Mock的对象的函数是否被调用了1次</span></span><br><span class="line">        verify(signinOutRecordDao, times(<span class="number">1</span>)).findByCompanyIdAndStaffIdAndSignTypeAndSignDateAndApplicationStatusIn(companyId, staffId,</span><br><span class="line">                signType, signDate, Lists.newArrayList(ApplicationStatus.APPROVED,</span><br><span class="line">                        ApplicationStatus.WAITING_HR_APPROVAL, ApplicationStatus.PROCESSING));</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 17. 该函数预计会产生Exception</span></span><br><span class="line">    <span class="meta">@Test(expected = IrenshiException.class)</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testCheckOutSign2</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        String staffId = <span class="string">&quot;mockStaffId&quot;</span>;</span><br><span class="line">        SigninType signType = SigninType.SIGNIN_AFTERNOON;</span><br><span class="line">        Date signDate = <span class="keyword">new</span> Date();</span><br><span class="line">        String companyId = <span class="string">&quot;mockCompanyId&quot;</span>;</span><br><span class="line"></span><br><span class="line">        SigninOutRecord record = <span class="keyword">new</span> SigninOutRecord();</span><br><span class="line">        record.setApplicationStatus(ApplicationStatus.APPROVED);</span><br><span class="line">        doReturn(Lists.newArrayList(record)).when(signinOutRecordDao)</span><br><span class="line">                .findByCompanyIdAndStaffIdAndSignTypeAndSignDateAndApplicationStatusIn(companyId, staffId,</span><br><span class="line">                        signType, signDate, Lists.newArrayList(ApplicationStatus.APPROVED,</span><br><span class="line">                                ApplicationStatus.WAITING_HR_APPROVAL, ApplicationStatus.PROCESSING));</span><br><span class="line"></span><br><span class="line">        Whitebox.invokeMethod(signService, <span class="string">&quot;checkOutSign&quot;</span>, signType, companyId, staffId, signDate);</span><br><span class="line"></span><br><span class="line">        verify(signinOutRecordDao, times(<span class="number">1</span>)).findByCompanyIdAndStaffIdAndSignTypeAndSignDateAndApplicationStatusIn(companyId, staffId,</span><br><span class="line">                signType, signDate, Lists.newArrayList(ApplicationStatus.APPROVED,</span><br><span class="line">                        ApplicationStatus.WAITING_HR_APPROVAL, ApplicationStatus.PROCESSING));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="代码详细分析"><a href="#代码详细分析" class="headerlink" title="代码详细分析"></a>代码详细分析</h2><h3 id="使用JUnit测试框架启动"><a href="#使用JUnit测试框架启动" class="headerlink" title="使用JUnit测试框架启动"></a>使用JUnit测试框架启动</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RunWith(PowerMockRunner.class)</span></span><br></pre></td></tr></table></figure>
+<p><code>@RunWith</code>是JUnit的注解，可以指定测试用的Runner。如：使用Spring上下文做测试的代码为<code>@RunWith(SpringJUnit4ClassRunner.class) </code>，使用纯Mockito的代码为<code>@RunWith(MockitoJUnitRunner.class)</code></p>
+<h3 id="注入待测试的类"><a href="#注入待测试的类" class="headerlink" title="注入待测试的类"></a>注入待测试的类</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@InjectMocks</span></span><br><span class="line"><span class="keyword">private</span> SignServiceImpl signService;</span><br></pre></td></tr></table></figure>
+<p><code>@InjectMocks</code>是原生Mockito的注解，负责将待测试的类注入到单元测试中。这里需要注意：</p>
+<ol>
+<li>此处的对象（SignServiceImpl）必须是实体对象，不能是接口或者抽象类。因为<code>InjectMocks</code>需要实例化该对象</li>
+<li>对象中所有的依赖注入都会以一个简单粗暴的方式解决，默认将所有的<code>@Autowired</code>对象注入成<code>null</code><br>所以，只要增加这个注解就可以快速生成一个对象，比Spring的Bean管理简单很多。</li>
+</ol>
+<h3 id="Mock一个Bean"><a href="#Mock一个Bean" class="headerlink" title="Mock一个Bean"></a>Mock一个Bean</h3><p>大部分情况下，我们还是要Mock一些Bean，来辅助完成单元测试的。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Mock</span></span><br><span class="line"><span class="keyword">private</span> SigninOutRecordDao signinOutRecordDao;</span><br></pre></td></tr></table></figure>
+<p><code>@Mock</code>也是原生Mockito的注解，增加该Mock之后，<code>SignServiceImpl</code>所有依赖<code>SigninOutRecordDao</code>的地方，都会被注入成该对象。我们可以对Mock的对象进行各种操作，修改函数调用行为（称作Stub，有人叫“打桩”）等。</p>
+<h3 id="测试类包含私有函数的调用时"><a href="#测试类包含私有函数的调用时" class="headerlink" title="测试类包含私有函数的调用时"></a>测试类包含私有函数的调用时</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="meta">@PrepareOnlyThisForTest(SignServiceImpl.class)</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testSignV3</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span></span><br></pre></td></tr></table></figure>
+<p><code>@Test</code>注解不用说，就是生成一个测试用例。<code>@PrepareOnlyThisForTest</code>需要特别注意。因为我们在测试<code>SignServiceImpl</code>的过程中，需要对<code>SignServiceImpl</code>的私有函数<code>checkOutSign</code>进行Stubbing，修改其行为，所以必须使用<code>@PrepareOnlyThisForTest(SignServiceImpl.class)</code>为Stubbing做好准备。</p>
+<h3 id="为测试实体Stubbing"><a href="#为测试实体Stubbing" class="headerlink" title="为测试实体Stubbing"></a>为测试实体Stubbing</h3><p>测试的时候，我们需要用到实体类，但又不想使用实体类的所有实现函数。所以我们需要针对特定的某些函数进行Stubbing。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SignServiceImpl spy = spy(signService);</span><br></pre></td></tr></table></figure>
+<p>对Mock的接口（如：SigninOutRecordDao signinOutRecordDao）来说，直接对其中的函数进行Stub即可。但如果要对测试实体进行Stubbing，则需要先对其进行<code>spy</code>。然后即可开展后边的Stubbing操作。</p>
+<h3 id="对函数进行Stubbing"><a href="#对函数进行Stubbing" class="headerlink" title="对函数进行Stubbing"></a>对函数进行Stubbing</h3><p>先从对Mock对象进行的Stubbing开始。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">doReturn(Lists.newArrayList(record1, record2, record3, record4)).when(signinOutRecordDao)</span><br><span class="line">                .findByCompanyIdAndStaffIdAndSignTypeAndSignDateAndApplicationStatusIn(companyId, staffId,</span><br><span class="line">                        signType, signDate, Lists.newArrayList(ApplicationStatus.APPROVED,</span><br><span class="line">                                ApplicationStatus.WAITING_HR_APPROVAL, ApplicationStatus.PROCESSING));</span><br></pre></td></tr></table></figure>
+<p>这个函数对<code>signinOutRecordDao</code>进行Stubbing。根据字面意思可以理解：</p>
+<pre><code>This function will be stubbed as: **return** the given **List** when **signinOutRecordDao**
+is called by **findByCompanyIdAndStaffIdAndSignTypeAndSignDateAndApplicationStatusIn**
+with these **parameters**
+</code></pre>
+<p>都比较容易理解。</p>
+<h3 id="对私有函数进行Stubbing"><a href="#对私有函数进行Stubbing" class="headerlink" title="对私有函数进行Stubbing"></a>对私有函数进行Stubbing</h3><p>对私有函数进行Stubbing和公共函数类似：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">doNothing().when(spy, <span class="string">&quot;checkOutSign&quot;</span>, signType, companyId, staffId, signDate);</span><br></pre></td></tr></table></figure>
+<p>在这里，Stubbing对象是实体<code>spy</code>的<code>checkOutSign</code>函数，参数为<code>signType, companyId, staffId, signDate</code>。</p>
+<h3 id="当被Stub的函数不是确定输入参数时"><a href="#当被Stub的函数不是确定输入参数时" class="headerlink" title="当被Stub的函数不是确定输入参数时"></a>当被Stub的函数不是确定输入参数时</h3><p><code>actualSignV3</code>这个函数在调用的时候，用了一个很Anti-Pattern的一个设计，<code>signTime</code>这个参数用的是<code>new Date()</code>。暂且先不讨论代码的质量，先看看下边的Stub代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">doReturn(signinResult).when(spy).actualSignV3(eq(staffId), eq(signType), eq(wifiName), eq(wifiMac),</span><br><span class="line">                eq(longitude), eq(latitude), eq(radius), eq(locationName), eq(mobileId), eq(signDate), eq(companyId),</span><br><span class="line">                any(), eq(isSigninOnlyOnce), eq(<span class="keyword">false</span>));</span><br></pre></td></tr></table></figure>
+<p><code>any()</code>函数意思是，当<code>actualSignV3</code>函数调用的时候，无论<code>signTime</code>这个参数是什么值，这个Stubbing均生效。需要注意的是，一旦函数参数里边有任何一个<code>any</code>或类似的<code>Matcher</code>函数（如<code>anyInt</code>，<code>anyString</code>等）时，其他所有参数也必须以同样的形式出现。<br>上边代码中可以看到所有参数都使用了<code>eq()</code>进行封装。</p>
+<h3 id="另一种Stubbing方法（不推荐）"><a href="#另一种Stubbing方法（不推荐）" class="headerlink" title="另一种Stubbing方法（不推荐）"></a>另一种Stubbing方法（不推荐）</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">when(spy.actualSignV3(eq(staffId), eq(signType), eq(wifiName), eq(wifiMac),</span><br><span class="line">        eq(longitude), eq(latitude), eq(radius), eq(locationName), eq(mobileId), eq(signDate), eq(companyId),</span><br><span class="line">        any(), eq(isSigninOnlyOnce), eq(<span class="keyword">false</span>))).thenReturn(signinResult);</span><br></pre></td></tr></table></figure>
+<p>这种Stubbing比较符合汉语的语法：当xxx的时候，怎么怎么样。但是这样Stub有一个不好的地方，Stub的时候会首先执行<code>actualSignV3</code>的原版函数，然后再进行替换。可向而知，由于很多Bean都没有定义，直接抛<code>NullPointerException</code>。</p>
+<h3 id="执行测试代码"><a href="#执行测试代码" class="headerlink" title="执行测试代码"></a>执行测试代码</h3><p>执行测试代码的方法和普通调用一样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SigninResult result = spy.signV3(staffId, signType, wifiName, wifiMac, longitude, latitude, radius, locationName, mobileId,</span><br><span class="line">        signDate, companyId, isSigninOnlyOnce);</span><br></pre></td></tr></table></figure>
+<p>但这里仍有需要注意的地方：当调用的时候，只能使用被spy的对象<code>spy</code>，而不能使用原对象<code>signService</code>。因为只有<code>spy</code>被Stubbed了，而<code>signService</code>仍然保持不变。</p>
+<h3 id="校验函数调用情况"><a href="#校验函数调用情况" class="headerlink" title="校验函数调用情况"></a>校验函数调用情况</h3><p>校验<code>checkOutSign</code>函数是否以给定的参数<code>signType, companyId, staffId, signDate</code>被调用了<strong>一次</strong>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">verifyPrivate(spy, times(<span class="number">1</span>)).invoke(<span class="string">&quot;checkOutSign&quot;</span>, signType, companyId, staffId, signDate);</span><br></pre></td></tr></table></figure>
+
+<h3 id="校验具有不确定参数的函数时"><a href="#校验具有不确定参数的函数时" class="headerlink" title="校验具有不确定参数的函数时"></a>校验具有不确定参数的函数时</h3><p>和Stubbing的时候一样，校验时如果有任意一个参数使用了<code>Matcher</code>形式，则其他所有函数都必须使用<code>Matcher</code>。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">verify(spy, times(<span class="number">1</span>)).actualSignV3(eq(staffId), eq(signType), eq(wifiName), eq(wifiMac),</span><br><span class="line">        eq(longitude), eq(latitude), eq(radius), eq(locationName), eq(mobileId), eq(signDate), eq(companyId),</span><br><span class="line">        any(), eq(isSigninOnlyOnce), eq(<span class="keyword">false</span>));</span><br></pre></td></tr></table></figure>
+
+<h3 id="校验输出结果"><a href="#校验输出结果" class="headerlink" title="校验输出结果"></a>校验输出结果</h3><p>这个没什么好说的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">assertTrue(signinResult == result);</span><br></pre></td></tr></table></figure>
+
+<h3 id="对私有函数进行测试"><a href="#对私有函数进行测试" class="headerlink" title="对私有函数进行测试"></a>对私有函数进行测试</h3><p>私有函数测试的难点在于我们没有办法调用私有函数，但是PowerMock帮我们解决了这个问题。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Whitebox.invokeMethod(signService, <span class="string">&quot;checkOutSign&quot;</span>, signType, companyId, staffId, signDate);</span><br></pre></td></tr></table></figure>
+<p>PowerMock使用<code>Writebox</code>，通过反射的方式调用<code>checkOutSign</code>这个函数。</p>
+<h3 id="正确运行会抛出异常"><a href="#正确运行会抛出异常" class="headerlink" title="正确运行会抛出异常"></a>正确运行会抛出异常</h3><p>这个也没什么好说的，JUnit4原生的处理方式。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Test(expected = IrenshiException.class)</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>一个框架+一个Mock+一个Mock增强，基本可以满足大部分单元测试的需求了，在配合使用Jenkins等CI工具，单元测试是要飞起来的节奏！</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/spring/" rel="tag"># Spring</a>
+              <a href="/tags/%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="tag"># 单元测试</a>
+              <a href="/tags/junit/" rel="tag"># JUnit</a>
+              <a href="/tags/mockito/" rel="tag"># Mockito</a>
+              <a href="/tags/powermock/" rel="tag"># PowerMock</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/linux/2016-07-20-generate-sshkey-in-noneinteractive-way.html" rel="prev" title="Generate SSH key in none-interactive way">
+      <i class="fa fa-chevron-left"></i> Generate SSH key in none-interactive way
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/linux/2016-07-26-find-high-cpu-thread.html" rel="next" title="在生产环境中查出占用大量CPU的Java线程">
+      在生产环境中查出占用大量CPU的Java线程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E4%B8%AA%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%AE%9A%E4%BD%8D"><span class="nav-number">1.</span> <span class="nav-text">三个软件的定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E4%B8%80%E4%B8%AA%E4%BE%8B%E5%AD%90%E5%BC%80%E5%A7%8B%EF%BC%9A%E7%AD%BE%E5%88%B0"><span class="nav-number">2.</span> <span class="nav-text">从一个例子开始：签到</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">3.</span> <span class="nav-text">单元测试代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81%E8%AF%A6%E7%BB%86%E5%88%86%E6%9E%90"><span class="nav-number">4.</span> <span class="nav-text">代码详细分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8JUnit%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6%E5%90%AF%E5%8A%A8"><span class="nav-number">4.1.</span> <span class="nav-text">使用JUnit测试框架启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%85%A5%E5%BE%85%E6%B5%8B%E8%AF%95%E7%9A%84%E7%B1%BB"><span class="nav-number">4.2.</span> <span class="nav-text">注入待测试的类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mock%E4%B8%80%E4%B8%AABean"><span class="nav-number">4.3.</span> <span class="nav-text">Mock一个Bean</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%8C%85%E5%90%AB%E7%A7%81%E6%9C%89%E5%87%BD%E6%95%B0%E7%9A%84%E8%B0%83%E7%94%A8%E6%97%B6"><span class="nav-number">4.4.</span> <span class="nav-text">测试类包含私有函数的调用时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%BA%E6%B5%8B%E8%AF%95%E5%AE%9E%E4%BD%93Stubbing"><span class="nav-number">4.5.</span> <span class="nav-text">为测试实体Stubbing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8CStubbing"><span class="nav-number">4.6.</span> <span class="nav-text">对函数进行Stubbing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E7%A7%81%E6%9C%89%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8CStubbing"><span class="nav-number">4.7.</span> <span class="nav-text">对私有函数进行Stubbing</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%93%E8%A2%ABStub%E7%9A%84%E5%87%BD%E6%95%B0%E4%B8%8D%E6%98%AF%E7%A1%AE%E5%AE%9A%E8%BE%93%E5%85%A5%E5%8F%82%E6%95%B0%E6%97%B6"><span class="nav-number">4.8.</span> <span class="nav-text">当被Stub的函数不是确定输入参数时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%A6%E4%B8%80%E7%A7%8DStubbing%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%8D%E6%8E%A8%E8%8D%90%EF%BC%89"><span class="nav-number">4.9.</span> <span class="nav-text">另一种Stubbing方法（不推荐）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%A7%E8%A1%8C%E6%B5%8B%E8%AF%95%E4%BB%A3%E7%A0%81"><span class="nav-number">4.10.</span> <span class="nav-text">执行测试代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%A1%E9%AA%8C%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%83%85%E5%86%B5"><span class="nav-number">4.11.</span> <span class="nav-text">校验函数调用情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%A1%E9%AA%8C%E5%85%B7%E6%9C%89%E4%B8%8D%E7%A1%AE%E5%AE%9A%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%BD%E6%95%B0%E6%97%B6"><span class="nav-number">4.12.</span> <span class="nav-text">校验具有不确定参数的函数时</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%A1%E9%AA%8C%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C"><span class="nav-number">4.13.</span> <span class="nav-text">校验输出结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E7%A7%81%E6%9C%89%E5%87%BD%E6%95%B0%E8%BF%9B%E8%A1%8C%E6%B5%8B%E8%AF%95"><span class="nav-number">4.14.</span> <span class="nav-text">对私有函数进行测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%AD%A3%E7%A1%AE%E8%BF%90%E8%A1%8C%E4%BC%9A%E6%8A%9B%E5%87%BA%E5%BC%82%E5%B8%B8"><span class="nav-number">4.15.</span> <span class="nav-text">正确运行会抛出异常</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">最后</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">96</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.xiaotanzhu.com/spring/2016-07-25-spring-unit-test-with-junit-mockito-powermock.html";
+    this.page.identifier = "spring/2016-07-25-spring-unit-test-with-junit-mockito-powermock.html";
+    this.page.title = "Spring中使用JUnit+mockito+powermock进行单元测试";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xiaotanzhu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

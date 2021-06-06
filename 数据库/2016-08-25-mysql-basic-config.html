@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="MySQL服务器配置，包括基本配置和晋级配置">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL服务器配置">
+<meta property="og:url" content="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-25-mysql-basic-config.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="MySQL服务器配置，包括基本配置和晋级配置">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-08-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2016-08-24T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="MySQL">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-25-mysql-basic-config.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MySQL服务器配置 | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-139248857-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小炭猪</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-25-mysql-basic-config.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL服务器配置
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-08-25 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-25T00:00:00+08:00">2016-08-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-25-mysql-basic-config.html" class="post-meta-item leancloud_visitors" data-flag-title="MySQL服务器配置" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">MySQL服务器配置，包括基本配置和晋级配置</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>MySQL版本信息：</p>
+<blockquote>
+<p>mysqld  Ver 5.6.31-0ubuntu0.14.04.2 for debian-linux-gnu on x86_64 ((Ubuntu))</p>
+</blockquote>
+<h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><span class="line">#</span><br><span class="line"># The MySQL database server configuration file.</span><br><span class="line">#</span><br><span class="line"># You can copy this to one of:</span><br><span class="line"># - &quot;/etc/mysql/my.cnf&quot; to set global options,</span><br><span class="line"># - &quot;~/.my.cnf&quot; to set user-specific options.</span><br><span class="line"># </span><br><span class="line"># One can use all long options that the program supports.</span><br><span class="line"># Run program with --help to get a list of available options and with</span><br><span class="line"># --print-defaults to see which it would actually understand and use.</span><br><span class="line">#</span><br><span class="line"># For explanations see</span><br><span class="line"># http://dev.mysql.com/doc/mysql/en/server-system-variables.html</span><br><span class="line"></span><br><span class="line"># This will be passed to all mysql clients</span><br><span class="line"># It has been reported that passwords should be enclosed with ticks/quotes</span><br><span class="line"># escpecially if they contain &quot;#&quot; chars...</span><br><span class="line"># Remember to edit /etc/mysql/debian.cnf when changing the socket location.</span><br><span class="line">[client]</span><br><span class="line">port            = 3306</span><br><span class="line">socket          = /var/run/mysqld/mysqld.sock</span><br><span class="line"><span class="addition">+ default-character-set = utf8mb4</span></span><br><span class="line"></span><br><span class="line"># Here is entries for some specific programs</span><br><span class="line"># The following values assume you have at least 32M ram</span><br><span class="line"></span><br><span class="line"># This was formally known as [safe_mysqld]. Both versions are currently parsed.</span><br><span class="line">[mysqld_safe]</span><br><span class="line">socket          = /var/run/mysqld/mysqld.sock</span><br><span class="line">nice            = 0</span><br><span class="line"></span><br><span class="line">[mysqld]</span><br><span class="line">#</span><br><span class="line"># * Basic Settings</span><br><span class="line">#</span><br><span class="line"><span class="addition">+ skip-host-cache</span></span><br><span class="line">user            = mysql</span><br><span class="line">pid-file        = /var/run/mysqld/mysqld.pid</span><br><span class="line">socket          = /var/run/mysqld/mysqld.sock</span><br><span class="line">port            = 3306</span><br><span class="line">basedir         = /usr</span><br><span class="line">datadir         = /var/lib/mysql</span><br><span class="line">tmpdir          = /tmp</span><br><span class="line">lc-messages-dir = /usr/share/mysql</span><br><span class="line"><span class="addition">+ explicit_defaults_for_timestamp</span></span><br><span class="line">skip-external-locking</span><br><span class="line">#</span><br><span class="line"># Instead of skip-networking the default is now to listen only on</span><br><span class="line"># localhost which is more compatible and is not less secure.</span><br><span class="line"><span class="deletion">- bind-address           = 127.0.0.1</span></span><br><span class="line"><span class="addition">+ #bind-address           = 127.0.0.1</span></span><br><span class="line">#</span><br><span class="line"># * Fine Tuning</span><br><span class="line">#</span><br><span class="line">key_buffer              = 16M</span><br><span class="line">max_allowed_packet      = 16M</span><br><span class="line">thread_stack            = 192K</span><br><span class="line">thread_cache_size       = 8</span><br><span class="line"># This replaces the startup script and checks MyISAM tables if needed</span><br><span class="line"># the first time they are touched</span><br><span class="line">myisam-recover         = BACKUP</span><br><span class="line"><span class="deletion">- #max_connections        = 100</span></span><br><span class="line"><span class="addition">+ max_connections        = 1000</span></span><br><span class="line">#table_cache            = 64</span><br><span class="line">thread_concurrency     = 10</span><br><span class="line">#</span><br><span class="line"># * Query Cache Configuration</span><br><span class="line">#</span><br><span class="line">query_cache_limit       = 1M</span><br><span class="line">query_cache_size        = 16M</span><br><span class="line"><span class="addition">+ skip_name_resolve       = 1</span></span><br><span class="line"><span class="addition">+ lower_case_table_names  = 1</span></span><br><span class="line"><span class="addition">+ max_allowed_packet      = 32M</span></span><br><span class="line">#</span><br><span class="line"># * Logging and Replication</span><br><span class="line">#</span><br><span class="line"># Both location gets rotated by the cronjob.</span><br><span class="line"># Be aware that this log type is a performance killer.</span><br><span class="line"># As of 5.1 you can enable the log at runtime!</span><br><span class="line">#general_log_file        = /var/log/mysql/mysql.log</span><br><span class="line">#general_log             = 1</span><br><span class="line">#</span><br><span class="line"># Error log - should be very few entries.</span><br><span class="line">#</span><br><span class="line">log_error = /var/log/mysql/error.log</span><br><span class="line">#</span><br><span class="line"># Here you can see queries with especially long duration</span><br><span class="line">#log_slow_queries       = /var/log/mysql/mysql-slow.log</span><br><span class="line">#long_query_time = 2</span><br><span class="line">#log-queries-not-using-indexes</span><br><span class="line"><span class="addition">+ # 千万不要使用log_slow_queries，这是一个错误的参数，会导致MySQL无法启动</span></span><br><span class="line"><span class="addition">+ slow_query_log          = 1</span></span><br><span class="line"><span class="addition">+ slow_query_log_file     = /var/log/mysql/slow.log</span></span><br><span class="line"><span class="addition">+ long_query_time         = 10</span></span><br><span class="line">#</span><br><span class="line"># The following can be used as easy to replay backup logs or for replication.</span><br><span class="line"># note: if you are setting up a replication slave, see README.Debian about</span><br><span class="line">#       other settings you may need to change.</span><br><span class="line"><span class="deletion">- #server-id              = 1</span></span><br><span class="line"><span class="addition">+ server-id               = 2</span></span><br><span class="line"><span class="deletion">- #log_bin                 = /var/log/mysql/mysql-bin.log</span></span><br><span class="line"><span class="addition">+ log_bin                 = /var/log/mysql/mysql-bin.log</span></span><br><span class="line">expire_logs_days        = 10</span><br><span class="line">max_binlog_size         = 100M</span><br><span class="line"><span class="addition">+ read-only               = 0</span></span><br><span class="line">#binlog_do_db           = include_database_name</span><br><span class="line">#binlog_ignore_db       = include_database_name</span><br><span class="line"><span class="addition">+ binlog-ignore-db        = mysql</span></span><br><span class="line"><span class="addition">+ binlog-ignore-db        = information_schema</span></span><br><span class="line"><span class="addition">+ binlog-ignore-db        = performance_schema</span></span><br><span class="line"><span class="addition">+ ## GTID: Global Transaction ID</span></span><br><span class="line"><span class="addition">+ gtid_mode               = on</span></span><br><span class="line"><span class="addition">+ enforce_gtid_consistency= on</span></span><br><span class="line"><span class="addition">+ log-slave-updates       = 1</span></span><br><span class="line"><span class="addition">+ # For all slave servers</span></span><br><span class="line"><span class="addition">+ skip_slave_start        = 1</span></span><br><span class="line">#</span><br><span class="line"># * InnoDB</span><br><span class="line">#</span><br><span class="line"># InnoDB is enabled by default with a 10MB datafile in /var/lib/mysql/.</span><br><span class="line"># Read the manual for more InnoDB related options. There are many!</span><br><span class="line">#</span><br><span class="line"># * Security Features</span><br><span class="line">#</span><br><span class="line"># Read the manual, too, if you want chroot!</span><br><span class="line"># chroot = /var/lib/mysql/</span><br><span class="line">#</span><br><span class="line"># For generating SSL certificates I recommend the OpenSSL GUI &quot;tinyca&quot;.</span><br><span class="line">#</span><br><span class="line"># ssl-ca=/etc/mysql/cacert.pem</span><br><span class="line"># ssl-cert=/etc/mysql/server-cert.pem</span><br><span class="line"># ssl-key=/etc/mysql/server-key.pem</span><br><span class="line"></span><br><span class="line"><span class="addition">+ max_connect_errors      = 20</span></span><br><span class="line"><span class="addition">+ interactive_timeout     = 172800</span></span><br><span class="line"><span class="addition">+ wait_timeout            = 172800</span></span><br><span class="line"></span><br><span class="line"># Character sets</span><br><span class="line"><span class="addition">+ character-set-client-handshake = FALSE</span></span><br><span class="line"><span class="addition">+ character-set-server    = utf8mb4</span></span><br><span class="line"><span class="addition">+ collation-server        = utf8mb4_unicode_ci</span></span><br><span class="line"></span><br><span class="line">[mysqldump]</span><br><span class="line">quick</span><br><span class="line">quote-names</span><br><span class="line"><span class="addition">+ max_allowed_packet      = 32M</span></span><br><span class="line"></span><br><span class="line">[mysql]</span><br><span class="line">#no-auto-rehash # faster start of mysql but no tab completition</span><br><span class="line"><span class="addition">+ default-character-set   = utf8mb4</span></span><br><span class="line"></span><br><span class="line">[isamchk]</span><br><span class="line">key_buffer              = 16M</span><br><span class="line"></span><br><span class="line">#</span><br><span class="line"># * IMPORTANT: Additional settings that can override those from this file!</span><br><span class="line">#   The files must end with &#x27;.cnf&#x27;, otherwise they&#x27;ll be ignored.</span><br><span class="line">#</span><br><span class="line"><span class="addition">!includedir /etc/mysql/conf.d/</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mysql/" rel="tag"># MySQL</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-25-mysql-gtid-master-slave.html" rel="prev" title="使用GTID机制创建MySQL主从备份和主主备份">
+      <i class="fa fa-chevron-left"></i> 使用GTID机制创建MySQL主从备份和主主备份
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E8%BF%90%E7%BB%B4/2016-08-26-turn-on-swap-on-aliyun-linux.html" rel="next" title="阿里云ECS Linux开启swap（虚拟内存）">
+      阿里云ECS Linux开启swap（虚拟内存） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E9%85%8D%E7%BD%AE"><span class="nav-number">1.</span> <span class="nav-text">基本配置</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">96</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-08-25-mysql-basic-config.html";
+    this.page.identifier = "数据库/2016-08-25-mysql-basic-config.html";
+    this.page.title = "MySQL服务器配置";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xiaotanzhu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

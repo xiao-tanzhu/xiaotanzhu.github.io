@@ -1,0 +1,494 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>小炭猪</title>
+    <link>http://www.xiaotanzhu.com/</link>
+    
+    <image>
+      <url>http://www.xiaotanzhu.com/icon.png</url>
+      <title>小炭猪</title>
+      <link>http://www.xiaotanzhu.com/</link>
+    </image>
+    
+    <atom:link href="http://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
+    
+    <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
+    <pubDate>Sat, 29 May 2021 16:00:00 GMT</pubDate>
+    <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>微软模拟飞行基本概念</title>
+      <link>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</link>
+      <guid>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html</guid>
+      <pubDate>Sat, 29 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>微软模拟飞行中使用到的一些基本概念和名词对照</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/msfs2020/">MSFS2020</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/msfs2020/">MSFS2020</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/">微软模拟飞行</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/msfs2020/msfs-concepts.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>微软模拟飞行教程</title>
+      <link>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</link>
+      <guid>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html</guid>
+      <pubDate>Sat, 29 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>微软模拟飞行的上手教程</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/msfs2020/">MSFS2020</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/msfs2020/">MSFS2020</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/">微软模拟飞行</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/">新手教程</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/msfs2020/msfs-tutorials.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>千亿数据扛不住，三思后还是从MySQL迁走了……</title>
+      <link>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</link>
+      <guid>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</guid>
+      <pubDate>Tue, 25 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/mysql/">MySQL</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/mongodb/">MongoDB</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>关于产品需求阶段的思维公式</title>
+      <link>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html</link>
+      <guid>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html</guid>
+      <pubDate>Mon, 24 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>关于产品需求阶段的思维公式，都在这儿了</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E9%9C%80%E6%B1%82/">需求</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">方法论</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>B端产品人为什么总说“我不关注用户体验”</title>
+      <link>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html</link>
+      <guid>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html</guid>
+      <pubDate>Mon, 24 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>B端产品人为什么总说“我不关注用户体验”</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/">用户体验</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/ue/">UE</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>MacOS常见操作</title>
+      <link>http://www.xiaotanzhu.com/macos/macos-howtos.html</link>
+      <guid>http://www.xiaotanzhu.com/macos/macos-howtos.html</guid>
+      <pubDate>Mon, 17 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>目录：MacOS常见的一些配置、调整或软件</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/macos/">MacOS</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/macos/">MacOS</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/macbook/">MacBook</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/macos/macos-howtos.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
+      <link>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</link>
+      <guid>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</guid>
+      <pubDate>Sat, 08 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>使用Let&#39;s Encrypt免费证书让你的网站SSL化，并且启用自动续期</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/nginx/">Nginx</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/ubuntu-20-04/">Ubuntu 20.04</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/nignx/">Nignx</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/ssl/">SSL</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/github-pages/">Github Pages</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>微软模拟飞行2020：从上海浦东飞无锡硕放</title>
+      <link>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</link>
+      <guid>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html</guid>
+      <pubDate>Tue, 04 May 2021 16:00:00 GMT</pubDate>
+      
+      <description>在微软模拟飞行中，使用自动驾驶从上海浦东机场飞无锡硕放机场</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/msfs2020/">MSFS2020</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/msfs2020/">MSFS2020</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/">微软模拟飞行</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/">新手教程</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/g1000/">G1000</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>PowerBI常见操作</title>
+      <link>http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</link>
+      <guid>http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</guid>
+      <pubDate>Sat, 17 Apr 2021 16:00:00 GMT</pubDate>
+      
+      <description>常见的一些PowerBI的使用方法</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/powerbi/">PowerBI</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/powerbi/">PowerBI</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/bi/">BI</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Linux find命令高阶用法</title>
+      <link>http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html</link>
+      <guid>http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html</guid>
+      <pubDate>Sat, 27 Mar 2021 16:00:00 GMT</pubDate>
+      
+      <description>几个 find 命令的简单却又高级的用法</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/linux/">Linux</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/shell/">Shell</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/linux/">Linux</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Redis常见的CPU和内存性能问题</title>
+      <link>http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html</link>
+      <guid>http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html</guid>
+      <pubDate>Sat, 06 Mar 2021 16:00:00 GMT</pubDate>
+      
+      <description>解码Redis的最易被忽视的CPU和内存占用高问题</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/redis/">Redis</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/redis/">Redis</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/redis-performance/">Redis Performance</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Ansible常用命令</title>
+      <link>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</link>
+      <guid>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</guid>
+      <pubDate>Sat, 16 May 2020 16:00:00 GMT</pubDate>
+      
+      <description>Ansible在批量服务器管理中常用的命令</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E8%BF%90%E7%BB%B4/">运维</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/ansible/">Ansible</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Spring Cloud(一)：大话Spring Cloud</title>
+      <link>http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html</link>
+      <guid>http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html</guid>
+      <pubDate>Sat, 30 Jun 2018 16:00:00 GMT</pubDate>
+      
+      <description>Spring Cloud(一)：大话Spring Cloud</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/spring/">Spring</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/spring/">Spring</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/spring-cloud/">Spring Cloud</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Introduction to Microservices</title>
+      <link>http://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html</link>
+      <guid>http://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html</guid>
+      <pubDate>Fri, 18 May 2018 16:00:00 GMT</pubDate>
+      
+      <description>Introduction to Microservices</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/introduction-to-microservices/">Introduction to Microservices</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Spring Cloud组件介绍</title>
+      <link>http://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html</link>
+      <guid>http://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html</guid>
+      <pubDate>Tue, 06 Mar 2018 16:00:00 GMT</pubDate>
+      
+      <description>Spring Cloud组件介绍</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/spring/">Spring</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/spring-cloud/">Spring Cloud</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Spring Framework: Modules</title>
+      <link>http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html</link>
+      <guid>http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html</guid>
+      <pubDate>Wed, 08 Mar 2017 16:00:00 GMT</pubDate>
+      
+      <description>Spring Framework: Modules</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/spring/">Spring</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/spring/">Spring</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/spring-modules/">Spring Modules</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>Spring Framework的整体架构</title>
+      <link>http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html</link>
+      <guid>http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html</guid>
+      <pubDate>Wed, 01 Mar 2017 16:00:00 GMT</pubDate>
+      
+      <description>Spring Framework的整体架构</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/spring/">Spring</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/spring/">Spring</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>以SQL方式读取MySQL的GTID格式Binlog</title>
+      <link>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</link>
+      <guid>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</guid>
+      <pubDate>Sun, 30 Oct 2016 16:00:00 GMT</pubDate>
+      
+      <description>以SQL方式读取MySQL的GTID格式Binlog</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/mysql/">MySQL</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/gtid/">GTID</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/binlog/">Binlog</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>关于 Android Service 的介绍</title>
+      <link>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</link>
+      <guid>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</guid>
+      <pubDate>Thu, 13 Oct 2016 16:00:00 GMT</pubDate>
+      
+      <description>关于 Android Service 的介绍</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/">安卓</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/">安卓</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/android-service/">Android Service</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>好用的电子书搜索和格式转换平台</title>
+      <link>http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html</link>
+      <guid>http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html</guid>
+      <pubDate>Sun, 09 Oct 2016 16:00:00 GMT</pubDate>
+      
+      <description>好用的电子书搜索和格式转换平台</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/%E5%85%B6%E4%BB%96/">其他</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/%E7%94%B5%E5%AD%90%E4%B9%A6/">电子书</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/%E5%85%B6%E4%BB%96/2016-10-10-ebook-search-conversion.html#disqus_thread</comments>
+      
+    </item>
+    
+  </channel>
+</rss>

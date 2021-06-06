@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="B端产品人为什么总说“我不关注用户体验”">
+<meta property="og:type" content="article">
+<meta property="og:title" content="B端产品人为什么总说“我不关注用户体验”">
+<meta property="og:url" content="http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="B端产品人为什么总说“我不关注用户体验”">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0005.png">
+<meta property="article:published_time" content="2021-05-24T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-24T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="产品经理">
+<meta property="article:tag" content="用户体验">
+<meta property="article:tag" content="UE">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xiaotanzhu.com/images/0005.png">
+
+<link rel="canonical" href="http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>B端产品人为什么总说“我不关注用户体验” | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-139248857-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小炭猪</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          B端产品人为什么总说“我不关注用户体验”
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-25 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-25T00:00:00+08:00">2021-05-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" itemprop="url" rel="index"><span itemprop="name">产品经理</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html" class="post-meta-item leancloud_visitors" data-flag-title="B端产品人为什么总说“我不关注用户体验”" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">B端产品人为什么总说“我不关注用户体验”</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote>
+<p>编辑导语：很多时候产品对于用户体验都是非常看重的，互联网人在设计产品时，需要考虑到各方面的体验；但有人会觉得B端产品不用在乎用户体验，为什么会有这样的想法呢？本文作者分享了关于B端对用户体验的看法，我们一起来了解一下。</p>
+</blockquote>
+<p>互联网行业的崛起，衍生出了很多专业术语，“用户体验”就是其中一个。</p>
+<p>用户体验被当成“新时代的工匠精神”，并在以腾讯、字节、阿里为首的一线互联网大厂持续践行的过程中，逐渐成为互联网人所关注和接受的设计理念。</p>
+<p>可近两年崛起的B端产品，却截然相反，不仅表现出不重视用户体验，甚至有人宣称“做B端产品，并不需要用户体验”。</p>
+<p>而这个理由，居然吸引了不少在C端行业，排斥强化用户体验的年轻人，转向了B端产品的怀抱中。</p>
+<p>可事实上，我们的B端产品真的不关注用户体验吗？</p>
+<p>如果不是的话，那为什么B端产品经理总说“我不关注用户体验”呢？</p>
+<p>我将从岗位职能、决策过程、关注内容这三个角度上，来谈谈下我对这句话的理解。</p>
+<h2 id="一、做B端行业就可以不需要关注用户体验了？"><a href="#一、做B端行业就可以不需要关注用户体验了？" class="headerlink" title="一、做B端行业就可以不需要关注用户体验了？"></a>一、做B端行业就可以不需要关注用户体验了？</h2><p>随着互联网行业的发展，产品岗被逐步衍生并细化出来（如下图所示）</p>
+<p><img src="/images/0005.png"></p>
+<p>产品经理总的来说可分为B端和C端，这里划分的依据是看这款产品，主要是为谁而设计的。</p>
+<p>如果是为每一个独立个体服务的产品，就属于C端产品，而为每个企业、公司、甚至有经营资格的小微商户服务的产品，就属于B端产品。</p>
+<p>而对应的C端和B端之下，根据行业和岗位职能的不同，也可以划分出很多不同带有“前缀”的产品经理。</p>
+<p>可在实际工作中，我们的划分，有时候并没有清晰可见的界限。</p>
+<p>C端的产品，有可能也需要从B端客户角度去思考业务，同样，B端的业务，有可能也需要从C端用户的角度去思考方案。</p>
+<p>如淘宝，在用户使用app的页面上，也可能需要考虑到商家使用后台的设计；</p>
+<p>同样，钉钉的产品经理，在客户端的设计上，也可能需要考虑每一个公司下，每一个实际用户，如何使用产品更舒服。</p>
+<p>所以，刚入行的新同学，如果认为做B端产品，可以不需要关注用户体验的话，其实是不太正确的观点。</p>
+<p>我们所有的工作，都是以业务为导向的。即，我们在什么行业，为谁，做什么方案，能够提升产品价值，提高团队的收益。</p>
+<p>除此之外，产品是否关注用户体验，也会随着产品的生命周期而不断变化。</p>
+<p>不论是B端还是C端产品，发展到相对成熟的阶段，或者说拥有足够体量的用户/客户的时候，在产品的设计上，都是会关注产品使用者的使用体验。</p>
+<p>所以，如果你认为做B端业务，就可以避免扣细节和抠体验，这类繁琐工作的话。我劝你，还是趁早打消这个念头吧。</p>
+<p>想通过转行来偷懒，不仅是在互联网行业，而是任何行业，都行不通。</p>
+<h2 id="二、为什么B端产品会说“我不关注用户体验”"><a href="#二、为什么B端产品会说“我不关注用户体验”" class="headerlink" title="二、为什么B端产品会说“我不关注用户体验”"></a>二、为什么B端产品会说“我不关注用户体验”</h2><p>在正式回答这个问题之前，我们得先了解下，为什么C端产品需要关注用户体验。</p>
+<h3 id="1-C端产品：从无到有，从有到优的竞争模式"><a href="#1-C端产品：从无到有，从有到优的竞争模式" class="headerlink" title="1. C端产品：从无到有，从有到优的竞争模式"></a>1. C端产品：从无到有，从有到优的竞争模式</h3><p>从根本目的来说，C端产品本质是消费，即，通过免费或付费的方式，去解决我们生活过程中遇到的需求。</p>
+<p>我们做产品的根本目的，就是创造一款尽可能让更多人来使用的产品，当用户足够多之后，产品才可以通过各种方式让用户付费，从而帮助企业实现盈利。</p>
+<p>所以，为了让更多人来用，产品必须先解决用户的核心需求，如，淘宝的出现，一开始，就是为了让人们可以在家，就能买到想买的东西。</p>
+<p>可很多人不知道的是，刚面世的淘宝，在使用上也是不太好用的。</p>
+<p>因为这还是产品“从无到有”的阶段。</p>
+<p>我得先保证你产品能用，解决你的根本需求之后，我才会考虑如何让你“更好用”这个问题。</p>
+<p>而随着网络的发展和普及，我们每个人都可以根据自己的喜好和需求，来决定选择使用或不使用一款产品。</p>
+<p>因为，当选择增多之后，用户在产品的忠诚度也会随之下降。</p>
+<p>在面对同样能满足需求的竞品不断涌现时，如何让用户留下来，就成了产品的首要目标。</p>
+<p>而如果一款产品能让用户感觉这款产品比其他产品“更好用”，用户就会持续选择使用这款产品，甚至让用户成为产品的忠实粉丝。</p>
+<p>更好用的定义，个人认为主要包括两个层面：</p>
+<ol>
+<li>新功能，可以解决在使用过程中的问题；</li>
+<li>旧功能，用起来比别的产品更顺畅；</li>
+</ol>
+<p>而使用起来更顺畅，就是用户体验。</p>
+<p>俞军产品公式：</p>
+<blockquote>
+<p>用户价值 = (新体验-旧体验) – 替换成本</p>
+</blockquote>
+<p>C端产品的替换成本，在同类能够解决需求的C端产品面前，可以算是在一定区间内动态变化的，或者说是可控的。</p>
+<p>所以，一款C端产品想要尽可能的获取用户，尽可能地获得市场份额，就需要不断优化你的新体验，拉开与竞品之间的体验差。</p>
+<p>同理，你想要让你的用户留存下来，不被其他产品瓜分，也需要不断优化你的用户体验，避免与新产品之间产生体验差。</p>
+<p>所以，从这个角度上来说，C端产品用户体验的好坏，就能够直接影响到你的用户留存情况，这也是为什么一线大厂愿意投入大量的资源去优化产品的用户体验。</p>
+<h3 id="2-B端产品：解决客户问题为主导"><a href="#2-B端产品：解决客户问题为主导" class="headerlink" title="2. B端产品：解决客户问题为主导"></a>2. B端产品：解决客户问题为主导</h3><p>和C端产品不同的是，B端产品的根本目的是商业，即，开源和节流。</p>
+<p>客户选择一款产品，往往是因为这款产品能帮他赚到更多的钱，或者能解决他在团队工作过程中遇到的问题，提升团队的工作效率。</p>
+<p>也因此，客户决定是否使用一款产品时，不太可能根据个人的喜好去选择。</p>
+<p>同理，客户选择不使用一款产品的时候，也会从更理性的角度去思考问题，包括资金成本、团队学习成本、历史数据无法迁移成本等等。</p>
+<p>而其中，客户最大的阻碍，是数据，准确的说，应该是是在产品中留下的经营数据。</p>
+<p>比如客户在使用了多年企业微信之后，要换成钉钉，几乎是不可能的。</p>
+<p>因为客户在替换时，一旦考虑到整个团队在过去几年中，在产品里留下的工作资料，是无法迁移的，他就准备放弃了。</p>
+<p>因为他知道，数据一旦无法迁移，意味着过去很多经营内容，将无法追溯，这其中包括内部沟通资料，对外的业务资料，甚至是财务账单截图等等，都将丢失。</p>
+<p>俞军产品公式：</p>
+<blockquote>
+<p>用户价值 = (新体验-旧体验) – 替换成本</p>
+</blockquote>
+<p>而从俞军的产品替换公式来解释，随着时间的增加，产品的替换成本将持续增大，如果新产品无法提供更多能服务于团队的新功能，仅仅是因为“用户体验”更好的话，是无法推动客户替换产品的。</p>
+<p>除非，当客户团队所有的成员都跟客户反馈说，这款产品太难用了，无法解决多个问题时，客户才会去考虑，是否可以尝试使用下其他的产品了。</p>
+<p>所以，从这个角度上来说，用户体验，对B端的产品来说，并不是决定客户是否使用和放弃一款产品的决定因素。</p>
+<h2 id="三、当我在说“我不关注产品体验时”，我在说什么"><a href="#三、当我在说“我不关注产品体验时”，我在说什么" class="headerlink" title="三、当我在说“我不关注产品体验时”，我在说什么"></a>三、当我在说“我不关注产品体验时”，我在说什么</h2><p>那回过头来，我们来回答下最开始的那个问题：为什么很多B端产品总说“我不关注用户体验”呢？是因为用户体验真的不重要吗？</p>
+<p>在B端行业，如何更快地去帮助客户赚更多的钱， 更好地去帮客户节省更多资金成本，人力成本，才是更有价值的事情。</p>
+<p>所以，当B端产品经理这句话时，并不是因为用户体验真的不重要，而是对B端的产品来说，只有关乎产品核心价值的用户体验，才重要的。</p>
+<p>可很多初入B端得产品人提出的用户体验，其实和产品价值是无关的。</p>
+<p>假如有10个用户体验的优化，可能其中只有2个体验和产品的核心价值有关，所以，公司都会倾向于把资源投入的这两个体验中，把这2个的使用体验做到极致。</p>
+<p>比如，企业的支付流程，如何实现支付从T+1提升至时或秒到账的流程优化，提高企业节省支付到账时间这件事，不论多难，产品和开发都会想方设法去克服。</p>
+<p>因为这个是产品的核心价值体验，是能够提升企业合作效率，为团队提高工作效率的重要工作。</p>
+<p>而在支付流程中，支付的按钮放在左边还是右边，颜色用蓝色还是绿色，对企业来说，真的很重要吗？</p>
+<p>我其实只要保证和大多数产品一样，颜色和软件的主色调一致，其实就可以了吧。</p>
+<p>于是，你就会发现，市面上大部分的B端产品，在用户体验上，做的或许都不如C端产品。</p>
+<p>那也有人会说，那是因为你没有工匠精神，只要增加人力其实也可以做到的。</p>
+<p>这会导致投资回报率降低，管理成本增大。</p>
+<p>前面也说过，所有的产品，都是为了留住人。影响客户决策是否愿意为产品买单的关键因素，并不是用户体验，而是数据。</p>
+<p>而且，不论在什么公司，资源都是不够用的，资源一定是随着业务发展的必要性增加的，自然也就没有公司会愿意，为了不影响产品核心价值的去投入资源。</p>
+<p>俗话说，好钢要用在刀刃上，也就是这个道理吧。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/" rel="tag"># 产品经理</a>
+              <a href="/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/" rel="tag"># 用户体验</a>
+              <a href="/tags/ue/" rel="tag"># UE</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/macos/macos-howtos.html" rel="prev" title="MacOS常见操作">
+      <i class="fa fa-chevron-left"></i> MacOS常见操作
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html" rel="next" title="关于产品需求阶段的思维公式">
+      关于产品需求阶段的思维公式 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E5%81%9AB%E7%AB%AF%E8%A1%8C%E4%B8%9A%E5%B0%B1%E5%8F%AF%E4%BB%A5%E4%B8%8D%E9%9C%80%E8%A6%81%E5%85%B3%E6%B3%A8%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E4%BA%86%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">一、做B端行业就可以不需要关注用户体验了？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BA%E4%BB%80%E4%B9%88B%E7%AB%AF%E4%BA%A7%E5%93%81%E4%BC%9A%E8%AF%B4%E2%80%9C%E6%88%91%E4%B8%8D%E5%85%B3%E6%B3%A8%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E2%80%9D"><span class="nav-number">2.</span> <span class="nav-text">二、为什么B端产品会说“我不关注用户体验”</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-C%E7%AB%AF%E4%BA%A7%E5%93%81%EF%BC%9A%E4%BB%8E%E6%97%A0%E5%88%B0%E6%9C%89%EF%BC%8C%E4%BB%8E%E6%9C%89%E5%88%B0%E4%BC%98%E7%9A%84%E7%AB%9E%E4%BA%89%E6%A8%A1%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">1. C端产品：从无到有，从有到优的竞争模式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-B%E7%AB%AF%E4%BA%A7%E5%93%81%EF%BC%9A%E8%A7%A3%E5%86%B3%E5%AE%A2%E6%88%B7%E9%97%AE%E9%A2%98%E4%B8%BA%E4%B8%BB%E5%AF%BC"><span class="nav-number">2.2.</span> <span class="nav-text">2. B端产品：解决客户问题为主导</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%BD%93%E6%88%91%E5%9C%A8%E8%AF%B4%E2%80%9C%E6%88%91%E4%B8%8D%E5%85%B3%E6%B3%A8%E4%BA%A7%E5%93%81%E4%BD%93%E9%AA%8C%E6%97%B6%E2%80%9D%EF%BC%8C%E6%88%91%E5%9C%A8%E8%AF%B4%E4%BB%80%E4%B9%88"><span class="nav-number">3.</span> <span class="nav-text">三、当我在说“我不关注产品体验时”，我在说什么</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">96</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html";
+    this.page.identifier = "产品经理/user-experience-in-tob-products.html";
+    this.page.title = "B端产品人为什么总说“我不关注用户体验”";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xiaotanzhu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

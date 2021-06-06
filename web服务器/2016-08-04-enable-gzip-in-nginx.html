@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="Nginx是一个高性能的Web服务器，之前也写过一些关于nginx的文章。为了提高博客的响应速度，可以从设置nginx的gzip和浏览器缓存这两个方面入手。为字体开启gzip和缓存能大大减少带宽的消耗。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Nginx加速：启用gzip压缩和浏览器缓存">
+<meta property="og:url" content="http://www.xiaotanzhu.com/web%E6%9C%8D%E5%8A%A1%E5%99%A8/2016-08-04-enable-gzip-in-nginx.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="Nginx是一个高性能的Web服务器，之前也写过一些关于nginx的文章。为了提高博客的响应速度，可以从设置nginx的gzip和浏览器缓存这两个方面入手。为字体开启gzip和缓存能大大减少带宽的消耗。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2016-08-03T16:00:00.000Z">
+<meta property="article:modified_time" content="2016-08-03T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="转载">
+<meta property="article:tag" content="Nginx">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.xiaotanzhu.com/web%E6%9C%8D%E5%8A%A1%E5%99%A8/2016-08-04-enable-gzip-in-nginx.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Nginx加速：启用gzip压缩和浏览器缓存 | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-139248857-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小炭猪</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/web%E6%9C%8D%E5%8A%A1%E5%99%A8/2016-08-04-enable-gzip-in-nginx.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Nginx加速：启用gzip压缩和浏览器缓存
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2016-08-04 00:00:00" itemprop="dateCreated datePublished" datetime="2016-08-04T00:00:00+08:00">2016-08-04</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/web%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" rel="index"><span itemprop="name">Web服务器</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/web%E6%9C%8D%E5%8A%A1%E5%99%A8/2016-08-04-enable-gzip-in-nginx.html" class="post-meta-item leancloud_visitors" data-flag-title="Nginx加速：启用gzip压缩和浏览器缓存" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">Nginx是一个高性能的Web服务器，之前也写过一些关于nginx的文章。为了提高博客的响应速度，可以从设置nginx的gzip和浏览器缓存这两个方面入手。为字体开启gzip和缓存能大大减少带宽的消耗。</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Nginx是一个高性能的Web服务器，之前也写过一些关于nginx的文章。为了提高博客的响应速度，可以从设置nginx的gzip和浏览器缓存这两个方面入手。为字体开启gzip和缓存能大大减少带宽的消耗。</p>
+<h3 id="开启gzip"><a href="#开启gzip" class="headerlink" title="开启gzip"></a>开启gzip</h3><h4 id="Nginx配置参数"><a href="#Nginx配置参数" class="headerlink" title="Nginx配置参数"></a>Nginx配置参数</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># 开启gzip</span><br><span class="line">gzip on;</span><br><span class="line"></span><br><span class="line"># 启用gzip压缩的最小文件，小于设置值的文件将不会压缩</span><br><span class="line">gzip_min_length 1k;</span><br><span class="line"></span><br><span class="line"># gzip 压缩级别，1-10，数字越大压缩的越好，也越占用CPU时间，后面会有详细说明</span><br><span class="line">gzip_comp_level 2;</span><br><span class="line"></span><br><span class="line"># 进行压缩的文件类型。javascript有多种形式。其中的值可以在 mime.types 文件中找到。</span><br><span class="line">gzip_types text/plain application/javascript application/x-javascript text/css application/xml text/javascript application/x-httpd-php image/jpeg image/gif image/png;</span><br><span class="line"></span><br><span class="line"># 是否在http header中添加Vary: Accept-Encoding，建议开启</span><br><span class="line">gzip_vary on;</span><br><span class="line"></span><br><span class="line"># 禁用IE 6 gzip</span><br><span class="line">gzip_disable &quot;MSIE [1-6]\.&quot;;</span><br></pre></td></tr></table></figure>
+
+<h4 id="gzip-comp-level参数的推荐值"><a href="#gzip-comp-level参数的推荐值" class="headerlink" title="gzip_comp_level参数的推荐值"></a><code>gzip_comp_level</code>参数的推荐值</h4><p>来自<a target="_blank" rel="noopener" href="http://serverfault.com/questions/253074/what-is-the-best-nginx-compression-gzip-level">serverfault</a>的一个讨论，有人做了压缩比的实验，结果如下：</p>
+<p><strong>压缩HTML文件</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">级别	压缩之后的大小（压缩比）</span><br><span class="line">0    55.38 KiB (100.00% of original size)</span><br><span class="line">1    11.22 KiB ( 20.26% of original size)</span><br><span class="line">2    10.89 KiB ( 19.66% of original size)</span><br><span class="line">3    10.60 KiB ( 19.14% of original size)</span><br><span class="line">4    10.17 KiB ( 18.36% of original size)</span><br><span class="line">5     9.79 KiB ( 17.68% of original size)</span><br><span class="line">6     9.62 KiB ( 17.37% of original size)</span><br><span class="line">7     9.50 KiB ( 17.15% of original size)</span><br><span class="line">8     9.45 KiB ( 17.06% of original size)</span><br><span class="line">9     9.44 KiB ( 17.05% of original size)</span><br></pre></td></tr></table></figure>
+
+<p><strong>压缩JS文件（jQuery 1.8.3）</strong></p>
+<pre><code>级别    压缩之后的大小（压缩比）
+0    261.46 KiB (100.00% of original size)
+1     95.01 KiB ( 36.34% of original size)
+2     90.60 KiB ( 34.65% of original size)
+3     87.16 KiB ( 33.36% of original size)
+4     81.89 KiB ( 31.32% of original size)
+5     79.33 KiB ( 30.34% of original size)
+6     78.04 KiB ( 29.85% of original size)
+7     77.85 KiB ( 29.78% of original size)
+8     77.74 KiB ( 29.73% of original size)
+9     77.75 KiB ( 29.74% of original size)
+</code></pre>
+<p>从图中可以看出<code>gzip_comp_level</code>大于2时效果并不是很明显。所以可以将值设置为1或者2。</p>
+<h4 id="选择性的开启字体压缩"><a href="#选择性的开启字体压缩" class="headerlink" title="选择性的开启字体压缩"></a>选择性的开启字体压缩</h4><p>为静态资源开启缓存能够较少服务器带宽的消耗，特别是在css中使用字体时，同时配合gzip压缩能够大大减少下载字体造成的带宽影响。</p>
+<blockquote>
+<p><strong>需要注意</strong>：只需要为ttf、otf和svg字体启用gzip，对其他字体格式进行gzip压缩时效果不明显。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip_types  font/ttf font/otf image/svg+xml</span><br></pre></td></tr></table></figure>
+<p>各种字体类型压缩效果可以参考引用原文<a target="_blank" rel="noopener" href="http://www.darrenfang.com/2015/01/setting-up-http-cache-and-gzip-with-nginx/" title="引用原文">reference</a>。</p>
+<p><strong>字体压缩总结</strong></p>
+<table>
+<thead>
+<tr>
+<th>扩展名</th>
+<th>是否压缩</th>
+<th>Content-type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>.eot</td>
+<td>否</td>
+<td>application/vnd.ms-fontobject</td>
+</tr>
+<tr>
+<td>.ttf</td>
+<td>是</td>
+<td>font/ttf</td>
+</tr>
+<tr>
+<td>.otf</td>
+<td>是</td>
+<td>font/opentype</td>
+</tr>
+<tr>
+<td>.woff</td>
+<td>否</td>
+<td>font/x-woff</td>
+</tr>
+<tr>
+<td>.svg</td>
+<td>是</td>
+<td>image/svg+xml</td>
+</tr>
+</tbody></table>
+<h3 id="开启浏览器缓存"><a href="#开启浏览器缓存" class="headerlink" title="开启浏览器缓存"></a>开启浏览器缓存</h3><h4 id="Nginx配置"><a href="#Nginx配置" class="headerlink" title="Nginx配置"></a>Nginx配置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ &#123; </span><br><span class="line">        access_log   off; </span><br><span class="line">        expires      30d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* ^.+\.(css|js|txt|xml|swf|wav)$ &#123;</span><br><span class="line">    access_log   off;</span><br><span class="line">    expires      24h;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">location ~* ^.+\.(html|htm)$ &#123;</span><br><span class="line">        expires      1h;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中的缓存时间可以自己根据需要修改。</p>
+<h4 id="开启字体缓存"><a href="#开启字体缓存" class="headerlink" title="开启字体缓存"></a>开启字体缓存</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location ~* ^.+\.(eot|ttf|otf|woff|svg)$ &#123;</span><br><span class="line">        access_log   off;</span><br><span class="line">        expires max;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E8%BD%AC%E8%BD%BD/" rel="tag"># 转载</a>
+              <a href="/tags/nginx/" rel="tag"># Nginx</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/web%E6%9C%8D%E5%8A%A1%E5%99%A8/2016-08-04-nginx-gzip-cache-parameters.html" rel="prev" title="Nginx的浏览器缓存和Gzip压缩参数">
+      <i class="fa fa-chevron-left"></i> Nginx的浏览器缓存和Gzip压缩参数
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-08-05-redis-jedis-pool.html" rel="next" title="Redis提示Could not get a resource from the pool（jedis连接池配置）">
+      Redis提示Could not get a resource from the pool（jedis连接池配置） <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AFgzip"><span class="nav-number">1.</span> <span class="nav-text">开启gzip</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx%E9%85%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="nav-number">1.1.</span> <span class="nav-text">Nginx配置参数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#gzip-comp-level%E5%8F%82%E6%95%B0%E7%9A%84%E6%8E%A8%E8%8D%90%E5%80%BC"><span class="nav-number">1.2.</span> <span class="nav-text">gzip_comp_level参数的推荐值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E6%80%A7%E7%9A%84%E5%BC%80%E5%90%AF%E5%AD%97%E4%BD%93%E5%8E%8B%E7%BC%A9"><span class="nav-number">1.3.</span> <span class="nav-text">选择性的开启字体压缩</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E6%B5%8F%E8%A7%88%E5%99%A8%E7%BC%93%E5%AD%98"><span class="nav-number">2.</span> <span class="nav-text">开启浏览器缓存</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Nginx%E9%85%8D%E7%BD%AE"><span class="nav-number">2.1.</span> <span class="nav-text">Nginx配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%90%AF%E5%AD%97%E4%BD%93%E7%BC%93%E5%AD%98"><span class="nav-number">2.2.</span> <span class="nav-text">开启字体缓存</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">96</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.xiaotanzhu.com/web%E6%9C%8D%E5%8A%A1%E5%99%A8/2016-08-04-enable-gzip-in-nginx.html";
+    this.page.identifier = "web服务器/2016-08-04-enable-gzip-in-nginx.html";
+    this.page.title = "Nginx加速：启用gzip压缩和浏览器缓存";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xiaotanzhu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

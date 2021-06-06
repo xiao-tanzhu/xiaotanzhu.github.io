@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="千亿数据扛不住，三思后还是从MySQL迁走了……">
+<meta property="og:url" content="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0011.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0001.jpeg">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0002.jpeg">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0012.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0003.jpeg">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0013.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0014.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0015.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0016.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0017.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0016.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0019.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0020.png">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0004.jpeg">
+<meta property="og:image" content="http://www.xiaotanzhu.com/images/0005.jpeg">
+<meta property="article:published_time" content="2021-05-25T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-25T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="MongoDB">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://www.xiaotanzhu.com/images/0011.png">
+
+<link rel="canonical" href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>千亿数据扛不住，三思后还是从MySQL迁走了…… | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-139248857-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小炭猪</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          千亿数据扛不住，三思后还是从MySQL迁走了……
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-26 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-26T00:00:00+08:00">2021-05-26</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html" class="post-meta-item leancloud_visitors" data-flag-title="千亿数据扛不住，三思后还是从MySQL迁走了……" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>作者介绍</p>
+<blockquote>
+<p>杨亚洲，前滴滴出行专家工程师，现任OPPO文档数据库MongoDB负责人，负责数万亿级数据量文档数据库MongoDB内核研发、性能优化及运维工作，一直专注于分布式缓存、高性能服务端、数据库、中间件等相关研发。后续持续分享《MongoDB内核源码设计、性能优化、最佳运维实践》。</p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>线上某IOT核心业务集群之前采用MySQL作为主存储数据库，随着业务规模的不断增加，MySQL已无法满足海量数据存储需求，业务面临着容量痛点、成本痛点问题、数据不均衡问题等。</p>
+<p>400亿该业务迁移MongoDB后，同样的数据节省了极大的内存、CPU、磁盘成本，同时完美解决了容量痛点、数据不均衡痛点，并且实现了一定的性能提升。</p>
+<p>此外，迁移时候的MySQL数据为400亿，3个月后的现在对应MongoDB集群数据已增长到1000亿，如果以1000亿数据规模等比例计算成本，实际成本节省比例会更高。迁移MongoDB后，除了解决业务痛点问题，同时也促进了业务的快速迭代开发，业务不在关心数据库容量痛点、数据不均衡痛点、成本痛点等问题。</p>
+<p>当前国内很多mongod文档资料、性能数据等还停留在早期的MMAP_V1存储引擎，实际上从MongoDB-3.x版本开始，MongoDB默认存储引擎已经采用高性能、高压缩比、更小锁粒度的wiredtiger存储引擎，因此其性能、成本等优势相比之前的MMAP_V1存储引擎更加明显。</p>
+<h2 id="一、业务迁移背景"><a href="#一、业务迁移背景" class="headerlink" title="一、业务迁移背景"></a>一、业务迁移背景</h2><p>该业务在迁移MongoDB前已有约400亿数据，申请了64套MySQL集群，由业务通过shardingjdbc做分库分表，提前拆分为64个库，每个库100张表。主从高可用选举通过依赖开源orchestrator组建，MySQL架构图如下图所示：</p>
+<p><img src="/images/0011.png"></p>
+<p><strong>说明：</strong>上图中红色代表磁盘告警，磁盘使用水位即将100%。如上图所示，业务一年多前一次性申请了64套MySQL集群，单个集群节点数一主三从，每个节点规格如下：</p>
+<ul>
+<li>cpu：4</li>
+<li>mem：16G</li>
+<li>磁盘：500G</li>
+<li>总节点数：64*4=256</li>
+<li>SSD服务器</li>
+</ul>
+<p>该业务运行一年多时间后，总集群数据量达到了400亿，并以每月200亿速度增长，由于数据不均衡等原因，造成部分集群数据量大，持续性耗光磁盘问题。由于节点众多，越来越多的集群节点磁盘突破瓶颈，为了解决磁盘瓶颈，DBA不停的提升节点磁盘容量。业务和DBA都面临严重痛点，主要如下：</p>
+<ul>
+<li>数据不均衡问题</li>
+<li>节点容量问题</li>
+<li>成本持续性增加</li>
+<li>DBA工作量剧增(部分磁盘提升不了需要迁移数据到新节点)，业务也提心吊胆</li>
+</ul>
+<h2 id="二、为何选择MongoDB-附十大核心优势总结"><a href="#二、为何选择MongoDB-附十大核心优势总结" class="headerlink" title="二、为何选择MongoDB-附十大核心优势总结"></a>二、为何选择MongoDB-附十大核心优势总结</h2><p>业务遇到瓶颈后，基于MongoDB在公司已有的影响力，业务开始调研MongoDB，通过和业务接触了解到，业务使用场景都是普通的增、删、改、查、排序等操作，同时查询条件都比较固定，用MongoDB完全没任何问题。</p>
+<p>此外，MongoDB相比传统开源数据库拥有如下核心优索：</p>
+<h3 id="优势一：模式自由"><a href="#优势一：模式自由" class="headerlink" title="优势一：模式自由"></a>优势一：模式自由</h3><p>MongoDB为schema-free结构，数据格式没有严格限制。业务数据结构比较固定，该功能业务不用，但是并不影响业务使用MongoDB存储结构化的数据。</p>
+<h3 id="优势二：天然高可用支持"><a href="#优势二：天然高可用支持" class="headerlink" title="优势二：天然高可用支持"></a>优势二：天然高可用支持</h3><p>MySQL高可用依赖第三方组件来实现高可用，MongoDB副本集内部多副本通过raft协议天然支持高可用，相比MySQL减少了对第三方组件的依赖。</p>
+<h3 id="优势三：分布式-解决分库分表及海量数据存储痛点"><a href="#优势三：分布式-解决分库分表及海量数据存储痛点" class="headerlink" title="优势三：分布式-解决分库分表及海量数据存储痛点"></a>优势三：分布式-解决分库分表及海量数据存储痛点</h3><p>MongoDB是分布式数据库，完美解决MySQL分库分表及海量数据存储痛点，业务无需在使用数据库前评估需要提前拆多少个库多少个表，MongoDB对业务来说就是一个无限大的表(当前我司最大的表存储数千亿数据，查询性能无任何影响)。</p>
+<p>此外，业务在早期的时候一般数据都比较少，可以只申请一个分片MongoDB集群。而如果采用MySQL，就和本次迁移的IOT业务一样，需要提前申请最大容量的集群，早期数据量少的时候严重浪费资源。</p>
+<h3 id="优势四：完善的数据均衡机制、不同分片策略、多种片建类型支持"><a href="#优势四：完善的数据均衡机制、不同分片策略、多种片建类型支持" class="headerlink" title="优势四：完善的数据均衡机制、不同分片策略、多种片建类型支持"></a>优势四：完善的数据均衡机制、不同分片策略、多种片建类型支持</h3><ul>
+<li>关于balance：支持自动balance、手动balance、时间段任意配置balance.</li>
+<li>关于分片策略：支持范围分片、hash分片，同时支持预分片。</li>
+<li>关于片建类型：支持单自动片建、多字段片建</li>
+</ul>
+<h3 id="优势五：不同等级的数据一致性及安全性保证"><a href="#优势五：不同等级的数据一致性及安全性保证" class="headerlink" title="优势五：不同等级的数据一致性及安全性保证"></a>优势五：不同等级的数据一致性及安全性保证</h3><p>MongoDB在设计上根据不同一致性等级需求，支持不同类型的<code>Read Concern</code>、<code>Write Concern</code>读写相关配置，客户端可以根据实际情况设置。此外，MongoDB内核设计拥有完善的rollback机制来保证数据安全性和一致性。</p>
+<h3 id="优势六：高并发、高性能"><a href="#优势六：高并发、高性能" class="headerlink" title="优势六：高并发、高性能"></a>优势六：高并发、高性能</h3><p>为了适应大规模高并发业务读写，MongoDB在线程模型设计、并发控制、高性能存储引擎等方面做了很多细致化优化。</p>
+<h3 id="优势七：wiredtiger高性能存储引擎设计"><a href="#优势七：wiredtiger高性能存储引擎设计" class="headerlink" title="优势七：wiredtiger高性能存储引擎设计"></a>优势七：wiredtiger高性能存储引擎设计</h3><p>网上很多评论还停留在早期MMAPv1存储引擎，相比MMAPv1，wiredtiger引擎性能更好，压缩比更高，锁粒度更小，具体如下：</p>
+<ul>
+<li>WiredTiger提供了低延迟和高吞吐量</li>
+<li>处理比内存大得多的数据，而不会降低性能或资源</li>
+<li>系统故障后可快速恢复到最近一个checkpoint</li>
+<li>支持PB级数据存储</li>
+<li>多线程架构，尽力利用乐观锁并发控制算法减少锁操作</li>
+<li>具有hot-caches能力</li>
+<li>磁盘IO最大化利用，提升磁盘IO能力</li>
+<li>其他</li>
+</ul>
+<blockquote>
+<p>更多WT存储引擎设计细节可以参考：<br><a target="_blank" rel="noopener" href="http://source.wiredtiger.com/3.2.1/architecture.html">http://source.wiredtiger.com/3.2.1/architecture.html</a></p>
+</blockquote>
+<h3 id="优势八：成本节省-WT引擎高压缩比支持"><a href="#优势八：成本节省-WT引擎高压缩比支持" class="headerlink" title="优势八：成本节省-WT引擎高压缩比支持"></a>优势八：成本节省-WT引擎高压缩比支持</h3><p>MongoDB对数据的压缩支持snappy、zlib算法，在以往线上真实的数据空间大小与真实磁盘空间消耗进行对比，可以得出以下结论：</p>
+<ul>
+<li>MongoDB默认的snappy压缩算法压缩比约为2.2-4.5倍</li>
+<li>zlib压缩算法压缩比约为4.5-7.5倍(本次迁移采用zlib高压缩算法)</li>
+</ul>
+<p><img src="/images/0001.jpeg"></p>
+<p>此外，以线上已有的从MySQL、Es迁移到MongoDB的真实业务磁盘消耗统计对比，同样的数据，存储在MongoDB、MySQL、Es的磁盘占比≈1：3.5：6。</p>
+<p>后续会有数千亿hbase数据迁移MongoDB，到时候总结同样数据MongoDB和Hbase的磁盘消耗比。</p>
+<h3 id="优势九：天然N机房-不管同城还是异地-多活容灾支持"><a href="#优势九：天然N机房-不管同城还是异地-多活容灾支持" class="headerlink" title="优势九：天然N机房(不管同城还是异地)多活容灾支持"></a>优势九：天然N机房(不管同城还是异地)多活容灾支持</h3><p>MongoDB天然高可用机制及代理标签自动识别转发功能的支持，可以通过节点不同机房部署来满足同城和异地N机房多活容灾需求，从而实现成本、性能、一致性的“三丰收”。</p>
+<h3 id="优势十：完善的客户端均衡访问策略"><a href="#优势十：完善的客户端均衡访问策略" class="headerlink" title="优势十：完善的客户端均衡访问策略"></a>优势十：完善的客户端均衡访问策略</h3><p>MongoDB客户端访问路由策略由客户端自己指定，该功能通过Read Preference实现，支持primary 、primaryPreferred 、secondary 、secondaryPreferred 、nearest 五种客户端均衡访问策略。</p>
+<h3 id="补充：分布式事务支持"><a href="#补充：分布式事务支持" class="headerlink" title="补充：分布式事务支持"></a>补充：分布式事务支持</h3><p>MongoDB-4.2 版本开始已经支持分布式事务功能，当前对外文档版本已经迭代到 version-4.2.11，分布式事务功能也进一步增强。此外，从 MongoDB-4.4 版本产品规划路线图可以看出，MongoDB 官方将会持续投入开发查询能力和易用性增强功能，例如 union 多表联合查询、索引隐藏等。</p>
+<blockquote>
+<p>更多MongoDB核心优势细节详见我分享的一篇文章，也欢迎各位参加讨论：</p>
+<p>mongodb源码分析、更多实践案例细节：<br><a target="_blank" rel="noopener" href="https://github.com/y123456yz/reading-and-annotate-mongodb-3.6">https://github.com/y123456yz/reading-and-annotate-mongodb-3.6</a></p>
+<p>话题讨论 | MongoDB 拥有十大核心优势，为何国内知名度远不如 MySQL 高？<br><a target="_blank" rel="noopener" href="https://xie.infoq.cn/article/180d98535bfa0c3e71aff1662">https://xie.infoq.cn/article/180d98535bfa0c3e71aff1662</a></p>
+</blockquote>
+<h2 id="三、MongoDB资源评估及部署架构"><a href="#三、MongoDB资源评估及部署架构" class="headerlink" title="三、MongoDB资源评估及部署架构"></a>三、MongoDB资源评估及部署架构</h2><p>业务开始迁移MongoDB的时候，通过和业务对接梳理，该集群规模及业务需求总结如下：</p>
+<ul>
+<li>已有数据量400亿左右</li>
+<li>数据磁盘消耗总和30T左右</li>
+<li>读写峰值流量4-5W/s左右，流量很小</li>
+<li>同城两机房多活容灾</li>
+<li>读写分离</li>
+<li>每月预计增加200亿数据</li>
+<li>满足几个月内1500亿新增数据需求</li>
+</ul>
+<p><strong>说明：</strong>数据规模和磁盘消耗按照单副本计算，例如MySQL 64个分片，256个副本，数据规模和磁盘消耗计算方式为：64个主节点数据量之和、64个分片主节点磁盘消耗之和。</p>
+<h3 id="1、MongoDB资源评估"><a href="#1、MongoDB资源评估" class="headerlink" title="1、MongoDB资源评估"></a>1、MongoDB资源评估</h3><p>分片数及存储节点套餐规格选定评估过程如下：</p>
+<h4 id="内存评估"><a href="#内存评估" class="headerlink" title="内存评估"></a>内存评估</h4><p>我司都是容器化部署，以往经验来看，MongoDB对内存消耗不高，历史百亿级以上MongoDB集群单个容器最大内存基本上都是64Gb，因此内存规格确定为64G。</p>
+<h4 id="分片评估"><a href="#分片评估" class="headerlink" title="分片评估"></a>分片评估</h4><p>业务流量峰值3-5W/s，考虑到可能后期有更大峰值流量，因此按照峰值10W/s写，5w/s读，也就是峰值15W/s评估，预计需要4个分片。</p>
+<h4 id="磁盘评估"><a href="#磁盘评估" class="headerlink" title="磁盘评估"></a>磁盘评估</h4><p>MySQL中已有数据400亿，磁盘消耗30T。按照以网线上迁移经验，MongoDB默认配置磁盘消耗约为mysql的1/3-1/5，400亿数据对应MongoDB磁盘消耗预计8T。考虑到1500亿数据，预计4个分片，按照每个分片400亿规模，预计每个分片磁盘消耗8T。</p>
+<p>线上单台物理机10多T磁盘，几百G内存，几十个CPU，为了最大化利用服务器资源，我们需要预留一部分磁盘给其他容器使用。另外，因为容器组套餐化限制，最终确定确定单个节点磁盘在7T。预计使用7T的节点，4个分片存储约1500亿数据。</p>
+<h4 id="CPU规格评估"><a href="#CPU规格评估" class="headerlink" title="CPU规格评估"></a>CPU规格评估</h4><p>由于容器调度套餐化限制，因此CPU只能限定为16CPU(实际上用不了这么多CPU)。</p>
+<h4 id="mongos代理及config-server规格评估"><a href="#mongos代理及config-server规格评估" class="headerlink" title="mongos代理及config server规格评估"></a>mongos代理及config server规格评估</h4><p>此外，由于分片集群还有mongos代理和config server复制集，因此还需要评估mongos代理和config server节点规格。由于config server只主要存储路由相关元数据，因此对磁盘、CUP、MEM消耗都很低；mongos代理只做路由转发只消耗CPU，因此对内存和磁盘消耗都不高。最终，为了最大化节省成本，我们决定让一个代理和一个config server复用同一个容器，容器规格如下：</p>
+<p>8CPU/8G内存/50G磁盘，一个代理和一个config server节点复用同一个容器。</p>
+<ul>
+<li>分片及存储节点规格总结：4分片/16CPU、64G内存、7T磁盘。</li>
+<li>mongos及config server规格总结：8CPU/8G内存/50G磁盘</li>
+</ul>
+<p><img src="/images/0002.jpeg"></p>
+<h3 id="2、集群部署架构"><a href="#2、集群部署架构" class="headerlink" title="2、集群部署架构"></a>2、集群部署架构</h3><p>由于该业务所在城市只有两个机房，因此我们采用2+2+1(2mongod+2mongod+1arbiter模式)，在A机房部署2个mongod节点，B机房部署2个mongod节点，C机房部署一个最低规格的选举节点，如下图所示：</p>
+<p><img src="/images/0012.png"></p>
+<p><strong>说明：</strong></p>
+<ul>
+<li>每个机房代理部署2个mongos代理，保证业务访问代理高可用，任一代理挂掉，对应机房业务不受影响；</li>
+<li>如果机房A挂掉，则机房B和机房C剩余2mongod+1arbiter，则会在B机房mongod中从新选举一个主节点。arbiter选举节点不消耗资源；</li>
+<li>客户端配置nearest ，实现就近读，确保请求通过代理转发的时候，转发到最近网络时延节点，也就是同机房对应存储节点读取数据；</li>
+<li>弊端：如果是异地机房，B机房和C机房写存在跨机房写场景。如果A、B、C为同城机房，则没用该弊端，同城机房时延可以忽略。</li>
+</ul>
+<h2 id="四、业务全量-增量迁移方式"><a href="#四、业务全量-增量迁移方式" class="headerlink" title="四、业务全量+增量迁移方式"></a>四、业务全量+增量迁移方式</h2><p><img src="/images/0003.jpeg"></p>
+<blockquote>
+<p>迁移过程由业务自己完成，通过阿里开源的datax工具实现，该迁移工具的更多细节可以参考：<br><a target="_blank" rel="noopener" href="https://github.com/alibaba/DataX">https://github.com/alibaba/DataX</a></p>
+</blockquote>
+<h2 id="五、性能优化过程"><a href="#五、性能优化过程" class="headerlink" title="五、性能优化过程"></a>五、性能优化过程</h2><p>该集群优化过程按照如下两个步骤优化：数据迁移开始前的提前预优化、迁移过程中瓶颈分析及优化、迁移完成后性能优化。</p>
+<h3 id="1、数据迁移开始前的提前预操作"><a href="#1、数据迁移开始前的提前预操作" class="headerlink" title="1、数据迁移开始前的提前预操作"></a>1、数据迁移开始前的提前预操作</h3><p>和业务沟通确定，业务每条数据都携带有一个设备标识ssoid，同时业务查询更新等都是根据ssoid维度查询该设备下面的单条或者一批数据，因此片建选择ssoid。</p>
+<h4 id="分片方式"><a href="#分片方式" class="headerlink" title="分片方式"></a>分片方式</h4><p>为了充分散列数据到4个分片，因此选择hash分片方式，这样数据可以最大化散列，同时可以满足同一个ssoid数据落到同一个分片，保证查询效率。</p>
+<h4 id="预分片"><a href="#预分片" class="headerlink" title="预分片"></a>预分片</h4><p>MongoDB如果分片片建为hashed分片，则可以提前做预分片，这样就可以保证数据写进来的时候比较均衡的写入多个分片。预分片的好处可以规避非预分片情况下的chunk迁移问题，最大化提升写入性能。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh.shardCollection(<span class="string">&quot;xxx.xxx&quot;</span>, &#123;<span class="attr">ssoid</span>:<span class="string">&quot;hashed&quot;</span>&#125;, <span class="literal">false</span>, &#123; <span class="attr">numInitialChunks</span>: <span class="number">8192</span>&#125; )</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意事项：切记提前对ssoid创建hashed索引，否则对后续分片扩容有影响。</p>
+</blockquote>
+<h4 id="就近读"><a href="#就近读" class="headerlink" title="就近读"></a>就近读</h4><p>客户端增加nearest 配置，从离自己最近的节点读，保证了读的性能。</p>
+<h4 id="mongos代理配置"><a href="#mongos代理配置" class="headerlink" title="mongos代理配置"></a>mongos代理配置</h4><p>A机房业务只配置A机房的代理，B机房业务只配置B机房代理，同时带上nearest配置，最大化的实现本机房就近读，同时避免客户端跨机房访问代理。</p>
+<h4 id="禁用enableMajorityReadConcern"><a href="#禁用enableMajorityReadConcern" class="headerlink" title="禁用enableMajorityReadConcern"></a>禁用<code>enableMajorityReadConcern</code></h4><p>禁用该功能后ReadConcern majority将会报错，ReadConcern majority功能主要是避免脏读，和业务沟通业务没该需求，因此可以直接关闭。</p>
+<p>MongoDB默认使能了<code>enableMajorityReadConcern</code>，该功能开启对性能有一定影响，参考：</p>
+<blockquote>
+<p>MongoDB readConcern 原理解析<br><a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/60553">https://developer.aliyun.com/article/60553</a></p>
+</blockquote>
+<blockquote>
+<p>OPPO百万级高并发MongoDB集群性能数十倍提升优化实践<br><a target="_blank" rel="noopener" href="https://mongoing.com/archives/29934">https://mongoing.com/archives/29934</a></p>
+</blockquote>
+<h4 id="存储引擎cacheSize规格选择"><a href="#存储引擎cacheSize规格选择" class="headerlink" title="存储引擎cacheSize规格选择"></a>存储引擎cacheSize规格选择</h4><p>单个容器规格：16CPU、64G内存、7T磁盘，考虑到全量迁移过程中对内存压力，内存碎片等压力会比较大，为了避免OOM，设置cacheSize=42G。</p>
+<h3 id="2、数据全量迁移过程中优化过程"><a href="#2、数据全量迁移过程中优化过程" class="headerlink" title="2、数据全量迁移过程中优化过程"></a>2、数据全量迁移过程中优化过程</h3><p><img src="/images/0013.png"></p>
+<p>全量数据迁移过程中，迁移速度较块，内存脏数据较多，当脏数据比例达到一定比例后用户读写请求对应线程将会阻塞，用户线程也会去淘汰内存中的脏数据page，最终写性能下降明显。</p>
+<p>wiredtiger存储引擎cache淘汰策略相关的几个配置如下:</p>
+<p><img src="/images/0014.png"></p>
+<p>由于业务全量迁移数据是持续性的大流量写，而不是突发性的大流量写，因此eviction_target、eviction_trigger、eviction_dirty_target、eviction_dirty_trigger几个配置用处不大，这几个参数阀值只是在短时间突发流量情况下调整才有用。</p>
+<p>但是，在持续性长时间大流量写的情况下，我们可以通过提高wiredtiger存储引擎后台线程数来解决脏数据比例过高引起的用户请求阻塞问题，淘汰脏数据的任务最终交由evict模块后台线程来完成。</p>
+<p>全量大流量持续性写存储引擎优化如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.adminCommand( &#123; <span class="attr">setParameter</span> : <span class="number">1</span>, <span class="string">&quot;wiredTigerEngineRuntimeConfig&quot;</span> : <span class="string">&quot;eviction=(threads_min=4, threads_max=20)&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、全量迁移完成后，业务流量读写优化"><a href="#3、全量迁移完成后，业务流量读写优化" class="headerlink" title="3、全量迁移完成后，业务流量读写优化"></a>3、全量迁移完成后，业务流量读写优化</h3><p><img src="/images/0015.png"></p>
+<p>前面章节我们提到，在容器资源评估的时候，我们最终确定选择单个容器套餐规格为如下：</p>
+<blockquote>
+<p>16CPU、64G内存、7T磁盘。</p>
+</blockquote>
+<p>全量迁移过程中为了避免OOM，预留了约1/3内存给MongoDB server层、操作系统开销等，当全量数据迁移完后，业务写流量相比全量迁移过程小了很多，峰值读写OPS约2-4W/s。</p>
+<p>也就是说，前量迁移完成后，cache中脏数据比例几乎很少，基本上不会达到20%阀值，业务读流量相比之前多了很多(数据迁移过程中读流量走原MySQL集群)。为了提升读性能，因此做了如下性能调整(提前建好索引)：</p>
+<ul>
+<li>节点cacheSize从之前的42G调整到55G，尽量多的缓存热点数据到内存，供业务读，最大化提升读性能；</li>
+<li>每天凌晨低峰期做一次cache内存加速释放，避免OOM。</li>
+</ul>
+<p>上面的内核优后后，业务测时延监控曲线变化，时延更加平稳，平均时延也有25%左右的性能优后，如下图所示：</p>
+<p><img src="/images/0016.png"></p>
+<h2 id="六、迁移前后，业务测时延统计对比：-MySQL-vs-MongoDB"><a href="#六、迁移前后，业务测时延统计对比：-MySQL-vs-MongoDB" class="headerlink" title="六、迁移前后，业务测时延统计对比：(MySQL vs MongoDB)"></a>六、迁移前后，业务测时延统计对比：(MySQL vs MongoDB)</h2><p>迁移前业务测时延监控曲线(平均时延7ms, 2月1日数据，此时mysql集群只有300亿数据)：</p>
+<p><img src="/images/0017.png"></p>
+<p>迁移MongoDB后并且业务流量全部切到MongoDB后业务测时延监控曲线(平均6ms, 3月6日数据，此时MongoDB集群已有约500亿数据))</p>
+<p><img src="/images/0016.png"></p>
+<p>总结：</p>
+<ul>
+<li>MySQL(300亿数据)时延：7ms</li>
+<li>MongoDB(500亿数据)时延：6ms</li>
+</ul>
+<h2 id="七、迁移成本收益对比"><a href="#七、迁移成本收益对比" class="headerlink" title="七、迁移成本收益对比"></a>七、迁移成本收益对比</h2><h3 id="1、MySQL集群规格及存储数据最大量"><a href="#1、MySQL集群规格及存储数据最大量" class="headerlink" title="1、MySQL集群规格及存储数据最大量"></a>1、MySQL集群规格及存储数据最大量</h3><p><img src="/images/0019.png"></p>
+<p>原mysql集群一共64套，每套集群4副本，每个副本容器规格：4CPU、16G mem、500G磁盘，总共可以存储400亿数据，这时候大部分节点已经开始磁盘90%水位告警，DBA对部分节点做了磁盘容量提升。</p>
+<p>总结如下：</p>
+<ul>
+<li>集群总套数：64</li>
+<li>单套集群副本数：4</li>
+<li>每个节点规格：4CPU、16G mem、500G磁盘</li>
+<li>该64套集群最大存储数据量：400亿</li>
+</ul>
+<h3 id="2、MongoDB集群规格及存储数据最大量"><a href="#2、MongoDB集群规格及存储数据最大量" class="headerlink" title="2、MongoDB集群规格及存储数据最大量"></a>2、MongoDB集群规格及存储数据最大量</h3><p><img src="/images/0020.png"></p>
+<p>MongoDB从MySQL迁移过来后，数据量已从400亿增加到1000亿，并以每个月增加200亿数据。</p>
+<p>MongoDB集群规格及存储数据量总结如下：</p>
+<ul>
+<li>分片数：4</li>
+<li>单分片副本数：4</li>
+<li>每个节点规格：16CPU、64G mem、7T磁盘</li>
+<li>四个分片存储数据量：当前已存1000亿，最大可存1500亿数据。</li>
+</ul>
+<h3 id="3、成本对比计算过程"><a href="#3、成本对比计算过程" class="headerlink" title="3、成本对比计算过程"></a>3、成本对比计算过程</h3><p><strong>说明：</strong>由于MySQL迁移MongoDB后，数据不再往MySQL中写入，流量切到MongoDB时候MySQL中大约存储有400亿数据，因此我们以这个时间点做为对比时间点。以400亿数据为基准，资源消耗对比如下表(每个分片只计算主节点资源消耗，因为MySQL和MongoDB都是4副本)：</p>
+<p><img src="/images/0004.jpeg"></p>
+<p>由于MongoDB四个分片还有很多磁盘冗余，该四个分片相比400亿数据，还可以写1100亿数据。如果按照1500亿数据计算，如果还是按照MySQL之前套餐规格，则MySQL集群数需要再增加三倍，也就是总集群套数需要64*4=256套，资源占用对比如下：</p>
+<p><img src="/images/0005.jpeg"></p>
+<h3 id="4、收益总结-客观性对比"><a href="#4、收益总结-客观性对比" class="headerlink" title="4、收益总结(客观性对比)"></a>4、收益总结(客观性对比)</h3><p>从上面的内容可以看出，该业务迁移MongoDB后，除了解决了业务容量痛点、促进业务快速迭代开发、性能提升外，成本还节省了数倍。成本节省总结如下：</p>
+<p>400亿维度计算(mysql和MongoDB都存储相同的400亿数据)：</p>
+<ul>
+<li>CPU和内存成本比例：4:1</li>
+<li>磁盘成本比例：3.3:1</li>
+</ul>
+<p>1500亿维度计算(假设mysql集群都采用之前规格等比例换算)：</p>
+<ul>
+<li>CPU和内存成本比例：16:1</li>
+<li>磁盘成本比例：3.3:1</li>
+</ul>
+<p>从上面的分析可以看出，数据量越大，按照等比例换算原则，MongoDB存储成本会更低，原因如下：</p>
+<h4 id="CPU-内存节省原因："><a href="#CPU-内存节省原因：" class="headerlink" title="CPU/内存节省原因："></a>CPU/内存节省原因：</h4><p>主要是因为MongoDB海量数据存储及高性能原因，索引建好后，单实例单表即使几百亿数据，读写也是ms级返回(注意：切记查询更新建好索引)。</p>
+<p>此外，由于MongoDB分布式功能，对容量评估更加方便，就无需提前一次性申请很多套mysql，而是根据实际需要可以随时加分片。</p>
+<h4 id="磁盘节省原因："><a href="#磁盘节省原因：" class="headerlink" title="磁盘节省原因："></a>磁盘节省原因：</h4><p>MongoDB存储引擎wiredtiger默认高压缩、高性能。</p>
+<p>最后，鉴于客观性成本评价，CPU/内存成本部分可能会有争议，比如mysql内存和CPU是否申请的时候就申请过大。MongoDB对应CPU也同样存在该问题，例如申请的单个容器是16CPU，实际上真实只消耗了几个CPU。</p>
+<p>但是，磁盘节省是实实在在的，是相同数据情况下mysql和MongoDB的真实磁盘消耗对比。</p>
+<p>当前该集群总数据量已经达到近千亿，并以每个月200亿规模增加，单从容器计费层面上换算，1000亿数据按照等比例换算，预计节省成本10倍。</p>
+<h2 id="八、最后：千亿级中等规模MongoDB集群注意事项"><a href="#八、最后：千亿级中等规模MongoDB集群注意事项" class="headerlink" title="八、最后：千亿级中等规模MongoDB集群注意事项"></a>八、最后：千亿级中等规模MongoDB集群注意事项</h2><p>MongoDB无需分库分表，单表可以无限大，但是单表随着数据量的增多会引起以下问题：</p>
+<ul>
+<li>切记提前建好索引，否则影响查询更新性能(数据越多，无索引查询扫描会越慢)。</li>
+<li>切记提前评估好业务需要那些索引，单节点单个表数百亿数据，加索引执行时间较长。</li>
+<li>服务器异常情况下节点替换时间相比会更长。</li>
+<li>切记数据备份不要采用mongodump/mongorestore方式，而是采用热备或者文件拷贝方式备份。</li>
+<li>节点替换尽量从备份中拷贝数据加载方式恢复，而不是通过主从全量同步方式，全量同步过程较长。</li>
+</ul>
+<h2 id="九、未来挑战-该集群未来万亿级实时数据规模挑战"><a href="#九、未来挑战-该集群未来万亿级实时数据规模挑战" class="headerlink" title="九、未来挑战(该集群未来万亿级实时数据规模挑战)"></a>九、未来挑战(该集群未来万亿级实时数据规模挑战)</h2><p>随着时间推移，业务数据增长也会越来越多，单月数据量增长曲线预计会直线增加(当前每月数据量增加200亿左右)，预计未来2-3年该集群总数据量会达到万亿级，分片数也会达到20个分片左右，可能会遇到各自各样的问题。</p>
+<p>但是，IOT业务数据存在明显的冷数问题，一年前的数据用户基本上不会访问，因此我们考虑做如下优后来满足性能、成本的进一步提升：</p>
+<ul>
+<li>冷数据归档到低成本SATA盘</li>
+<li>冷数据提升压缩比，最大化减少磁盘消耗</li>
+</ul>
+<blockquote>
+<p>如何解决冷数据归档sata盘过程中的性能问题<br>冷热归档存储可以参考之前在dbaplus分享的另一篇文章：<br>1.《用最少人力玩转万亿级数据，我用的就是MongoDB！》<br>2.MongoDB源码分析、更多实践案例细节<br><a target="_blank" rel="noopener" href="https://github.com/y123456yz/reading-and-annotate-mongodb-3.6">https://github.com/y123456yz/reading-and-annotate-mongodb-3.6</a></p>
+</blockquote>
+<h2 id="十、最后说明-业务场景"><a href="#十、最后说明-业务场景" class="headerlink" title="十、最后说明(业务场景)"></a>十、最后说明(业务场景)</h2><p>本千亿级IOT业务使用场景总结如下：</p>
+<ul>
+<li>业务数据读、更新、排序等都可以走索引，包括单字段索引、多字段索引、数组索引，所有查询和更新都能确定走具体的某个最优索引。</li>
+<li>查询都是单表查询，不涉及多表联合查询。</li>
+</ul>
+<p>数据库场景非常重要，脱离业务场景谈数据库优劣无任何意义。例如本文的业务场景，业务能确定需要建那些索引，同时所有的更新、查询、排序都可以对应具体的最优索引，因此该场景就非常适合MongoDB。</p>
+<p>每种数据库都有其适合的业务场景，没有万能的数据库。此外，不能因为某种场景不适合而全盘否定没数据库，主流数据库都有其存在的意义，千万不能因为某种场景下的不合适而全盘否定某个数据库。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/mysql/" rel="tag"># MySQL</a>
+              <a href="/tags/mongodb/" rel="tag"># MongoDB</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html" rel="prev" title="关于产品需求阶段的思维公式">
+      <i class="fa fa-chevron-left"></i> 关于产品需求阶段的思维公式
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/msfs2020/msfs-tutorials.html" rel="next" title="微软模拟飞行教程">
+      微软模拟飞行教程 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E4%B8%9A%E5%8A%A1%E8%BF%81%E7%A7%BB%E8%83%8C%E6%99%AF"><span class="nav-number">2.</span> <span class="nav-text">一、业务迁移背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E4%B8%BA%E4%BD%95%E9%80%89%E6%8B%A9MongoDB-%E9%99%84%E5%8D%81%E5%A4%A7%E6%A0%B8%E5%BF%83%E4%BC%98%E5%8A%BF%E6%80%BB%E7%BB%93"><span class="nav-number">3.</span> <span class="nav-text">二、为何选择MongoDB-附十大核心优势总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%B8%80%EF%BC%9A%E6%A8%A1%E5%BC%8F%E8%87%AA%E7%94%B1"><span class="nav-number">3.1.</span> <span class="nav-text">优势一：模式自由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%8C%EF%BC%9A%E5%A4%A9%E7%84%B6%E9%AB%98%E5%8F%AF%E7%94%A8%E6%94%AF%E6%8C%81"><span class="nav-number">3.2.</span> <span class="nav-text">优势二：天然高可用支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%B8%89%EF%BC%9A%E5%88%86%E5%B8%83%E5%BC%8F-%E8%A7%A3%E5%86%B3%E5%88%86%E5%BA%93%E5%88%86%E8%A1%A8%E5%8F%8A%E6%B5%B7%E9%87%8F%E6%95%B0%E6%8D%AE%E5%AD%98%E5%82%A8%E7%97%9B%E7%82%B9"><span class="nav-number">3.3.</span> <span class="nav-text">优势三：分布式-解决分库分表及海量数据存储痛点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E5%9B%9B%EF%BC%9A%E5%AE%8C%E5%96%84%E7%9A%84%E6%95%B0%E6%8D%AE%E5%9D%87%E8%A1%A1%E6%9C%BA%E5%88%B6%E3%80%81%E4%B8%8D%E5%90%8C%E5%88%86%E7%89%87%E7%AD%96%E7%95%A5%E3%80%81%E5%A4%9A%E7%A7%8D%E7%89%87%E5%BB%BA%E7%B1%BB%E5%9E%8B%E6%94%AF%E6%8C%81"><span class="nav-number">3.4.</span> <span class="nav-text">优势四：完善的数据均衡机制、不同分片策略、多种片建类型支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%BA%94%EF%BC%9A%E4%B8%8D%E5%90%8C%E7%AD%89%E7%BA%A7%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%80%E8%87%B4%E6%80%A7%E5%8F%8A%E5%AE%89%E5%85%A8%E6%80%A7%E4%BF%9D%E8%AF%81"><span class="nav-number">3.5.</span> <span class="nav-text">优势五：不同等级的数据一致性及安全性保证</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E5%85%AD%EF%BC%9A%E9%AB%98%E5%B9%B6%E5%8F%91%E3%80%81%E9%AB%98%E6%80%A7%E8%83%BD"><span class="nav-number">3.6.</span> <span class="nav-text">优势六：高并发、高性能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%B8%83%EF%BC%9Awiredtiger%E9%AB%98%E6%80%A7%E8%83%BD%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8E%E8%AE%BE%E8%AE%A1"><span class="nav-number">3.7.</span> <span class="nav-text">优势七：wiredtiger高性能存储引擎设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E5%85%AB%EF%BC%9A%E6%88%90%E6%9C%AC%E8%8A%82%E7%9C%81-WT%E5%BC%95%E6%93%8E%E9%AB%98%E5%8E%8B%E7%BC%A9%E6%AF%94%E6%94%AF%E6%8C%81"><span class="nav-number">3.8.</span> <span class="nav-text">优势八：成本节省-WT引擎高压缩比支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E4%B9%9D%EF%BC%9A%E5%A4%A9%E7%84%B6N%E6%9C%BA%E6%88%BF-%E4%B8%8D%E7%AE%A1%E5%90%8C%E5%9F%8E%E8%BF%98%E6%98%AF%E5%BC%82%E5%9C%B0-%E5%A4%9A%E6%B4%BB%E5%AE%B9%E7%81%BE%E6%94%AF%E6%8C%81"><span class="nav-number">3.9.</span> <span class="nav-text">优势九：天然N机房(不管同城还是异地)多活容灾支持</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%98%E5%8A%BF%E5%8D%81%EF%BC%9A%E5%AE%8C%E5%96%84%E7%9A%84%E5%AE%A2%E6%88%B7%E7%AB%AF%E5%9D%87%E8%A1%A1%E8%AE%BF%E9%97%AE%E7%AD%96%E7%95%A5"><span class="nav-number">3.10.</span> <span class="nav-text">优势十：完善的客户端均衡访问策略</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E6%94%AF%E6%8C%81"><span class="nav-number">3.11.</span> <span class="nav-text">补充：分布式事务支持</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81MongoDB%E8%B5%84%E6%BA%90%E8%AF%84%E4%BC%B0%E5%8F%8A%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84"><span class="nav-number">4.</span> <span class="nav-text">三、MongoDB资源评估及部署架构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81MongoDB%E8%B5%84%E6%BA%90%E8%AF%84%E4%BC%B0"><span class="nav-number">4.1.</span> <span class="nav-text">1、MongoDB资源评估</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%86%85%E5%AD%98%E8%AF%84%E4%BC%B0"><span class="nav-number">4.1.1.</span> <span class="nav-text">内存评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%89%87%E8%AF%84%E4%BC%B0"><span class="nav-number">4.1.2.</span> <span class="nav-text">分片评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E8%AF%84%E4%BC%B0"><span class="nav-number">4.1.3.</span> <span class="nav-text">磁盘评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU%E8%A7%84%E6%A0%BC%E8%AF%84%E4%BC%B0"><span class="nav-number">4.1.4.</span> <span class="nav-text">CPU规格评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mongos%E4%BB%A3%E7%90%86%E5%8F%8Aconfig-server%E8%A7%84%E6%A0%BC%E8%AF%84%E4%BC%B0"><span class="nav-number">4.1.5.</span> <span class="nav-text">mongos代理及config server规格评估</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2%E6%9E%B6%E6%9E%84"><span class="nav-number">4.2.</span> <span class="nav-text">2、集群部署架构</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%9B%E3%80%81%E4%B8%9A%E5%8A%A1%E5%85%A8%E9%87%8F-%E5%A2%9E%E9%87%8F%E8%BF%81%E7%A7%BB%E6%96%B9%E5%BC%8F"><span class="nav-number">5.</span> <span class="nav-text">四、业务全量+增量迁移方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%94%E3%80%81%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="nav-number">6.</span> <span class="nav-text">五、性能优化过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81%E6%95%B0%E6%8D%AE%E8%BF%81%E7%A7%BB%E5%BC%80%E5%A7%8B%E5%89%8D%E7%9A%84%E6%8F%90%E5%89%8D%E9%A2%84%E6%93%8D%E4%BD%9C"><span class="nav-number">6.1.</span> <span class="nav-text">1、数据迁移开始前的提前预操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E7%89%87%E6%96%B9%E5%BC%8F"><span class="nav-number">6.1.1.</span> <span class="nav-text">分片方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A2%84%E5%88%86%E7%89%87"><span class="nav-number">6.1.2.</span> <span class="nav-text">预分片</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%B1%E8%BF%91%E8%AF%BB"><span class="nav-number">6.1.3.</span> <span class="nav-text">就近读</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mongos%E4%BB%A3%E7%90%86%E9%85%8D%E7%BD%AE"><span class="nav-number">6.1.4.</span> <span class="nav-text">mongos代理配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A6%81%E7%94%A8enableMajorityReadConcern"><span class="nav-number">6.1.5.</span> <span class="nav-text">禁用enableMajorityReadConcern</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%98%E5%82%A8%E5%BC%95%E6%93%8EcacheSize%E8%A7%84%E6%A0%BC%E9%80%89%E6%8B%A9"><span class="nav-number">6.1.6.</span> <span class="nav-text">存储引擎cacheSize规格选择</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81%E6%95%B0%E6%8D%AE%E5%85%A8%E9%87%8F%E8%BF%81%E7%A7%BB%E8%BF%87%E7%A8%8B%E4%B8%AD%E4%BC%98%E5%8C%96%E8%BF%87%E7%A8%8B"><span class="nav-number">6.2.</span> <span class="nav-text">2、数据全量迁移过程中优化过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E5%85%A8%E9%87%8F%E8%BF%81%E7%A7%BB%E5%AE%8C%E6%88%90%E5%90%8E%EF%BC%8C%E4%B8%9A%E5%8A%A1%E6%B5%81%E9%87%8F%E8%AF%BB%E5%86%99%E4%BC%98%E5%8C%96"><span class="nav-number">6.3.</span> <span class="nav-text">3、全量迁移完成后，业务流量读写优化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AD%E3%80%81%E8%BF%81%E7%A7%BB%E5%89%8D%E5%90%8E%EF%BC%8C%E4%B8%9A%E5%8A%A1%E6%B5%8B%E6%97%B6%E5%BB%B6%E7%BB%9F%E8%AE%A1%E5%AF%B9%E6%AF%94%EF%BC%9A-MySQL-vs-MongoDB"><span class="nav-number">7.</span> <span class="nav-text">六、迁移前后，业务测时延统计对比：(MySQL vs MongoDB)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%83%E3%80%81%E8%BF%81%E7%A7%BB%E6%88%90%E6%9C%AC%E6%94%B6%E7%9B%8A%E5%AF%B9%E6%AF%94"><span class="nav-number">8.</span> <span class="nav-text">七、迁移成本收益对比</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1%E3%80%81MySQL%E9%9B%86%E7%BE%A4%E8%A7%84%E6%A0%BC%E5%8F%8A%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E6%9C%80%E5%A4%A7%E9%87%8F"><span class="nav-number">8.1.</span> <span class="nav-text">1、MySQL集群规格及存储数据最大量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2%E3%80%81MongoDB%E9%9B%86%E7%BE%A4%E8%A7%84%E6%A0%BC%E5%8F%8A%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE%E6%9C%80%E5%A4%A7%E9%87%8F"><span class="nav-number">8.2.</span> <span class="nav-text">2、MongoDB集群规格及存储数据最大量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3%E3%80%81%E6%88%90%E6%9C%AC%E5%AF%B9%E6%AF%94%E8%AE%A1%E7%AE%97%E8%BF%87%E7%A8%8B"><span class="nav-number">8.3.</span> <span class="nav-text">3、成本对比计算过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4%E3%80%81%E6%94%B6%E7%9B%8A%E6%80%BB%E7%BB%93-%E5%AE%A2%E8%A7%82%E6%80%A7%E5%AF%B9%E6%AF%94"><span class="nav-number">8.4.</span> <span class="nav-text">4、收益总结(客观性对比)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#CPU-%E5%86%85%E5%AD%98%E8%8A%82%E7%9C%81%E5%8E%9F%E5%9B%A0%EF%BC%9A"><span class="nav-number">8.4.1.</span> <span class="nav-text">CPU&#x2F;内存节省原因：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A3%81%E7%9B%98%E8%8A%82%E7%9C%81%E5%8E%9F%E5%9B%A0%EF%BC%9A"><span class="nav-number">8.4.2.</span> <span class="nav-text">磁盘节省原因：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%AB%E3%80%81%E6%9C%80%E5%90%8E%EF%BC%9A%E5%8D%83%E4%BA%BF%E7%BA%A7%E4%B8%AD%E7%AD%89%E8%A7%84%E6%A8%A1MongoDB%E9%9B%86%E7%BE%A4%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="nav-number">9.</span> <span class="nav-text">八、最后：千亿级中等规模MongoDB集群注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9D%E3%80%81%E6%9C%AA%E6%9D%A5%E6%8C%91%E6%88%98-%E8%AF%A5%E9%9B%86%E7%BE%A4%E6%9C%AA%E6%9D%A5%E4%B8%87%E4%BA%BF%E7%BA%A7%E5%AE%9E%E6%97%B6%E6%95%B0%E6%8D%AE%E8%A7%84%E6%A8%A1%E6%8C%91%E6%88%98"><span class="nav-number">10.</span> <span class="nav-text">九、未来挑战(该集群未来万亿级实时数据规模挑战)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%81%E3%80%81%E6%9C%80%E5%90%8E%E8%AF%B4%E6%98%8E-%E4%B8%9A%E5%8A%A1%E5%9C%BA%E6%99%AF"><span class="nav-number">11.</span> <span class="nav-text">十、最后说明(业务场景)</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">96</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html";
+    this.page.identifier = "数据库/mysql-mongodb-migration.html";
+    this.page.title = "千亿数据扛不住，三思后还是从MySQL迁走了……";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xiaotanzhu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>

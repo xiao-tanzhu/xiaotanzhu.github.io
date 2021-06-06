@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="在微软模拟飞行中，使用自动驾驶从上海浦东机场飞无锡硕放机场">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微软模拟飞行2020：从上海浦东飞无锡硕放">
+<meta property="og:url" content="http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="在微软模拟飞行中，使用自动驾驶从上海浦东机场飞无锡硕放机场">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-04T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-05-04T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="MSFS2020">
+<meta property="article:tag" content="微软模拟飞行">
+<meta property="article:tag" content="新手教程">
+<meta property="article:tag" content="G1000">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>微软模拟飞行2020：从上海浦东飞无锡硕放 | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+    <script>
+      if (CONFIG.hostname === location.hostname) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-139248857-1');
+      }
+    </script>
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小炭猪</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          微软模拟飞行2020：从上海浦东飞无锡硕放
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-05-05 00:00:00" itemprop="dateCreated datePublished" datetime="2021-05-05T00:00:00+08:00">2021-05-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/msfs2020/" itemprop="url" rel="index"><span itemprop="name">MSFS2020</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/msfs2020/msfs2020-flight-sh-wx.html" class="post-meta-item leancloud_visitors" data-flag-title="微软模拟飞行2020：从上海浦东飞无锡硕放" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">在微软模拟飞行中，使用自动驾驶从上海浦东机场飞无锡硕放机场</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="基本说明"><a href="#基本说明" class="headerlink" title="基本说明"></a>基本说明</h2><h3 id="飞行起止"><a href="#飞行起止" class="headerlink" title="飞行起止"></a>飞行起止</h3><p>出发：浦东国际机场（ZSPD），跑道36R<br>到达：无锡硕放机场（ZSWX），跑道21</p>
+<blockquote>
+<p>注：为什么选择无锡机场，主要考虑对新手友好，不至于距离太短而手忙脚乱，也不至于距离太远而过于无聊。</p>
+</blockquote>
+<h3 id="飞机型号"><a href="#飞机型号" class="headerlink" title="飞机型号"></a>飞机型号</h3><p>Cessna 172 (G1000)，操作系统G1000</p>
+<h3 id="面板说明"><a href="#面板说明" class="headerlink" title="面板说明"></a>面板说明</h3><p>Cessna 172主要有两个屏幕，为PFD和MFD，即主屏幕和多功能屏幕，分别为左侧和右侧两块屏幕。具体说明可以参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Mf4y1z7Lm/">https://www.bilibili.com/video/BV1Mf4y1z7Lm/</a></p>
+<h4 id="面板左侧（PFD）"><a href="#面板左侧（PFD）" class="headerlink" title="面板左侧（PFD）"></a>面板左侧（PFD）</h4><ul>
+<li>AP：AutoPilot，开启/关闭自动驾驶</li>
+<li>FD：Flight Director，飞行指引，打开之后屏幕上会出现红色导航标记</li>
+<li>HDG：Heading Select或Heading Hold，制定航向飞行</li>
+<li>ALT：Altitude，自动驾驶的飞行高度设定，可结合左下角ALT旋钮设置，显示在高度计上方</li>
+<li>VNV：垂直导航（这个飞机貌似没有？）</li>
+<li>APR：Approach Mode，进近模式</li>
+<li>BC：Back Course</li>
+<li>VS：Virtual Speed，点击之后，垂直速度计顶端会显示设置值，可结合NoseUP和NoseDN使用</li>
+<li>FLC：Flight Level Change，按照现有速度，计算爬升速度</li>
+<li>NoseUP：结合VS和FLC使用，提高VS或FLC的设置值</li>
+<li>NoseDN：结合VS和FLC使用，降低VS或FLC的设置值</li>
+</ul>
+<h4 id="面板右侧（PFD）"><a href="#面板右侧（PFD）" class="headerlink" title="面板右侧（PFD）"></a>面板右侧（PFD）</h4><ul>
+<li>CDI：Change Direct Indicator，调整导航器。G1000中包含三种：VOR1，VOR2和GPS，分别对应频率导航NAV1、NAV2和GPS导航</li>
+<li>TMR/REF：计时器和速度参考，Vr速度后的OFF调整为ON之后，会在速度计中标记出来抬轮速度</li>
+</ul>
+<h4 id="面板右侧（PFD）-1"><a href="#面板右侧（PFD）-1" class="headerlink" title="面板右侧（PFD）"></a>面板右侧（PFD）</h4><ul>
+<li>Direct Course：一个比较奇怪的图标按钮，代表直接飞行到某个点</li>
+<li>MENU：</li>
+<li>FPL：Flight Plan，查看和设置飞行计划</li>
+<li>PROC：Procedure，设置离场、进场和进近等程序</li>
+</ul>
+<h2 id="飞行过程"><a href="#飞行过程" class="headerlink" title="飞行过程"></a>飞行过程</h2><h3 id="起飞准备"><a href="#起飞准备" class="headerlink" title="起飞准备"></a>起飞准备</h3><ol>
+<li>设置自动驾驶巡航高度：点击“ALT”，高度计顶端显示数字，旋转左下角ALT旋钮调整巡航高度，我们设置3500；</li>
+<li>设置自动驾驶爬升速度（VS）：点击VS，垂直速度计顶端显示设置值，点击5次“NoseUP”按钮，调整数值为500；</li>
+</ol>
+<h3 id="起飞"><a href="#起飞" class="headerlink" title="起飞"></a>起飞</h3><ol>
+<li>按下左侧“HDG”旋钮，将航向设定为当前飞机机头方向，然后点击“HDG”按钮可选择让飞机按指定方向飞行；</li>
+<li>放开手刹；</li>
+<li>推动节流阀至最大，待飞机空速达到70左右时，抬轮起飞；</li>
+<li>待飞机飞行高度为500英尺左右时，点击“AP”按钮启动自动驾驶，飞机将按照500英尺/分的爬升率上升至3500英尺；</li>
+<li>飞机达到巡航高度之后，降低节流阀到巡航速度。</li>
+</ol>
+<h3 id="飞行导航"><a href="#飞行导航" class="headerlink" title="飞行导航"></a>飞行导航</h3><p>飞行导航的控制在右侧屏幕，即副驾驶侧的屏幕</p>
+<h4 id="直线导航（Direct-Course）"><a href="#直线导航（Direct-Course）" class="headerlink" title="直线导航（Direct Course）"></a>直线导航（Direct Course）</h4><ol>
+<li>点击“Direct Course”按钮，通过FMS旋钮设置地点为ZSWX，选择之后按“ENT”生效（FMS大旋钮选择位置，小旋钮选择字母）。此时可看到一条直线飞向硕放机场；</li>
+<li>点击面板左侧“NAV”按钮，此时屏幕上方标记HDG会变为GPS，飞机会飞向航向并按航向保持；</li>
+</ol>
+<h4 id="飞行计划"><a href="#飞行计划" class="headerlink" title="飞行计划"></a>飞行计划</h4><ol>
+<li>点击面板右侧“FPL”，可以看到刚才设定的直线飞行计划，点击“MENU”，选择“DELETE FLIGHT PLAN”，按“ENT”删除刚才的直线飞行计划；</li>
+<li>回到飞行计划页面，按下“FMS”旋钮，输入位置开始闪烁，旋转“FMS”大小按钮，分别设置出发和到达为ZSPD（浦东）和ZSWX（硕放），然后按“ENT”确认选择，可以看到飞行计划页面出现了ZSPD-&gt;ZSWX这个飞行计划；</li>
+<li>按“PROC”按钮，选择“SELECT APPROACH”，按下“ENT”选择进近跑道，按“ENT”键选择“ILS 21”，即选择21跑道的进近方向；</li>
+<li>使用大旋钮选择“Load?”，点击“ENT”按钮之后，可以看到进近计划已经添加到了飞行计划中；</li>
+<li>使用“NAV”按钮启动GPS导航（屏幕上方标记GPS为准），飞机会按照整个飞行计划自动飞行。</li>
+</ol>
+<h3 id="进场准备"><a href="#进场准备" class="headerlink" title="进场准备"></a>进场准备</h3><ol>
+<li>在右侧屏幕地图状态下，（1）旋转FMS大按钮，由MAP旋转至NRST（旋转过程共有四个状态：MAP、WPT、AUX、NRST），即附近机场。（2）通过FMS大旋钮选择ZSWX，点击面板下侧“FREQ”按钮，光标指向频率，（3）使用FMS大旋钮选择RW21，按下“ENT”按钮，此导航频率会自动填写到左侧屏幕左上角NAV1中，（4）此时按下面板左侧“&lt;-&gt;”按钮，将选择的频率切换至生效状态；</li>
+<li>飞行计划飞至最后阶段和跑道对齐时，按下HDG按钮，再按下HDG，飞机会临时按照机头方向飞行；</li>
+<li>点击面板下方“CDI”将GPS切换为VOR1，此时由于已接通地面导航，VOR1会显示为LOC1；</li>
+<li>按下面板左侧“APR”按钮，屏幕上方的GPS标志切换为LOC，并为绿色，说明已经按本地进近指引执行；后边有个一GS（下滑道）标记，但为白色。</li>
+</ol>
+<h3 id="降落"><a href="#降落" class="headerlink" title="降落"></a>降落</h3><ol>
+<li>当进入下滑道之后，GS标记会变为绿色，飞机跟随进近指引开始下降，此时需要进行减速（收起一些节流阀），控制速度在75节左右；</li>
+<li>进近距离为2NM左右时，放下FLAPS，并控制速度在60节左右；</li>
+<li>飞机即将触底时，节流阀拉至IDLE，轻轻拉起机头，平稳着陆；</li>
+<li>按下BRAKE，减速，并收起FLAPS。</li>
+</ol>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>G1000导航仪基本操作：<a target="_blank" rel="noopener" href="https://yinlei.org/x-plane10/2017/11/x-plane-11-g1000.html">https://yinlei.org/x-plane10/2017/11/x-plane-11-g1000.html</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/msfs2020/" rel="tag"># MSFS2020</a>
+              <a href="/tags/%E5%BE%AE%E8%BD%AF%E6%A8%A1%E6%8B%9F%E9%A3%9E%E8%A1%8C/" rel="tag"># 微软模拟飞行</a>
+              <a href="/tags/%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B/" rel="tag"># 新手教程</a>
+              <a href="/tags/g1000/" rel="tag"># G1000</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/powerbi/powerbi-howtos.html" rel="prev" title="PowerBI常见操作">
+      <i class="fa fa-chevron-left"></i> PowerBI常见操作
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/nginx/letsencrypt-for-free-ssl-cert.html" rel="next" title="使用Let's Encrypt免费证书让你的网站SSL化">
+      使用Let's Encrypt免费证书让你的网站SSL化 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%B4%E6%98%8E"><span class="nav-number">1.</span> <span class="nav-text">基本说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A3%9E%E8%A1%8C%E8%B5%B7%E6%AD%A2"><span class="nav-number">1.1.</span> <span class="nav-text">飞行起止</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A3%9E%E6%9C%BA%E5%9E%8B%E5%8F%B7"><span class="nav-number">1.2.</span> <span class="nav-text">飞机型号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%A2%E6%9D%BF%E8%AF%B4%E6%98%8E"><span class="nav-number">1.3.</span> <span class="nav-text">面板说明</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E6%9D%BF%E5%B7%A6%E4%BE%A7%EF%BC%88PFD%EF%BC%89"><span class="nav-number">1.3.1.</span> <span class="nav-text">面板左侧（PFD）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E6%9D%BF%E5%8F%B3%E4%BE%A7%EF%BC%88PFD%EF%BC%89"><span class="nav-number">1.3.2.</span> <span class="nav-text">面板右侧（PFD）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%9D%A2%E6%9D%BF%E5%8F%B3%E4%BE%A7%EF%BC%88PFD%EF%BC%89-1"><span class="nav-number">1.3.3.</span> <span class="nav-text">面板右侧（PFD）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A3%9E%E8%A1%8C%E8%BF%87%E7%A8%8B"><span class="nav-number">2.</span> <span class="nav-text">飞行过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%B7%E9%A3%9E%E5%87%86%E5%A4%87"><span class="nav-number">2.1.</span> <span class="nav-text">起飞准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B5%B7%E9%A3%9E"><span class="nav-number">2.2.</span> <span class="nav-text">起飞</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A3%9E%E8%A1%8C%E5%AF%BC%E8%88%AA"><span class="nav-number">2.3.</span> <span class="nav-text">飞行导航</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B4%E7%BA%BF%E5%AF%BC%E8%88%AA%EF%BC%88Direct-Course%EF%BC%89"><span class="nav-number">2.3.1.</span> <span class="nav-text">直线导航（Direct Course）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A3%9E%E8%A1%8C%E8%AE%A1%E5%88%92"><span class="nav-number">2.3.2.</span> <span class="nav-text">飞行计划</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%9C%BA%E5%87%86%E5%A4%87"><span class="nav-number">2.4.</span> <span class="nav-text">进场准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%99%8D%E8%90%BD"><span class="nav-number">2.5.</span> <span class="nav-text">降落</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">60</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">96</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+<script>
+  (function() {
+    function leancloudSelector(url) {
+      url = encodeURI(url);
+      return document.getElementById(url).querySelector('.leancloud-visitors-count');
+    }
+
+    function addCount(Counter) {
+      var visitors = document.querySelector('.leancloud_visitors');
+      var url = decodeURI(visitors.id);
+      var title = visitors.dataset.flagTitle;
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          if (results.length > 0) {
+            var counter = results[0];
+            leancloudSelector(url).innerText = counter.time + 1;
+            Counter('put', '/classes/Counter/' + counter.objectId, { time: { '__op': 'Increment', 'amount': 1 } })
+              .catch(error => {
+                console.error('Failed to save visitor count', error);
+              });
+          } else {
+              Counter('post', '/classes/Counter', { title, url, time: 1 })
+                .then(response => response.json())
+                .then(() => {
+                  leancloudSelector(url).innerText = 1;
+                })
+                .catch(error => {
+                  console.error('Failed to create', error);
+                });
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    function showTime(Counter) {
+      var visitors = document.querySelectorAll('.leancloud_visitors');
+      var entries = [...visitors].map(element => {
+        return decodeURI(element.id);
+      });
+
+      Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({ url: { '$in': entries } })))
+        .then(response => response.json())
+        .then(({ results }) => {
+          for (let url of entries) {
+            let target = results.find(item => item.url === url);
+            leancloudSelector(url).innerText = target ? target.time : 0;
+          }
+        })
+        .catch(error => {
+          console.error('LeanCloud Counter Error', error);
+        });
+    }
+
+    let { app_id, app_key, server_url } = {"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false};
+    function fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${api_server}/1.1${url}`, {
+          method,
+          headers: {
+            'X-LC-Id'     : app_id,
+            'X-LC-Key'    : app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      if (CONFIG.page.isPost) {
+        if (CONFIG.hostname !== location.hostname) return;
+        addCount(Counter);
+      } else if (document.querySelectorAll('.post-title-link').length >= 1) {
+        showTime(Counter);
+      }
+    }
+
+    let api_server = app_id.slice(-9) !== '-MdYXbMMI' ? server_url : `https://${app_id.slice(0, 8).toLowerCase()}.api.lncldglobal.com`;
+
+    if (api_server) {
+      fetchData(api_server);
+    } else {
+      fetch('https://app-router.leancloud.cn/2/route?appId=' + app_id)
+        .then(response => response.json())
+        .then(({ api_server }) => {
+          fetchData('https://' + api_server);
+        });
+    }
+  })();
+</script>
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+<script>
+  var disqus_config = function() {
+    this.page.url = "http://www.xiaotanzhu.com/msfs2020/msfs2020-flight-sh-wx.html";
+    this.page.identifier = "msfs2020/msfs2020-flight-sh-wx.html";
+    this.page.title = "微软模拟飞行2020：从上海浦东飞无锡硕放";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xiaotanzhu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+</body>
+</html>
