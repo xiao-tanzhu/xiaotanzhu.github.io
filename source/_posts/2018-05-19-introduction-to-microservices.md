@@ -3,7 +3,7 @@ layout: post
 title: "Introduction to Microservices"
 date: 2018-05-19
 tags: ["微服务", "Introduction to Microservices"]
-categories: [Microservice, 微服务]
+categories: [微服务]
 description: "Introduction to Microservices"
 ---
 
