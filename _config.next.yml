@@ -19,7 +19,7 @@ menu:
   home: / || fa fa-home
   archives: /archives/ || fa fa-archive
   #categories: /categories/ || fa fa-th
-  categories: /categories/ || th
+  categories: /categories/ || th fa-book
   tags: /tags/ || fa fa-tags
   #schedule: /schedule/ || fa fa-calendar
   about: /about/ || fa fa-user
