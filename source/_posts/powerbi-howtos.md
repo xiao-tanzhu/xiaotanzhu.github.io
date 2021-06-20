@@ -13,6 +13,13 @@ description: "常见的一些PowerBI的使用方法"
 
 Source：https://zhuanlan.zhihu.com/p/58948031
 
+### 按条件统计数量（DAX）
+
+增加一个统计列，此列统计了符合`FILTER`条件的数据数量：
+```
+不足8小时数量 = COUNTROWS(FILTER(sheet1, sheet1[Group] = "招聘管理" && sheet1[出勤时长]<7.5 && sheet1[出勤时长] > 0 || sheet1[Group] <> "招聘管理" && sheet1[出勤时长] < 8 &&  sheet1[出勤时长] > 0))
+```
+
 ## 类Excel的计算
 
 ### VLOOKUP (DAX)
