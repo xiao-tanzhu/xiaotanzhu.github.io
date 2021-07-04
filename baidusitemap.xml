@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.xiaotanzhu.com/java/delayqueue-in-java.html</loc>
+    <lastmod>2021-06-27</lastmod>
+  </url>
+  <url>
     <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</loc>
     <lastmod>2021-05-25</lastmod>
   </url>
@@ -31,10 +35,6 @@
   <url>
     <loc>https://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html</loc>
     <lastmod>2021-03-06</lastmod>
-  </url>
-  <url>
-    <loc>https://www.xiaotanzhu.com/java/delayqueue-in-java.html</loc>
-    <lastmod>2020-06-27</lastmod>
   </url>
   <url>
     <loc>https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</loc>
