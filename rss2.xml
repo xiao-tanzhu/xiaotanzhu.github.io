@@ -213,6 +213,29 @@
     </item>
     
     <item>
+      <title>Java中的DelayQueue</title>
+      <link>http://www.xiaotanzhu.com/java/delayqueue-in-java.html</link>
+      <guid>http://www.xiaotanzhu.com/java/delayqueue-in-java.html</guid>
+      <pubDate>Sat, 27 Jun 2020 16:00:00 GMT</pubDate>
+      
+      <description>Java中的DelayQueue</description>
+      
+      
+      
+      
+      <category domain="http://www.xiaotanzhu.com/categories/java/">Java</category>
+      
+      
+      <category domain="http://www.xiaotanzhu.com/tags/java/">Java</category>
+      
+      <category domain="http://www.xiaotanzhu.com/tags/delayqueue/">DelayQueue</category>
+      
+      
+      <comments>http://www.xiaotanzhu.com/java/delayqueue-in-java.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Ansible常用命令</title>
       <link>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</link>
       <guid>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</guid>
@@ -466,33 +489,6 @@
       
       
       <comments>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Ubuntu上使用USB安装APK到手机</title>
-      <link>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html</link>
-      <guid>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html</guid>
-      <pubDate>Mon, 19 Sep 2016 16:00:00 GMT</pubDate>
-      
-      <description>Ubuntu上使用USB安装APK到手机</description>
-      
-      
-      
-      
-      <category domain="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/">安卓</category>
-      
-      
-      <category domain="http://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/android/">Android</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/">安卓</category>
-      
-      <category domain="http://www.xiaotanzhu.com/tags/usb/">USB</category>
-      
-      
-      <comments>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-20-install-apk-on-ubuntu.html#disqus_thread</comments>
       
     </item>
     

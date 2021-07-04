@@ -6,6 +6,7 @@ http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html
 http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html
 http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html
 http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html
+http://www.xiaotanzhu.com/java/delayqueue-in-java.html
 http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html
 http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html
 http://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html
