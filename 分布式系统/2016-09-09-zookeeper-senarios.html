@@ -306,7 +306,7 @@
 </blockquote>
 <h2 id="分布式队列"><a href="#分布式队列" class="headerlink" title="分布式队列"></a>分布式队列</h2><p>队列方面，我目前感觉有两种，<strong>一种是常规的先进先出队列，另一种是要等到队列成员聚齐之后的才统一按序执行</strong>。对于第一种先进先出队列，和分布式锁服务中的控制时序场景基本原理一致，这里不再赘述。</p>
 <p>第二种队列其实是在FIFO队列的基础上作了一个增强。通常可以在 /queue 这个znode下预先建立一个/queue/num 节点，并且赋值为n（或者直接给/queue赋值n），表示队列大小，之后每次有队列成员加入后，就判断下是否已经到达队列大小，决定是否可以开始执行了。这种用法的典型场景是，分布式环境中，一个大任务Task A，需要在很多子任务完成（或条件就绪）情况下才能进行。这个时候，凡是其中一个子任务完成（就绪），那么就去 /taskList 下建立自己的临时时序节点（CreateMode.EPHEMERAL_SEQUENTIAL），当 /taskList 发现自己下面的子节点满足指定个数，就可以进行下一步按序进行处理了。</p>
-</br></hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-09-09-zookeeper-senarios.html" target="_blank">ZooKeeper典型使用场景总结</a></br>原文地址：https://www.xiaotanzhu.com/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-09-09-zookeeper-senarios.html
+</br></hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-09-09-zookeeper-senarios.html" target="_blank">ZooKeeper典型使用场景总结</a></br><b>原文地址：</b>https://www.xiaotanzhu.com/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-09-09-zookeeper-senarios.html
     </div>
 
     
