@@ -1,1 +1,1 @@
-footer: </br></hr><b>转载请注明出处：</b><a href="<%= post_permalink %>" target="_blank"><%= post_title %></a></br><b>原文地址：</b><%= post_permalink %>
+footer: <br><hr><b>转载请注明出处：</b><a href="<%= post_permalink %>" target="_blank"><%= post_title %></a><br><b>原文地址：</b><%= post_permalink %>
