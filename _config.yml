@@ -144,6 +144,12 @@ feed:
   autodiscovery: true
   template:
 
+# Post links
+## Docs: https://github.com/r12f/hexo-tag-post-link
+post_link:
+  #insert_before_post: header
+  insert_after_post: footer
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:

@@ -1,0 +1,2 @@
+footer: <b>转载请注明出处：</b><a href="<%= post_permalink %>" target="_blank"><%= post_title %></a></br>地址：<%= post_permalink %>
+
