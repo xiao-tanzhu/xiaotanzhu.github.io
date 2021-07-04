@@ -24,18 +24,21 @@
   <meta name="description" content="Java中的DelayQueue">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java中的DelayQueue">
-<meta property="og:url" content="http://www.xiaotanzhu.com/java/delayqueue-in-java.html">
+<meta property="og:url" content="https://www.xiaotanzhu.com/java/delayqueue-in-java.html">
 <meta property="og:site_name" content="小炭猪">
 <meta property="og:description" content="Java中的DelayQueue">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0006.jpeg">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0021.png">
 <meta property="article:published_time" content="2020-06-27T16:00:00.000Z">
 <meta property="article:modified_time" content="2020-06-27T16:00:00.000Z">
 <meta property="article:author" content="Fify">
 <meta property="article:tag" content="Java">
 <meta property="article:tag" content="DelayQueue">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.xiaotanzhu.com/images/0006.jpeg">
 
-<link rel="canonical" href="http://www.xiaotanzhu.com/java/delayqueue-in-java.html">
+<link rel="canonical" href="https://www.xiaotanzhu.com/java/delayqueue-in-java.html">
 
 
 <script id="page-configurations">
@@ -214,7 +217,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/java/delayqueue-in-java.html">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/java/delayqueue-in-java.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -269,12 +272,71 @@
 
       
         <p><strong>面试官：好久不见啊，上次我们聊完了<code>PriorityBlockingQueue</code>，今天我们再来聊聊和它相关的<code>DelayQueue</code>吧？</strong></p>
-<p>Hydra：就知道你前面肯定给我挖了坑，DelayQueue也是一个无界阻塞队列，但是和之前我们聊的其他队列不同，不是所有类型的元素都能够放进去，只有实现了Delayed接口的对象才能放进队列。Delayed对象具有一个过期时间，只有在到达这个到期时间后才能从队列中取出。</p>
+<p>Hydra：就知道你前面肯定给我挖了坑，<code>DelayQueue</code>也是一个无界阻塞队列，但是和之前我们聊的其他队列不同，不是所有类型的元素都能够放进去，只有实现了<code>Delayed</code>接口的对象才能放进队列。<code>Delayed</code>对象具有一个过期时间，只有在到达这个到期时间后才能从队列中取出。</p>
+<p><strong>面试官：有点意思，那么它有什么使用场景呢？</strong></p>
+<p>Hydra：不得不说，由于<code>DelayQueue</code>的精妙设计，使用场景还是蛮多的。例如在电商系统中，如果有一笔订单在下单30分钟内没有完成支付，那么就需要自动取消这笔订单。还有，如果我们缓存了一些数据，并希望这些缓存在一定时间后失效的话，也可以使用延迟队列将它从缓存中删除。</p>
+<p>以电商系统为例，可以简单看一下这个流程：</p>
+<p><img src="/images/0006.jpeg"></p>
+<p><strong>面试官：看起来和任务调度有点类似啊，它们之间有什么区别吗？</strong></p>
+<p>Hydra：任务调度更多的偏向于定时的特性，是在指定的<em>时间点</em>或<em>时间间隔</em>执行特定的任务，而延迟队列更多偏向于在指定的延迟时间后执行任务。相对任务调度来说，<strong>上面举的例子中的延迟队列场景都具有高频率的特性，使用定时任务来实现它们的话会显得有些过于笨重了</strong>。</p>
+<p><strong>面试官：好了，你也白话了半天了，能动手就别吵吵，还是先给我写个例子吧。</strong></p>
+<p>Hydra：好嘞，前面说过存入队列的元素要实现Delayed接口，所以我们先定义这么一个类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Task</span> <span class="keyword">implements</span> <span class="title">Delayed</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">long</span> delay,expire;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Task</span><span class="params">(String name, <span class="keyword">long</span> delay)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.delay = delay;</span><br><span class="line">        <span class="keyword">this</span>.expire=System.currentTimeMillis()+delay;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getDelay</span><span class="params">(TimeUnit unit)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> unit.convert(<span class="keyword">this</span>.expire - System.currentTimeMillis(), TimeUnit.MILLISECONDS);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compareTo</span><span class="params">(Delayed o)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (<span class="keyword">int</span>)(<span class="keyword">this</span>.getDelay(TimeUnit.MILLISECONDS) - o.getDelay(TimeUnit.MILLISECONDS));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>实现了<code>Delayed</code>接口的类必须要实现下面的两个方法：</p>
+<ul>
+<li><code>getDelay</code>方法用于计算对象的剩余延迟时间，判断对象是否到期，计算方法一般使用过期时间减当前时间。如果是0或负数，表示延迟时间已经用完，否则说明还没有到期</li>
+<li><code>compareTo</code>方法用于延迟队列的内部排序比较，这里使用当前对象的延迟时间减去被比较对象的延迟时间</li>
+</ul>
+<p>在完成队列中元素的定义后，向队列中加入5个不同延迟时间的对象，并等待从队列中取出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">delay</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    DelayQueue&lt;Task&gt; queue=<span class="keyword">new</span> DelayQueue&lt;&gt;();</span><br><span class="line">    queue.offer(<span class="keyword">new</span> Task(<span class="string">&quot;task1&quot;</span>,<span class="number">5000</span>));</span><br><span class="line">    queue.offer(<span class="keyword">new</span> Task(<span class="string">&quot;task2&quot;</span>,<span class="number">1000</span>));</span><br><span class="line">    queue.offer(<span class="keyword">new</span> Task(<span class="string">&quot;task3&quot;</span>,<span class="number">6000</span>));</span><br><span class="line">    queue.offer(<span class="keyword">new</span> Task(<span class="string">&quot;task4&quot;</span>,<span class="number">100</span>));</span><br><span class="line">    queue.offer(<span class="keyword">new</span> Task(<span class="string">&quot;task5&quot;</span>,<span class="number">3000</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">        Task task = queue.take();</span><br><span class="line">        System.out.println(task);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果如下，可以看到按照延迟时间从短到长的顺序，元素被依次从队列中取出。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Task&#123;name=&#x27;task4&#x27;, delay=100&#125;</span><br><span class="line">Task&#123;name=&#x27;task2&#x27;, delay=1000&#125;</span><br><span class="line">Task&#123;name=&#x27;task5&#x27;, delay=3000&#125;</span><br><span class="line">Task&#123;name=&#x27;task1&#x27;, delay=5000&#125;</span><br><span class="line">Task&#123;name=&#x27;task3&#x27;, delay=6000&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>面试官：看起来应用还是挺简单的，但今天也不能这么草草了事吧，还是说说原理吧。</strong></p>
+<p>Hydra：开始的时候你自己不都说了吗，今天咱们聊的<code>DelayQueue</code>和前几天聊过的<code>PriorityBlockingQueue</code>多少有点关系。<code>DelayQueue</code>的底层是<code>PriorityQueue</code>，而<code>PriorityBlockingQueue</code>和它的差别也没有多少，只是在<code>PriorityQueue</code>的基础上加上锁和条件等待，入队和出队用的都是二叉堆的那一套逻辑。底层使用的有这些：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">transient</span> ReentrantLock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> PriorityQueue&lt;E&gt; q = <span class="keyword">new</span> PriorityQueue&lt;E&gt;();</span><br><span class="line"><span class="keyword">private</span> Thread leader = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">final</span> Condition available = lock.newCondition();</span><br></pre></td></tr></table></figure>
+
+<p><strong>面试官：你这样也有点太糊弄我了吧，这就把我敷衍过去了？</strong></p>
+<p>Hydra：还没完呢，还是先看入队的offer方法，它的源码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(E e)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        q.offer(e);</span><br><span class="line">        <span class="keyword">if</span> (q.peek() == e) &#123;</span><br><span class="line">            leader = <span class="keyword">null</span>;</span><br><span class="line">            available.signal();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>DelayQueue</code>每次向优先级队列<code>PriorityQueue</code>中添加元素时，会以元素的剩余延迟时间<code>delay</code>作为排序的因素，来实现使最先过期的元素排在队首，以此达到在之后从队列中取出的元素都是先取出最先到达过期的元素。</p>
+<p>二叉堆的构造过程我们上次讲过了，就不再重复了。向队列中添加完5个元素后，二叉堆和队列中的结构是这样的：</p>
+<p><img src="/images/0021.png"></p>
+<p>当每个元素在按照二叉堆的顺序插入队列后，会查看堆顶元素是否刚插入的元素，如果是的话那么设置<code>leader</code>线程为空，并唤醒在<code>available</code>上阻塞的线程。</p>
+<p>这里先简单的介绍一下<code>leader</code>线程的作用，<code>leader</code>是等待获取元素的线程，它的作用主要是用于减少不必要的等待，具体的使用在后面介绍<code>take</code>方法的时候我们细说。</p>
+<p><strong>面试官：也别一会了，趁热打铁直接讲队列的出队方法吧。</strong></p>
+<p>Hydra：这还真没法着急，在看阻塞方法take前还得先看看非阻塞的poll方法是如何实现的：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">poll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">    lock.lock();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        E first = q.peek();</span><br><span class="line">        <span class="keyword">if</span> (first == <span class="keyword">null</span> || first.getDelay(NANOSECONDS) &gt; <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> q.poll();</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>代码非常短，理解起来非常简单，在加锁后首先检查堆顶元素，如果堆顶元素为空或没有到期，那么直接返回空，否则返回堆顶元素，然后解锁。</p>
+<p><strong>面试官：好了，铺垫完了吧，该讲阻塞方法的过程了吧？</strong></p>
+<p>Hydra：阻塞的take方法理解起来会比上面稍微困难一点，我们还是直接看它的源码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> E <span class="title">take</span><span class="params">()</span> <span class="keyword">throws</span> InterruptedException </span>&#123;</span><br><span class="line">    <span class="keyword">final</span> ReentrantLock lock = <span class="keyword">this</span>.lock;</span><br><span class="line">    lock.lockInterruptibly();</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">for</span> (;;) &#123;</span><br><span class="line">            E first = q.peek();</span><br><span class="line">            <span class="keyword">if</span> (first == <span class="keyword">null</span>)</span><br><span class="line">                available.await();</span><br><span class="line">            <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">long</span> delay = first.getDelay(NANOSECONDS);</span><br><span class="line">                <span class="keyword">if</span> (delay &lt;= <span class="number">0</span>)</span><br><span class="line">                    <span class="keyword">return</span> q.poll();</span><br><span class="line">                first = <span class="keyword">null</span>; <span class="comment">// don&#x27;t retain ref while waiting</span></span><br><span class="line">                <span class="keyword">if</span> (leader != <span class="keyword">null</span>)</span><br><span class="line">                    available.await();</span><br><span class="line">                <span class="keyword">else</span> &#123;</span><br><span class="line">                    Thread thisThread = Thread.currentThread();</span><br><span class="line">                    leader = thisThread;</span><br><span class="line">                    <span class="keyword">try</span> &#123;</span><br><span class="line">                        available.awaitNanos(delay);</span><br><span class="line">                    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">                        <span class="keyword">if</span> (leader == thisThread)</span><br><span class="line">                            leader = <span class="keyword">null</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (leader == <span class="keyword">null</span> &amp;&amp; q.peek() != <span class="keyword">null</span>)</span><br><span class="line">            available.signal();</span><br><span class="line">        lock.unlock();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>阻塞过程中分支条件比较复杂，我们一个一个看：</p>
+<ol>
+<li>首先获取堆顶元素，如果为空，那么说明队列中还没有元素，让当前线程在<code>available</code>上进行阻塞等待</li>
+<li>如果堆顶元素不为空，那么查看它的过期时间，如果已到期，那么直接弹出堆顶元素</li>
+<li>如果堆顶元素还没有到期，那么查看<code>leader</code>线程是否为空，如果<code>leader</code>线程不为空的话，表示已经有其他线程在等待获取队列的元素，直接阻塞当前线程。</li>
+<li>如果<code>leader</code>为空，那么把当前线程赋值给它，并调用<code>awaitNanos</code>方法，在阻塞<code>delay</code>时间后自动醒来。唤醒后，如果<code>leader</code>还是当前线程那么把它置为空，重新进入循环，再次判断堆顶元素是否到期。</li>
+<li>当有队列中的元素完成出队后，如果<code>leader</code>线程为空，并且堆中还有元素，就唤醒阻塞在<code>available</code>上的其他线程，并释放持有的锁。</li>
+</ol>
+<p><strong>面试官：我注意到一个问题，在上面的代码中，为什么要设置first = null呢？</strong></p>
+<p>Hydra：假设有多个线程在执行<code>take</code>方法，当第一个线程进入时，堆顶元素还没有到期，那么会将<code>leader</code>指向自己，然后阻塞自己一段时间。如果在这期间有其他线程到达，会因为<code>leader</code>不为空阻塞自己。</p>
+<p>当第一个线程阻塞结束后，如果将堆顶元素弹出成功，那么<code>first</code>指向的元素应该被gc回收掉。但是如果还被其他线程持有的话，它就不会被回收掉，所以将<code>first</code>置为空可以帮助完成垃圾回收。</p>
+<p><strong>面试官：我突然有一个发散性的疑问，定时任务线程池ScheduledThreadPoolExecutor，底层使用的也是DelayQueue吗？</strong></p>
+<p>Hydra：问题很不错，但很遗憾并不是，<code>ScheduledThreadPoolExecutor</code>在类中自己定义了一个<code>DelayedWorkQueue</code>内部类，并没有直接使用<code>DelayQueue</code>。不过如果你看一下源码，就会看到它们实现的逻辑基本一致，同样是基于二叉堆的上浮、下沉、扩容，也同样基于<code>leader</code>、锁、条件等待等操作，只不过自己用数组又实现了一遍而已。说白了，看看两个类的作者，都是<code>Doug Lea</code>大神，所以差异根本没有多大。</p>
+<p><strong>面试官：好了，今天先到这吧，能最后再总结一下吗？</strong></p>
+<p>Hydra：<code>DelayQueue</code>整体理解起来也没有什么困难的点，难的地方在前面聊优先级队列的时候基本已经扫清了，新加的东西也就是一个对于<code>leader</code>线程的操作，使用了<code>leader</code>线程来减少不必要的线程等待时间。</p>
+<p><strong>面试官：今天的面试有点短啊，总是有点意犹未尽的感觉，看来下次得给你加点料了。</strong></p>
+<p>Hydra：…</p>
 <hr>
 <blockquote>
 <p>原文链接：<a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/XOToC0CUI4H6AFTSwKZMRw">https://mp.weixin.qq.com/s/XOToC0CUI4H6AFTSwKZMRw</a></p>
 </blockquote>
-<b>转载请注明出处：</b><a href="http://www.xiaotanzhu.com/java/delayqueue-in-java.html" target="_blank">Java中的DelayQueue</a></br>地址：http://www.xiaotanzhu.com/java/delayqueue-in-java.html
+</br></hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/java/delayqueue-in-java.html" target="_blank">Java中的DelayQueue</a></br>原文地址：https://www.xiaotanzhu.com/java/delayqueue-in-java.html
     </div>
 
     
@@ -584,7 +646,7 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://www.xiaotanzhu.com/java/delayqueue-in-java.html";
+    this.page.url = "https://www.xiaotanzhu.com/java/delayqueue-in-java.html";
     this.page.identifier = "java/delayqueue-in-java.html";
     this.page.title = "Java中的DelayQueue";
     };

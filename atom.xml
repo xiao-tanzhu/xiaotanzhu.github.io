@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>小炭猪</title>
-  <icon>http://www.xiaotanzhu.com/icon.png</icon>
+  <icon>https://www.xiaotanzhu.com/icon.png</icon>
   <subtitle>一夕一绽一缕芳，一生一叹一痕沙</subtitle>
-  <link href="http://www.xiaotanzhu.com/atom.xml" rel="self"/>
+  <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
-  <link href="http://www.xiaotanzhu.com/"/>
+  <link href="https://www.xiaotanzhu.com/"/>
   <updated>2021-05-25T16:00:00.000Z</updated>
-  <id>http://www.xiaotanzhu.com/</id>
+  <id>https://www.xiaotanzhu.com/</id>
   
   <author>
     <name>Fify</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>千亿数据扛不住，三思后还是从MySQL迁走了……</title>
-    <link href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html"/>
-    <id>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</id>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</id>
     <published>2021-05-25T16:00:00.000Z</published>
     <updated>2021-05-25T16:00:00.000Z</updated>
     
@@ -28,19 +28,19 @@
     
     
     
-    <category term="数据库" scheme="http://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="数据库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-    <category term="MySQL" scheme="http://www.xiaotanzhu.com/tags/mysql/"/>
+    <category term="MySQL" scheme="https://www.xiaotanzhu.com/tags/mysql/"/>
     
-    <category term="MongoDB" scheme="http://www.xiaotanzhu.com/tags/mongodb/"/>
+    <category term="MongoDB" scheme="https://www.xiaotanzhu.com/tags/mongodb/"/>
     
   </entry>
   
   <entry>
     <title>关于产品需求阶段的思维公式</title>
-    <link href="http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html"/>
-    <id>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html</id>
+    <link href="https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html"/>
+    <id>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html</id>
     <published>2021-05-24T16:00:00.000Z</published>
     <updated>2021-05-24T16:00:00.000Z</updated>
     
@@ -49,21 +49,21 @@
     
     
     
-    <category term="产品经理" scheme="http://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    <category term="产品经理" scheme="https://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
     
     
-    <category term="产品经理" scheme="http://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    <category term="产品经理" scheme="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
     
-    <category term="需求" scheme="http://www.xiaotanzhu.com/tags/%E9%9C%80%E6%B1%82/"/>
+    <category term="需求" scheme="https://www.xiaotanzhu.com/tags/%E9%9C%80%E6%B1%82/"/>
     
-    <category term="方法论" scheme="http://www.xiaotanzhu.com/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/"/>
+    <category term="方法论" scheme="https://www.xiaotanzhu.com/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/"/>
     
   </entry>
   
   <entry>
     <title>B端产品人为什么总说“我不关注用户体验”</title>
-    <link href="http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html"/>
-    <id>http://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html</id>
+    <link href="https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html"/>
+    <id>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html</id>
     <published>2021-05-24T16:00:00.000Z</published>
     <updated>2021-05-24T16:00:00.000Z</updated>
     
@@ -72,21 +72,21 @@
     
     
     
-    <category term="产品经理" scheme="http://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    <category term="产品经理" scheme="https://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
     
     
-    <category term="产品经理" scheme="http://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    <category term="产品经理" scheme="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
     
-    <category term="用户体验" scheme="http://www.xiaotanzhu.com/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/"/>
+    <category term="用户体验" scheme="https://www.xiaotanzhu.com/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/"/>
     
-    <category term="UE" scheme="http://www.xiaotanzhu.com/tags/ue/"/>
+    <category term="UE" scheme="https://www.xiaotanzhu.com/tags/ue/"/>
     
   </entry>
   
   <entry>
     <title>MacOS常见操作</title>
-    <link href="http://www.xiaotanzhu.com/macos/macos-howtos.html"/>
-    <id>http://www.xiaotanzhu.com/macos/macos-howtos.html</id>
+    <link href="https://www.xiaotanzhu.com/macos/macos-howtos.html"/>
+    <id>https://www.xiaotanzhu.com/macos/macos-howtos.html</id>
     <published>2021-05-17T16:00:00.000Z</published>
     <updated>2021-05-17T16:00:00.000Z</updated>
     
@@ -95,19 +95,19 @@
     
     
     
-    <category term="MacOS" scheme="http://www.xiaotanzhu.com/categories/macos/"/>
+    <category term="MacOS" scheme="https://www.xiaotanzhu.com/categories/macos/"/>
     
     
-    <category term="MacOS" scheme="http://www.xiaotanzhu.com/tags/macos/"/>
+    <category term="MacOS" scheme="https://www.xiaotanzhu.com/tags/macos/"/>
     
-    <category term="MacBook" scheme="http://www.xiaotanzhu.com/tags/macbook/"/>
+    <category term="MacBook" scheme="https://www.xiaotanzhu.com/tags/macbook/"/>
     
   </entry>
   
   <entry>
     <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
-    <link href="http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html"/>
-    <id>http://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</id>
+    <link href="https://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html"/>
+    <id>https://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</id>
     <published>2021-05-08T16:00:00.000Z</published>
     <updated>2021-05-08T16:00:00.000Z</updated>
     
@@ -116,25 +116,25 @@
     
     
     
-    <category term="Nginx" scheme="http://www.xiaotanzhu.com/categories/nginx/"/>
+    <category term="Nginx" scheme="https://www.xiaotanzhu.com/categories/nginx/"/>
     
     
-    <category term="Ubuntu" scheme="http://www.xiaotanzhu.com/tags/ubuntu/"/>
+    <category term="Ubuntu" scheme="https://www.xiaotanzhu.com/tags/ubuntu/"/>
     
-    <category term="Ubuntu 20.04" scheme="http://www.xiaotanzhu.com/tags/ubuntu-20-04/"/>
+    <category term="Ubuntu 20.04" scheme="https://www.xiaotanzhu.com/tags/ubuntu-20-04/"/>
     
-    <category term="Nignx" scheme="http://www.xiaotanzhu.com/tags/nignx/"/>
+    <category term="Nignx" scheme="https://www.xiaotanzhu.com/tags/nignx/"/>
     
-    <category term="SSL" scheme="http://www.xiaotanzhu.com/tags/ssl/"/>
+    <category term="SSL" scheme="https://www.xiaotanzhu.com/tags/ssl/"/>
     
-    <category term="Github Pages" scheme="http://www.xiaotanzhu.com/tags/github-pages/"/>
+    <category term="Github Pages" scheme="https://www.xiaotanzhu.com/tags/github-pages/"/>
     
   </entry>
   
   <entry>
     <title>PowerBI常见操作</title>
-    <link href="http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html"/>
-    <id>http://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</id>
+    <link href="https://www.xiaotanzhu.com/powerbi/powerbi-howtos.html"/>
+    <id>https://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</id>
     <published>2021-04-17T16:00:00.000Z</published>
     <updated>2021-04-17T16:00:00.000Z</updated>
     
@@ -143,19 +143,19 @@
     
     
     
-    <category term="PowerBI" scheme="http://www.xiaotanzhu.com/categories/powerbi/"/>
+    <category term="PowerBI" scheme="https://www.xiaotanzhu.com/categories/powerbi/"/>
     
     
-    <category term="PowerBI" scheme="http://www.xiaotanzhu.com/tags/powerbi/"/>
+    <category term="PowerBI" scheme="https://www.xiaotanzhu.com/tags/powerbi/"/>
     
-    <category term="BI" scheme="http://www.xiaotanzhu.com/tags/bi/"/>
+    <category term="BI" scheme="https://www.xiaotanzhu.com/tags/bi/"/>
     
   </entry>
   
   <entry>
     <title>Linux find命令高阶用法</title>
-    <link href="http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html"/>
-    <id>http://www.xiaotanzhu.com/linux/linux-command-find-howtos.html</id>
+    <link href="https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html"/>
+    <id>https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html</id>
     <published>2021-03-27T16:00:00.000Z</published>
     <updated>2021-03-27T16:00:00.000Z</updated>
     
@@ -164,19 +164,19 @@
     
     
     
-    <category term="Linux" scheme="http://www.xiaotanzhu.com/categories/linux/"/>
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/categories/linux/"/>
     
     
-    <category term="Shell" scheme="http://www.xiaotanzhu.com/tags/shell/"/>
+    <category term="Shell" scheme="https://www.xiaotanzhu.com/tags/shell/"/>
     
-    <category term="Linux" scheme="http://www.xiaotanzhu.com/tags/linux/"/>
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/tags/linux/"/>
     
   </entry>
   
   <entry>
     <title>Redis常见的CPU和内存性能问题</title>
-    <link href="http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html"/>
-    <id>http://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html</id>
+    <link href="https://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html"/>
+    <id>https://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html</id>
     <published>2021-03-06T16:00:00.000Z</published>
     <updated>2021-03-06T16:00:00.000Z</updated>
     
@@ -185,19 +185,19 @@
     
     
     
-    <category term="Redis" scheme="http://www.xiaotanzhu.com/categories/redis/"/>
+    <category term="Redis" scheme="https://www.xiaotanzhu.com/categories/redis/"/>
     
     
-    <category term="Redis" scheme="http://www.xiaotanzhu.com/tags/redis/"/>
+    <category term="Redis" scheme="https://www.xiaotanzhu.com/tags/redis/"/>
     
-    <category term="Redis Performance" scheme="http://www.xiaotanzhu.com/tags/redis-performance/"/>
+    <category term="Redis Performance" scheme="https://www.xiaotanzhu.com/tags/redis-performance/"/>
     
   </entry>
   
   <entry>
     <title>Java中的DelayQueue</title>
-    <link href="http://www.xiaotanzhu.com/java/delayqueue-in-java.html"/>
-    <id>http://www.xiaotanzhu.com/java/delayqueue-in-java.html</id>
+    <link href="https://www.xiaotanzhu.com/java/delayqueue-in-java.html"/>
+    <id>https://www.xiaotanzhu.com/java/delayqueue-in-java.html</id>
     <published>2020-06-27T16:00:00.000Z</published>
     <updated>2020-06-27T16:00:00.000Z</updated>
     
@@ -206,19 +206,19 @@
     
     
     
-    <category term="Java" scheme="http://www.xiaotanzhu.com/categories/java/"/>
+    <category term="Java" scheme="https://www.xiaotanzhu.com/categories/java/"/>
     
     
-    <category term="Java" scheme="http://www.xiaotanzhu.com/tags/java/"/>
+    <category term="Java" scheme="https://www.xiaotanzhu.com/tags/java/"/>
     
-    <category term="DelayQueue" scheme="http://www.xiaotanzhu.com/tags/delayqueue/"/>
+    <category term="DelayQueue" scheme="https://www.xiaotanzhu.com/tags/delayqueue/"/>
     
   </entry>
   
   <entry>
     <title>Ansible常用命令</title>
-    <link href="http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html"/>
-    <id>http://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</id>
+    <link href="https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html"/>
+    <id>https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</id>
     <published>2020-05-16T16:00:00.000Z</published>
     <updated>2020-05-16T16:00:00.000Z</updated>
     
@@ -227,17 +227,17 @@
     
     
     
-    <category term="运维" scheme="http://www.xiaotanzhu.com/categories/%E8%BF%90%E7%BB%B4/"/>
+    <category term="运维" scheme="https://www.xiaotanzhu.com/categories/%E8%BF%90%E7%BB%B4/"/>
     
     
-    <category term="Ansible" scheme="http://www.xiaotanzhu.com/tags/ansible/"/>
+    <category term="Ansible" scheme="https://www.xiaotanzhu.com/tags/ansible/"/>
     
   </entry>
   
   <entry>
     <title>Spring Cloud(一)：大话Spring Cloud</title>
-    <link href="http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html"/>
-    <id>http://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html</id>
+    <link href="https://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html"/>
+    <id>https://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html</id>
     <published>2018-06-30T16:00:00.000Z</published>
     <updated>2018-06-30T16:00:00.000Z</updated>
     
@@ -246,19 +246,19 @@
     
     
     
-    <category term="Spring" scheme="http://www.xiaotanzhu.com/categories/spring/"/>
+    <category term="Spring" scheme="https://www.xiaotanzhu.com/categories/spring/"/>
     
     
-    <category term="Spring" scheme="http://www.xiaotanzhu.com/tags/spring/"/>
+    <category term="Spring" scheme="https://www.xiaotanzhu.com/tags/spring/"/>
     
-    <category term="Spring Cloud" scheme="http://www.xiaotanzhu.com/tags/spring-cloud/"/>
+    <category term="Spring Cloud" scheme="https://www.xiaotanzhu.com/tags/spring-cloud/"/>
     
   </entry>
   
   <entry>
     <title>Introduction to Microservices</title>
-    <link href="http://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html"/>
-    <id>http://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html</id>
+    <link href="https://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html"/>
+    <id>https://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html</id>
     <published>2018-05-18T16:00:00.000Z</published>
     <updated>2018-05-18T16:00:00.000Z</updated>
     
@@ -267,19 +267,19 @@
     
     
     
-    <category term="微服务" scheme="http://www.xiaotanzhu.com/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="微服务" scheme="https://www.xiaotanzhu.com/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
     
-    <category term="微服务" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="微服务" scheme="https://www.xiaotanzhu.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
-    <category term="Introduction to Microservices" scheme="http://www.xiaotanzhu.com/tags/introduction-to-microservices/"/>
+    <category term="Introduction to Microservices" scheme="https://www.xiaotanzhu.com/tags/introduction-to-microservices/"/>
     
   </entry>
   
   <entry>
     <title>Spring Cloud组件介绍</title>
-    <link href="http://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html"/>
-    <id>http://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html</id>
+    <link href="https://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html"/>
+    <id>https://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html</id>
     <published>2018-03-06T16:00:00.000Z</published>
     <updated>2018-03-06T16:00:00.000Z</updated>
     
@@ -288,19 +288,19 @@
     
     
     
-    <category term="Spring" scheme="http://www.xiaotanzhu.com/categories/spring/"/>
+    <category term="Spring" scheme="https://www.xiaotanzhu.com/categories/spring/"/>
     
     
-    <category term="微服务" scheme="http://www.xiaotanzhu.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
+    <category term="微服务" scheme="https://www.xiaotanzhu.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
-    <category term="Spring Cloud" scheme="http://www.xiaotanzhu.com/tags/spring-cloud/"/>
+    <category term="Spring Cloud" scheme="https://www.xiaotanzhu.com/tags/spring-cloud/"/>
     
   </entry>
   
   <entry>
     <title>Spring Framework: Modules</title>
-    <link href="http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html"/>
-    <id>http://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html</id>
+    <link href="https://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html"/>
+    <id>https://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html</id>
     <published>2017-03-08T16:00:00.000Z</published>
     <updated>2017-03-08T16:00:00.000Z</updated>
     
@@ -309,19 +309,19 @@
     
     
     
-    <category term="Spring" scheme="http://www.xiaotanzhu.com/categories/spring/"/>
+    <category term="Spring" scheme="https://www.xiaotanzhu.com/categories/spring/"/>
     
     
-    <category term="Spring" scheme="http://www.xiaotanzhu.com/tags/spring/"/>
+    <category term="Spring" scheme="https://www.xiaotanzhu.com/tags/spring/"/>
     
-    <category term="Spring Modules" scheme="http://www.xiaotanzhu.com/tags/spring-modules/"/>
+    <category term="Spring Modules" scheme="https://www.xiaotanzhu.com/tags/spring-modules/"/>
     
   </entry>
   
   <entry>
     <title>Spring Framework的整体架构</title>
-    <link href="http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html"/>
-    <id>http://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html</id>
+    <link href="https://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html"/>
+    <id>https://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html</id>
     <published>2017-03-01T16:00:00.000Z</published>
     <updated>2017-03-01T16:00:00.000Z</updated>
     
@@ -330,17 +330,17 @@
     
     
     
-    <category term="Spring" scheme="http://www.xiaotanzhu.com/categories/spring/"/>
+    <category term="Spring" scheme="https://www.xiaotanzhu.com/categories/spring/"/>
     
     
-    <category term="Spring" scheme="http://www.xiaotanzhu.com/tags/spring/"/>
+    <category term="Spring" scheme="https://www.xiaotanzhu.com/tags/spring/"/>
     
   </entry>
   
   <entry>
     <title>以SQL方式读取MySQL的GTID格式Binlog</title>
-    <link href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html"/>
-    <id>http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</id>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</id>
     <published>2016-10-30T16:00:00.000Z</published>
     <updated>2016-10-30T16:00:00.000Z</updated>
     
@@ -349,21 +349,21 @@
     
     
     
-    <category term="数据库" scheme="http://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    <category term="数据库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     
     
-    <category term="MySQL" scheme="http://www.xiaotanzhu.com/tags/mysql/"/>
+    <category term="MySQL" scheme="https://www.xiaotanzhu.com/tags/mysql/"/>
     
-    <category term="GTID" scheme="http://www.xiaotanzhu.com/tags/gtid/"/>
+    <category term="GTID" scheme="https://www.xiaotanzhu.com/tags/gtid/"/>
     
-    <category term="Binlog" scheme="http://www.xiaotanzhu.com/tags/binlog/"/>
+    <category term="Binlog" scheme="https://www.xiaotanzhu.com/tags/binlog/"/>
     
   </entry>
   
   <entry>
     <title>关于 Android Service 的介绍</title>
-    <link href="http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html"/>
-    <id>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</id>
+    <link href="https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html"/>
+    <id>https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</id>
     <published>2016-10-13T16:00:00.000Z</published>
     <updated>2016-10-13T16:00:00.000Z</updated>
     
@@ -372,19 +372,19 @@
     
     
     
-    <category term="安卓" scheme="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/"/>
+    <category term="安卓" scheme="https://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/"/>
     
     
-    <category term="安卓" scheme="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
+    <category term="安卓" scheme="https://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
     
-    <category term="Android Service" scheme="http://www.xiaotanzhu.com/tags/android-service/"/>
+    <category term="Android Service" scheme="https://www.xiaotanzhu.com/tags/android-service/"/>
     
   </entry>
   
   <entry>
     <title>设置VIM的编码格式</title>
-    <link href="http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html"/>
-    <id>http://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</id>
+    <link href="https://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html"/>
+    <id>https://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</id>
     <published>2016-10-09T16:00:00.000Z</published>
     <updated>2016-10-09T16:00:00.000Z</updated>
     
@@ -393,21 +393,21 @@
     
     
     
-    <category term="Linux" scheme="http://www.xiaotanzhu.com/categories/linux/"/>
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/categories/linux/"/>
     
     
-    <category term="Linux" scheme="http://www.xiaotanzhu.com/tags/linux/"/>
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/tags/linux/"/>
     
-    <category term="编码" scheme="http://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
+    <category term="编码" scheme="https://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
     
-    <category term="vim" scheme="http://www.xiaotanzhu.com/tags/vim/"/>
+    <category term="vim" scheme="https://www.xiaotanzhu.com/tags/vim/"/>
     
   </entry>
   
   <entry>
     <title>批量转换文件编码</title>
-    <link href="http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html"/>
-    <id>http://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html</id>
+    <link href="https://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html"/>
+    <id>https://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html</id>
     <published>2016-09-21T16:00:00.000Z</published>
     <updated>2016-09-21T16:00:00.000Z</updated>
     
@@ -416,21 +416,21 @@
     
     
     
-    <category term="Linux" scheme="http://www.xiaotanzhu.com/categories/linux/"/>
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/categories/linux/"/>
     
     
-    <category term="Linux" scheme="http://www.xiaotanzhu.com/tags/linux/"/>
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/tags/linux/"/>
     
-    <category term="编码" scheme="http://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
+    <category term="编码" scheme="https://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
     
-    <category term="enca" scheme="http://www.xiaotanzhu.com/tags/enca/"/>
+    <category term="enca" scheme="https://www.xiaotanzhu.com/tags/enca/"/>
     
   </entry>
   
   <entry>
     <title>Android包（apk）手动签名</title>
-    <link href="http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html"/>
-    <id>http://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html</id>
+    <link href="https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html"/>
+    <id>https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html</id>
     <published>2016-09-20T16:00:00.000Z</published>
     <updated>2016-09-20T16:00:00.000Z</updated>
     
@@ -439,14 +439,14 @@
     
     
     
-    <category term="安卓" scheme="http://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/"/>
+    <category term="安卓" scheme="https://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/"/>
     
     
-    <category term="安卓" scheme="http://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
+    <category term="安卓" scheme="https://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
     
-    <category term="apk" scheme="http://www.xiaotanzhu.com/tags/apk/"/>
+    <category term="apk" scheme="https://www.xiaotanzhu.com/tags/apk/"/>
     
-    <category term="签名" scheme="http://www.xiaotanzhu.com/tags/%E7%AD%BE%E5%90%8D/"/>
+    <category term="签名" scheme="https://www.xiaotanzhu.com/tags/%E7%AD%BE%E5%90%8D/"/>
     
   </entry>
   

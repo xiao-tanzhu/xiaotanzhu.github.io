@@ -24,34 +24,34 @@
   <meta name="description" content="千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="千亿数据扛不住，三思后还是从MySQL迁走了……">
-<meta property="og:url" content="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
+<meta property="og:url" content="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
 <meta property="og:site_name" content="小炭猪">
 <meta property="og:description" content="千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0011.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0001.jpeg">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0002.jpeg">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0012.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0003.jpeg">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0013.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0014.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0015.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0016.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0017.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0016.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0019.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0020.png">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0004.jpeg">
-<meta property="og:image" content="http://www.xiaotanzhu.com/images/0005.jpeg">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0011.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0001.jpeg">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0002.jpeg">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0012.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0003.jpeg">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0013.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0014.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0015.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0016.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0017.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0016.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0019.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0020.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0004.jpeg">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0005.jpeg">
 <meta property="article:published_time" content="2021-05-25T16:00:00.000Z">
 <meta property="article:modified_time" content="2021-05-25T16:00:00.000Z">
 <meta property="article:author" content="Fify">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="MongoDB">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://www.xiaotanzhu.com/images/0011.png">
+<meta name="twitter:image" content="https://www.xiaotanzhu.com/images/0011.png">
 
-<link rel="canonical" href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
+<link rel="canonical" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
 
 
 <script id="page-configurations">
@@ -230,7 +230,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -504,7 +504,7 @@
 </ul>
 <p>数据库场景非常重要，脱离业务场景谈数据库优劣无任何意义。例如本文的业务场景，业务能确定需要建那些索引，同时所有的更新、查询、排序都可以对应具体的最优索引，因此该场景就非常适合MongoDB。</p>
 <p>每种数据库都有其适合的业务场景，没有万能的数据库。此外，不能因为某种场景不适合而全盘否定没数据库，主流数据库都有其存在的意义，千万不能因为某种场景下的不合适而全盘否定某个数据库。</p>
-<b>转载请注明出处：</b><a href="http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html" target="_blank">千亿数据扛不住，三思后还是从MySQL迁走了……</a></br>地址：http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html
+</br></hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html" target="_blank">千亿数据扛不住，三思后还是从MySQL迁走了……</a></br>原文地址：https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html
     </div>
 
     
@@ -812,7 +812,7 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "http://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html";
+    this.page.url = "https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html";
     this.page.identifier = "数据库/mysql-mongodb-migration.html";
     this.page.title = "千亿数据扛不住，三思后还是从MySQL迁走了……";
     };
