@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2021-06-27T16:00:00.000Z</updated>
+  <updated>2021-07-03T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>自动为Hexo博客添加文章链接</title>
+    <link href="https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html"/>
+    <id>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html</id>
+    <published>2021-07-03T16:00:00.000Z</published>
+    <updated>2021-07-03T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">为Hexo博客添加文章链接，或文章版权说明等</summary>
+    
+    
+    
+    <category term="Hexo" scheme="https://www.xiaotanzhu.com/categories/hexo/"/>
+    
+    
+    <category term="Hexo" scheme="https://www.xiaotanzhu.com/tags/hexo/"/>
+    
+    <category term="Post Links" scheme="https://www.xiaotanzhu.com/tags/post-links/"/>
+    
+    <category term="Github Pages" scheme="https://www.xiaotanzhu.com/tags/github-pages/"/>
+    
+  </entry>
   
   <entry>
     <title>Java中的DelayQueue</title>
@@ -142,13 +165,13 @@
     
     <category term="Ubuntu" scheme="https://www.xiaotanzhu.com/tags/ubuntu/"/>
     
+    <category term="Github Pages" scheme="https://www.xiaotanzhu.com/tags/github-pages/"/>
+    
     <category term="Ubuntu 20.04" scheme="https://www.xiaotanzhu.com/tags/ubuntu-20-04/"/>
     
     <category term="Nignx" scheme="https://www.xiaotanzhu.com/tags/nignx/"/>
     
     <category term="SSL" scheme="https://www.xiaotanzhu.com/tags/ssl/"/>
-    
-    <category term="Github Pages" scheme="https://www.xiaotanzhu.com/tags/github-pages/"/>
     
   </entry>
   
@@ -424,29 +447,6 @@
     <category term="编码" scheme="https://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
     
     <category term="enca" scheme="https://www.xiaotanzhu.com/tags/enca/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android包（apk）手动签名</title>
-    <link href="https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html"/>
-    <id>https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-09-21-sign-apk-with-jarsigner.html</id>
-    <published>2016-09-20T16:00:00.000Z</published>
-    <updated>2016-09-20T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Android包（apk）手动签名</summary>
-    
-    
-    
-    <category term="安卓" scheme="https://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/"/>
-    
-    
-    <category term="安卓" scheme="https://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
-    
-    <category term="apk" scheme="https://www.xiaotanzhu.com/tags/apk/"/>
-    
-    <category term="签名" scheme="https://www.xiaotanzhu.com/tags/%E7%AD%BE%E5%90%8D/"/>
     
   </entry>
   

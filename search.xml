@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#x61;&#110;&#103;&#106;&#105;&#x6e;&#x67;&#102;&#x65;&#105;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#x6f;&#x6d;">&#119;&#x61;&#110;&#103;&#106;&#105;&#x6e;&#x67;&#102;&#x65;&#105;&#x40;&#49;&#54;&#x33;&#x2e;&#x63;&#x6f;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#x6a;&#x69;&#x6e;&#x67;&#x66;&#x65;&#105;&#x40;&#50;&#x36;&#x33;&#x2e;&#99;&#111;&#x6d;">&#x77;&#97;&#110;&#x67;&#x6a;&#x69;&#x6e;&#x67;&#x66;&#x65;&#105;&#x40;&#50;&#x36;&#x33;&#x2e;&#99;&#111;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#x62;&#97;&#109;&#97;&#64;&#x77;&#x68;&#105;&#x74;&#101;&#x68;&#111;&#117;&#x73;&#101;&#46;&#99;&#x6f;&#x6d;">&#x6f;&#x62;&#97;&#109;&#97;&#64;&#x77;&#x68;&#105;&#x74;&#101;&#x68;&#111;&#117;&#x73;&#101;&#46;&#99;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#105;&#x6a;&#105;&#x6e;&#112;&#x69;&#110;&#103;&#x40;&#x7a;&#x68;&#111;&#110;&#103;&#x6e;&#97;&#110;&#104;&#x61;&#105;&#46;&#x63;&#111;&#x6d;">&#120;&#105;&#x6a;&#105;&#x6e;&#112;&#x69;&#110;&#103;&#x40;&#x7a;&#x68;&#111;&#110;&#103;&#x6e;&#97;&#110;&#104;&#x61;&#105;&#46;&#x63;&#111;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#x61;&#x6e;&#x67;&#x6a;&#x69;&#x6e;&#103;&#x66;&#x65;&#x69;&#64;&#49;&#x36;&#51;&#46;&#99;&#111;&#109;">&#x77;&#x61;&#x6e;&#x67;&#x6a;&#x69;&#x6e;&#103;&#x66;&#x65;&#x69;&#64;&#49;&#x36;&#51;&#46;&#99;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#x6a;&#105;&#x6e;&#x67;&#102;&#x65;&#x69;&#x40;&#50;&#54;&#x33;&#46;&#x63;&#x6f;&#x6d;">&#x77;&#97;&#110;&#x67;&#x6a;&#105;&#x6e;&#x67;&#102;&#x65;&#x69;&#x40;&#50;&#54;&#x33;&#46;&#x63;&#x6f;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#98;&#x61;&#x6d;&#97;&#x40;&#x77;&#x68;&#x69;&#x74;&#x65;&#104;&#x6f;&#117;&#x73;&#x65;&#46;&#x63;&#111;&#109;">&#111;&#98;&#x61;&#x6d;&#97;&#x40;&#x77;&#x68;&#x69;&#x74;&#x65;&#104;&#x6f;&#117;&#x73;&#x65;&#46;&#x63;&#111;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#106;&#105;&#x6e;&#112;&#x69;&#110;&#x67;&#x40;&#122;&#x68;&#111;&#x6e;&#103;&#x6e;&#97;&#x6e;&#x68;&#97;&#105;&#46;&#99;&#111;&#x6d;">&#x78;&#105;&#106;&#105;&#x6e;&#112;&#x69;&#110;&#x67;&#x40;&#122;&#x68;&#111;&#x6e;&#103;&#x6e;&#97;&#x6e;&#x68;&#97;&#105;&#46;&#99;&#111;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -2583,6 +2583,60 @@ with these **parameters**
       </tags>
   </entry>
   <entry>
+    <title>自动为Hexo博客添加文章链接</title>
+    <url>/hexo/hexo-add-post-links.html</url>
+    <content><![CDATA[<p>文章链接是写博客时一个非常常用的东西，因为如果每次写博客都需要在文章前后加上一个几乎格式一模一样的东西，还是很烦人的，特别如果你突然决定改变文章的永久链接，那么就更加烦人了，因为默认在Hexo里面，我们需要一篇文章一篇文章的把所有的文章链接改了（虽然这种情况我们需要尽量避免）。</p>
+<p>这里我们介绍一个插件，可以自动为博客添加文章链接：</p>
+<blockquote>
+<p>hexo-tag-post-link</p>
+</blockquote>
+<p>项目地址：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>和其他的hexo插件一样，hexo-tag-post-link安装起来十分简单，只需要在博客目录下执行如下命令即可：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-post-link --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="配置模板"><a href="#配置模板" class="headerlink" title="配置模板"></a>配置模板</h3><h4 id="添加模板文件：post-link-yml"><a href="#添加模板文件：post-link-yml" class="headerlink" title="添加模板文件：post_link.yml"></a>添加模板文件：post_link.yml</h4><ol>
+<li>首先我们需要在<code>source</code>目录下创建一个<code>_data</code>目录，如果没有的话。<code>source/_data</code>这个目录是Hexo的数据目录，用来存放一些公用的全局数据，所以的模板文件也放在这里。</li>
+<li>现在在<code>_data</code>目录下创建一个名为<code>post_link.yml</code>的文件，这个文件就是我们的配置文件了。</li>
+<li>现在我们可以来添加模板了！模板的格式非常简单，如下：</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">name: format</span><br></pre></td></tr></table></figure>
+
+<p>比如我的博客使用的配置如下，而最后的效果就如本文最上方显示的那样。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">footer: <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>转载请注明出处：<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%= post_permalink %&gt;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>&lt;%= post_title %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>原文地址：<span class="tag">&lt;/<span class="name">b</span>&gt;</span>&lt;%= post_permalink %&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="可用模板变量"><a href="#可用模板变量" class="headerlink" title="可用模板变量"></a>可用模板变量</h4><ul>
+<li>site_title</li>
+<li>site_subtitle</li>
+<li>site_description</li>
+<li>site_author</li>
+<li>site_url</li>
+<li>post_title</li>
+<li>post_slug</li>
+<li>post_created</li>
+<li>post_created_date</li>
+<li>post_created_time</li>
+<li>post_updated</li>
+<li>post_updated_date</li>
+<li>post_updated_time</li>
+<li>post_relative_url</li>
+<li>post_permalink</li>
+</ul>
+<h3 id="增加全局配置"><a href="#增加全局配置" class="headerlink" title="增加全局配置"></a>增加全局配置</h3><p>在配置文件_config.yml中添加如下配置：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_link:</span></span><br><span class="line">  <span class="comment">#insert_before_post: header</span></span><br><span class="line">  <span class="attr">insert_after_post:</span> <span class="string">footer</span></span><br></pre></td></tr></table></figure>
+
+<p>以上配置完成，即可在文章末尾看到文章声明和原文地址。</p>
+<h2 id="更多使用方法"><a href="#更多使用方法" class="headerlink" title="更多使用方法"></a>更多使用方法</h2><p>可参考Github中的项目说明：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html" target="_blank">自动为Hexo博客添加文章链接</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Post Links</tag>
+        <tag>Github Pages</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
     <url>/nginx/letsencrypt-for-free-ssl-cert.html</url>
     <content><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><a href="https://letsencrypt.org/">Let’s Encrypt</a>是一个免费颁发SSL证书的非盈利组织，其颁布的证书已被Chrome等主流浏览器认可。GitHub Pages站点默认使用的SSL证书也是<a href="https://letsencrypt.org/">Let’s Encrypt</a>提供的。</p>
@@ -2640,10 +2694,10 @@ with these **parameters**
       </categories>
       <tags>
         <tag>Ubuntu</tag>
+        <tag>Github Pages</tag>
         <tag>Ubuntu 20.04</tag>
         <tag>Nignx</tag>
         <tag>SSL</tag>
-        <tag>Github Pages</tag>
       </tags>
   </entry>
   <entry>
