@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2021-07-03T16:00:00.000Z</updated>
+  <updated>2021-07-09T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>做产品为什么要画这些图？</title>
+    <link href="https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html"/>
+    <id>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html</id>
+    <published>2021-07-09T16:00:00.000Z</published>
+    <updated>2021-07-09T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">做产品为什么要画这些图？</summary>
+    
+    
+    
+    <category term="产品经理" scheme="https://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    
+    
+    <category term="UML" scheme="https://www.xiaotanzhu.com/tags/uml/"/>
+    
+    <category term="产品经理" scheme="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
+    
+  </entry>
   
   <entry>
     <title>自动为Hexo博客添加文章链接</title>
@@ -424,29 +445,6 @@
     <category term="编码" scheme="https://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
     
     <category term="vim" scheme="https://www.xiaotanzhu.com/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>批量转换文件编码</title>
-    <link href="https://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html"/>
-    <id>https://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html</id>
-    <published>2016-09-21T16:00:00.000Z</published>
-    <updated>2016-09-21T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">批量转换文件编码</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaotanzhu.com/categories/linux/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaotanzhu.com/tags/linux/"/>
-    
-    <category term="编码" scheme="https://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
-    
-    <category term="enca" scheme="https://www.xiaotanzhu.com/tags/enca/"/>
     
   </entry>
   

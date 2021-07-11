@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Sat, 03 Jul 2021 16:00:00 GMT</pubDate>
+    <pubDate>Fri, 09 Jul 2021 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>做产品为什么要画这些图？</title>
+      <link>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html</link>
+      <guid>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html</guid>
+      <pubDate>Fri, 09 Jul 2021 16:00:00 GMT</pubDate>
+      
+      <description>做产品为什么要画这些图？</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/uml/">UML</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>自动为Hexo博客添加文章链接</title>
@@ -464,31 +487,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>批量转换文件编码</title>
-      <link>https://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html</link>
-      <guid>https://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html</guid>
-      <pubDate>Wed, 21 Sep 2016 16:00:00 GMT</pubDate>
-      
-      <description>批量转换文件编码</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/linux/">Linux</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/">编码</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/enca/">enca</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/linux/2016-09-22-convert-file-charsets-batch.html#disqus_thread</comments>
       
     </item>
     
