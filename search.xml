@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#110;&#103;&#x66;&#x65;&#x69;&#64;&#49;&#54;&#x33;&#x2e;&#99;&#x6f;&#x6d;">&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#110;&#103;&#x66;&#x65;&#x69;&#64;&#49;&#54;&#x33;&#x2e;&#99;&#x6f;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#97;&#x6e;&#x67;&#106;&#x69;&#x6e;&#103;&#x66;&#x65;&#105;&#x40;&#x32;&#54;&#x33;&#x2e;&#x63;&#111;&#109;">&#119;&#97;&#x6e;&#x67;&#106;&#x69;&#x6e;&#103;&#x66;&#x65;&#105;&#x40;&#x32;&#54;&#x33;&#x2e;&#x63;&#111;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#x62;&#97;&#109;&#x61;&#x40;&#119;&#104;&#105;&#116;&#101;&#104;&#x6f;&#117;&#x73;&#101;&#46;&#99;&#111;&#109;">&#x6f;&#x62;&#97;&#109;&#x61;&#x40;&#119;&#104;&#105;&#116;&#101;&#104;&#x6f;&#117;&#x73;&#101;&#46;&#99;&#111;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#x6a;&#105;&#x6e;&#112;&#x69;&#110;&#x67;&#64;&#122;&#x68;&#111;&#x6e;&#103;&#110;&#97;&#110;&#x68;&#97;&#105;&#46;&#99;&#x6f;&#109;">&#x78;&#x69;&#x6a;&#105;&#x6e;&#112;&#x69;&#110;&#x67;&#64;&#122;&#x68;&#111;&#x6e;&#103;&#110;&#97;&#110;&#x68;&#97;&#105;&#46;&#99;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#x61;&#110;&#x67;&#106;&#x69;&#110;&#x67;&#x66;&#x65;&#x69;&#x40;&#x31;&#x36;&#x33;&#x2e;&#99;&#111;&#x6d;">&#x77;&#x61;&#110;&#x67;&#106;&#x69;&#110;&#x67;&#x66;&#x65;&#x69;&#x40;&#x31;&#x36;&#x33;&#x2e;&#99;&#111;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#106;&#x69;&#110;&#103;&#102;&#x65;&#x69;&#64;&#50;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">&#x77;&#97;&#110;&#x67;&#106;&#x69;&#110;&#103;&#102;&#x65;&#x69;&#64;&#50;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#98;&#97;&#x6d;&#97;&#x40;&#119;&#104;&#x69;&#x74;&#101;&#104;&#x6f;&#117;&#x73;&#101;&#x2e;&#x63;&#x6f;&#109;">&#111;&#98;&#97;&#x6d;&#97;&#x40;&#119;&#104;&#x69;&#x74;&#101;&#104;&#x6f;&#117;&#x73;&#101;&#x2e;&#x63;&#x6f;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#x6a;&#105;&#x6e;&#112;&#x69;&#x6e;&#103;&#64;&#122;&#104;&#x6f;&#110;&#x67;&#110;&#x61;&#110;&#104;&#97;&#x69;&#x2e;&#x63;&#111;&#x6d;">&#x78;&#x69;&#x6a;&#105;&#x6e;&#112;&#x69;&#x6e;&#103;&#64;&#122;&#104;&#x6f;&#110;&#x67;&#110;&#x61;&#110;&#104;&#97;&#x69;&#x2e;&#x63;&#111;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -2503,6 +2503,44 @@ with these **parameters**
       </categories>
       <tags>
         <tag>Ansible</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Controlling Nginx with Supervisor</title>
+    <url>/linux/control-nginx-with-supervisor.html</url>
+    <content><![CDATA[<h1 id="Important"><a href="#Important" class="headerlink" title="Important"></a>Important</h1><p>Supervisor uses <code>daemon off;</code> to start Nginx. The <code>daemon off;</code> directive tells Nginx to stay in the foreground. The <code>sudo service nginx stop/start/restart</code> commands won’t work. For more information read <a href="https://stackoverflow.com/questions/25970711/what-is-the-difference-between-nginx-daemon-on-off-option/34821579#34821579">Stack Overflow</a> answer.</p>
+<h1 id="Current-nginx-process"><a href="#Current-nginx-process" class="headerlink" title="Current nginx process"></a>Current nginx process</h1><p>As you can see below, Nginx is running in “daemon on” mode.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">root@us:~# ps aux | grep nginx</span><br><span class="line">root       12527  0.0  0.2 132576  1064 ?        Ss   09:52   0:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;</span><br><span class="line">www-data   12529  0.2  1.6 134176  8092 ?        S    09:52   0:07 nginx: worker process</span><br><span class="line">www-data   12530  0.0  0.7 132808  3800 ?        S    09:52   0:00 nginx: cache manager process</span><br><span class="line">root       13154  0.0  0.1   8900   660 pts/0    S+   10:38   0:00 grep --color=auto nginx</span><br></pre></td></tr></table></figure>
+
+<h1 id="Install-amp-Setup-supervisor"><a href="#Install-amp-Setup-supervisor" class="headerlink" title="Install &amp; Setup supervisor"></a>Install &amp; Setup supervisor</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install supervisor</span><br></pre></td></tr></table></figure>
+
+<h2 id="Setup-configuration-for-Nignx"><a href="#Setup-configuration-for-Nignx" class="headerlink" title="Setup configuration for Nignx"></a>Setup configuration for Nignx</h2><p>Add <code>nginx.conf</code> file: <code>/etc/supervisor/conf.d/nginx.conf</code></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">[program:nginx]</span><br><span class="line">command=/usr/sbin/nginx -g &quot;daemon off;&quot;</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startretries=5</span><br><span class="line">numprocs=1</span><br><span class="line">startsecs=0</span><br><span class="line">process_name=%(program_name)s_%(process_num)02d</span><br><span class="line">stderr_logfile=/var/log/supervisor/%(program_name)s_stderr.log</span><br><span class="line">stderr_logfile_maxbytes=10MB</span><br><span class="line">stdout_logfile=/var/log/supervisor/%(program_name)s_stdout.log</span><br><span class="line">stdout_logfile_maxbytes=10MB</span><br></pre></td></tr></table></figure>
+
+<p>Let supervisor know about new config.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo supervisorctl reread</span><br><span class="line">nginx: available</span><br></pre></td></tr></table></figure>
+
+<p>Stop and disable the Nginx service</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl stop nginx</span><br><span class="line">sudo systemctl <span class="built_in">disable</span> nginx</span><br></pre></td></tr></table></figure>
+
+<p>Let supervisor start nginx service.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ sudo supervisorctl update</span><br><span class="line">nginx: added process group</span><br></pre></td></tr></table></figure>
+
+<p>Verify if supervisor started nginx service.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">$ sudo supervisorctl</span><br><span class="line">nginx:nginx_00                   RUNNING   pid 18429, uptime 0:01:47</span><br><span class="line">supervisor&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Check"><a href="#Check" class="headerlink" title="Check"></a>Check</h1><p>As you can see below, Nginx is running in “daemon off” mode.</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">root@us:~# ps aux | grep nginx</span><br><span class="line">root         692  0.3  1.5 132576  7768 ?        S    10:56   0:00 nginx: master process /usr/sbin/nginx -g daemon off;</span><br><span class="line">www-data     703  1.1  1.4 133140  6884 ?        S    10:56   0:00 nginx: worker process</span><br><span class="line">www-data     704  0.0  0.7 132808  3620 ?        S    10:56   0:00 nginx: cache manager process</span><br><span class="line">www-data     708  0.0  0.7 132808  3620 ?        S    10:56   0:00 nginx: cache loader process</span><br><span class="line">root         800  0.0  0.1   8900   736 pts/0    S+   10:57   0:00 grep --color=auto nginx</span><br></pre></td></tr></table></figure>
+
+
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html" target="_blank">Controlling Nginx with Supervisor</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+        <tag>Nginx</tag>
+        <tag>Supervisor</tag>
       </tags>
   </entry>
   <entry>

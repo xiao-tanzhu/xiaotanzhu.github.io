@@ -21,17 +21,22 @@
     var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="曾经沧海难为水，除却巫山不是云。取次花丛懒回顾，半缘修道半缘君。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="小炭猪">
-<meta property="og:url" content="https://www.xiaotanzhu.com/archives/2016/page/5/index.html">
+  <meta name="description" content="This example shows us how to control nginx with supervisor so when nginx goes down for whatever reason, supervisor will bring it up again as a &quot;foreground&quot; process not as a &quot;daemon&quot;.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Controlling Nginx with Supervisor">
+<meta property="og:url" content="https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html">
 <meta property="og:site_name" content="小炭猪">
-<meta property="og:description" content="曾经沧海难为水，除却巫山不是云。取次花丛懒回顾，半缘修道半缘君。">
+<meta property="og:description" content="This example shows us how to control nginx with supervisor so when nginx goes down for whatever reason, supervisor will bring it up again as a &quot;foreground&quot; process not as a &quot;daemon&quot;.">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-16T16:00:00.000Z">
+<meta property="article:modified_time" content="2021-07-16T16:00:00.000Z">
 <meta property="article:author" content="Fify">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Nginx">
+<meta property="article:tag" content="Supervisor">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.xiaotanzhu.com/archives/2016/page/5/">
+<link rel="canonical" href="https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html">
 
 
 <script id="page-configurations">
@@ -39,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | 小炭猪</title>
+  <title>Controlling Nginx with Supervisor | 小炭猪</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
     <script>
@@ -203,80 +208,135 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">不错! 目前共计 60 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Controlling Nginx with Supervisor
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-07-17 00:00:00" itemprop="dateCreated datePublished" datetime="2021-07-17T00:00:00+08:00">2021-07-17</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          
+            <span id="/linux/control-nginx-with-supervisor.html" class="post-meta-item leancloud_visitors" data-flag-title="Controlling Nginx with Supervisor" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+            <div class="post-description">This example shows us how to control nginx with supervisor so when nginx goes down for whatever reason, supervisor will bring it up again as a "foreground" process not as a "daemon".</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2016</span>
+        <h1 id="Important"><a href="#Important" class="headerlink" title="Important"></a>Important</h1><p>Supervisor uses <code>daemon off;</code> to start Nginx. The <code>daemon off;</code> directive tells Nginx to stay in the foreground. The <code>sudo service nginx stop/start/restart</code> commands won’t work. For more information read <a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/25970711/what-is-the-difference-between-nginx-daemon-on-off-option/34821579#34821579">Stack Overflow</a> answer.</p>
+<h1 id="Current-nginx-process"><a href="#Current-nginx-process" class="headerlink" title="Current nginx process"></a>Current nginx process</h1><p>As you can see below, Nginx is running in “daemon on” mode.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@us:~# ps aux | grep nginx</span><br><span class="line">root       12527  0.0  0.2 132576  1064 ?        Ss   09:52   0:00 nginx: master process /usr/sbin/nginx -g daemon on; master_process on;</span><br><span class="line">www-data   12529  0.2  1.6 134176  8092 ?        S    09:52   0:07 nginx: worker process</span><br><span class="line">www-data   12530  0.0  0.7 132808  3800 ?        S    09:52   0:00 nginx: cache manager process</span><br><span class="line">root       13154  0.0  0.1   8900   660 pts/0    S+   10:38   0:00 grep --color=auto nginx</span><br></pre></td></tr></table></figure>
+
+<h1 id="Install-amp-Setup-supervisor"><a href="#Install-amp-Setup-supervisor" class="headerlink" title="Install &amp; Setup supervisor"></a>Install &amp; Setup supervisor</h1><h2 id="Install"><a href="#Install" class="headerlink" title="Install"></a>Install</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install supervisor</span><br></pre></td></tr></table></figure>
+
+<h2 id="Setup-configuration-for-Nignx"><a href="#Setup-configuration-for-Nignx" class="headerlink" title="Setup configuration for Nignx"></a>Setup configuration for Nignx</h2><p>Add <code>nginx.conf</code> file: <code>/etc/supervisor/conf.d/nginx.conf</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[program:nginx]</span><br><span class="line">command=/usr/sbin/nginx -g &quot;daemon off;&quot;</span><br><span class="line">autostart=true</span><br><span class="line">autorestart=true</span><br><span class="line">startretries=5</span><br><span class="line">numprocs=1</span><br><span class="line">startsecs=0</span><br><span class="line">process_name=%(program_name)s_%(process_num)02d</span><br><span class="line">stderr_logfile=/var/log/supervisor/%(program_name)s_stderr.log</span><br><span class="line">stderr_logfile_maxbytes=10MB</span><br><span class="line">stdout_logfile=/var/log/supervisor/%(program_name)s_stdout.log</span><br><span class="line">stdout_logfile_maxbytes=10MB</span><br></pre></td></tr></table></figure>
+
+<p>Let supervisor know about new config.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo supervisorctl reread</span><br><span class="line">nginx: available</span><br></pre></td></tr></table></figure>
+
+<p>Stop and disable the Nginx service</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl stop nginx</span><br><span class="line">sudo systemctl <span class="built_in">disable</span> nginx</span><br></pre></td></tr></table></figure>
+
+<p>Let supervisor start nginx service.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ sudo supervisorctl update</span><br><span class="line">nginx: added process group</span><br></pre></td></tr></table></figure>
+
+<p>Verify if supervisor started nginx service.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ sudo supervisorctl</span><br><span class="line">nginx:nginx_00                   RUNNING   pid 18429, uptime 0:01:47</span><br><span class="line">supervisor&gt;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Check"><a href="#Check" class="headerlink" title="Check"></a>Check</h1><p>As you can see below, Nginx is running in “daemon off” mode.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">root@us:~# ps aux | grep nginx</span><br><span class="line">root         692  0.3  1.5 132576  7768 ?        S    10:56   0:00 nginx: master process /usr/sbin/nginx -g daemon off;</span><br><span class="line">www-data     703  1.1  1.4 133140  6884 ?        S    10:56   0:00 nginx: worker process</span><br><span class="line">www-data     704  0.0  0.7 132808  3620 ?        S    10:56   0:00 nginx: cache manager process</span><br><span class="line">www-data     708  0.0  0.7 132808  3620 ?        S    10:56   0:00 nginx: cache loader process</span><br><span class="line">root         800  0.0  0.1   8900   736 pts/0    S+   10:57   0:00 grep --color=auto nginx</span><br></pre></td></tr></table></figure>
+
+
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html" target="_blank">Controlling Nginx with Supervisor</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2016-06-16T00:00:00+08:00"
-              content="2016-06-16">
-          06-16
-        </time>
-      </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/linux/" rel="tag"># Linux</a>
+              <a href="/tags/nginx/" rel="tag"># Nginx</a>
+              <a href="/tags/supervisor/" rel="tag"># Supervisor</a>
+          </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/%E5%88%86%E5%B8%83%E5%BC%8F%E7%B3%BB%E7%BB%9F/2016-06-16-delete-keys-in-batch-redis.html" itemprop="url">
-            <span itemprop="name">批量删除Redis数据库中的Key</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2016-06-15T00:00:00+08:00"
-              content="2016-06-15">
-          06-15
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/%E5%85%B6%E4%BB%96/2016-06-15-login-smtp-with-telnet.html" itemprop="url">
-            <span itemprop="name">利用telnet进行SMTP的验证</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+        
 
 
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html" rel="prev" title="做产品为什么要画这些图？">
+      <i class="fa fa-chevron-left"></i> 做产品为什么要画这些图？
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-  </div>
+      </footer>
+    
+  </article>
   
   
   
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2016/page/4/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/2016/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/2016/page/4/">4</a><span class="page-number current">5</span>
-  </nav>
 
 
 
           </div>
           
+    
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -323,6 +383,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Important"><span class="nav-number">1.</span> <span class="nav-text">Important</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Current-nginx-process"><span class="nav-number">2.</span> <span class="nav-text">Current nginx process</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Install-amp-Setup-supervisor"><span class="nav-number">3.</span> <span class="nav-text">Install &amp; Setup supervisor</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install"><span class="nav-number">3.1.</span> <span class="nav-text">Install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Setup-configuration-for-Nignx"><span class="nav-number">3.2.</span> <span class="nav-text">Setup configuration for Nignx</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Check"><span class="nav-number">4.</span> <span class="nav-text">Check</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -540,6 +601,26 @@
 
   
 
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html";
+    this.page.identifier = "linux/control-nginx-with-supervisor.html";
+    this.page.title = "Controlling Nginx with Supervisor";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://xiaotanzhu.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
 
 </body>
 </html>

@@ -15,8 +15,33 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Fri, 09 Jul 2021 16:00:00 GMT</pubDate>
+    <pubDate>Fri, 16 Jul 2021 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Controlling Nginx with Supervisor</title>
+      <link>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html</link>
+      <guid>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html</guid>
+      <pubDate>Fri, 16 Jul 2021 16:00:00 GMT</pubDate>
+      
+      <description>This example shows us how to control nginx with supervisor so when nginx goes down for whatever reason, supervisor will bring it up again as a &quot;foreground&quot; process not as a &quot;daemon&quot;.</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/linux/">Linux</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/nginx/">Nginx</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/supervisor/">Supervisor</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>做产品为什么要画这些图？</title>
@@ -462,31 +487,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>设置VIM的编码格式</title>
-      <link>https://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</link>
-      <guid>https://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</guid>
-      <pubDate>Sun, 09 Oct 2016 16:00:00 GMT</pubDate>
-      
-      <description>设置vim的编码格式</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/linux/">Linux</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/">编码</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/vim/">vim</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html#disqus_thread</comments>
       
     </item>
     

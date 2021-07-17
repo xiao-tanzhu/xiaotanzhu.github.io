@@ -1,3 +1,4 @@
+https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html
 https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html
 https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html
 https://www.xiaotanzhu.com/java/delayqueue-in-java.html

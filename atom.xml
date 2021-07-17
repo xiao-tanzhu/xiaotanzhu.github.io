@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2021-07-09T16:00:00.000Z</updated>
+  <updated>2021-07-16T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Controlling Nginx with Supervisor</title>
+    <link href="https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html"/>
+    <id>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html</id>
+    <published>2021-07-16T16:00:00.000Z</published>
+    <updated>2021-07-16T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">This example shows us how to control nginx with supervisor so when nginx goes down for whatever reason, supervisor will bring it up again as a &quot;foreground&quot; process not as a &quot;daemon&quot;.</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/categories/linux/"/>
+    
+    
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/tags/linux/"/>
+    
+    <category term="Nginx" scheme="https://www.xiaotanzhu.com/tags/nginx/"/>
+    
+    <category term="Supervisor" scheme="https://www.xiaotanzhu.com/tags/supervisor/"/>
+    
+  </entry>
   
   <entry>
     <title>做产品为什么要画这些图？</title>
@@ -422,29 +445,6 @@
     <category term="安卓" scheme="https://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/"/>
     
     <category term="Android Service" scheme="https://www.xiaotanzhu.com/tags/android-service/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>设置VIM的编码格式</title>
-    <link href="https://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html"/>
-    <id>https://www.xiaotanzhu.com/linux/2016-10-10-set-vim-encoding.html</id>
-    <published>2016-10-09T16:00:00.000Z</published>
-    <updated>2016-10-09T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">设置vim的编码格式</summary>
-    
-    
-    
-    <category term="Linux" scheme="https://www.xiaotanzhu.com/categories/linux/"/>
-    
-    
-    <category term="Linux" scheme="https://www.xiaotanzhu.com/tags/linux/"/>
-    
-    <category term="编码" scheme="https://www.xiaotanzhu.com/tags/%E7%BC%96%E7%A0%81/"/>
-    
-    <category term="vim" scheme="https://www.xiaotanzhu.com/tags/vim/"/>
     
   </entry>
   
