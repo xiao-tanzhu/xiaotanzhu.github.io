@@ -25,6 +25,10 @@ menu:
   about: /about/ || fa fa-user
   sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
+  
+favicon:
+  small: /images/favicon-16x16.png
+  medium: /images/favicon-32x32.png
 
 # Sidebar Avatar
 avatar:
