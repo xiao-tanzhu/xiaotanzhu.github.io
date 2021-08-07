@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Fri, 16 Jul 2021 16:00:00 GMT</pubDate>
+    <pubDate>Fri, 06 Aug 2021 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>RPA是什么？解析AI和RPA结合方式和架构</title>
+      <link>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/whatis-rpa.html</link>
+      <guid>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/whatis-rpa.html</guid>
+      <pubDate>Fri, 06 Aug 2021 16:00:00 GMT</pubDate>
+      
+      <description>RPA是什么？解析AI和RPA结合方式和架构</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/rpa/">RPA</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/whatis-rpa.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Controlling Nginx with Supervisor</title>
@@ -464,29 +487,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>关于 Android Service 的介绍</title>
-      <link>https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</link>
-      <guid>https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html</guid>
-      <pubDate>Thu, 13 Oct 2016 16:00:00 GMT</pubDate>
-      
-      <description>关于 Android Service 的介绍</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E5%AE%89%E5%8D%93/">安卓</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E5%AE%89%E5%8D%93/">安卓</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/android-service/">Android Service</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E5%AE%89%E5%8D%93/2016-10-14-introduction-to-android-service.html#disqus_thread</comments>
       
     </item>
     
