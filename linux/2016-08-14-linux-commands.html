@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -281,20 +281,20 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">fify@fify-PC:~$ lsb_release -a</span><br><span class="line">No LSB modules are available.</span><br><span class="line">Distributor ID: Ubuntu</span><br><span class="line">Description:    Ubuntu 16.04.1 LTS</span><br><span class="line">Release:        16.04</span><br><span class="line">Codename:       xenial</span><br></pre></td></tr></table></figure>
 
 <h2 id="用户和组"><a href="#用户和组" class="headerlink" title="用户和组"></a>用户和组</h2><h3 id="显示当前登录的用户名"><a href="#显示当前登录的用户名" class="headerlink" title="显示当前登录的用户名"></a>显示当前登录的用户名</h3><p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">whoami</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">whoami</span></span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fify@fify-PC:~$ whoami</span><br><span class="line">fify</span><br></pre></td></tr></table></figure>
 <p>这个命令在组合其他命令一起使用的时候会比较好用，比如：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker $(whoami)</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker $(<span class="built_in">whoami</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="查看用户所属的组"><a href="#查看用户所属的组" class="headerlink" title="查看用户所属的组"></a>查看用户所属的组</h3><p>可以查看当前用户的组或者指定用户所属的组。</p>
 <h4 id="查看当前用户所属的组"><a href="#查看当前用户所属的组" class="headerlink" title="查看当前用户所属的组"></a>查看当前用户所属的组</h4><p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groups</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">groups</span></span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fify@fify-PC:~$ groups</span><br><span class="line">fify adm cdrom sudo dip plugdev lpadmin sambashare</span><br></pre></td></tr></table></figure>
 
 <h4 id="查看其他用户所属的组"><a href="#查看其他用户所属的组" class="headerlink" title="查看其他用户所属的组"></a>查看其他用户所属的组</h4><p>命令：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">groups fify</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">groups</span> fify</span><br></pre></td></tr></table></figure>
 <p>输出：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fify@fify-PC:~$ groups fify</span><br><span class="line">fify : fify adm cdrom sudo dip plugdev lpadmin sambashare docker</span><br></pre></td></tr></table></figure>
 
@@ -320,7 +320,7 @@
 <p>将文字分隔显示：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grep abc.pl * | awk -F <span class="string">&#x27;abc.pl&#x27;</span> <span class="string">&#x27;&#123;print $2&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="文件工具"><a href="#文件工具" class="headerlink" title="文件工具"></a>文件工具</h3><h4 id="获取目录中最新的文件"><a href="#获取目录中最新的文件" class="headerlink" title="获取目录中最新的文件"></a>获取目录中最新的文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls *.war -Art | tail -n 1</span><br></pre></td></tr></table></figure>
+<h3 id="文件工具"><a href="#文件工具" class="headerlink" title="文件工具"></a>文件工具</h3><h4 id="获取目录中最新的文件"><a href="#获取目录中最新的文件" class="headerlink" title="获取目录中最新的文件"></a>获取目录中最新的文件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">ls</span> *.war -Art | <span class="built_in">tail</span> -n 1</span><br></pre></td></tr></table></figure>
 
 <h4 id="查看文件类型"><a href="#查看文件类型" class="headerlink" title="查看文件类型"></a>查看文件类型</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file xxxx.jpg</span><br></pre></td></tr></table></figure>
 
@@ -481,7 +481,7 @@
 <div class="copyright">
   
   &copy; 2012 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

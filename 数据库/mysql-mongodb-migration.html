@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -393,7 +393,7 @@
 <h3 id="1、数据迁移开始前的提前预操作"><a href="#1、数据迁移开始前的提前预操作" class="headerlink" title="1、数据迁移开始前的提前预操作"></a>1、数据迁移开始前的提前预操作</h3><p>和业务沟通确定，业务每条数据都携带有一个设备标识ssoid，同时业务查询更新等都是根据ssoid维度查询该设备下面的单条或者一批数据，因此片建选择ssoid。</p>
 <h4 id="分片方式"><a href="#分片方式" class="headerlink" title="分片方式"></a>分片方式</h4><p>为了充分散列数据到4个分片，因此选择hash分片方式，这样数据可以最大化散列，同时可以满足同一个ssoid数据落到同一个分片，保证查询效率。</p>
 <h4 id="预分片"><a href="#预分片" class="headerlink" title="预分片"></a>预分片</h4><p>MongoDB如果分片片建为hashed分片，则可以提前做预分片，这样就可以保证数据写进来的时候比较均衡的写入多个分片。预分片的好处可以规避非预分片情况下的chunk迁移问题，最大化提升写入性能。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh.shardCollection(<span class="string">&quot;xxx.xxx&quot;</span>, &#123;<span class="attr">ssoid</span>:<span class="string">&quot;hashed&quot;</span>&#125;, <span class="literal">false</span>, &#123; <span class="attr">numInitialChunks</span>: <span class="number">8192</span>&#125; )</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh.<span class="title function_">shardCollection</span>(<span class="string">&quot;xxx.xxx&quot;</span>, &#123;<span class="attr">ssoid</span>:<span class="string">&quot;hashed&quot;</span>&#125;, <span class="literal">false</span>, &#123; <span class="attr">numInitialChunks</span>: <span class="number">8192</span>&#125; )</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>注意事项：切记提前对ssoid创建hashed索引，否则对后续分片扩容有影响。</p>
@@ -416,7 +416,7 @@
 <p>由于业务全量迁移数据是持续性的大流量写，而不是突发性的大流量写，因此eviction_target、eviction_trigger、eviction_dirty_target、eviction_dirty_trigger几个配置用处不大，这几个参数阀值只是在短时间突发流量情况下调整才有用。</p>
 <p>但是，在持续性长时间大流量写的情况下，我们可以通过提高wiredtiger存储引擎后台线程数来解决脏数据比例过高引起的用户请求阻塞问题，淘汰脏数据的任务最终交由evict模块后台线程来完成。</p>
 <p>全量大流量持续性写存储引擎优化如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.adminCommand( &#123; <span class="attr">setParameter</span> : <span class="number">1</span>, <span class="string">&quot;wiredTigerEngineRuntimeConfig&quot;</span> : <span class="string">&quot;eviction=(threads_min=4, threads_max=20)&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">db.<span class="title function_">adminCommand</span>( &#123; setParameter : <span class="number">1</span>, <span class="string">&quot;wiredTigerEngineRuntimeConfig&quot;</span> : <span class="string">&quot;eviction=(threads_min=4, threads_max=20)&quot;</span>&#125;)</span><br></pre></td></tr></table></figure>
 
 <h3 id="3、全量迁移完成后，业务流量读写优化"><a href="#3、全量迁移完成后，业务流量读写优化" class="headerlink" title="3、全量迁移完成后，业务流量读写优化"></a>3、全量迁移完成后，业务流量读写优化</h3><p><img src="/images/0015.png"></p>
 <p>前面章节我们提到，在容器资源评估的时候，我们最终确定选择单个容器套餐规格为如下：</p>
@@ -656,7 +656,7 @@
 <div class="copyright">
   
   &copy; 2012 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

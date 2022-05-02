@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -318,14 +318,14 @@
 </ul>
 <p>所有开发者只需要实现 <code>onHandleIntent()</code> 关注于 Service 要进行的操作即可。关于更多的 IntentService 实用技巧，请查看此文章：<a target="_blank" rel="noopener" href="https://github.com/codepath/android_guides/wiki/Starting-Background-Services%E3%80%82">https://github.com/codepath/android_guides/wiki/Starting-Background-Services。</a></p>
 <p>如果开发者需要重写其他的一些方法，例如 <code>onCreate()</code>, <code>onStartCommand()</code>, 和 <code>onDestroy()</code>，请保证调用父类的实现，这样可以保证 IntentService 能够正确的来处理线程的生命周期。例如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">onStartCommand</span><span class="params">(Intent intent, <span class="keyword">int</span> flags, <span class="keyword">int</span> startId)</span> </span>&#123;</span><br><span class="line">    Toast.makeText(<span class="keyword">this</span>, <span class="string">&quot;service starting&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">super</span>.onStartCommand(intent,flags,startId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">onStartCommand</span><span class="params">(Intent intent, <span class="type">int</span> flags, <span class="type">int</span> startId)</span> &#123;</span><br><span class="line">    Toast.makeText(<span class="built_in">this</span>, <span class="string">&quot;service starting&quot;</span>, Toast.LENGTH_SHORT).show();</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">super</span>.onStartCommand(intent,flags,startId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h4 id="系统回收资源问题"><a href="#系统回收资源问题" class="headerlink" title="系统回收资源问题"></a>系统回收资源问题</h4><p>当系统内存不足的时候，系统会强制回收一些 Activity 和 Service 来获取更多的资源给那些用户正在交互的程序或页面。这就要求当资源充足的时候 Service 能够自动重启。这个功能是通过 <code>onStartCommand()</code> 的返回值来实现的</p>
 <h5 id="START-NOT-STICKY"><a href="#START-NOT-STICKY" class="headerlink" title="START_NOT_STICKY"></a>START_NOT_STICKY</h5><p>当系统因回收资源而销毁了 Service，当资源再次充足时不自动启动 Service。除非还有未处理的 Intent 准备发送。当你的程序可以很容易的重新开启未完成的操作时，这是最安全的避免 Service 在不必要的情况下启动的选项。</p>
 <h5 id="START-STICKY"><a href="#START-STICKY" class="headerlink" title="START_STICKY"></a>START_STICKY</h5><p>当系统因回收资源而销毁了 Service，当资源再次充足时自动启动 Service，并且再次调用 <code>onStartCommand()</code> 方法，但是不会传递最后一次的 Intent，相反系统在回调<code>onStartCommand()</code> 的时候会传一个空 Intent 。除非还有未处理的 Intent 准备发送。</p>
 <h5 id="START-REDELIVER-INTENT"><a href="#START-REDELIVER-INTENT" class="headerlink" title="START_REDELIVER_INTENT"></a>START_REDELIVER_INTENT</h5><p>当系统因回收资源而销毁了 Service，当资源再次充足时自动启动 Service，并且再次调用 <code>onStartCommand()</code> 方法，并会把最后一次 Intent 再次传递给<code>onStartCommand()</code>，相应的在队列里的 Intent 也会按次序依次传递。此模式适用于下载等服务。</p>
 <h4 id="Start-Service"><a href="#Start-Service" class="headerlink" title="Start Service"></a>Start Service</h4><p>该方式允许多个组件同时对相同的 Service 进行 startService 操作，但是如果只要有其中有一个组件调用了 <code>stopSelf()</code> 或 <code>stopService()</code>, 该 Service 就会被销毁。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Intent intent = <span class="keyword">new</span> Intent(<span class="keyword">this</span>, HelloService.class);</span><br><span class="line">startService(intent);</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Intent</span> <span class="variable">intent</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Intent</span>(<span class="built_in">this</span>, HelloService.class);</span><br><span class="line">startService(intent);</span><br></pre></td></tr></table></figure>
 
 <h4 id="Stop-Service"><a href="#Stop-Service" class="headerlink" title="Stop Service"></a>Stop Service</h4><p>当有多个组件进行了 startService 操作时，不应该直接的去调用 <code>stopSelf()</code> 或 <code>stopService()</code> 来结束 Service， 因为这会对其他已经发起请求的操作产生影响，故在 <code>onStartCommand()</code> 方法中会接受一个 startId, 然后在结束 Service 时，调用 <code>stopService(int)</code> 方法来只是结束一个特定的请求，从而达到保护其他请求不受影响的目的。</p>
 <h3 id="通过-Bind-方式启动-Service"><a href="#通过-Bind-方式启动-Service" class="headerlink" title="通过 Bind 方式启动 Service"></a>通过 Bind 方式启动 Service</h3><p>当应用程序中的 activity 或其它组件需要与服务进行交互，或者应用程序的某些功能需要暴露给其它应用程序时，你应该创建一个 Bind 服务，并通过进程间通信（IPC）来完成。</p>
@@ -507,7 +507,7 @@
 <div class="copyright">
   
   &copy; 2012 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

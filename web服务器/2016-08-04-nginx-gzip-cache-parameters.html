@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -280,7 +280,7 @@
 <li><code>-1</code>指定“Expires”的值为 服务器当前时间 -1s,即永远过期</li>
 </ul>
 <p>例子：图片缓存30天</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 图片缓存30天</span></span><br><span class="line"><span class="attribute">location</span> ~.*\.(jpg|png|jpeg)$ &#123;</span><br><span class="line">   <span class="attribute">expires</span> <span class="number">30d</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># js css缓存一小时</span></span><br><span class="line"><span class="attribute">location</span> ~.*\.(js|css)?$ &#123;</span><br><span class="line">   <span class="attribute">expires</span> <span class="number">1h</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 图片缓存30天</span></span><br><span class="line"><span class="section">location</span> ~.*\.(jpg|png|jpeg)$ &#123;</span><br><span class="line">   <span class="attribute">expires</span> <span class="number">30d</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># js css缓存一小时</span></span><br><span class="line"><span class="section">location</span> ~.*\.(js|css)?$ &#123;</span><br><span class="line">   <span class="attribute">expires</span> <span class="number">1h</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="Nginx-gzip压缩"><a href="#Nginx-gzip压缩" class="headerlink" title="Nginx gzip压缩"></a>Nginx gzip压缩</h3><p>使用 gzip 压缩可以降低网站带宽消耗，同时提升访问速度。主要在nginx服务端将页面进行压缩，然后在浏览器端进行解压和解析，目前大多数流行的浏览器都迟滞gzip格式的压缩，所以不用担心。默认情况下，Nginx的gzip压缩是关闭的，同时，Nginx默认只对text/html进行压缩。</p>
 <p>主要配置如下：</p>
@@ -480,7 +480,7 @@
 <div class="copyright">
   
   &copy; 2012 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

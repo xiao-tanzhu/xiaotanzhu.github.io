@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 5.4.0">
+<meta name="generator" content="Hexo 5.4.2">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
@@ -278,7 +278,7 @@
 </ul>
 <h4 id="配置nginx-conf"><a href="#配置nginx-conf" class="headerlink" title="配置nginx.conf"></a>配置nginx.conf</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@master zabbix_agentd.d]<span class="comment"># vim /etc/nginx/nginx.conf</span></span><br></pre></td></tr></table></figure>
 <p>添加以下内容：</p>
-<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">location</span> /nginx_status &#123;</span><br><span class="line">  <span class="attribute">stub_status</span> <span class="literal">on</span>;</span><br><span class="line">  <span class="attribute">access_log</span>  <span class="literal">off</span>;</span><br><span class="line">  <span class="attribute">allow</span> <span class="number">127.0.0.1</span>;</span><br><span class="line">  <span class="attribute">allow</span> <span class="number">192.168.5.251</span>;</span><br><span class="line">  <span class="attribute">deny</span> all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">location</span> /nginx_status &#123;</span><br><span class="line">  <span class="attribute">stub_status</span> <span class="literal">on</span>;</span><br><span class="line">  <span class="attribute">access_log</span>  <span class="literal">off</span>;</span><br><span class="line">  <span class="attribute">allow</span> <span class="number">127.0.0.1</span>;</span><br><span class="line">  <span class="attribute">allow</span> <span class="number">192.168.5.251</span>;</span><br><span class="line">  <span class="attribute">deny</span> all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>重启服务，测试是否可以正常访问nginx_status网页</p>
 <h4 id="添加nginx-conf至-etc-zabbix-zabbix-agentd-d"><a href="#添加nginx-conf至-etc-zabbix-zabbix-agentd-d" class="headerlink" title="添加nginx.conf至/etc/zabbix/zabbix_agentd.d/"></a>添加<code>nginx.conf</code>至<code>/etc/zabbix/zabbix_agentd.d/</code></h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@master zabbix_agentd.d]<span class="comment"># vim /etc/zabbix/zabbix_agentd.d/nginx.conf</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">UserParameter</span>=nginx.accepts,/etc/zabbix/zabbix_scripts/nginx_status.sh accepts</span><br><span class="line"><span class="attr">UserParameter</span>=nginx.handled,/etc/zabbix/zabbix_scripts/nginx_status.sh handled</span><br><span class="line"><span class="attr">UserParameter</span>=nginx.requests,/etc/zabbix/zabbix_scripts/nginx_status.sh requests</span><br><span class="line"><span class="attr">UserParameter</span>=nginx.connections.active,/etc/zabbix/zabbix_scripts/nginx_status.sh active</span><br><span class="line"><span class="attr">UserParameter</span>=nginx.connections.reading,/etc/zabbix/zabbix_scripts/nginx_status.sh reading</span><br><span class="line"><span class="attr">UserParameter</span>=nginx.connections.writing,/etc/zabbix/zabbix_scripts/nginx_status.sh writing</span><br><span class="line"><span class="attr">UserParameter</span>=nginx.connections.waiting,/etc/zabbix/zabbix_scripts/nginx_status.sh waiting</span><br></pre></td></tr></table></figure>
@@ -439,7 +439,7 @@
 <div class="copyright">
   
   &copy; 2012 – 
-  <span itemprop="copyrightYear">2021</span>
+  <span itemprop="copyrightYear">2022</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
