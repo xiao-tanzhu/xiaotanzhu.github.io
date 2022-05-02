@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Fri, 06 Aug 2021 16:00:00 GMT</pubDate>
+    <pubDate>Sat, 30 Apr 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>接连创造高估值、高增长神话的PLG SaaS</title>
+      <link>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html</link>
+      <guid>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html</guid>
+      <pubDate>Sat, 30 Apr 2022 16:00:00 GMT</pubDate>
+      
+      <description>1.6万字深度研究：接连创造高估值、高增长神话的PLG SaaS</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/saas/">SaaS</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/plg/">PLG</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/saas/">SaaS</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>RPA是什么？解析AI和RPA结合方式和架构</title>
@@ -462,31 +485,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>以SQL方式读取MySQL的GTID格式Binlog</title>
-      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</link>
-      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</guid>
-      <pubDate>Sun, 30 Oct 2016 16:00:00 GMT</pubDate>
-      
-      <description>以SQL方式读取MySQL的GTID格式Binlog</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/mysql/">MySQL</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/gtid/">GTID</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/binlog/">Binlog</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html#disqus_thread</comments>
       
     </item>
     

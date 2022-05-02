@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2021-08-06T16:00:00.000Z</updated>
+  <updated>2022-04-30T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>接连创造高估值、高增长神话的PLG SaaS</title>
+    <link href="https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html"/>
+    <id>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html</id>
+    <published>2022-04-30T16:00:00.000Z</published>
+    <updated>2022-04-30T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">1.6万字深度研究：接连创造高估值、高增长神话的PLG SaaS</summary>
+    
+    
+    
+    <category term="SaaS" scheme="https://www.xiaotanzhu.com/categories/saas/"/>
+    
+    
+    <category term="PLG" scheme="https://www.xiaotanzhu.com/tags/plg/"/>
+    
+    <category term="SaaS" scheme="https://www.xiaotanzhu.com/tags/saas/"/>
+    
+  </entry>
   
   <entry>
     <title>RPA是什么？解析AI和RPA结合方式和架构</title>
@@ -422,29 +443,6 @@
     
     
     <category term="Spring" scheme="https://www.xiaotanzhu.com/tags/spring/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>以SQL方式读取MySQL的GTID格式Binlog</title>
-    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html"/>
-    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/2016-10-31-read-mysql-binlog-as-sql.html</id>
-    <published>2016-10-30T16:00:00.000Z</published>
-    <updated>2016-10-30T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">以SQL方式读取MySQL的GTID格式Binlog</summary>
-    
-    
-    
-    <category term="数据库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="MySQL" scheme="https://www.xiaotanzhu.com/tags/mysql/"/>
-    
-    <category term="GTID" scheme="https://www.xiaotanzhu.com/tags/gtid/"/>
-    
-    <category term="Binlog" scheme="https://www.xiaotanzhu.com/tags/binlog/"/>
     
   </entry>
   
