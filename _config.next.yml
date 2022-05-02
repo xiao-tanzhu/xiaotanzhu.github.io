@@ -25,7 +25,7 @@ menu:
   about: /about/ || fa fa-user
   sitemap: /sitemap.xml || fa fa-sitemap
   #commonweal: /404/ || fa fa-heartbeat
-  
+
 favicon:
   small: /images/favicon-16x16.png
   medium: /images/favicon-32x32.png
@@ -38,6 +38,15 @@ avatar:
   rounded: true
   # If true, the avatar will be rotated with the cursor.
   rotated: false
+
+# Bookmark Support
+bookmark:
+  enable: true
+  # Customize the color of the bookmark.
+  color: "#222"
+  # If auto, save the reading progress when closing the page or clicking the bookmark-icon.
+  # If manual, only save it by clicking the bookmark-icon.
+  save: auto
 
 # Social Links
 # Usage: `Key: permalink || icon`
@@ -117,7 +126,7 @@ leancloud_visitors:
   app_key: 7ejdgq34iVUrKwhqPjLYqAQX
   # Required for apps from CN region
   #server_url: https://vqn55tdj.lc-cn-n1-shared.com
-  server_url: 
+  server_url:
   # Dependencies: https://github.com/theme-next/hexo-leancloud-counter-security
   # If you don't care about security in leancloud counter and just want to use it directly
   # (without hexo-leancloud-counter-security plugin), set `security` to `false`.
@@ -152,6 +161,20 @@ search:
   content: true
   format: html
 
+# Define custom file paths.
+# Create your custom files in site directory `source/_data` and uncomment needed files below.
+custom_file_path:
+  #head: source/_data/head.swig
+  #header: source/_data/header.swig
+  #sidebar: source/_data/sidebar.swig
+  #postMeta: source/_data/post-meta.swig
+  #postBodyEnd: source/_data/post-body-end.swig
+  #footer: source/_data/footer.swig
+  #bodyEnd: source/_data/body-end.swig
+  #variable: source/_data/variables.styl
+  #mixin: source/_data/mixins.styl
+  style: source/_data/styles.styl
+
 # Subscribe through Telegram Channel, Twitter, etc.
 # Usage: `Key: permalink || icon` (Font Awesome)
 follow_me:
@@ -161,4 +184,3 @@ follow_me:
   #RSS: /atom.xml || fa fa-rss
 
 #baidu_push: true
-
