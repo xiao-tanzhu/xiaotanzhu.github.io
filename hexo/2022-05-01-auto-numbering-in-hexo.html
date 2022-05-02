@@ -21,21 +21,21 @@
     var CONFIG = {"hostname":"www.xiaotanzhu.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="几个 find 命令的简单却又高级的用法">
+  <meta name="description" content="使用css自动为文章的H1-H6标题自动编号">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux find命令高阶用法">
-<meta property="og:url" content="https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html">
+<meta property="og:title" content="使用为文章标题自动编号">
+<meta property="og:url" content="https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html">
 <meta property="og:site_name" content="小炭猪">
-<meta property="og:description" content="几个 find 命令的简单却又高级的用法">
+<meta property="og:description" content="使用css自动为文章的H1-H6标题自动编号">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-27T16:00:00.000Z">
-<meta property="article:modified_time" content="2021-03-27T16:00:00.000Z">
+<meta property="article:published_time" content="2022-04-30T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-04-30T16:00:00.000Z">
 <meta property="article:author" content="Fify">
-<meta property="article:tag" content="Shell">
-<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html">
+<link rel="canonical" href="https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html">
 
 
 <script id="page-configurations">
@@ -48,7 +48,7 @@
   };
 </script>
 
-  <title>Linux find命令高阶用法 | 小炭猪</title>
+  <title>使用为文章标题自动编号 | 小炭猪</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
     <script>
@@ -215,7 +215,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpeg">
@@ -228,7 +228,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Linux find命令高阶用法
+          使用为文章标题自动编号
         </h1>
 
         <div class="post-meta">
@@ -238,7 +238,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-03-28 00:00:00" itemprop="dateCreated datePublished" datetime="2021-03-28T00:00:00+08:00">2021-03-28</time>
+              <time title="创建时间：2022-05-01 00:00:00" itemprop="dateCreated datePublished" datetime="2022-05-01T00:00:00+08:00">2022-05-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -246,19 +246,19 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                  <a href="/categories/hexo/" itemprop="url" rel="index"><span itemprop="name">Hexo</span></a>
                 </span>
             </span>
 
           
-            <span id="/linux/linux-command-find-howtos.html" class="post-meta-item leancloud_visitors" data-flag-title="Linux find命令高阶用法" title="阅读次数">
+            <span id="/hexo/2022-05-01-auto-numbering-in-hexo.html" class="post-meta-item leancloud_visitors" data-flag-title="使用为文章标题自动编号" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
             </span>
-            <div class="post-description">几个 find 命令的简单却又高级的用法</div>
+            <div class="post-description">使用css自动为文章的H1-H6标题自动编号</div>
 
         </div>
       </header>
@@ -269,81 +269,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
-<p>linux 下一切皆文件。</p>
-</blockquote>
-<p>Find命令是程序员每天都会使用的命令，是一个无处不在是命令，是linux中最有用的命令之一。你可以使用它在任意一个目录（及子目录）中搜索文件，你也可以定义一些特定的条件，如按文件名、文件类型、用户甚至是时间节点去查找文件。</p>
-<p>毋庸置疑的是在强大的功能背后，它的使用对比其他的命令会复杂的多，比较难。下面就跟大家分享几个 find 命令的简单却又高级的用法。</p>
-<h2 id="根据访问-修改-更改时间查找文件"><a href="#根据访问-修改-更改时间查找文件" class="headerlink" title="根据访问/修改/更改时间查找文件"></a>根据访问/修改/更改时间查找文件</h2><p>如果服务器被入侵，你可以利用find 查询到近期被访问、修改、更改的文件</p>
+        <h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>我们都知道，MarkDown可以通过<code>#</code> <code>##</code> <code>###</code>等标记添加不同层次的标题，非常方便。但是问题来了：如何给标题加上编号呢？</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="section"># Title</span></span><br><span class="line"><span class="section">## 1. sub-title</span></span><br><span class="line"><span class="section">### 1.1 sub-sub-title</span></span><br><span class="line"><span class="section">### 1.2 sub-sub-title</span></span><br><span class="line"><span class="section">## 2. sub-title</span></span><br><span class="line"><span class="section">## 3. sub-title</span></span><br></pre></td></tr></table></figure>
+
+<p>为了给标题加上编号，手动加上11.11.223，很麻烦有没有？如果插入或删除章节，后面的编号都要重新修改一遍</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>CSS可以自动在某些元素前插入编号，而Hexo又支持自定义css样式。那么解决方法来了。</p>
+<h3 id="开启Hexo自定义样式"><a href="#开启Hexo自定义样式" class="headerlink" title="开启Hexo自定义样式"></a>开启Hexo自定义样式</h3><p>我使用hexo的next主题，在根目录的<code>//_config.next.yml</code>文件中增加以下几行：</p>
 <blockquote>
-<p>备注：min=分钟 time=天 修改注重于对内容的修改，更改注重于对权限的更改</p>
+<p>Hexo的自定义样式参考：<a target="_blank" rel="noopener" href="https://theme-next.js.org/docs/advanced-settings/custom-files">https://theme-next.js.org/docs/advanced-settings/custom-files</a></p>
 </blockquote>
-<p>查找1个小时内被访问过的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -amin -60</span><br></pre></td></tr></table></figure>
-
-<p>查找1天内被访问过的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -atime -1</span><br></pre></td></tr></table></figure>
-
-<p>查找在1个小时内被修改的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -mmin -60</span><br></pre></td></tr></table></figure>
-
-<p>查找在1天内被修改的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -mtime -1</span><br></pre></td></tr></table></figure>
-
-<p>查找1小时内状态被改变的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -cmin -60</span><br></pre></td></tr></table></figure>
-
-<p>查找1天内状态被改变的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find / -ctime -1</span><br></pre></td></tr></table></figure>
-
-<h2 id="查找比某文件新或某文件旧的文件"><a href="#查找比某文件新或某文件旧的文件" class="headerlink" title="查找比某文件新或某文件旧的文件"></a>查找比某文件新或某文件旧的文件</h2><p>环境上日志文件数不胜数，想删除某个时间之前的文件，该怎么处理？</p>
 <blockquote>
-<p>备注：newer（修改时间）、anewer（访问时间）、ctime（修改时间，包括权限属性的修改）<br>列出比1.log更旧的文件</p>
+<p><strong>注意：</strong>以下配置从主题目录配置文件中拷贝：//themes/next/_config.yml，不修改主题目录下的文件。</p>
 </blockquote>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ ! -newer 1.log |xargs ls -al</span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Define custom file paths.</span></span><br><span class="line"><span class="comment"># Create your custom files in site directory `source/_data` and uncomment needed files below.</span></span><br><span class="line"><span class="attr">custom_file_path:</span></span><br><span class="line">  <span class="comment">#head: source/_data/head.swig</span></span><br><span class="line">  <span class="comment">#header: source/_data/header.swig</span></span><br><span class="line">  <span class="comment">#sidebar: source/_data/sidebar.swig</span></span><br><span class="line">  <span class="comment">#postMeta: source/_data/post-meta.swig</span></span><br><span class="line">  <span class="comment">#postBodyEnd: source/_data/post-body-end.swig</span></span><br><span class="line">  <span class="comment">#footer: source/_data/footer.swig</span></span><br><span class="line">  <span class="comment">#bodyEnd: source/_data/body-end.swig</span></span><br><span class="line">  <span class="comment">#variable: source/_data/variables.styl</span></span><br><span class="line">  <span class="comment">#mixin: source/_data/mixins.styl</span></span><br><span class="line">  <span class="attr">style:</span> <span class="string">source/_data/styles.styl</span></span><br></pre></td></tr></table></figure>
 
-<p>列出比1.log更新的文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ -newer 1.log |xargs ls -al</span><br></pre></td></tr></table></figure>
+<h3 id="添加自定义css样式"><a href="#添加自定义css样式" class="headerlink" title="添加自定义css样式"></a>添加自定义css样式</h3><p>在<code>//source/_data/styles.styl</code>中添加以下内容：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">body</span> &#123; <span class="attribute">counter-reset</span>: h2counter; &#125;</span><br><span class="line"><span class="selector-tag">h2</span> &#123; <span class="attribute">counter-reset</span>: h3counter; &#125;</span><br><span class="line"><span class="selector-tag">h3</span> &#123; <span class="attribute">counter-reset</span>: h4counter; &#125;</span><br><span class="line"><span class="selector-tag">h4</span> &#123; <span class="attribute">counter-reset</span>: h5counter; &#125;</span><br><span class="line"><span class="selector-tag">h5</span> &#123; <span class="attribute">counter-reset</span>: h6counter; &#125;</span><br><span class="line"><span class="selector-tag">h6</span> &#123; &#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h2</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h2counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">&quot;.\0000a0\0000a0&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h3</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h3counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h3counter) <span class="string">&quot;.\0000a0\0000a0&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h4</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h4counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h3counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h4counter) <span class="string">&quot;.\0000a0\0000a0&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h5</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h5counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h3counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h4counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h5counter) <span class="string">&quot;.\0000a0\0000a0&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.post-body</span> <span class="selector-tag">h6</span><span class="selector-pseudo">:before</span> &#123;</span><br><span class="line">  <span class="attribute">counter-increment</span>: h6counter;</span><br><span class="line">  <span class="attribute">content</span>: <span class="built_in">counter</span>(h2counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h3counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h4counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h5counter) <span class="string">&quot;.&quot;</span><span class="built_in">counter</span>(h6counter) <span class="string">&quot;.\0000a0\0000a0&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="多条件组合查找"><a href="#多条件组合查找" class="headerlink" title="多条件组合查找"></a>多条件组合查找</h2><p>有时我们要查找的文件并不止一个类目这个时候我们可以使用多条件组合的方式去查找，常用的条件组合参数有<code>-a(and)</code>,<code>-o(or)</code>,<code>!(not)</code>。</p>
-<p>查找普通文档和符号链接文档：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ -type f -o -type l</span><br></pre></td></tr></table></figure>
-
-<p>查找名称为skill的符号链接文档</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ -name &quot;*skill&quot; -a -type l</span><br></pre></td></tr></table></figure>
-
-<p>查找log文档以外的其他文档：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find ./ ! -name &quot;*.log&quot;</span><br></pre></td></tr></table></figure>
-
-<h2 id="对所查找到的文件进行操作"><a href="#对所查找到的文件进行操作" class="headerlink" title="对所查找到的文件进行操作"></a>对所查找到的文件进行操作</h2><p>文件我们已经查找到了，如何对它们做些什么呢？</p>
-<p>对于以查找到的文件，进行操作万能公式：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*something*&quot; -exec action &#123;&#125; somearguments \\;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>命令解释：</p>
-<ul>
-<li>find . -name “something” 找出所有名字包含something的文件;</li>
-<li>-exec 执行后面的命令， action 任意命令名; {}是find的结果集合</li>
-<li>somearguments ， 命令需要的参数，就是例子中的-r; \; 结束命令</li>
-</ul>
-</blockquote>
-<p><strong>举例:</strong></p>
-<p>利用Find命令对文件进行备份</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*something*&quot; –exec cp &#123;&#125; /backup/&#123;&#125;.backup /;</span><br></pre></td></tr></table></figure>
-
-<p>利用Find命令对文件进行删除</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find . -name &quot;*something*&quot; –exec rm –I &#123;&#125; /;</span><br></pre></td></tr></table></figure>
-
-<p>下面列一些比较常用的：</p>
-<ul>
-<li>rm 命令，用于删除find查找出来的文件</li>
-<li>mv 命令，用于重命名查找出的文件</li>
-<li>ls -l 命令，显示查找出的文件的详细信息</li>
-<li>md5sum， 对查找出的文件进行md5sum运算，可以获得一个字符串，用于检测文件内容的合法性</li>
-<li>wc 命令，用于统计计算文件的单词数量，文件大小等</li>
-</ul>
-<p>执行任何Unix的shell命令<br>执行你自己写的shell脚本，参数就是每个查找出来的文件名</p>
-<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html" target="_blank">Linux find命令高阶用法</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html
+<h2 id="其他说明"><a href="#其他说明" class="headerlink" title="其他说明"></a>其他说明</h2><p>个人不喜欢使用H1标题，觉得太大了，所以编号都是从2级标题开始的。如果有喜欢H1标题的，可以对应修改以上css文件。</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html" target="_blank">使用为文章标题自动编号</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html
     </div>
 
     
@@ -352,8 +296,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/shell/" rel="tag"># Shell</a>
-              <a href="/tags/linux/" rel="tag"># Linux</a>
+              <a href="/tags/hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/css/" rel="tag"># CSS</a>
           </div>
 
         
@@ -362,13 +306,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/redis/redis-performance-issues-cpu.html" rel="prev" title="Redis常见的CPU和内存性能问题">
-      <i class="fa fa-chevron-left"></i> Redis常见的CPU和内存性能问题
+    <a href="/saas/2022-05-01-plg-in-saas.html" rel="prev" title="接连创造高估值、高增长神话的PLG SaaS">
+      <i class="fa fa-chevron-left"></i> 接连创造高估值、高增长神话的PLG SaaS
     </a></div>
-      <div class="post-nav-item">
-    <a href="/powerbi/powerbi-howtos.html" rel="next" title="PowerBI常见操作">
-      PowerBI常见操作 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -434,7 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E8%AE%BF%E9%97%AE-%E4%BF%AE%E6%94%B9-%E6%9B%B4%E6%94%B9%E6%97%B6%E9%97%B4%E6%9F%A5%E6%89%BE%E6%96%87%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">根据访问&#x2F;修改&#x2F;更改时间查找文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E6%89%BE%E6%AF%94%E6%9F%90%E6%96%87%E4%BB%B6%E6%96%B0%E6%88%96%E6%9F%90%E6%96%87%E4%BB%B6%E6%97%A7%E7%9A%84%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">查找比某文件新或某文件旧的文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%9A%E6%9D%A1%E4%BB%B6%E7%BB%84%E5%90%88%E6%9F%A5%E6%89%BE"><span class="nav-number">3.</span> <span class="nav-text">多条件组合查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%89%80%E6%9F%A5%E6%89%BE%E5%88%B0%E7%9A%84%E6%96%87%E4%BB%B6%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">对所查找到的文件进行操作</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E6%8F%8F%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BC%80%E5%90%AFHexo%E8%87%AA%E5%AE%9A%E4%B9%89%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.1.</span> <span class="nav-text">开启Hexo自定义样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89css%E6%A0%B7%E5%BC%8F"><span class="nav-number">2.2.</span> <span class="nav-text">添加自定义css样式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E8%AF%B4%E6%98%8E"><span class="nav-number">3.</span> <span class="nav-text">其他说明</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -656,9 +597,9 @@
 
 <script>
   var disqus_config = function() {
-    this.page.url = "https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html";
-    this.page.identifier = "linux/linux-command-find-howtos.html";
-    this.page.title = "Linux find命令高阶用法";
+    this.page.url = "https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html";
+    this.page.identifier = "hexo/2022-05-01-auto-numbering-in-hexo.html";
+    this.page.title = "使用为文章标题自动编号";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {

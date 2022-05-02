@@ -19,6 +19,29 @@
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>使用为文章标题自动编号</title>
+      <link>https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html</link>
+      <guid>https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html</guid>
+      <pubDate>Sat, 30 Apr 2022 16:00:00 GMT</pubDate>
+      
+      <description>使用css自动为文章的H1-H6标题自动编号</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/hexo/">Hexo</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/hexo/">Hexo</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/css/">CSS</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>接连创造高估值、高增长神话的PLG SaaS</title>
       <link>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html</link>
       <guid>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html</guid>
@@ -464,27 +487,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Spring Framework的整体架构</title>
-      <link>https://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html</link>
-      <guid>https://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html</guid>
-      <pubDate>Wed, 01 Mar 2017 16:00:00 GMT</pubDate>
-      
-      <description>Spring Framework的整体架构</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/spring/">Spring</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/spring/">Spring</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/spring/2017-03-02-spring-framework-architecture.html#disqus_thread</comments>
       
     </item>
     
