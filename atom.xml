@@ -147,6 +147,29 @@
   </entry>
   
   <entry>
+    <title>上海电信桥接模式下使用IPTV</title>
+    <link href="https://www.xiaotanzhu.com/merlin/2021-07-02-enable-iptv-through-merlin.html"/>
+    <id>https://www.xiaotanzhu.com/merlin/2021-07-02-enable-iptv-through-merlin.html</id>
+    <published>2021-07-01T16:00:00.000Z</published>
+    <updated>2021-07-01T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">上海电信桥接模式下使用IPTV，通过Merlin版AC88U路由器</summary>
+    
+    
+    
+    <category term="Merlin" scheme="https://www.xiaotanzhu.com/categories/merlin/"/>
+    
+    
+    <category term="Merlin" scheme="https://www.xiaotanzhu.com/tags/merlin/"/>
+    
+    <category term="AC88U" scheme="https://www.xiaotanzhu.com/tags/ac88u/"/>
+    
+    <category term="IPTV" scheme="https://www.xiaotanzhu.com/tags/iptv/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Java中的DelayQueue</title>
     <link href="https://www.xiaotanzhu.com/java/delayqueue-in-java.html"/>
     <id>https://www.xiaotanzhu.com/java/delayqueue-in-java.html</id>
@@ -424,27 +447,6 @@
     <category term="微服务" scheme="https://www.xiaotanzhu.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/"/>
     
     <category term="Spring Cloud" scheme="https://www.xiaotanzhu.com/tags/spring-cloud/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Framework: Modules</title>
-    <link href="https://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html"/>
-    <id>https://www.xiaotanzhu.com/spring/2017-03-09-spring-framework-modules.html</id>
-    <published>2017-03-08T16:00:00.000Z</published>
-    <updated>2017-03-08T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Spring Framework: Modules</summary>
-    
-    
-    
-    <category term="Spring" scheme="https://www.xiaotanzhu.com/categories/spring/"/>
-    
-    
-    <category term="Spring" scheme="https://www.xiaotanzhu.com/tags/spring/"/>
-    
-    <category term="Spring Modules" scheme="https://www.xiaotanzhu.com/tags/spring-modules/"/>
     
   </entry>
   
