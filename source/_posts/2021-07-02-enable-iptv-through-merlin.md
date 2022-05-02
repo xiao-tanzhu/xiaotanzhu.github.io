@@ -60,6 +60,12 @@ dhcp-option-force=125,00:00:00:00:1d:02:06:48:47:57:2d:43:54:03:07:48:47:32:32:3
 pc_append "dhcp-option-force=125,00:00:00:00:1d:02:06:48:47:57:2d:43:54:03:07:48:47:32:32:30:47:53:0a:02:20:00:0b:02:00:55:0d:02:00:2e" /tmp/etc/dnsmasq.conf
 ```
 
+#### 重启路由器
+
+重启路由器，在/tmp/etc/dnsmasq.conf文件中可以看到以上添加的`dhcp-options`。
+
+> **特别注意：**本文中的dnsmasq是通过[科学上网插件](https://github.com/hq450/fancyss)控制的，故关闭[科学上网插件](https://github.com/hq450/fancyss)后，该设置将失效。
+
 ## 验证
 
 使用电脑连接路由器，并用wireshark抓DHCP包，能看到这个dhcp-options即可。
