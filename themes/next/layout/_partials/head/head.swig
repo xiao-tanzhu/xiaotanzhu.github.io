@@ -58,7 +58,7 @@
   <script src="{{ pace_js_uri }}"></script>
 {%- endif %}
 
-{%- if toc.enable %}
+{%- if theme.toc.enable %}
   <link rel="stylesheet" href="/css/auto-title-number.css">
 {%- endif %}
 
