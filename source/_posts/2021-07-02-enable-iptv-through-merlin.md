@@ -43,3 +43,25 @@ dhcp-option-force=125,00:00:00:00:1d:02:06:48:47:57:2d:43:54:03:07:48:47:32:32:3
 进入应用-日常应用-IPTV 设置组播vlan为51，注意是OTHER的组播
 
 ![](/images/0016.jpeg)
+
+### 配置DHCP服务器
+
+我的AC88U路由器使用了梅林固件，并安装了[科学上网插件](https://github.com/hq450/fancyss)，DHCP的参数由这个插件控制，故需要修改插件相关脚本。
+
+#### SSH登录路由器，修改dnsmasq.conf文件
+
+路由器中dnsmasq.conf文件位置为：/tmp/etc/dnsmasq.conf。但此文件是在路由器启动的时候动态生成的，故需要修改插件中相关脚本文件：
+
+修改文件：/jffs/scripts/dnsmasq.postconf，增加以下内容到文件最后：
+
+```shell
+# 通过 pc_append把dhcp相关的设置append到 /tmp/etc/dnsmasq.conf 文件里
+# 这样IPTV就能获取到VLAN的IP了
+pc_append "dhcp-option-force=125,00:00:00:00:1d:02:06:48:47:57:2d:43:54:03:07:48:47:32:32:30:47:53:0a:02:20:00:0b:02:00:55:0d:02:00:2e" /tmp/etc/dnsmasq.conf
+```
+
+## 验证
+
+使用电脑连接路由器，并用wireshark抓DHCP包，能看到这个dhcp-options即可。
+
+将IPTV机顶盒用网线接入到路由器上，打开即可享受IPTV了。
