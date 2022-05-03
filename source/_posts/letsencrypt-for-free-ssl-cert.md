@@ -43,14 +43,14 @@ Follow these [instructions on snapcraft's site to install snapd](https://snapcra
 ### Ensure that your version of snapd is up to date
 Execute the following instructions on the command line on the machine to ensure that you have the latest version of snapd.
 
-```bash
+```shell
 sudo snap install core; sudo snap refresh core
 ```
 
 ### Remove certbot-auto and any Certbot OS packages
 If you have any Certbot packages installed using an OS package manager like apt, dnf, or yum, you should remove them before installing the Certbot snap to ensure that when you run the command certbot the snap is used rather than the installation from your OS package manager.
 
-```bash
+```shell
 sudo apt-get remove certbot, sudo dnf remove certbot
 ```
 
@@ -60,7 +60,7 @@ If you previously used Certbot through the certbot-auto script, you should also 
 
 Run this command on the command line on the machine to install Certbot.
 
-```bash
+```shell
 sudo snap install --classic certbot
 ```
 
@@ -68,7 +68,7 @@ sudo snap install --classic certbot
 
 Execute the following instruction on the command line on the machine to ensure that the `certbot` command can be run.
 
-```bash
+```shell
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
 
@@ -77,21 +77,21 @@ sudo ln -s /snap/bin/certbot /usr/bin/certbot
 #### Get and Install
 Run this command to get a certificate and have Certbot edit your Nginx configuration automatically to serve it, turning on HTTPS access in a single step.
 
-```bash
+```shell
 sudo certbot --nginx
 ```
 
 #### Just get a certificate
 If you're feeling more conservative and would like to make the changes to your Nginx configuration by hand, run this command.
 
-```bash
+```shell
 sudo certbot certonly --nginx
 ```
 
 ### Test automatic renewal
 The Certbot packages on your system come with a cron job or systemd timer that will renew your certificates automatically before they expire. You will not need to run Certbot again, unless you change your configuration. You can test automatic renewal for your certificates by running this command:
 
-```bash
+```shell
 sudo certbot renew --dry-run
 ```
 
