@@ -240,3 +240,10 @@ darkmode_js:
   label: '🌓' # default: ''
   autoMatchOsTheme: true # default: true
   libUrl: https://cdn.wangjingfei.com/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js # Set custom library cdn url for Darkmode.js
+
+back2top:
+  enable: true
+  # Back to top in sidebar.
+  sidebar: false
+  # Scroll percent label in b2t button.
+  scrollpercent: true
