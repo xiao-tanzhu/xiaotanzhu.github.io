@@ -112,5 +112,5 @@ Sun 2021-05-09 13:20:00 CST 1h 57min left Sun 2021-05-09 01:22:05 CST 10h ago   
 ...
 ```
 
-### 9. Confirm that Certbot worked
+### Confirm that Certbot worked
 To confirm that your site is set up properly, visit https://yourwebsite.com/ in your browser and look for the lock icon in the URL bar.
