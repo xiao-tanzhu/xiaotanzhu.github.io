@@ -7,11 +7,11 @@ categories: Linux
 description: This example shows us how to control nginx with supervisor so when nginx goes down for whatever reason, supervisor will bring it up again as a "foreground" process not as a "daemon".
 ---
 
-# Important
+## Important
 
 Supervisor uses `daemon off;` to start Nginx. The `daemon off;` directive tells Nginx to stay in the foreground. The `sudo service nginx stop/start/restart` commands won't work. For more information read [Stack Overflow](https://stackoverflow.com/questions/25970711/what-is-the-difference-between-nginx-daemon-on-off-option/34821579#34821579) answer.
 
-# Current nginx process
+## Current nginx process
 
 As you can see below, Nginx is running in "daemon on" mode.
 
@@ -23,16 +23,16 @@ www-data   12530  0.0  0.7 132808  3800 ?        S    09:52   0:00 nginx: cache 
 root       13154  0.0  0.1   8900   660 pts/0    S+   10:38   0:00 grep --color=auto nginx
 ```
 
-# Install & Setup supervisor
+## Install & Setup supervisor
 
-## Install
+### Install
 
 ```bash
 sudo apt update
 sudo apt install supervisor
 ```
 
-## Setup configuration for Nignx
+### Setup configuration for Nignx
 
 Add `nginx.conf` file: `/etc/supervisor/conf.d/nginx.conf`
 
@@ -74,13 +74,13 @@ nginx: added process group
 
 Verify if supervisor started nginx service.
 
-```
+```shell
 $ sudo supervisorctl
 nginx:nginx_00                   RUNNING   pid 18429, uptime 0:01:47
 supervisor>
 ```
 
-# Check
+## Check
 
 As you can see below, Nginx is running in "daemon off" mode.
 
@@ -91,4 +91,12 @@ www-data     703  1.1  1.4 133140  6884 ?        S    10:56   0:00 nginx: worker
 www-data     704  0.0  0.7 132808  3620 ?        S    10:56   0:00 nginx: cache manager process
 www-data     708  0.0  0.7 132808  3620 ?        S    10:56   0:00 nginx: cache loader process
 root         800  0.0  0.1   8900   736 pts/0    S+   10:57   0:00 grep --color=auto nginx
+```
+
+## Restart nginx with supervisor
+
+```shell
+$ sudo supervisorctl
+nginx:nginx_00                   RUNNING   pid 18429, uptime 0:01:47
+supervisor> restart nginx:nginx_00
 ```
