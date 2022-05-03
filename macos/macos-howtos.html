@@ -283,10 +283,10 @@
     
     <div class="post-body" itemprop="articleBody">
         <h2 id="常见配置"><a href="#常见配置" class="headerlink" title="常见配置"></a>常见配置</h2><h3 id="屏幕截图的默认存储位置调整"><a href="#屏幕截图的默认存储位置调整" class="headerlink" title="屏幕截图的默认存储位置调整"></a>屏幕截图的默认存储位置调整</h3><p>在mac终端执行命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults write com.apple.screencapture location ~/Desktop/idolaoxuPic</span><br></pre></td></tr></table></figure>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">defaults <span class="keyword">write</span> com.apple.screencapture <span class="keyword">location</span> <span class="title">~/Desktop</span>/idolaoxuPic</span><br></pre></td></tr></table></figure>
 
 <p>执行完后，需执行如下命令生效（当然，重启也是可以的）</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">killall SystemUIServer</span><br></pre></td></tr></table></figure>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">killall SystemUIServer</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>MacOS截屏快捷键</p>

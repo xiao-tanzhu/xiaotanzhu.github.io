@@ -286,12 +286,12 @@
 </ul>
 <p>##查找替换</p>
 <p>###在所有手机号码前后增加引号</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/\(\d\&#123;11&#125;\)/&#x27;\1&#x27;/g</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:%s/</span>\(\d\&#123;<span class="number">11</span>&#125;\)/<span class="string">&#x27;\1&#x27;</span>/g</span><br></pre></td></tr></table></figure>
 <p>###在所有行最前面增加“-”</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/^/-/g</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:%s/^/-/g</span></span><br></pre></td></tr></table></figure>
 
 <p>###在所有行的最后增加“-”</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:%s/$/-/g</span><br></pre></td></tr></table></figure>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">:%s/</span><span class="variable">$/</span>-/g</span><br></pre></td></tr></table></figure>
 
 <span id="more"></span>
 

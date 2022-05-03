@@ -536,7 +536,7 @@
 <p>实现每个“啊哈”时刻的时间都应该尽可能地缩短。</p>
 <h3 id="PQL（Product-Qualified-Leads，产品合格线索）"><a href="#PQL（Product-Qualified-Leads，产品合格线索）" class="headerlink" title="PQL（Product Qualified Leads，产品合格线索）"></a>PQL（Product Qualified Leads，产品合格线索）</h3><p>PQL通常是已经达到“啊哈”时刻被激活的用户，并且在产品中完成了一系列的关键操作，被判定为可能升级的、需要转给销售人员的企业线索。不同SaaS对PQL有着不同的定义，需要我们结合自身的业务通过用户访谈、数据分析等不断调优。</p>
 <h3 id="NRG（Natural-Rate-Of-Growth，自然增长率）"><a href="#NRG（Natural-Rate-Of-Growth，自然增长率）" class="headerlink" title="NRG（Natural Rate Of Growth，自然增长率）"></a>NRG（Natural Rate Of Growth，自然增长率）</h3><p>NRG用于衡量除去付费营销、销售陌拜等非产品自然增长的方式后，SaaS的自然增长速度，PLG SaaS的NRG普遍较高，如Zoom的NRG高达89%。其计算公式为：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">NRG = 100 × ARR增长率 × 自然注册率 × 产品来源ARR率</span><br></pre></td></tr></table></figure>
+<figure class="highlight abnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">NRG</span> <span class="operator">=</span> <span class="number">100</span> × ARR增长率 × 自然注册率 × 产品来源ARR率</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><strong>ARR增长率。</strong>这个很好理解，即<code>ARR增长率 = (当年ARR-去年ARR) / 去年ARR</code></li>
