@@ -19,7 +19,7 @@ description: 为Hexo博客添加文章链接，或文章版权说明等
 
 和其他的hexo插件一样，hexo-tag-post-link安装起来十分简单，只需要在博客目录下执行如下命令即可：
 
-```bash
+```shell
 npm install hexo-tag-post-link --save
 ```
 
@@ -33,7 +33,7 @@ npm install hexo-tag-post-link --save
 1. 现在在`_data`目录下创建一个名为`post_link.yml`的文件，这个文件就是我们的配置文件了。
 1. 现在我们可以来添加模板了！模板的格式非常简单，如下：
 
-```
+```yml
 name: format
 ```
 
