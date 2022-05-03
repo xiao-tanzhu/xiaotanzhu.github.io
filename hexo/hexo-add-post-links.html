@@ -290,14 +290,14 @@
 </blockquote>
 <p>项目地址：<a target="_blank" rel="noopener" href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>和其他的hexo插件一样，hexo-tag-post-link安装起来十分简单，只需要在博客目录下执行如下命令即可：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-tag-post-link --save</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-tag-post-link --save</span><br></pre></td></tr></table></figure>
 
 <h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="配置模板"><a href="#配置模板" class="headerlink" title="配置模板"></a>配置模板</h3><h4 id="添加模板文件：post-link-yml"><a href="#添加模板文件：post-link-yml" class="headerlink" title="添加模板文件：post_link.yml"></a>添加模板文件：post_link.yml</h4><ol>
 <li>首先我们需要在<code>source</code>目录下创建一个<code>_data</code>目录，如果没有的话。<code>source/_data</code>这个目录是Hexo的数据目录，用来存放一些公用的全局数据，所以的模板文件也放在这里。</li>
 <li>现在在<code>_data</code>目录下创建一个名为<code>post_link.yml</code>的文件，这个文件就是我们的配置文件了。</li>
 <li>现在我们可以来添加模板了！模板的格式非常简单，如下：</li>
 </ol>
-<figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">name</span>: <span class="keyword">format</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">format</span></span><br></pre></td></tr></table></figure>
 
 <p>比如我的博客使用的配置如下，而最后的效果就如本文最上方显示的那样。</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">footer: <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>转载请注明出处：<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%= post_permalink %&gt;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>&lt;%= post_title %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>原文地址：<span class="tag">&lt;/<span class="name">b</span>&gt;</span>&lt;%= post_permalink %&gt;</span><br></pre></td></tr></table></figure>
