@@ -65,6 +65,31 @@
     </item>
     
     <item>
+      <title>Ubuntu安装php+nginx环境</title>
+      <link>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html</link>
+      <guid>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html</guid>
+      <pubDate>Sat, 30 Apr 2022 16:00:00 GMT</pubDate>
+      
+      <description>在Ubuntu 20.04中安装Nginx + php7.4，并安装基础扩展。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/ubuntu/">Ubuntu</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/nginx/">Nginx</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/php/">php</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>一文读懂电商产品架构</title>
       <link>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/2022-02-17-product-structure-for-oneline-shop.html</link>
       <guid>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/2022-02-17-product-structure-for-oneline-shop.html</guid>
@@ -468,29 +493,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Introduction to Microservices</title>
-      <link>https://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html</link>
-      <guid>https://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html</guid>
-      <pubDate>Fri, 18 May 2018 16:00:00 GMT</pubDate>
-      
-      <description>Introduction to Microservices</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/">微服务</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/introduction-to-microservices/">Introduction to Microservices</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html#disqus_thread</comments>
       
     </item>
     
