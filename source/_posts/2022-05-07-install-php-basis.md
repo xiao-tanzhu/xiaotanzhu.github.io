@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ubuntu安装php+nginx环境
-date: 2022-05-01
+date: 2022-05-07
 tags:
 - Ubuntu
 - php
