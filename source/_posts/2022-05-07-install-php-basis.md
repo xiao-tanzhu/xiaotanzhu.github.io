@@ -10,6 +10,12 @@ categories: Ubuntu
 description: 在Ubuntu 20.04中安装Nginx + php7.4，并安装基础扩展。
 ---
 
+## 环境
+
+- Ubuntu: 20.04
+- Nginx: 1.18.0
+- PHP: 7.4
+
 ## 安装Nginx
 
 ```shell
