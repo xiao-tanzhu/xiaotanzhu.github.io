@@ -15,8 +15,33 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Sat, 30 Apr 2022 16:00:00 GMT</pubDate>
+    <pubDate>Fri, 06 May 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Ubuntu安装php+nginx环境</title>
+      <link>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html</link>
+      <guid>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html</guid>
+      <pubDate>Fri, 06 May 2022 16:00:00 GMT</pubDate>
+      
+      <description>在Ubuntu 20.04中安装Nginx + php7.4，并安装基础扩展。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/ubuntu/">Ubuntu</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/nginx/">Nginx</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/php/">php</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>使用为文章标题自动编号</title>
@@ -61,31 +86,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Ubuntu安装php+nginx环境</title>
-      <link>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html</link>
-      <guid>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html</guid>
-      <pubDate>Sat, 30 Apr 2022 16:00:00 GMT</pubDate>
-      
-      <description>在Ubuntu 20.04中安装Nginx + php7.4，并安装基础扩展。</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/ubuntu/">Ubuntu</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/nginx/">Nginx</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/php/">php</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html#disqus_thread</comments>
       
     </item>
     

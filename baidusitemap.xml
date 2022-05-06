@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html</loc>
+    <lastmod>2022-05-06</lastmod>
+  </url>
+  <url>
     <loc>https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html</loc>
     <lastmod>2022-04-30</lastmod>
   </url>
   <url>
     <loc>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html</loc>
-    <lastmod>2022-04-30</lastmod>
-  </url>
-  <url>
-    <loc>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html</loc>
     <lastmod>2022-04-30</lastmod>
   </url>
   <url>
