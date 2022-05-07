@@ -138,6 +138,29 @@
     </item>
     
     <item>
+      <title>安装MySQL并设置lower_case_table_names参数</title>
+      <link>https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html</link>
+      <guid>https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html</guid>
+      <pubDate>Fri, 23 Jul 2021 16:00:00 GMT</pubDate>
+      
+      <description>安装MySQL并设置lower_case_table_names参数</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/mysql/">MySQL</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/mysql/">MySQL</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Controlling Nginx with Supervisor</title>
       <link>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html</link>
       <guid>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html</guid>
@@ -470,29 +493,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Spring Cloud(一)：大话Spring Cloud</title>
-      <link>https://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html</link>
-      <guid>https://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html</guid>
-      <pubDate>Sat, 30 Jun 2018 16:00:00 GMT</pubDate>
-      
-      <description>Spring Cloud(一)：大话Spring Cloud</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/spring/">Spring</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/spring/">Spring</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/spring-cloud/">Spring Cloud</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html#disqus_thread</comments>
       
     </item>
     

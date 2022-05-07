@@ -126,6 +126,27 @@
   </entry>
   
   <entry>
+    <title>安装MySQL并设置lower_case_table_names参数</title>
+    <link href="https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html"/>
+    <id>https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html</id>
+    <published>2021-07-23T16:00:00.000Z</published>
+    <updated>2021-07-23T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">安装MySQL并设置lower_case_table_names参数</summary>
+    
+    
+    
+    <category term="MySQL" scheme="https://www.xiaotanzhu.com/categories/mysql/"/>
+    
+    
+    <category term="MySQL" scheme="https://www.xiaotanzhu.com/tags/mysql/"/>
+    
+    <category term="Ubuntu" scheme="https://www.xiaotanzhu.com/tags/ubuntu/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Controlling Nginx with Supervisor</title>
     <link href="https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html"/>
     <id>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html</id>
@@ -430,27 +451,6 @@
     
     
     <category term="Ansible" scheme="https://www.xiaotanzhu.com/tags/ansible/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Spring Cloud(一)：大话Spring Cloud</title>
-    <link href="https://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html"/>
-    <id>https://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html</id>
-    <published>2018-06-30T16:00:00.000Z</published>
-    <updated>2018-06-30T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Spring Cloud(一)：大话Spring Cloud</summary>
-    
-    
-    
-    <category term="Spring" scheme="https://www.xiaotanzhu.com/categories/spring/"/>
-    
-    
-    <category term="Spring" scheme="https://www.xiaotanzhu.com/tags/spring/"/>
-    
-    <category term="Spring Cloud" scheme="https://www.xiaotanzhu.com/tags/spring-cloud/"/>
     
   </entry>
   
