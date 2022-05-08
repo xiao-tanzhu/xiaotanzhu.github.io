@@ -45,6 +45,11 @@ sudo systemctl enable php7.4-fpm
 
 在nginx的server域增加以下代码（或者直接在default站点中取消注释掉以下代码）：
 ```conf
+# Add index.php to the list if you are using PHP
+index index.html index.htm index.php;
+
+<-- Hide serveral lines -->
+
 # pass PHP scripts to FastCGI server
 #
 location ~ \.php$ {
