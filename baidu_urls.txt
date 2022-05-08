@@ -18,6 +18,7 @@ https://www.xiaotanzhu.com/powerbi/powerbi-howtos.html
 https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html
 https://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html
 https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html
+https://www.xiaotanzhu.com/mariadb/2019-05-08-disable-mariadb-password-policy-synology.html
 https://www.xiaotanzhu.com/spring/2018-07-01-simple-springcloud.html
 https://www.xiaotanzhu.com/%E5%BE%AE%E6%9C%8D%E5%8A%A1/2018-05-19-introduction-to-microservices.html
 https://www.xiaotanzhu.com/spring/2018-03-07-spring-cloud-components.html
