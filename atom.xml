@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2022-05-06T16:00:00.000Z</updated>
+  <updated>2022-05-21T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>十分钟快速入门 Pandas</title>
+    <link href="https://www.xiaotanzhu.com/python/2022-05-22-introduction-to-pandas.html"/>
+    <id>https://www.xiaotanzhu.com/python/2022-05-22-introduction-to-pandas.html</id>
+    <published>2022-05-21T16:00:00.000Z</published>
+    <updated>2022-05-21T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">通过带有标签的列和索引，Pandas 使我们可以以一种所有人都能理解的方式来处理数据。它可以让我们毫不费力地从诸如 csv 类型的文件中导入数据。我们可以用它快速地对数据进行复杂的转换和过滤等操作。Pandas 真是超级棒。</summary>
+    
+    
+    
+    <category term="Python" scheme="https://www.xiaotanzhu.com/categories/python/"/>
+    
+    
+    <category term="Python" scheme="https://www.xiaotanzhu.com/tags/python/"/>
+    
+    <category term="Pandas" scheme="https://www.xiaotanzhu.com/tags/pandas/"/>
+    
+  </entry>
   
   <entry>
     <title>Ubuntu安装php+nginx环境</title>
@@ -432,25 +453,6 @@
     <category term="Redis" scheme="https://www.xiaotanzhu.com/tags/redis/"/>
     
     <category term="Redis Performance" scheme="https://www.xiaotanzhu.com/tags/redis-performance/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ansible常用命令</title>
-    <link href="https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html"/>
-    <id>https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html</id>
-    <published>2020-05-16T16:00:00.000Z</published>
-    <updated>2020-05-16T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Ansible在批量服务器管理中常用的命令</summary>
-    
-    
-    
-    <category term="运维" scheme="https://www.xiaotanzhu.com/categories/%E8%BF%90%E7%BB%B4/"/>
-    
-    
-    <category term="Ansible" scheme="https://www.xiaotanzhu.com/tags/ansible/"/>
     
   </entry>
   

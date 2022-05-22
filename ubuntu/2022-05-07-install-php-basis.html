@@ -167,18 +167,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">68</span>
+          <span class="site-state-item-count">69</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">23</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">108</span>
+        <span class="site-state-item-count">110</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -299,7 +299,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable php7.4-fpm</span><br></pre></td></tr></table></figure>
 
 <h2 id="启用PHP"><a href="#启用PHP" class="headerlink" title="启用PHP"></a>启用PHP</h2><p>在nginx的server域增加以下代码（或者直接在default站点中取消注释掉以下代码）：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># pass PHP scripts to FastCGI server</span><br><span class="line">#</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">        include snippets/fastcgi-php.conf;</span><br><span class="line"></span><br><span class="line">        # With php-fpm (or other unix sockets):</span><br><span class="line">        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;</span><br><span class="line">        # With php-cgi (or other tcp sockets):</span><br><span class="line">        #fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># Add index.php to the list if you are using PHP</span><br><span class="line">index index.html index.htm index.php;</span><br><span class="line"></span><br><span class="line">&lt;-- Hide serveral lines --&gt;</span><br><span class="line"></span><br><span class="line"># pass PHP scripts to FastCGI server</span><br><span class="line">#</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">        include snippets/fastcgi-php.conf;</span><br><span class="line"></span><br><span class="line">        # With php-fpm (or other unix sockets):</span><br><span class="line">        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;</span><br><span class="line">        # With php-cgi (or other tcp sockets):</span><br><span class="line">        #fastcgi_pass 127.0.0.1:9000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="安装扩展"><a href="#安装扩展" class="headerlink" title="安装扩展"></a>安装扩展</h2><h3 id="安装：mysqli-connect"><a href="#安装：mysqli-connect" class="headerlink" title="安装：mysqli_connect"></a>安装：mysqli_connect</h3><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> php-mysql</span><br></pre></td></tr></table></figure>
 
@@ -372,6 +372,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/python/2022-05-22-introduction-to-pandas.html" rel="next" title="十分钟快速入门 Pandas">
+                  十分钟快速入门 Pandas <i class="fa fa-chevron-right"></i>
+                </a>
             </div>
           </div>
     </footer>
