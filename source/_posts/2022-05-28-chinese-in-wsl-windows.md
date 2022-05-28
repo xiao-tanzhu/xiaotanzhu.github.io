@@ -36,11 +36,11 @@ description: 英文版Windows 10中，安装WSL和Ubuntu之后，终端中显示
 
 ![](/images/0052.png)
 
-选择Administrative
+选择`Administrative`
 
 ![](/images/0053.png)
 
-将`Current system locales`调整为`Chinese(Simplified, China)``
+将`Current system locales`调整为`Chinese(Simplified, China)`
 
 **不要勾选：`Beta: Use Unicode UTF-8 for worldwide language support`**
 
