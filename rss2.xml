@@ -15,8 +15,33 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Sat, 21 May 2022 16:00:00 GMT</pubDate>
+    <pubDate>Fri, 27 May 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>（英文版）Windows 10 WSL 2中文乱码问题解决</title>
+      <link>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html</link>
+      <guid>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html</guid>
+      <pubDate>Fri, 27 May 2022 16:00:00 GMT</pubDate>
+      
+      <description>英文版Windows 10中，安装WSL和Ubuntu之后，终端中显示的中文都变成了豆腐。这篇文档介绍如何解决这个问题。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/windows/">Windows</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/windows/">Windows</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/wsl/">WSL</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>十分钟快速入门 Pandas</title>
@@ -472,29 +497,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Redis常见的CPU和内存性能问题</title>
-      <link>https://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html</link>
-      <guid>https://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html</guid>
-      <pubDate>Sat, 06 Mar 2021 16:00:00 GMT</pubDate>
-      
-      <description>解码Redis的最易被忽视的CPU和内存占用高问题</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/redis/">Redis</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/redis/">Redis</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/redis-performance/">Redis Performance</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/redis/redis-performance-issues-cpu.html#disqus_thread</comments>
       
     </item>
     

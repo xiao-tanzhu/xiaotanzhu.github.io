@@ -1,3 +1,4 @@
+https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html
 https://www.xiaotanzhu.com/python/2022-05-22-introduction-to-pandas.html
 https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html
 https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html
