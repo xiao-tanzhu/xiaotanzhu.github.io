@@ -15,8 +15,33 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Fri, 27 May 2022 16:00:00 GMT</pubDate>
+    <pubDate>Fri, 10 Jun 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Docker Desktop WSL 2 backend</title>
+      <link>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html</link>
+      <guid>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html</guid>
+      <pubDate>Fri, 10 Jun 2022 16:00:00 GMT</pubDate>
+      
+      <description>Windows Subsystem for Linux (WSL) 2 introduces a significant architectural change as it is a full Linux kernel built by Microsoft, allowing Linux distributions to run without having to manage Virtual Machines. With Docker Desktop running on WSL 2, users can leverage Linux workspaces and avoid having to maintain both Linux and Windows build scripts. In addition, WSL 2 provides improvements to file system sharing, boot time, and allows access to some cool new features for Docker Desktop users.</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/docker/">Docker</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/docker/">Docker</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/windows/">Windows</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/wsl/">WSL</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>（英文版）Windows 10 WSL 2中文乱码问题解决</title>
@@ -474,29 +499,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/powerbi/powerbi-howtos.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Linux find命令高阶用法</title>
-      <link>https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html</link>
-      <guid>https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html</guid>
-      <pubDate>Sat, 27 Mar 2021 16:00:00 GMT</pubDate>
-      
-      <description>几个 find 命令的简单却又高级的用法</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/shell/">Shell</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/linux/">Linux</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/linux/linux-command-find-howtos.html#disqus_thread</comments>
       
     </item>
     
