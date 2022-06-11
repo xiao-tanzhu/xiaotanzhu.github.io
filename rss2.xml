@@ -44,6 +44,27 @@
     </item>
     
     <item>
+      <title>GreenPlum入门</title>
+      <link>https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html</link>
+      <guid>https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html</guid>
+      <pubDate>Fri, 10 Jun 2022 16:00:00 GMT</pubDate>
+      
+      <description>本文旨在小白入门GreenPlum。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/bigdata/">BigData</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/greenplum/">GreenPlum</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>（英文版）Windows 10 WSL 2中文乱码问题解决</title>
       <link>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html</link>
       <guid>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html</guid>
@@ -476,29 +497,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>PowerBI常见操作</title>
-      <link>https://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</link>
-      <guid>https://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</guid>
-      <pubDate>Sat, 17 Apr 2021 16:00:00 GMT</pubDate>
-      
-      <description>常见的一些PowerBI的使用方法</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/powerbi/">PowerBI</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/powerbi/">PowerBI</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/bi/">BI</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/powerbi/powerbi-howtos.html#disqus_thread</comments>
       
     </item>
     

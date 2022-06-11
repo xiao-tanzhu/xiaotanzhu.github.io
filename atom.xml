@@ -40,6 +40,25 @@
   </entry>
   
   <entry>
+    <title>GreenPlum入门</title>
+    <link href="https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html"/>
+    <id>https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html</id>
+    <published>2022-06-10T16:00:00.000Z</published>
+    <updated>2022-06-10T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">本文旨在小白入门GreenPlum。</summary>
+    
+    
+    
+    <category term="BigData" scheme="https://www.xiaotanzhu.com/categories/bigdata/"/>
+    
+    
+    <category term="GreenPlum" scheme="https://www.xiaotanzhu.com/tags/greenplum/"/>
+    
+  </entry>
+  
+  <entry>
     <title>（英文版）Windows 10 WSL 2中文乱码问题解决</title>
     <link href="https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html"/>
     <id>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html</id>
@@ -436,27 +455,6 @@
     <category term="Nignx" scheme="https://www.xiaotanzhu.com/tags/nignx/"/>
     
     <category term="SSL" scheme="https://www.xiaotanzhu.com/tags/ssl/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>PowerBI常见操作</title>
-    <link href="https://www.xiaotanzhu.com/powerbi/powerbi-howtos.html"/>
-    <id>https://www.xiaotanzhu.com/powerbi/powerbi-howtos.html</id>
-    <published>2021-04-17T16:00:00.000Z</published>
-    <updated>2021-04-17T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">常见的一些PowerBI的使用方法</summary>
-    
-    
-    
-    <category term="PowerBI" scheme="https://www.xiaotanzhu.com/categories/powerbi/"/>
-    
-    
-    <category term="PowerBI" scheme="https://www.xiaotanzhu.com/tags/powerbi/"/>
-    
-    <category term="BI" scheme="https://www.xiaotanzhu.com/tags/bi/"/>
     
   </entry>
   

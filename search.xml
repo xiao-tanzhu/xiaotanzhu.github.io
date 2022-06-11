@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#110;&#103;&#106;&#105;&#110;&#103;&#102;&#x65;&#x69;&#64;&#x31;&#54;&#51;&#46;&#x63;&#x6f;&#109;">&#x77;&#97;&#110;&#103;&#106;&#105;&#110;&#103;&#102;&#x65;&#x69;&#64;&#x31;&#54;&#51;&#46;&#x63;&#x6f;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#x6e;&#x67;&#x66;&#x65;&#x69;&#x40;&#50;&#x36;&#51;&#x2e;&#99;&#x6f;&#109;">&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#x6e;&#x67;&#x66;&#x65;&#x69;&#x40;&#50;&#x36;&#51;&#x2e;&#99;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#x62;&#97;&#x6d;&#97;&#64;&#x77;&#x68;&#x69;&#116;&#x65;&#x68;&#111;&#117;&#x73;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#x6f;&#x62;&#97;&#x6d;&#97;&#64;&#x77;&#x68;&#x69;&#116;&#x65;&#x68;&#111;&#117;&#x73;&#x65;&#x2e;&#x63;&#x6f;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#106;&#x69;&#x6e;&#x70;&#x69;&#110;&#x67;&#x40;&#x7a;&#x68;&#x6f;&#110;&#x67;&#x6e;&#x61;&#x6e;&#x68;&#97;&#105;&#x2e;&#99;&#x6f;&#109;">&#x78;&#x69;&#106;&#x69;&#x6e;&#x70;&#x69;&#110;&#x67;&#x40;&#x7a;&#x68;&#x6f;&#110;&#x67;&#x6e;&#x61;&#x6e;&#x68;&#97;&#105;&#x2e;&#99;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#x6a;&#105;&#110;&#103;&#102;&#101;&#105;&#64;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;">&#x77;&#97;&#110;&#x67;&#x6a;&#105;&#110;&#103;&#102;&#101;&#105;&#64;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#x66;&#x65;&#x69;&#x40;&#x32;&#x36;&#x33;&#46;&#99;&#111;&#109;">&#x77;&#x61;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#x66;&#x65;&#x69;&#x40;&#x32;&#x36;&#x33;&#46;&#99;&#111;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#98;&#x61;&#x6d;&#97;&#x40;&#119;&#x68;&#105;&#x74;&#101;&#104;&#111;&#117;&#115;&#x65;&#46;&#99;&#111;&#x6d;">&#111;&#98;&#x61;&#x6d;&#97;&#x40;&#119;&#x68;&#105;&#x74;&#101;&#104;&#111;&#117;&#115;&#x65;&#46;&#99;&#111;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#x6a;&#x69;&#110;&#x70;&#x69;&#110;&#x67;&#64;&#x7a;&#x68;&#x6f;&#x6e;&#x67;&#x6e;&#97;&#x6e;&#104;&#97;&#x69;&#x2e;&#99;&#111;&#x6d;">&#x78;&#x69;&#x6a;&#x69;&#110;&#x70;&#x69;&#110;&#x67;&#64;&#x7a;&#x68;&#x6f;&#x6e;&#x67;&#x6e;&#97;&#x6e;&#104;&#97;&#x69;&#x2e;&#99;&#111;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -3352,6 +3352,47 @@ with these **parameters**
         <tag>Docker</tag>
         <tag>Windows</tag>
         <tag>WSL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>GreenPlum入门</title>
+    <url>/bigdata/2022-06-11-introduction-to-greenplum.html</url>
+    <content><![CDATA[<h2 id="GPDB简介"><a href="#GPDB简介" class="headerlink" title="GPDB简介"></a>GPDB简介</h2><blockquote>
+<p>Pivotal Greenplum Database is a MPP (massively parallel processing) database built on open source <a href="https://en.wikipedia.org/wiki/PostgreSQL?spm=a2c6h.12873639.article-detail.4.1bcc51349E2X2H">PostgreSQL</a>.The system consists of a master node, standby master node, and segment nodes.</p>
+</blockquote>
+<blockquote>
+<p>All of the data resides on the segment nodes and the catalog information is stored in the master nodes. Segment nodes run one or more segments, which are modified PostgreSQL database instances and are assigned a content identifier.</p>
+</blockquote>
+<blockquote>
+<p>For each table the data is divided among the segment nodes based on the distribution column keys specified by the user in the DDL statement.</p>
+</blockquote>
+<blockquote>
+<p>For each segment content identifier there is both a primary segment and mirror segment which are not running on the same physical host.</p>
+</blockquote>
+<blockquote>
+<p>When a SQL query enters the master node, it is parsed, optimized and dispatched to all of the segments to execute the query plan and either return the requested data or insert the result of the query into a database table.</p>
+</blockquote>
+<p>从定义上看，GP和此前我比较专注的ES(Elasticsearch)非常类似，它们都是基于成熟的单机技术——PG(PostgreSQL)和Lucene，采用去中心化的分布式技术，实现了对大数据的(MPP和信息检索)支持。</p>
+<h2 id="安装GreenPlum"><a href="#安装GreenPlum" class="headerlink" title="安装GreenPlum"></a>安装GreenPlum</h2><p>一下安装针对Ubuntu系统。</p>
+<h3 id="添加镜像源"><a href="#添加镜像源" class="headerlink" title="添加镜像源"></a>添加镜像源</h3><p>如果是Ubuntu 16.04或Ubuntu 18.04，执行以下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo add-apt-repository ppa:greenplum/db</span><br></pre></td></tr></table></figure>
+
+<p>如果是Ubuntu 20.04或其他，需要手动添加<code>source.list</code>，创建文件<code>/etc/apt/sources.list.d/greenplum-ubuntu-db-focal.list</code>：</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">deb https:<span class="regexp">//</span>ppa.launchpadcontent.net<span class="regexp">/greenplum/</span>db/ubuntu bionic main</span><br><span class="line">deb-src https:<span class="regexp">//</span>ppa.launchpadcontent.net<span class="regexp">/greenplum/</span>db/ubuntu bionic main</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装GreenPlum-1"><a href="#安装GreenPlum-1" class="headerlink" title="安装GreenPlum"></a>安装GreenPlum</h3><p>执行以下命令安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo apt update</span><br><span class="line">sudo apt install greenplum-db-6</span><br></pre></td></tr></table></figure>
+
+<p>The above command will install the Greenplum Database software and any required dependencies on the system automatically and put the resulting software in /opt directory as seen below:</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>接下来使用如下命令下载GP官方提供的教程示例，然后解压到任意目录：</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html" target="_blank">GreenPlum入门</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html]]></content>
+      <categories>
+        <category>BigData</category>
+      </categories>
+      <tags>
+        <tag>GreenPlum</tag>
       </tags>
   </entry>
   <entry>
