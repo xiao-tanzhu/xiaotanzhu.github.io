@@ -1139,6 +1139,13 @@
   </url>
   
   <url>
+    <loc>https://www.xiaotanzhu.com/tags/tuning/</loc>
+    <lastmod>2022-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaotanzhu.com/tags/mesos/</loc>
     <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -1147,13 +1154,6 @@
   
   <url>
     <loc>https://www.xiaotanzhu.com/tags/marathon/</loc>
-    <lastmod>2022-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://www.xiaotanzhu.com/tags/tuning/</loc>
     <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
