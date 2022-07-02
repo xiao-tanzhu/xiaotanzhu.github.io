@@ -4,7 +4,7 @@ title: GreenPlum单节点版安装
 date: 2022-06-11
 tags:
 - GreenPlum
-categories: BigData
+categories: 数据仓库
 description: 安装单节点版GreenPlum
 ---
 
