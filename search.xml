@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#x61;&#110;&#103;&#106;&#105;&#110;&#103;&#102;&#x65;&#105;&#64;&#x31;&#54;&#x33;&#x2e;&#99;&#x6f;&#x6d;">&#119;&#x61;&#110;&#103;&#106;&#105;&#110;&#103;&#102;&#x65;&#105;&#64;&#x31;&#54;&#x33;&#x2e;&#99;&#x6f;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#x6e;&#103;&#x6a;&#105;&#110;&#103;&#x66;&#101;&#x69;&#x40;&#x32;&#x36;&#51;&#x2e;&#99;&#111;&#x6d;">&#x77;&#x61;&#x6e;&#103;&#x6a;&#105;&#110;&#103;&#x66;&#101;&#x69;&#x40;&#x32;&#x36;&#51;&#x2e;&#99;&#111;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#98;&#97;&#109;&#97;&#x40;&#119;&#104;&#x69;&#116;&#101;&#x68;&#111;&#117;&#x73;&#101;&#x2e;&#x63;&#111;&#109;">&#111;&#98;&#97;&#109;&#97;&#x40;&#119;&#104;&#x69;&#116;&#101;&#x68;&#111;&#117;&#x73;&#101;&#x2e;&#x63;&#111;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#x6a;&#x69;&#x6e;&#112;&#105;&#x6e;&#103;&#64;&#x7a;&#x68;&#x6f;&#x6e;&#x67;&#110;&#97;&#110;&#104;&#97;&#x69;&#x2e;&#99;&#111;&#109;">&#x78;&#105;&#x6a;&#x69;&#x6e;&#112;&#105;&#x6e;&#103;&#64;&#x7a;&#x68;&#x6f;&#x6e;&#x67;&#110;&#97;&#110;&#104;&#97;&#x69;&#x2e;&#99;&#111;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#x6e;&#x67;&#x6a;&#105;&#x6e;&#x67;&#x66;&#x65;&#x69;&#64;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#x77;&#97;&#x6e;&#x67;&#x6a;&#105;&#x6e;&#x67;&#x66;&#x65;&#x69;&#64;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#x6e;&#103;&#102;&#x65;&#105;&#64;&#50;&#x36;&#x33;&#46;&#99;&#x6f;&#109;">&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#x6e;&#103;&#102;&#x65;&#105;&#64;&#50;&#x36;&#x33;&#46;&#99;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#97;&#109;&#97;&#64;&#x77;&#x68;&#105;&#x74;&#x65;&#x68;&#x6f;&#x75;&#x73;&#x65;&#46;&#99;&#111;&#x6d;">&#111;&#x62;&#97;&#109;&#97;&#64;&#x77;&#x68;&#105;&#x74;&#x65;&#x68;&#x6f;&#x75;&#x73;&#x65;&#46;&#99;&#111;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#106;&#x69;&#110;&#x70;&#x69;&#110;&#x67;&#x40;&#x7a;&#x68;&#111;&#x6e;&#103;&#x6e;&#x61;&#110;&#x68;&#x61;&#x69;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#105;&#106;&#x69;&#110;&#x70;&#x69;&#110;&#x67;&#x40;&#x7a;&#x68;&#111;&#x6e;&#103;&#x6e;&#x61;&#110;&#x68;&#x61;&#x69;&#x2e;&#x63;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -3356,7 +3356,7 @@ with these **parameters**
   </entry>
   <entry>
     <title>GreenPlum单节点版安装</title>
-    <url>/bigdata/2022-06-11-introduction-to-greenplum.html</url>
+    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html</url>
     <content><![CDATA[<h2 id="GPDB简介"><a href="#GPDB简介" class="headerlink" title="GPDB简介"></a>GPDB简介</h2><blockquote>
 <p>Pivotal Greenplum Database is a MPP (massively parallel processing) database built on open source <a href="https://en.wikipedia.org/wiki/PostgreSQL?spm=a2c6h.12873639.article-detail.4.1bcc51349E2X2H">PostgreSQL</a>.The system consists of a master node, standby master node, and segment nodes.</p>
 </blockquote>
@@ -3449,12 +3449,67 @@ with these **parameters**
 <h4 id="执行测试"><a href="#执行测试" class="headerlink" title="执行测试"></a>执行测试</h4><figure class="highlight ebnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">make installcheck-world</span></span><br></pre></td></tr></table></figure>
 
 
-<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html" target="_blank">GreenPlum单节点版安装</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html]]></content>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html" target="_blank">GreenPlum单节点版安装</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html]]></content>
       <categories>
-        <category>BigData</category>
+        <category>数据仓库</category>
       </categories>
       <tags>
         <tag>GreenPlum</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据仓库【一】：数据仓库的8个发展阶段</title>
+    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html</url>
+    <content><![CDATA[<h2 id="概念阶段（1978-1988）"><a href="#概念阶段（1978-1988）" class="headerlink" title="概念阶段（1978-1988）"></a>概念阶段（1978-1988）</h2><p>数据仓库最早的概念可以追溯到20世纪70年代MIT的一项研究，该研究致力于开发一种优化的技术架构并提出这些架构的指导性意见。</p>
+<p>第一次，MIT的研究员<strong>将业务系统和分析系统分开</strong>，<strong>将业务处理和分析处理分成不同的层次</strong>，并采用单独的数据存储和完全不同的设计准则。同时，MIT的研究成果与80年代提出的信息中心（InformationCenter）相吻合：即把那些新出现的、不可以预测的、但是大量存在的分析型的负载从业务处理系统中剥离出来。</p>
+<p>但是限于当时的信息处理和数据存储能力，该研究只是确立了一个论点：这两种信息处理的方式差别如此之大，以至于它们只能采用完全不同的架构和设计方法。</p>
+<h2 id="萌芽阶段"><a href="#萌芽阶段" class="headerlink" title="萌芽阶段"></a>萌芽阶段</h2><p>在80年代中后期，作为当时技术最先进的公司，DEC已经开始采用分布式网络架构来支持其业务应用，并且DEC公司首先将业务系统移植到其自身的RDBMS产品：RdB。并且，DEC公司从工程部、销售部、财务部以及信息技术部抽调了不同的人员组建了新的小组，不仅研究新的分析系统架构，并要求将其应用到其全球的财务系统中。该小组结合MIT的研究结论，建立了TA2（TechnicalArchitecture2）规范，该规范定义了分析系统的四个组成部分：</p>
+<ol>
+<li>数据获取</li>
+<li>数据访问</li>
+<li>目录</li>
+<li>用户服务</li>
+</ol>
+<p>其中的数据获取和数据访问目前大家都很清楚，而目录服务是用于帮助用户在网络中找到他们想要的信息，类似于业务元数据管理；用户服务用以支持对数据的直接交互，包含了其他服务的所有人机交互界面，这是系统架构的一个非常大的转变，<strong>第一次将交互界面作为单独的组件提出来</strong>。</p>
+<h2 id="集成阶段"><a href="#集成阶段" class="headerlink" title="集成阶段"></a>集成阶段</h2><p>全企业集成（EnterpriseIntergration，1988）同时，IBM也在处理信息管理不同方面的问题，其最烦人的问题是不断增加的信息孤岛，IBM的很多客户要面对很多分立系统的数据集成问题，而这些系统有不同的编码方式和数据格式。</p>
+<p>1988年，为解决全企业集成问题，IBM爱尔兰公司的BarryDevlin和PaulMurphy第一次提出了“信息仓库（InformationWarehouse）”的概念，将其定义为：</p>
+<blockquote>
+<p>一个结构化的环境，能支持最终用户管理其全部的业务，并支持信息技术部门保证数据质量”</p>
+</blockquote>
+<p>，并在1991年在DECTA2的基础上把信息仓库的概念包含进去，并称之为VITAL规范，将PC、图形化界面、面向对象的组件以及局域网都包含在VITAL里，并定义了85种信息仓库的组件，包括数据抽取、转换、有效性验证、加载、Cube开发和图形化查询工具等。但是IBM只是将这种领先的概念用于市场宣传，而没有付诸实际的架构设计。这是IBM有一个领域上创新后停止不前导致丧失其领先地位。因此，在90年代初期，数据仓库的基本原理、框架架构，以及分析系统的主要原则都已经确定，主要的技术，包括关系型数据存取、网络、C/S架构和图形化界面均已具备，只欠东风了。</p>
+<p>同时，在1988年－1991年，一些前沿的公司已经开始建立数据仓库。</p>
+<h2 id="确立阶段（1991）"><a href="#确立阶段（1991）" class="headerlink" title="确立阶段（1991）"></a>确立阶段（1991）</h2><p>企业级数据仓库（EDW，1991）1991年，BillInmon出版了其有关数据仓库的第一本书，这本书不仅仅说明为什么要建数据仓库、数据仓库能给你带来什么，更重要的是，Inmon第一次提供了如何建设数据仓库的指导性意见，该书<strong>定义了数据仓库非常具体的原则</strong>，包括：</p>
+<ul>
+<li>数据仓库是面向主题的（Subject-Oriented）</li>
+<li>集成的（Integrated）</li>
+<li>包含历史的（Time-variant）</li>
+<li>相对稳定的（Nonvolatile）</li>
+<li>面向决策支持的（DecisionSupport）</li>
+<li>面向全企业的（EnterpriseScope）</li>
+<li>最明细的数据存（AtomicDetail）</li>
+<li>数据快照式的数据获取（SnapShotCapture）</li>
+</ul>
+<p>这些原则到现在仍然是指导数据仓库建设的最基本原则，虽然中间的一些原则引发一些争论，并导致一些分歧和数据仓库变体的产生。</p>
+<p>BillInmon凭借其这本书奠定了其在数据仓库建设的位置，被称之为<strong>“数据仓库之父”</strong>。</p>
+<h2 id="数据集市（1994－1996）"><a href="#数据集市（1994－1996）" class="headerlink" title="数据集市（1994－1996）"></a>数据集市（1994－1996）</h2><p>数据仓库发展的第一明显分歧是数据集市概念的产生。由于企业级数据仓库的设计、实施很困难，使得最早吃数据仓库螃蟹的公司遭到大面积的失败，因此数据仓库的建设者和分析师开始考虑只建设企业级数据仓库的一部分，然后再逐步添加，但是这有背于BillInmon的原则：<strong>各个实施部分的数据抽取、清洗、转换和加载是独立，导致了数据的混乱与不一致性</strong>。而且部分实施的项目也有很多失败，除了常见的业务需求定义不清、项目执行不力之外，很重要的原因是因为其数据模型设计，在企业级数据仓库中，Inmon推荐采用3范式进行数据建模，但是不排除其他的方法，但是Inmon的追随者固守OLTP系统的3范式设计，从而无法支持DSS系统的性能和数据易访问性的要求。</p>
+<p>这时，Ralph Kimball出现了，他的第一本书<em>The Data Warehouse Toolkit</em>掀起了数据集市的狂潮，这本书<strong>提供了如何为分析进行数据模型优化详细指导意见</strong>，从<code>Dimensional Modeling</code>大行其道，也为传统的关系型数据模型和多维OLAP之间建立了很好的桥梁。从此，数据集市在很多地方冒了出来，并获得很大成功，而企业级数据仓库已逐渐被人所淡忘。</p>
+<h2 id="争吵与混乱（1996-1997）"><a href="#争吵与混乱（1996-1997）" class="headerlink" title="争吵与混乱（1996-1997）"></a>争吵与混乱（1996-1997）</h2><p>企业级数据仓库还是部门级数据集市？关系型还是多维？BillInmon和RalphKimball一开始就争论不休，其各自的追随者也唇舌相向，形成相对立的两派：Inmon派和Kimball派（有点象少林和武当，呵呵）。</p>
+<p>在初期，数据集市的快速实施和较高的成功率让Kimball派占了上风，但是很快，他们也发现自己陷入了某种困境：企业中存在6－7个不同的数据集市，分别有不同的ETL，相互之间的数据也不完全一致。同时，各个项目实施中也任意侵犯了Inmon开始定下的准则：把数据集市当成众多OLTP系统之后的又一个系统，而不是一个基础性的集成性的东西，为保证数据的准确性和实时性，有的甚至可以由OLTP系统直接修改数据集市里面的数据，为了保证系统的性能，有的数据集市删除了历史数据。等等，不一而足。</p>
+<p>当然，这导致了一些新的应用的出现，例如ODS，但是人们对<code>DataWarehouse</code>、<code>DataMart</code>、<code>ODS</code>的概念非常的模糊，经常混为一谈。有人说OLAP就是数据仓库，也有人说我要ODS和DataMart，不要Datawarehouse，也有人说，我DataMart建多了，自然就有DataWarehouse了。但是BillInmon一直很旗帜鲜明：<strong>“你可以打到几万吨的小鱼小虾，但是这些小鱼小虾加起来不是大鲸鱼”</strong>。</p>
+<h2 id="合并（1998－2001）"><a href="#合并（1998－2001）" class="headerlink" title="合并（1998－2001）"></a>合并（1998－2001）</h2><p>经过多翻争吵，证明one-size-fits-all是不可能的，你需要不同的BI架构来满足不同的业务需求。BillInmon也推出了新的BI架构CIF（Corporation information factory），把Kimball的数据集市也包容进来了，第一次，Kimball承认了Inmon，但是仍然还有很多人在争论是自顶向下，还是自底向上。</p>
+<h2 id="未来"><a href="#未来" class="headerlink" title="未来"></a>未来</h2><p>未来几个方向：</p>
+<ul>
+<li>时效性方向的实时数仓；</li>
+<li>数据质量方向的数据治理；</li>
+<li>数据中台、数据湖</li>
+</ul>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html" target="_blank">数据仓库【一】：数据仓库的8个发展阶段</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html]]></content>
+      <categories>
+        <category>数据仓库</category>
+      </categories>
+      <tags>
+        <tag>Data Warehouse</tag>
+        <tag>数据仓库</tag>
       </tags>
   </entry>
   <entry>

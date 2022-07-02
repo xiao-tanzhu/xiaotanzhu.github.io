@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2022-06-10T16:00:00.000Z</updated>
+  <updated>2022-07-01T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据仓库【一】：数据仓库的8个发展阶段</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html</id>
+    <published>2022-07-01T16:00:00.000Z</published>
+    <updated>2022-07-01T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">数据仓库的8个发展阶段：概念、萌芽、集成、确立、数据集市、争吵与混乱、合并</summary>
+    
+    
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+    <category term="Data Warehouse" scheme="https://www.xiaotanzhu.com/tags/data-warehouse/"/>
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>Docker Desktop WSL 2 backend</title>
@@ -41,8 +62,8 @@
   
   <entry>
     <title>GreenPlum单节点版安装</title>
-    <link href="https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html"/>
-    <id>https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html</id>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html</id>
     <published>2022-06-10T16:00:00.000Z</published>
     <updated>2022-06-10T16:00:00.000Z</updated>
     
@@ -51,7 +72,7 @@
     
     
     
-    <category term="BigData" scheme="https://www.xiaotanzhu.com/categories/bigdata/"/>
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
     
     
     <category term="GreenPlum" scheme="https://www.xiaotanzhu.com/tags/greenplum/"/>
@@ -428,33 +449,6 @@
     <category term="MacOS" scheme="https://www.xiaotanzhu.com/tags/macos/"/>
     
     <category term="MacBook" scheme="https://www.xiaotanzhu.com/tags/macbook/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
-    <link href="https://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html"/>
-    <id>https://www.xiaotanzhu.com/nginx/letsencrypt-for-free-ssl-cert.html</id>
-    <published>2021-05-08T16:00:00.000Z</published>
-    <updated>2021-05-08T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">使用Let&#39;s Encrypt免费证书让你的网站SSL化，并且启用自动续期</summary>
-    
-    
-    
-    <category term="Nginx" scheme="https://www.xiaotanzhu.com/categories/nginx/"/>
-    
-    
-    <category term="Ubuntu" scheme="https://www.xiaotanzhu.com/tags/ubuntu/"/>
-    
-    <category term="Github Pages" scheme="https://www.xiaotanzhu.com/tags/github-pages/"/>
-    
-    <category term="Ubuntu 20.04" scheme="https://www.xiaotanzhu.com/tags/ubuntu-20-04/"/>
-    
-    <category term="Nignx" scheme="https://www.xiaotanzhu.com/tags/nignx/"/>
-    
-    <category term="SSL" scheme="https://www.xiaotanzhu.com/tags/ssl/"/>
     
   </entry>
   

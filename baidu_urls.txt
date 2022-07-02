@@ -1,5 +1,6 @@
+https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html
 https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html
-https://www.xiaotanzhu.com/bigdata/2022-06-11-introduction-to-greenplum.html
+https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html
 https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html
 https://www.xiaotanzhu.com/python/2022-05-22-introduction-to-pandas.html
 https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html
