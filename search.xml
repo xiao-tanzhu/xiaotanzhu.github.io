@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#x6e;&#x67;&#x6a;&#105;&#110;&#103;&#102;&#101;&#x69;&#64;&#x31;&#54;&#x33;&#46;&#x63;&#111;&#x6d;">&#x77;&#97;&#x6e;&#x67;&#x6a;&#105;&#110;&#103;&#102;&#101;&#x69;&#64;&#x31;&#54;&#x33;&#46;&#x63;&#111;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#110;&#x67;&#x6a;&#x69;&#110;&#103;&#x66;&#x65;&#x69;&#64;&#50;&#54;&#51;&#x2e;&#99;&#111;&#109;">&#x77;&#x61;&#110;&#x67;&#x6a;&#x69;&#110;&#103;&#x66;&#x65;&#x69;&#64;&#50;&#54;&#51;&#x2e;&#99;&#111;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#98;&#x61;&#109;&#97;&#64;&#x77;&#x68;&#x69;&#116;&#101;&#x68;&#111;&#x75;&#x73;&#x65;&#x2e;&#99;&#x6f;&#109;">&#111;&#98;&#x61;&#109;&#97;&#64;&#x77;&#x68;&#x69;&#116;&#101;&#x68;&#111;&#x75;&#x73;&#x65;&#x2e;&#99;&#x6f;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#x6a;&#105;&#x6e;&#x70;&#x69;&#x6e;&#103;&#x40;&#x7a;&#104;&#111;&#110;&#x67;&#110;&#x61;&#110;&#104;&#97;&#105;&#46;&#99;&#x6f;&#109;">&#x78;&#x69;&#x6a;&#105;&#x6e;&#x70;&#x69;&#x6e;&#103;&#x40;&#x7a;&#104;&#111;&#110;&#x67;&#110;&#x61;&#110;&#104;&#97;&#105;&#46;&#99;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#x6e;&#x67;&#x6a;&#x69;&#110;&#x67;&#x66;&#101;&#x69;&#64;&#49;&#54;&#51;&#46;&#x63;&#111;&#109;">&#x77;&#97;&#x6e;&#x67;&#x6a;&#x69;&#110;&#x67;&#x66;&#101;&#x69;&#64;&#49;&#54;&#51;&#46;&#x63;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#x61;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#x66;&#101;&#x69;&#64;&#x32;&#x36;&#x33;&#x2e;&#99;&#111;&#109;">&#119;&#x61;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#x66;&#101;&#x69;&#64;&#x32;&#x36;&#x33;&#x2e;&#99;&#111;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#97;&#x6d;&#97;&#x40;&#119;&#104;&#105;&#x74;&#101;&#104;&#x6f;&#117;&#x73;&#101;&#x2e;&#99;&#x6f;&#x6d;">&#111;&#x62;&#97;&#x6d;&#97;&#x40;&#119;&#104;&#105;&#x74;&#101;&#104;&#x6f;&#117;&#x73;&#101;&#x2e;&#99;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#105;&#106;&#x69;&#x6e;&#x70;&#x69;&#110;&#x67;&#64;&#122;&#104;&#x6f;&#110;&#x67;&#x6e;&#x61;&#x6e;&#x68;&#97;&#x69;&#x2e;&#99;&#x6f;&#x6d;">&#120;&#105;&#106;&#x69;&#x6e;&#x70;&#x69;&#110;&#x67;&#64;&#122;&#104;&#x6f;&#110;&#x67;&#x6e;&#x61;&#x6e;&#x68;&#97;&#x69;&#x2e;&#99;&#x6f;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -3924,6 +3924,39 @@ with these **parameters**
 <li>数据中台、数据湖</li>
 </ul>
 <br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html" target="_blank">数据仓库【一】：数据仓库的8个发展阶段</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html]]></content>
+      <categories>
+        <category>数据仓库</category>
+      </categories>
+      <tags>
+        <tag>Data Warehouse</tag>
+        <tag>数据仓库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据仓库【四】：四种常见数据模型</title>
+    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</url>
+    <content><![CDATA[<p>大数据时代，维度建模已成为各大厂的主流方式。</p>
+<p>维度建模从分析决策的需求出发构建模型，为分析需求服务。重点关注<strong>用户如何快速的完成数据分析，可以直观的反应业务模型中的业务问题，需要大量的数据预处理、数据冗余，有较好的大规模复杂查询的响应性能</strong>。</p>
+<h2 id="为什么要进行数据仓库建模"><a href="#为什么要进行数据仓库建模" class="headerlink" title="为什么要进行数据仓库建模"></a>为什么要进行数据仓库建模</h2><ul>
+<li>性能：良好的模型能帮我们快速查询需要的数据，减少数据的IO吞吐</li>
+<li>成本：减少数据冗余、计算结果复用、从而降低存储和计算成本</li>
+<li>效率：改善用户使用数据的体验，提高使用数据的效率</li>
+<li>改善统计口径的不一致性，减少数据计算错误的可能性</li>
+</ul>
+<h2 id="四种常见模型"><a href="#四种常见模型" class="headerlink" title="四种常见模型"></a>四种常见模型</h2><h3 id="维度模型"><a href="#维度模型" class="headerlink" title="维度模型"></a>维度模型</h3><p><strong>维度建模</strong>按数据组织类型划分可分为<strong>星型模型、雪花模型、星座模型</strong>。Kimball老爷爷维度建模四部曲：</p>
+<p>选择业务处理过程 &gt; 定义粒度 &gt; 选择维度 &gt; 确定事实</p>
+<h4 id="星型模型"><a href="#星型模型" class="headerlink" title="星型模型"></a>星型模型</h4><p>星型模型主要是维表和事实表，<strong>以事实表为中心，所有维度直接关联在事实表上</strong>，呈星型分布。</p>
+<p><img src="/images/0060.png"></p>
+<h4 id="雪花模型"><a href="#雪花模型" class="headerlink" title="雪花模型"></a>雪花模型</h4><p>雪花模型，在星型模型的基础上，<strong>维度表上又关联了其他维度表</strong>。这种模型维护成本高，性能方面也较差，所以一般不建议使用。尤其是基于hadoop体系构建数仓，减少join就是减少shuffle，性能差距会很大。</p>
+<p>星型模型可以理解为，一个事实表关联多个维度表，雪花模型可以理解为一个事实表关联多个维度表，维度表再关联维度表。</p>
+<p><img src="/images/0061.png"></p>
+<h4 id="星座模型"><a href="#星座模型" class="headerlink" title="星座模型"></a>星座模型</h4><p>星座模型，是对星型模型的扩展延伸，<strong>多张事实表共享维度表</strong>。</p>
+<p>星座模型是很多数据仓库的常态，因为很多数据仓库都是多个事实表的。所以星座模型只反映是否有多个事实表，他们之间是否共享一些维度表。</p>
+<p><img src="/images/0062.png"></p>
+<h3 id="范式模型"><a href="#范式模型" class="headerlink" title="范式模型"></a>范式模型</h3><p>即实体关系（ER）模型，数据仓库之父Immon提出的，从全企业的高度设计一个3NF模型，用实体加关系描述的数据模型描述企业业务架构，在范式理论上符合3NF。此建模方法，对建模人员的能力要求非常高。</p>
+<p>特点：设计思路自上而下，适合上游基础数据存储，<strong>同一份数据只存储一份，没有数据冗余</strong>，方便解耦，易维护，缺点是开发周期一般比较长，维护成本高。</p>
+<h3 id="Data-Vault模型"><a href="#Data-Vault模型" class="headerlink" title="Data Vault模型"></a>Data Vault模型</h3><p>DataVault由**Hub（关键核心业务实体）、Link（关系）、Satellite（实体属性） **三部分组成 ，是Dan Linstedt发起创建的一种模型方法论，它是在ER关系模型上的衍生，同时设计的出发点也是为了实现数据的整合，并非为数据决策分析直接使用。</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html" target="_blank">数据仓库【四】：四种常见数据模型</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html]]></content>
       <categories>
         <category>数据仓库</category>
       </categories>

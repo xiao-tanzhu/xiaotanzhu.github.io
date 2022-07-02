@@ -88,6 +88,29 @@
     </item>
     
     <item>
+      <title>数据仓库【四】：四种常见数据模型</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</guid>
+      <pubDate>Fri, 01 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>维度建模从分析决策的需求出发构建模型，为分析需求服务。重点关注用户如何快速的完成数据分析，可以直观的反应业务模型中的业务问题，需要大量的数据预处理、数据冗余，有较好的大规模复杂查询的响应性能。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Docker Desktop WSL 2 backend</title>
       <link>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html</link>
       <guid>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html</guid>
@@ -464,31 +487,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>关于产品需求阶段的思维公式</title>
-      <link>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html</link>
-      <guid>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html</guid>
-      <pubDate>Mon, 24 May 2021 16:00:00 GMT</pubDate>
-      
-      <description>关于产品需求阶段的思维公式，都在这儿了</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E9%9C%80%E6%B1%82/">需求</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E6%96%B9%E6%B3%95%E8%AE%BA/">方法论</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-demands-howto.html#disqus_thread</comments>
       
     </item>
     
