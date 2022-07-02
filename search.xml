@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#x6e;&#x67;&#x6a;&#105;&#x6e;&#x67;&#x66;&#x65;&#x69;&#64;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;">&#x77;&#97;&#x6e;&#x67;&#x6a;&#105;&#x6e;&#x67;&#x66;&#x65;&#x69;&#64;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#x6e;&#103;&#102;&#x65;&#105;&#64;&#50;&#x36;&#x33;&#46;&#99;&#x6f;&#109;">&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#x6e;&#103;&#102;&#x65;&#105;&#64;&#50;&#x36;&#x33;&#46;&#99;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#97;&#109;&#97;&#64;&#x77;&#x68;&#105;&#x74;&#x65;&#x68;&#x6f;&#x75;&#x73;&#x65;&#46;&#99;&#111;&#x6d;">&#111;&#x62;&#97;&#109;&#97;&#64;&#x77;&#x68;&#105;&#x74;&#x65;&#x68;&#x6f;&#x75;&#x73;&#x65;&#46;&#99;&#111;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#106;&#x69;&#110;&#x70;&#x69;&#110;&#x67;&#x40;&#x7a;&#x68;&#111;&#x6e;&#103;&#x6e;&#x61;&#110;&#x68;&#x61;&#x69;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#105;&#106;&#x69;&#110;&#x70;&#x69;&#110;&#x67;&#x40;&#x7a;&#x68;&#111;&#x6e;&#103;&#x6e;&#x61;&#110;&#x68;&#x61;&#x69;&#x2e;&#x63;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#97;&#x6e;&#x67;&#106;&#x69;&#x6e;&#x67;&#x66;&#101;&#105;&#x40;&#x31;&#54;&#x33;&#46;&#99;&#111;&#109;">&#119;&#97;&#x6e;&#x67;&#106;&#x69;&#x6e;&#x67;&#x66;&#101;&#105;&#x40;&#x31;&#54;&#x33;&#46;&#99;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#x6e;&#x67;&#106;&#105;&#x6e;&#x67;&#x66;&#101;&#x69;&#x40;&#x32;&#x36;&#x33;&#46;&#x63;&#111;&#x6d;">&#x77;&#x61;&#x6e;&#x67;&#106;&#105;&#x6e;&#x67;&#x66;&#101;&#x69;&#x40;&#x32;&#x36;&#x33;&#46;&#x63;&#111;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#98;&#x61;&#x6d;&#x61;&#64;&#x77;&#104;&#x69;&#116;&#x65;&#x68;&#111;&#x75;&#x73;&#101;&#46;&#x63;&#111;&#109;">&#111;&#98;&#x61;&#x6d;&#x61;&#64;&#x77;&#104;&#x69;&#116;&#x65;&#x68;&#111;&#x75;&#x73;&#101;&#46;&#x63;&#111;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#106;&#x69;&#x6e;&#112;&#x69;&#x6e;&#103;&#64;&#x7a;&#104;&#111;&#x6e;&#103;&#x6e;&#97;&#x6e;&#104;&#97;&#x69;&#46;&#99;&#x6f;&#x6d;">&#x78;&#x69;&#106;&#x69;&#x6e;&#112;&#x69;&#x6e;&#103;&#64;&#x7a;&#104;&#111;&#x6e;&#103;&#x6e;&#97;&#x6e;&#104;&#97;&#x69;&#46;&#99;&#x6f;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -3455,6 +3455,374 @@ with these **parameters**
       </categories>
       <tags>
         <tag>GreenPlum</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？</title>
+    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html</url>
+    <content><![CDATA[<p>层出不穷的新技术、新概念、新应用往往会对初学者造成很大的困扰，有时候很难理清楚它们之间的区别与联系。本文将以数据研发相关领域为例，对比分析我们工作中高频出现的几个名词，主要包括以下几个方面：</p>
+<p>数据</p>
+<ul>
+<li>什么是大数据</li>
+<li>数据分析与数据挖掘的区别是什么</li>
+</ul>
+<p>数据库</p>
+<ul>
+<li>什么是数据库</li>
+<li>数据库中的分布式事务理论</li>
+</ul>
+<p>数据仓库</p>
+<ul>
+<li>什么是数据仓库</li>
+<li>什么是数据集市</li>
+<li>数据库与数据仓库的区别是什么</li>
+</ul>
+<p>大数据平台</p>
+<ul>
+<li>什么是大数据平台</li>
+<li>什么是大数据开发平台</li>
+</ul>
+<p>数据中台</p>
+<ul>
+<li>什么是数据中台</li>
+<li>数据仓库与数据中台的区别与联系</li>
+</ul>
+<p>数据湖</p>
+<ul>
+<li>什么是数据湖</li>
+<li>数据仓库与数据湖有什么区别与联系</li>
+</ul>
+<h2 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h2><h3 id="什么是大数据"><a href="#什么是大数据" class="headerlink" title="什么是大数据"></a>什么是大数据</h3><p>麦肯锡全球研究所给出的定义是：一种规模大到在获取、存储、管理、分析方面大大超出了传统数据库软件工具能力范围的数据集合，具有<strong>海量的数据规模</strong>、<strong>快速的数据流转</strong>、<strong>多样的数据类型</strong>和<strong>价值密度低</strong>四大特征。</p>
+<p>我们再往深处思考一下，为什么会有大数据(大数据技术)？其实大数据就是在这个数据爆炸增长的时代，业务需求增长促进技术迭代，技术满足需求后又形成闭环促进业务持续增长，从而形成一个闭环。</p>
+<h3 id="数据分析与数据挖掘的区别是什么"><a href="#数据分析与数据挖掘的区别是什么" class="headerlink" title="数据分析与数据挖掘的区别是什么"></a>数据分析与数据挖掘的区别是什么</h3><p>数据分析可以分为<strong>广义的数据分析</strong>和<strong>狭义的数据分析</strong>。广义的数据分析就包括<strong>狭义的数据分析和数据挖掘</strong>。我们在工作中经常常说的数据分析指的是狭义的数据分析。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数据分析（狭义）Data Analysis</th>
+<th>数据挖掘  Data Mining</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>定义</td>
+<td>根据分析目的，用适当的<strong>统计分析方法及工具</strong>，对收集来的数据进行处理与分析，提取有价值的信息，发挥数据的作用。</td>
+<td>数据挖掘是指从大量的数据中，通过<strong>统计学、人工智能、机器学习等</strong>方法，挖掘出<strong>未知的、且有价值的</strong>信息和知识的过程。</td>
+</tr>
+<tr>
+<td>作用</td>
+<td>主要实现三大作用：<strong>现状分析、原因分析、预测分析（定量）</strong>。数据分析的<strong>目标明确</strong>，先做假设，然后通过数据分析来验证假设是否正确，从而得到相应的结论。</td>
+<td>数据挖掘主要侧重解决四类问题：<strong>分类、聚类、关联和预测（定量、定性）</strong>，数据挖掘的重点在寻找<strong>未知的模式与规律</strong>；如我们常说的数据挖掘案例：啤酒与尿布等，这就是事先未知的，但又是非常有价值的信息。</td>
+</tr>
+<tr>
+<td>方法</td>
+<td>主要采用<strong>对比分析、分组分析、交叉分析、回归分析</strong>等常用分析方法。</td>
+<td>主要采用<strong>决策树、神经网络、关联规则、聚类分析等统计学、人工智能、机器学习等方法</strong>进行挖掘。</td>
+</tr>
+<tr>
+<td>结果</td>
+<td>数据分析一般都是得到<strong>一个指标统计量结果</strong>，如总和、平均值等，这些指标数据都需要与业务结合进行解读，才能发挥出数据的价值与作用。</td>
+<td>输出模型或规则，并且可相应得到模型得分或标签，模型得分如流失概率值、总和得分、相似度、预测值等，标签如高中低价值用户、流失与非流失、信用优良中差等。</td>
+</tr>
+</tbody></table>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><h3 id="什么是数据库"><a href="#什么是数据库" class="headerlink" title="什么是数据库"></a>什么是数据库</h3><p>数据库是<strong>按照数据结构来组织、存储和管理数据的仓库</strong>。是一个<strong>长期存储在计算机内的、有组织的、可共享的、统一管理</strong>的大量数据的集合。</p>
+<p>一般而言，我们所说的数据库指的是数据库管理系统，并不单指一个数据库实例。</p>
+<p>根据数据存储的方式不同，可以将数据库分为三类：分别为<strong>行存储、列存储、行列混合存储</strong>，其中：</p>
+<ul>
+<li>行存储的数据库代表产品有Oracle、MySQL、PostgresSQL等</li>
+<li>列存储的数据代表产品有Greenplum、HBASE、Teradata等</li>
+<li>行列混合存储的数据库代表产品有TiDB，ADB for Mysql等</li>
+</ul>
+<h3 id="数据库中的分布式事务理论"><a href="#数据库中的分布式事务理论" class="headerlink" title="数据库中的分布式事务理论"></a>数据库中的分布式事务理论</h3><h4 id="ACID"><a href="#ACID" class="headerlink" title="ACID"></a>ACID</h4><p>传统关系型数据库事务设计原则，以下四点必须全部满足：</p>
+<ul>
+<li>原子性Atomicity：事务中操作要么都发生，要么都不发生；</li>
+<li>一致性Consistency：事务前后数据完整性保持一致；</li>
+<li>隔离性Isolation：多个用户并发事务相互隔离；</li>
+<li>持久性Durability：事务被提交后数据的改变就是永久性的。</li>
+</ul>
+<p>举例说明：A账号有200元，B账号有100元，现在A给B账户进行转账操作：</p>
+<ul>
+<li>A减少100元，同时B增加100元，两个操作要么都成功要么都失败,满足原子性；</li>
+<li>A减少的金额，和B增加的金额要一致，按照一致性；</li>
+<li>假如A给B转账的同一时刻，B又给C转账，这两笔交易是相互隔离，满足隔离性；</li>
+<li>A给B转账100元，事务提交之后，在查询账号，A减少100元，B增加100元，满足持久性；</li>
+</ul>
+<h4 id="CAP理论"><a href="#CAP理论" class="headerlink" title="CAP理论"></a>CAP理论</h4><p>2000年，Berkerly大学有位Eric Brewer教授提出了一个CAP理论，在2002年，麻省理工学院的Seth Gilbert(赛斯·吉尔伯特)和Nancy Lynch(南希·林奇)发表了布鲁尔猜想的证明，证明了CAP理论的正确性。</p>
+<p>所谓CAP理论，是指<strong>对于一个分布式计算系统来说，不可能同时满足以下三点</strong>：</p>
+<ul>
+<li>一致性（Consistency） 等同于所有节点访问同一份最新的数据副本。即任何一个读操作总是能够读到之前完成的写操作的结果，也就是说，在分布式环境中，不同节点访问的数据是一致的。</li>
+<li>可用性（Availability） 每次请求都能获取到非错的响应——但是不保证获取的数据为最新数据。即快速获取数据，可以在确定的时间内返回操作结果。</li>
+<li>分区容错性（Partition tolerance） 以实际效果而言，分区相当于对通信的时限要求。系统如果不能在时限内达成数据一致性，就意味着发生了分区的情况，必须就当前操作在C和A之间做出选择。即指当出现网络分区时(系统中的一部分节点无法与其他的节点进行通信)，分离的系统也能够正常运行，即可靠性。</li>
+</ul>
+<p>一个分布式的系统不可能同时满足一致性、可用性和分区容错性，最多同时满足两个。当处理CAP的问题时，可以有一下几个选择：</p>
+<ul>
+<li><p>满足CA，不满足P。将所有与事务相关的内容都放在同一个机器上，这样会影响系统的可扩展性。传统的关系型数据库。如<code>MySQL</code>、<code>SQL Server</code> 、<code>PostgresSQL</code>等都采用了此种设计原则。</p>
+</li>
+<li><p>满足AP，不满足C。不满足一致性(C)，即允许系统返回不一致的数据。其实，对于WEB2.0的网站而言，更加关注的是服务是否可用，而不是一致性。比如你发了一篇博客或者写一篇微博，你的一部分朋友立马看到了这篇文章或者微博，另一部分朋友却要等一段时间之后才能刷出这篇文章或者微博。虽然有延时，但是对于一个娱乐性质的Web 2.0网站而言，这几分钟的延时并不重要，不会影响用户体验。相反，当发布一篇文章或微博时，不能够立即发布(不满足可用性)，用户对此肯定不爽。所以呢，对于WEB2.0的网站而言，可用性和分区容错性的优先级要高于数据一致性，当然，**并没有完全放弃一致性，而是最终的一致性(有延时)**。如<code>Dynamo</code>、<code>Cassandra</code>、<code>CouchDB</code>等NoSQL数据库采用了此原则。</p>
+</li>
+<li><p>满足CP，不满足A。强调一致性性(C)和分区容错性(P)，放弃可用性性(A)。当出现网络分区时，受影响的服务需要等待数据一致，在等待期间无法对外提供服务。如<code>Neo4J</code>、<code>HBase</code>、<code>MongoDB</code>、<code>Redis</code>等采用了此种设计原则。</p>
+</li>
+</ul>
+<h2 id="数据仓库"><a href="#数据仓库" class="headerlink" title="数据仓库"></a>数据仓库</h2><h3 id="什么是数据仓库"><a href="#什么是数据仓库" class="headerlink" title="什么是数据仓库"></a>什么是数据仓库</h3><p>数据仓库（Data Warehouse）是一个**面向主题的（Subject Oriented）、集成的（Integrated）、相对稳定的（Non-Volatile）、反映历史变化（Time Variant）的数据集合，用于支持管理决策(Decision Making Support)**。</p>
+<ul>
+<li>面向主题的：根据使用者的需求，将来自不同数据源的数据围绕着各种主题进行分类整合。</li>
+<li>集成的：来自各种数据源的数据按照统一的标准集成于数据仓库中。</li>
+<li>相对稳定的：数据仓库中的数据是一系列的历史快照，不允许修改或删除，只涉及数据查询。</li>
+<li>反映历史变化的：数据仓库会定期接收新的集成数据，从而反映出最新的数据变化。</li>
+</ul>
+<h3 id="数据库与数据仓库有什么区别"><a href="#数据库与数据仓库有什么区别" class="headerlink" title="数据库与数据仓库有什么区别"></a>数据库与数据仓库有什么区别</h3><p>严格来讲<strong>数据仓库不是一门技术，也不是一个产品</strong>。像前文提到的关系型数据库<code>MySQL</code>和<code>Oracle</code>都属于一种产品。那么是什么数据仓库的，见名知意，其实就是存储数据的仓库，数据的来源有很多种，可以统一在数据仓库中进行汇合，然后通过统一的建模，加工成服务与数据分析的数据模型，辅助企业分析决策。</p>
+<p>那么，数据仓库该怎么构建呢，目前使用Hive构建数据仓库的比较多，本文不会过多分析这些大数据技术。总之一句话，数据仓库涉及数据建模，数据抽取ETL，数据可视化等一系列的流程，是一种数据解决方案，通常需要多种技术进行组合使用。</p>
+<p><strong>数据仓库的本质是OLAP，即是做在线分析处理，这是与数据库的本质区别。</strong>还有一点既然是数据仓库，肯定是要加工数据，那么加工数据肯定耗时间，所以加工数据在实际的应用中又分为批处理和实时处理。</p>
+<p><strong>数据库是为了解决OLTP而存在的，而数据仓库是为了分析数据而存在的。</strong>数据库的数据是数据仓库的数据源，即将数据库的数据加载至数据仓库，所以说，数据仓库不生产数据，只做数据的搬运工。</p>
+<p>还有一点就是，<strong>数据仓库并不是必须的，但是对于一个业务系统而言，数据库是必须的</strong>。只有在业务稳定运转的情况下，才会去构建企业级数据仓库，通过数据分析，数据挖掘来辅助业务决策，实现锦上添花。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>数据库</th>
+<th>数据仓库</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据处理类型</td>
+<td>OLTP</td>
+<td>OLAP</td>
+</tr>
+<tr>
+<td>使用人员</td>
+<td>业务开发人员</td>
+<td>分析决策人员</td>
+</tr>
+<tr>
+<td>核心功能</td>
+<td>日常事务处理</td>
+<td>面向分析决策</td>
+</tr>
+<tr>
+<td>数据模型</td>
+<td>关系模型（ER）</td>
+<td>多维模型（雪花、星型）</td>
+</tr>
+<tr>
+<td>数据量</td>
+<td>相对较小</td>
+<td>相对较大</td>
+</tr>
+<tr>
+<td>存储内容</td>
+<td>存储当前数据</td>
+<td>存储历史数据</td>
+</tr>
+<tr>
+<td>操作类型</td>
+<td>查询、插入、更新、删除</td>
+<td>查询为主：只读操作、复杂查询</td>
+</tr>
+</tbody></table>
+<h3 id="什么是数据集市"><a href="#什么是数据集市" class="headerlink" title="什么是数据集市"></a>什么是数据集市</h3><p>数据集市（Data Mart），也叫数据市场，就是满足特定的部门或者用户的需求，<strong>按照多维的方式进行存储，包括定义维度、需要计算的指标、维度的层次等，生成面向决策分析需求的数据立方体</strong>。</p>
+<p>从范围上来说，数据集市的数据是从数据库，或者是更加专业的数据仓库中抽取出来的。数据集市分为<strong>从属的数据集市</strong>与<strong>独立的数据集市</strong>：</p>
+<ul>
+<li><p>独立型数据集市的数据来自于操作型数据库，是为了满足特殊用户而建立的一种分析型环境。这种数据集市的开发周期一般较短，具有灵活性，但是因为脱离了数据仓库，独立建立的数据集市可能会导致信息孤岛的存在，不能以全局的视角去分析数据。</p>
+</li>
+<li><p>从属型数据集市的数据来自于企业的数据仓库，这样会导致开发周期的延长，但是从属型数据集市在体系结构上比独立型数据集市更稳定，可以提高数据分析的质量，保证数据的一致性。</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>数据仓库</th>
+<th>数据集市</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据来源</td>
+<td>OLTP系统、外部数据</td>
+<td>数据仓库</td>
+</tr>
+<tr>
+<td>范围</td>
+<td>企业级</td>
+<td>部门级或工作组级</td>
+</tr>
+<tr>
+<td>主题</td>
+<td>企业主题</td>
+<td>部门或特殊的分析主题</td>
+</tr>
+<tr>
+<td>数据粒度</td>
+<td>最细的粒度</td>
+<td>较粗的粒度</td>
+</tr>
+<tr>
+<td>历史数据</td>
+<td>大量的历史数据</td>
+<td>适度的历史数据</td>
+</tr>
+<tr>
+<td>目的</td>
+<td>处理海量数据，数据探索</td>
+<td>便于某个维度数据访问和分析，快速查询</td>
+</tr>
+</tbody></table>
+<h2 id="大数据平台"><a href="#大数据平台" class="headerlink" title="大数据平台"></a>大数据平台</h2><h3 id="什么是大数据平台"><a href="#什么是大数据平台" class="headerlink" title="什么是大数据平台"></a>什么是大数据平台</h3><p>大数据平台是一个<strong>集数据接入、数据处理、数据存储、查询检索、分析挖掘等、应用接口等功能为一体的平台</strong>。通俗的理解包括Hadoop生态的相关产品，比如Spark、Flink、Flume、Kafka、Hive、HBase等等等经典开源产品。</p>
+<p>提到Hadoop生态技术，不得不提的是Apache和Cloudera。国内绝大部分公司的大数据平台都是基于这两个分支的产品进行商业化包装和改进。例如：阿里云EMR、腾讯TBDS、华为FusionInsight、新华三DataEngine、浪潮Insight HD、中兴DAP等产品。</p>
+<p>其实，对于大数据平台，业内并无一个固定的能力范围。当前比较权威的是全国信标委今年发布了大数据平台的国标 《GB/T 38673-2020 信息技术 大数据 大数据系统基本要求》，将大数据系统划分为<strong>数据收集、数据存储、数据预处理、数据处理、数据分析、数据访问、资源管理、系统管理</strong>8个部分，分别对各部分提出技术要求。所以会发现每个厂家推出的大数据平台都包含很多功能、甚至组合的产品，属于大数据的产品种类非常多。</p>
+<h3 id="什么是大数据开发平台"><a href="#什么是大数据开发平台" class="headerlink" title="什么是大数据开发平台"></a>什么是大数据开发平台</h3><p>由于大数据技术很多，单独使用的学习成本很高，为了提升数据开发的效率，也就出现了大数据开发平台。简单讲，<strong>数据开发平台就是集成了大数据平台的一个开发套件</strong>，比如阿里云的DataWorks就是一个代表，DataWorks（数据工场，原大数据开发套件）是阿里云重要的PaaS（Platform-as-a-Service）平台产品，提供数据集成、数据开发、数据地图、数据质量和数据服务等全方位的产品服务，一站式开发管理的界面，帮助企业专注于数据价值的挖掘和探索。</p>
+<h2 id="数据中台"><a href="#数据中台" class="headerlink" title="数据中台"></a>数据中台</h2><h3 id="什么是数据中台"><a href="#什么是数据中台" class="headerlink" title="什么是数据中台"></a>什么是数据中台</h3><p>阿里巴巴于2017年云栖大会正式对外提出数据中台概念，数据中台的出现，就是为了弥补数据开发和应用开发之间，由于开发速度不匹配，出现的响应力跟不上的问题。<strong>中台不是一个产品！</strong>与业务强相关。</p>
+<p><img src="/images/0057.png"></p>
+<p>数据中台的一些定义：</p>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>定义</th>
+<th>出处</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>中台就是“企业级能力复用平台”。</td>
+<td>《白话中台战略-3：中台的定义》</td>
+</tr>
+<tr>
+<td>2</td>
+<td>中台通过集合整个集团的运营数据能力、产品技术能力，来对各前台业务形成强力支撑。</td>
+<td>《大型集团性企业的中台战略—阿里的中台战略其实是个伪命题》</td>
+</tr>
+<tr>
+<td>3</td>
+<td>中台是一种需求分析的方法论，一套能力接入标准，一套运作机制，集中配置、分布执行的控制台。</td>
+<td>《中台如何助力标准化业务？中台关键要快！》</td>
+</tr>
+<tr>
+<td>4</td>
+<td>“中台”是强调资源整合、能力沉淀的平台体系，为“前台”的业务开展提供底层的技术、数据等资源和能力的支持。</td>
+<td>《大中台 小前台》</td>
+</tr>
+<tr>
+<td>5</td>
+<td>中台是居于前台和后台之间、位于基础架构和各产品线间的业务架构。</td>
+<td>《关于架构的思考-评《阿里巴巴中台战略思想与架构实践》》</td>
+</tr>
+<tr>
+<td>6</td>
+<td>数据中台是将各个业务板块多年来积累的数据，按业务特征进行横向关联和统一，按数据用途进行纵向分层，最终沉淀为公共的数据服务能力。</td>
+<td>《传统企业数据中台的建设与思考》</td>
+</tr>
+<tr>
+<td>7</td>
+<td>数据中台的实质还是组件化，模块化，是设计模式与业务端的应用。</td>
+<td>袋鼠云数据中台专栏（一）：浅析数据中台策略与建设实践</td>
+</tr>
+<tr>
+<td>8</td>
+<td>中台是一个用技术链接大数据技术能力，用业务链接数据应用场景的能力平台。</td>
+<td>《阿里中台建设全解密：包含哪些内容？如何发挥作用？》</td>
+</tr>
+</tbody></table>
+<h3 id="数据仓库与数据中台的区别与联系"><a href="#数据仓库与数据中台的区别与联系" class="headerlink" title="数据仓库与数据中台的区别与联系"></a>数据仓库与数据中台的区别与联系</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>数据仓库</th>
+<th>数据中台</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>计算存储</td>
+<td>基于OLAP类型的数据库构建一套数据存储体系</td>
+<td>混合架构，随需搭配，满足各类数据的计算要求</td>
+</tr>
+<tr>
+<td>技术体系</td>
+<td>传统的ETL开发和报表开发为主</td>
+<td>数仓建设、数据开发IDE、任务调度、数据集成、数据治理、统一数据服务、数据资产管理、元数据管理、数据质量管理、流批计算、敏捷BI报表开发等多个功能</td>
+</tr>
+<tr>
+<td>应用场景</td>
+<td>报表为主</td>
+<td>多元化场景：除了传统报表，还支持商品推荐、精准推送、客满评价等非确定场景的业务，数据服务业务、业务与数据互补，形成闭环</td>
+</tr>
+<tr>
+<td>价值体现</td>
+<td>面向管理层和业务人员的辅助决策</td>
+<td>除了完成传统的业务人员辅助决策，还能面向业务系统推动优化升级、数据变现等，把数据资产变成数据服务能力。</td>
+</tr>
+</tbody></table>
+<h2 id="数据湖"><a href="#数据湖" class="headerlink" title="数据湖"></a>数据湖</h2><h3 id="什么是数据湖"><a href="#什么是数据湖" class="headerlink" title="什么是数据湖"></a>什么是数据湖</h3><p>Pentaho的CTO James Dixon 在2011年提出了“Data Lake”的概念。在面对大数据挑战时，他声称：不要想着数据的“仓库”概念，想想数据 的“湖”概念。数据“仓库”概念和数据湖概念的重大区别是：<strong>数据仓库中数据在进入仓库之前需要是事先归类，以便于未来的分析</strong>。这在OLAP时代很常见，但是对于离线分析却没有任何意义，不如<strong>把大量的原始数据保存下来</strong>，而现在廉价的存储提供了这个可能。</p>
+<p><img src="/images/0058.png"></p>
+<ul>
+<li>数据仓库是高度结构化的架构，数据在转换之前是无法加载到数据仓库的，用户可以直接获得分析数据。</li>
+<li>数据湖中，数据直接加载到数据湖中，然后根据分析的需要再转换数据</li>
+</ul>
+<h3 id="数据湖产品-—-是一套产品组合的解决方案"><a href="#数据湖产品-—-是一套产品组合的解决方案" class="headerlink" title="数据湖产品 — 是一套产品组合的解决方案"></a>数据湖产品 — 是一套产品组合的解决方案</h3><p><img src="/images/0059.png"></p>
+<h3 id="数据仓库与数据湖有什么区别与联系"><a href="#数据仓库与数据湖有什么区别与联系" class="headerlink" title="数据仓库与数据湖有什么区别与联系"></a>数据仓库与数据湖有什么区别与联系</h3><table>
+<thead>
+<tr>
+<th>特性</th>
+<th>数据仓库</th>
+<th>数据湖</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>数据</td>
+<td>来自事务系统、运营数据库和业务线应用程序的关系数据</td>
+<td>来自IoT 设备、网站、移动应用程序、社交媒体和企业应用程序的非关系和关系数据</td>
+</tr>
+<tr>
+<td>Schema</td>
+<td>写入型Schema，数据存储之前需要定义Schema，数据集成之前需要完成大量清洗工作，数据的价值需要提前明确</td>
+<td>读取型Schema，数据存储之后才需要定义Schema 提供敏捷、简单的数据集成，数据的价值尚未明确</td>
+</tr>
+<tr>
+<td>扩展性</td>
+<td>中等开销获得较大的容量扩展</td>
+<td>低成本开销获得极大容量扩展</td>
+</tr>
+<tr>
+<td>性价比</td>
+<td>更快查询结果会带来较高存储成本</td>
+<td>更快查询结果只需较低存储成本</td>
+</tr>
+<tr>
+<td>连接方式</td>
+<td>标准的SQL接口或者BI接口、ANSI SQL</td>
+<td>应用程序、类SQL程序、其它方法</td>
+</tr>
+<tr>
+<td>数据质量</td>
+<td>可作为重要事实依据的高度监管数据</td>
+<td>任何可以或无法进行监管的数据（例如原始数据）</td>
+</tr>
+<tr>
+<td>复杂性</td>
+<td>复杂的SQL链接</td>
+<td>复杂的大数据处理</td>
+</tr>
+<tr>
+<td>用户</td>
+<td>业务分析师</td>
+<td>数据科学家、数据开发人员和业务分析师（使用监管数据）</td>
+</tr>
+<tr>
+<td>分析</td>
+<td>批处理报告、BI和可视化</td>
+<td>机器学习、预测分析、数据发现和分析</td>
+</tr>
+<tr>
+<td>优势</td>
+<td>高并发、快速响应、干净安全的数据、数据一次转换多次使用</td>
+<td>无限扩展性、支持编程框架、数据存储成本低</td>
+</tr>
+</tbody></table>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html" target="_blank">数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html]]></content>
+      <categories>
+        <category>数据仓库</category>
+      </categories>
+      <tags>
+        <tag>Data Warehouse</tag>
+        <tag>数据仓库</tag>
       </tags>
   </entry>
   <entry>

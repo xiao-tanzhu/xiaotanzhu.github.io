@@ -19,6 +19,29 @@
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html</guid>
+      <pubDate>Fri, 01 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>层出不穷的新技术、新概念、新应用往往会对初学者造成很大的困扰，有时候很难理清楚它们之间的区别与联系。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>数据仓库【一】：数据仓库的8个发展阶段</title>
       <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html</link>
       <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html</guid>
@@ -468,29 +491,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/user-experience-in-tob-products.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>MacOS常见操作</title>
-      <link>https://www.xiaotanzhu.com/macos/macos-howtos.html</link>
-      <guid>https://www.xiaotanzhu.com/macos/macos-howtos.html</guid>
-      <pubDate>Mon, 17 May 2021 16:00:00 GMT</pubDate>
-      
-      <description>目录：MacOS常见的一些配置、调整或软件</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/macos/">MacOS</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/macos/">MacOS</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/macbook/">MacBook</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/macos/macos-howtos.html#disqus_thread</comments>
       
     </item>
     

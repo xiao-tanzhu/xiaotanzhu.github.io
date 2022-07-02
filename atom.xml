@@ -17,6 +17,27 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html</id>
+    <published>2022-07-01T16:00:00.000Z</published>
+    <updated>2022-07-01T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">层出不穷的新技术、新概念、新应用往往会对初学者造成很大的困扰，有时候很难理清楚它们之间的区别与联系。</summary>
+    
+    
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+    <category term="Data Warehouse" scheme="https://www.xiaotanzhu.com/tags/data-warehouse/"/>
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据仓库【一】：数据仓库的8个发展阶段</title>
     <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html"/>
     <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html</id>
@@ -428,27 +449,6 @@
     <category term="用户体验" scheme="https://www.xiaotanzhu.com/tags/%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C/"/>
     
     <category term="UE" scheme="https://www.xiaotanzhu.com/tags/ue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>MacOS常见操作</title>
-    <link href="https://www.xiaotanzhu.com/macos/macos-howtos.html"/>
-    <id>https://www.xiaotanzhu.com/macos/macos-howtos.html</id>
-    <published>2021-05-17T16:00:00.000Z</published>
-    <updated>2021-05-17T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">目录：MacOS常见的一些配置、调整或软件</summary>
-    
-    
-    
-    <category term="MacOS" scheme="https://www.xiaotanzhu.com/categories/macos/"/>
-    
-    
-    <category term="MacOS" scheme="https://www.xiaotanzhu.com/tags/macos/"/>
-    
-    <category term="MacBook" scheme="https://www.xiaotanzhu.com/tags/macbook/"/>
     
   </entry>
   
