@@ -433,9 +433,9 @@
       
       <category domain="https://www.xiaotanzhu.com/tags/hexo/">Hexo</category>
       
-      <category domain="https://www.xiaotanzhu.com/tags/post-links/">Post Links</category>
-      
       <category domain="https://www.xiaotanzhu.com/tags/github-pages/">Github Pages</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/post-links/">Post Links</category>
       
       
       <comments>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html#disqus_thread</comments>

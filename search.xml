@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#x61;&#x6e;&#x67;&#x6a;&#105;&#110;&#x67;&#102;&#x65;&#x69;&#64;&#x31;&#54;&#51;&#46;&#99;&#111;&#x6d;">&#119;&#x61;&#x6e;&#x67;&#x6a;&#105;&#110;&#x67;&#102;&#x65;&#x69;&#64;&#x31;&#54;&#51;&#46;&#99;&#111;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#x61;&#x6e;&#x67;&#106;&#x69;&#x6e;&#103;&#102;&#101;&#x69;&#x40;&#50;&#54;&#51;&#x2e;&#99;&#x6f;&#109;">&#x77;&#x61;&#x6e;&#x67;&#106;&#x69;&#x6e;&#103;&#102;&#101;&#x69;&#x40;&#50;&#54;&#51;&#x2e;&#99;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#97;&#x6d;&#x61;&#x40;&#x77;&#104;&#105;&#x74;&#101;&#x68;&#x6f;&#117;&#115;&#101;&#46;&#x63;&#111;&#x6d;">&#111;&#x62;&#97;&#x6d;&#x61;&#x40;&#x77;&#104;&#105;&#x74;&#101;&#x68;&#x6f;&#117;&#115;&#101;&#46;&#x63;&#111;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#x69;&#x6a;&#x69;&#110;&#112;&#x69;&#x6e;&#103;&#64;&#122;&#104;&#x6f;&#110;&#x67;&#x6e;&#97;&#x6e;&#104;&#97;&#105;&#x2e;&#x63;&#111;&#109;">&#120;&#x69;&#x6a;&#x69;&#110;&#112;&#x69;&#x6e;&#103;&#64;&#122;&#104;&#x6f;&#110;&#x67;&#x6e;&#97;&#x6e;&#104;&#97;&#105;&#x2e;&#x63;&#111;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#x6a;&#105;&#110;&#x67;&#102;&#101;&#x69;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;">&#x77;&#97;&#110;&#x67;&#x6a;&#105;&#110;&#x67;&#102;&#101;&#x69;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#101;&#x69;&#x40;&#x32;&#x36;&#x33;&#46;&#x63;&#x6f;&#109;">&#x77;&#97;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#101;&#x69;&#x40;&#x32;&#x36;&#x33;&#46;&#x63;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#x61;&#109;&#97;&#x40;&#119;&#x68;&#105;&#116;&#x65;&#104;&#111;&#x75;&#115;&#101;&#x2e;&#99;&#x6f;&#x6d;">&#111;&#x62;&#x61;&#109;&#97;&#x40;&#119;&#x68;&#105;&#116;&#x65;&#104;&#111;&#x75;&#115;&#101;&#x2e;&#99;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#x69;&#106;&#105;&#110;&#x70;&#x69;&#x6e;&#103;&#64;&#x7a;&#104;&#x6f;&#110;&#x67;&#110;&#97;&#x6e;&#104;&#x61;&#x69;&#46;&#99;&#x6f;&#x6d;">&#120;&#x69;&#106;&#105;&#110;&#x70;&#x69;&#x6e;&#103;&#64;&#x7a;&#104;&#x6f;&#110;&#x67;&#110;&#97;&#x6e;&#104;&#x61;&#x69;&#46;&#99;&#x6f;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -862,32 +862,6 @@ with these **parameters**
       </tags>
   </entry>
   <entry>
-    <title>Partial selection of Spring Data JPA</title>
-    <url>/spring/2016-08-10-partial-selection-with-jpa.html</url>
-    <content><![CDATA[<p>When we use <code>select</code> to retrive some data from MySQL, we do not want to get the whole row with all columns.<br>For example, I have the following <code>tab_staff_info</code> table with nearly 100 columns:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;tab_staff_info&quot;)</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StaffInfo</span> <span class="keyword">extends</span> <span class="title class_">BaseEntity</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * qq号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String qqNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 公司Id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String companyId;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 工号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 姓名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffName;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 30)</span></span><br><span class="line">    <span class="keyword">private</span> String idCardNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 20)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> IdCardType idCardType;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生日</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 性别</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 10)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> SexType sex;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 手机号码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 18)</span></span><br><span class="line">    <span class="keyword">private</span> String mobileNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A lot more columns..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>In most cases, I only want to get some (not all) of the columns. For example, I want to get the basic information, which are: <code>companyId</code>, <code>staffNo</code>, <code>staffName</code> and <code>idCardNo</code>.</p>
-<p>In order to do this, I need to modify the <code>StaffInfoDao</code> interface.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">StaffInfoDao</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;StaffInfo, String&gt; &#123;</span><br><span class="line">      <span class="meta">@Query(&quot;select new StaffInfo(s.companyId, s.staffNo, s.staffName, s.idCardNo) from StaffInfo s where s.companyId = :companyId&quot;)</span></span><br><span class="line">      List&lt;StaffInfo&gt; <span class="title function_">findStaffBasicInfoByCompanyId</span><span class="params">(<span class="meta">@Param(&quot;companyId&quot;)</span> String companyId)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>And of couse we need to add a constructor to support <code>new StaffInfo(s.companyId, s.staffNo, s.staffName, s.idCardNo)</code> in the JPA QL:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">StaffInfo</span><span class="params">(String companyId, String staffNo, String staffName, String idCardNo)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.companyId = companyId;</span><br><span class="line">      <span class="built_in">this</span>.staffNo = staffNo;</span><br><span class="line">      <span class="built_in">this</span>.staffName = staffName;</span><br><span class="line">      <span class="built_in">this</span>.idCardNo = idCardNo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Change log level of hibernate library to debug and we can see the following output:</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.<span class="keyword">SQL</span>](SqlStatementLogger.java:<span class="number">109</span>) - <span class="keyword">select</span> staffinfo0_.companyId <span class="keyword">as</span> col_0_0_, staffinfo0_.staffNo <span class="keyword">as</span> col_1_0_, staffinfo0_.staffName <span class="keyword">as</span> col_2_0_, staffinfo0_.idCardNo <span class="keyword">as</span> col_3_0_ <span class="keyword">from</span> tab_staff_info staffinfo0_ <span class="keyword">where</span> staffinfo0_.companyId=?</span><br><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:<span class="number">226</span>) - Obtaining JDBC <span class="keyword">connection</span></span><br><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:<span class="number">232</span>) - Obtained JDBC <span class="keyword">connection</span></span><br></pre></td></tr></table></figure>
-
-
-
-<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/spring/2016-08-10-partial-selection-with-jpa.html" target="_blank">Partial selection of Spring Data JPA</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/spring/2016-08-10-partial-selection-with-jpa.html]]></content>
-      <categories>
-        <category>Spring</category>
-      </categories>
-      <tags>
-        <tag>Spring</tag>
-        <tag>Spring Data JPA</tag>
-        <tag>ORM</tag>
-        <tag>Hibernate</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用Goaccess监控Nginx的运行状态</title>
     <url>/%E8%BF%90%E7%BB%B4/2016-08-12-monitor-nginx-with-goaccess.html</url>
     <content><![CDATA[<h2 id="最终启动命令"><a href="#最终启动命令" class="headerlink" title="最终启动命令"></a>最终启动命令</h2><p>如果你只需要知道最终的启动命令，可以跳过下边所有内容。启动命令：</p>
@@ -972,6 +946,32 @@ with these **parameters**
         <tag>监控</tag>
         <tag>Nginx</tag>
         <tag>Goaccess</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Partial selection of Spring Data JPA</title>
+    <url>/spring/2016-08-10-partial-selection-with-jpa.html</url>
+    <content><![CDATA[<p>When we use <code>select</code> to retrive some data from MySQL, we do not want to get the whole row with all columns.<br>For example, I have the following <code>tab_staff_info</code> table with nearly 100 columns:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;tab_staff_info&quot;)</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StaffInfo</span> <span class="keyword">extends</span> <span class="title class_">BaseEntity</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * qq号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String qqNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 公司Id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String companyId;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 工号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 姓名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffName;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 30)</span></span><br><span class="line">    <span class="keyword">private</span> String idCardNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 20)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> IdCardType idCardType;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生日</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 性别</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 10)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> SexType sex;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 手机号码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 18)</span></span><br><span class="line">    <span class="keyword">private</span> String mobileNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A lot more columns..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In most cases, I only want to get some (not all) of the columns. For example, I want to get the basic information, which are: <code>companyId</code>, <code>staffNo</code>, <code>staffName</code> and <code>idCardNo</code>.</p>
+<p>In order to do this, I need to modify the <code>StaffInfoDao</code> interface.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">StaffInfoDao</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;StaffInfo, String&gt; &#123;</span><br><span class="line">      <span class="meta">@Query(&quot;select new StaffInfo(s.companyId, s.staffNo, s.staffName, s.idCardNo) from StaffInfo s where s.companyId = :companyId&quot;)</span></span><br><span class="line">      List&lt;StaffInfo&gt; <span class="title function_">findStaffBasicInfoByCompanyId</span><span class="params">(<span class="meta">@Param(&quot;companyId&quot;)</span> String companyId)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>And of couse we need to add a constructor to support <code>new StaffInfo(s.companyId, s.staffNo, s.staffName, s.idCardNo)</code> in the JPA QL:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">StaffInfo</span><span class="params">(String companyId, String staffNo, String staffName, String idCardNo)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.companyId = companyId;</span><br><span class="line">      <span class="built_in">this</span>.staffNo = staffNo;</span><br><span class="line">      <span class="built_in">this</span>.staffName = staffName;</span><br><span class="line">      <span class="built_in">this</span>.idCardNo = idCardNo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Change log level of hibernate library to debug and we can see the following output:</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.<span class="keyword">SQL</span>](SqlStatementLogger.java:<span class="number">109</span>) - <span class="keyword">select</span> staffinfo0_.companyId <span class="keyword">as</span> col_0_0_, staffinfo0_.staffNo <span class="keyword">as</span> col_1_0_, staffinfo0_.staffName <span class="keyword">as</span> col_2_0_, staffinfo0_.idCardNo <span class="keyword">as</span> col_3_0_ <span class="keyword">from</span> tab_staff_info staffinfo0_ <span class="keyword">where</span> staffinfo0_.companyId=?</span><br><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:<span class="number">226</span>) - Obtaining JDBC <span class="keyword">connection</span></span><br><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:<span class="number">232</span>) - Obtained JDBC <span class="keyword">connection</span></span><br></pre></td></tr></table></figure>
+
+
+
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/spring/2016-08-10-partial-selection-with-jpa.html" target="_blank">Partial selection of Spring Data JPA</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/spring/2016-08-10-partial-selection-with-jpa.html]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>Spring Data JPA</tag>
+        <tag>ORM</tag>
+        <tag>Hibernate</tag>
       </tags>
   </entry>
   <entry>
@@ -4012,47 +4012,6 @@ with these **parameters**
       </tags>
   </entry>
   <entry>
-    <title>数据仓库【四】：四种常见数据模型</title>
-    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</url>
-    <content><![CDATA[<p>大数据时代，维度建模已成为各大厂的主流方式。</p>
-<p>维度建模从分析决策的需求出发构建模型，为分析需求服务。重点关注<strong>用户如何快速的完成数据分析，可以直观的反应业务模型中的业务问题，需要大量的数据预处理、数据冗余，有较好的大规模复杂查询的响应性能</strong>。</p>
-<h2 id="为什么要进行数据仓库建模"><a href="#为什么要进行数据仓库建模" class="headerlink" title="为什么要进行数据仓库建模"></a>为什么要进行数据仓库建模</h2><ul>
-<li>性能：良好的模型能帮我们快速查询需要的数据，减少数据的IO吞吐</li>
-<li>成本：减少数据冗余、计算结果复用、从而降低存储和计算成本</li>
-<li>效率：改善用户使用数据的体验，提高使用数据的效率</li>
-<li>改善统计口径的不一致性，减少数据计算错误的可能性</li>
-</ul>
-<h2 id="四种常见模型"><a href="#四种常见模型" class="headerlink" title="四种常见模型"></a>四种常见模型</h2><h3 id="维度模型"><a href="#维度模型" class="headerlink" title="维度模型"></a>维度模型</h3><p><strong>维度建模</strong>按数据组织类型划分可分为<strong>星型模型、雪花模型、星座模型</strong>。Kimball老爷爷维度建模四部曲：</p>
-<p>选择业务处理过程 &gt; 定义粒度 &gt; 选择维度 &gt; 确定事实</p>
-<h4 id="星型模型"><a href="#星型模型" class="headerlink" title="星型模型"></a>星型模型</h4><p>星型模型主要是维表和事实表，<strong>以事实表为中心，所有维度直接关联在事实表上</strong>，呈星型分布。</p>
-<p><img src="/images/0060.png"></p>
-<h4 id="雪花模型"><a href="#雪花模型" class="headerlink" title="雪花模型"></a>雪花模型</h4><p>雪花模型，在星型模型的基础上，<strong>维度表上又关联了其他维度表</strong>。这种模型维护成本高，性能方面也较差，所以一般不建议使用。尤其是基于hadoop体系构建数仓，减少join就是减少shuffle，性能差距会很大。</p>
-<p>星型模型可以理解为，一个事实表关联多个维度表，雪花模型可以理解为一个事实表关联多个维度表，维度表再关联维度表。</p>
-<p><img src="/images/0061.png"></p>
-<h4 id="星座模型"><a href="#星座模型" class="headerlink" title="星座模型"></a>星座模型</h4><p>星座模型，是对星型模型的扩展延伸，<strong>多张事实表共享维度表</strong>。</p>
-<p>星座模型是很多数据仓库的常态，因为很多数据仓库都是多个事实表的。所以星座模型只反映是否有多个事实表，他们之间是否共享一些维度表。</p>
-<p><img src="/images/0062.png"></p>
-<h3 id="范式模型"><a href="#范式模型" class="headerlink" title="范式模型"></a>范式模型</h3><p>即实体关系（ER）模型，数据仓库之父Immon提出的，从全企业的高度设计一个3NF模型，用实体加关系描述的数据模型描述企业业务架构，在范式理论上符合3NF。此建模方法，对建模人员的能力要求非常高。</p>
-<p>特点：设计思路自上而下，适合上游基础数据存储，<strong>同一份数据只存储一份，没有数据冗余</strong>，方便解耦，易维护，缺点是开发周期一般比较长，维护成本高。</p>
-<h3 id="Data-Vault模型"><a href="#Data-Vault模型" class="headerlink" title="Data Vault模型"></a>Data Vault模型</h3><p>DataVault由**Hub（关键核心业务实体）、Link（关系）、Satellite（实体属性） **三部分组成 ，是Dan Linstedt发起创建的一种模型方法论，它是在ER关系模型上的衍生，同时设计的出发点也是为了实现数据的整合，并非为数据决策分析直接使用。</p>
-<h3 id="Anchor模型"><a href="#Anchor模型" class="headerlink" title="Anchor模型"></a>Anchor模型</h3><p>高度可扩展的模型，所有的扩展只是添加而不是修改，因此它将模型规范到6NF，基本变成了K-V结构模型。企业很少使用。</p>
-<h2 id="数据模型的评价标准"><a href="#数据模型的评价标准" class="headerlink" title="数据模型的评价标准"></a>数据模型的评价标准</h2><p>数据模型建设的怎么样，极度依赖规范设计，如果代码风格是“千人千面”，那么恐怕半年下来，业务系统就没法看了。<strong>没有什么比“数据系统”更看重“法制”了</strong>，规范体系不仅能保障数据建设的一致性，也能够应对业务交接的情况，更能够为自动化奠定基础。</p>
-<ul>
-<li>业务过程清晰：ODS就是原始信息，不修改；DWD面向基础业务过程；DIM描述维度信息；DWS针对最小场景做指标计算；ADS也要分层，面向跨域的建设，和面向应用的建设；</li>
-<li>指标可理解：按照一定业务事务过程进行业务划分，明细层粒度明确、历史数据可获取，汇总层维度和指标同名同义，能客观反映业务不同角度下的量化程度；</li>
-<li>核心模型相对稳定：如果业务过程运行的比较久，过程相对固定，就要尽快下沉到公共层，形成可复用的核心模型；</li>
-<li>高内聚低耦合：各主题内数据模型要业务高内聚，避免在一个模型耦合其他业务的指标，造成该模型主题不清晰和性价比低。</li>
-</ul>
-<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html" target="_blank">数据仓库【四】：四种常见数据模型</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html]]></content>
-      <categories>
-        <category>数据仓库</category>
-      </categories>
-      <tags>
-        <tag>Data Warehouse</tag>
-        <tag>数据仓库</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Ansible常用命令</title>
     <url>/%E8%BF%90%E7%BB%B4/ansible-commands.html</url>
     <content><![CDATA[<h2 id="Host匹配方式"><a href="#Host匹配方式" class="headerlink" title="Host匹配方式"></a>Host匹配方式</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">web_server:!http1:&amp;http2</span><br><span class="line">http*:web_server</span><br><span class="line">web_server<span class="section">[0]</span></span><br><span class="line">web_server<span class="section">[0:3]</span></span><br><span class="line">&#x27;~(web|http)*&#x27;</span><br></pre></td></tr></table></figure>
@@ -4080,6 +4039,47 @@ with these **parameters**
       </categories>
       <tags>
         <tag>Ansible</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据仓库【四】：四种常见数据模型</title>
+    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</url>
+    <content><![CDATA[<p>大数据时代，维度建模已成为各大厂的主流方式。</p>
+<p>维度建模从分析决策的需求出发构建模型，为分析需求服务。重点关注<strong>用户如何快速的完成数据分析，可以直观的反应业务模型中的业务问题，需要大量的数据预处理、数据冗余，有较好的大规模复杂查询的响应性能</strong>。</p>
+<h2 id="为什么要进行数据仓库建模"><a href="#为什么要进行数据仓库建模" class="headerlink" title="为什么要进行数据仓库建模"></a>为什么要进行数据仓库建模</h2><ul>
+<li>性能：良好的模型能帮我们快速查询需要的数据，减少数据的IO吞吐</li>
+<li>成本：减少数据冗余、计算结果复用、从而降低存储和计算成本</li>
+<li>效率：改善用户使用数据的体验，提高使用数据的效率</li>
+<li>改善统计口径的不一致性，减少数据计算错误的可能性</li>
+</ul>
+<h2 id="四种常见模型"><a href="#四种常见模型" class="headerlink" title="四种常见模型"></a>四种常见模型</h2><h3 id="维度模型"><a href="#维度模型" class="headerlink" title="维度模型"></a>维度模型</h3><p><strong>维度建模</strong>按数据组织类型划分可分为<strong>星型模型、雪花模型、星座模型</strong>。Kimball老爷爷维度建模四部曲：</p>
+<p>选择业务处理过程 &gt; 定义粒度 &gt; 选择维度 &gt; 确定事实</p>
+<h4 id="星型模型"><a href="#星型模型" class="headerlink" title="星型模型"></a>星型模型</h4><p>星型模型主要是维表和事实表，<strong>以事实表为中心，所有维度直接关联在事实表上</strong>，呈星型分布。</p>
+<p><img src="/images/0060.png"></p>
+<h4 id="雪花模型"><a href="#雪花模型" class="headerlink" title="雪花模型"></a>雪花模型</h4><p>雪花模型，在星型模型的基础上，<strong>维度表上又关联了其他维度表</strong>。这种模型维护成本高，性能方面也较差，所以一般不建议使用。尤其是基于hadoop体系构建数仓，减少join就是减少shuffle，性能差距会很大。</p>
+<p>星型模型可以理解为，一个事实表关联多个维度表，雪花模型可以理解为一个事实表关联多个维度表，维度表再关联维度表。</p>
+<p><img src="/images/0061.png"></p>
+<h4 id="星座模型"><a href="#星座模型" class="headerlink" title="星座模型"></a>星座模型</h4><p>星座模型，是对星型模型的扩展延伸，<strong>多张事实表共享维度表</strong>。</p>
+<p>星座模型是很多数据仓库的常态，因为很多数据仓库都是多个事实表的。所以星座模型只反映是否有多个事实表，他们之间是否共享一些维度表。</p>
+<p><img src="/images/0062.png"></p>
+<h3 id="范式模型"><a href="#范式模型" class="headerlink" title="范式模型"></a>范式模型</h3><p>即实体关系（ER）模型，数据仓库之父Immon提出的，从全企业的高度设计一个3NF模型，用实体加关系描述的数据模型描述企业业务架构，在范式理论上符合3NF。此建模方法，对建模人员的能力要求非常高。</p>
+<p>特点：设计思路自上而下，适合上游基础数据存储，<strong>同一份数据只存储一份，没有数据冗余</strong>，方便解耦，易维护，缺点是开发周期一般比较长，维护成本高。</p>
+<h3 id="Data-Vault模型"><a href="#Data-Vault模型" class="headerlink" title="Data Vault模型"></a>Data Vault模型</h3><p>DataVault由 **Hub（关键核心业务实体）、Link（关系）、Satellite（实体属性） ** 三部分组成 ，是Dan Linstedt发起创建的一种模型方法论，它是在ER关系模型上的衍生，同时设计的出发点也是为了实现数据的整合，并非为数据决策分析直接使用。</p>
+<h3 id="Anchor模型"><a href="#Anchor模型" class="headerlink" title="Anchor模型"></a>Anchor模型</h3><p>高度可扩展的模型，所有的扩展只是添加而不是修改，因此它将模型规范到6NF，基本变成了K-V结构模型。企业很少使用。</p>
+<h2 id="数据模型的评价标准"><a href="#数据模型的评价标准" class="headerlink" title="数据模型的评价标准"></a>数据模型的评价标准</h2><p>数据模型建设的怎么样，极度依赖规范设计，如果代码风格是“千人千面”，那么恐怕半年下来，业务系统就没法看了。<strong>没有什么比“数据系统”更看重“法制”了</strong>，规范体系不仅能保障数据建设的一致性，也能够应对业务交接的情况，更能够为自动化奠定基础。</p>
+<ul>
+<li>业务过程清晰：ODS就是原始信息，不修改；DWD面向基础业务过程；DIM描述维度信息；DWS针对最小场景做指标计算；ADS也要分层，面向跨域的建设，和面向应用的建设；</li>
+<li>指标可理解：按照一定业务事务过程进行业务划分，明细层粒度明确、历史数据可获取，汇总层维度和指标同名同义，能客观反映业务不同角度下的量化程度；</li>
+<li>核心模型相对稳定：如果业务过程运行的比较久，过程相对固定，就要尽快下沉到公共层，形成可复用的核心模型；</li>
+<li>高内聚低耦合：各主题内数据模型要业务高内聚，避免在一个模型耦合其他业务的指标，造成该模型主题不清晰和性价比低。</li>
+</ul>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html" target="_blank">数据仓库【四】：四种常见数据模型</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html]]></content>
+      <categories>
+        <category>数据仓库</category>
+      </categories>
+      <tags>
+        <tag>Data Warehouse</tag>
+        <tag>数据仓库</tag>
       </tags>
   </entry>
   <entry>
@@ -4200,60 +4200,6 @@ with these **parameters**
       </tags>
   </entry>
   <entry>
-    <title>自动为Hexo博客添加文章链接</title>
-    <url>/hexo/hexo-add-post-links.html</url>
-    <content><![CDATA[<p>文章链接是写博客时一个非常常用的东西，因为如果每次写博客都需要在文章前后加上一个几乎格式一模一样的东西，还是很烦人的，特别如果你突然决定改变文章的永久链接，那么就更加烦人了，因为默认在Hexo里面，我们需要一篇文章一篇文章的把所有的文章链接改了（虽然这种情况我们需要尽量避免）。</p>
-<p>这里我们介绍一个插件，可以自动为博客添加文章链接：</p>
-<blockquote>
-<p>hexo-tag-post-link</p>
-</blockquote>
-<p>项目地址：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>和其他的hexo插件一样，hexo-tag-post-link安装起来十分简单，只需要在博客目录下执行如下命令即可：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-post-link --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="配置模板"><a href="#配置模板" class="headerlink" title="配置模板"></a>配置模板</h3><h4 id="添加模板文件：post-link-yml"><a href="#添加模板文件：post-link-yml" class="headerlink" title="添加模板文件：post_link.yml"></a>添加模板文件：post_link.yml</h4><ol>
-<li>首先我们需要在<code>source</code>目录下创建一个<code>_data</code>目录，如果没有的话。<code>source/_data</code>这个目录是Hexo的数据目录，用来存放一些公用的全局数据，所以的模板文件也放在这里。</li>
-<li>现在在<code>_data</code>目录下创建一个名为<code>post_link.yml</code>的文件，这个文件就是我们的配置文件了。</li>
-<li>现在我们可以来添加模板了！模板的格式非常简单，如下：</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">format</span></span><br></pre></td></tr></table></figure>
-
-<p>比如我的博客使用的配置如下，而最后的效果就如本文最上方显示的那样。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">footer: <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>转载请注明出处：<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%= post_permalink %&gt;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>&lt;%= post_title %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>原文地址：<span class="tag">&lt;/<span class="name">b</span>&gt;</span>&lt;%= post_permalink %&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="可用模板变量"><a href="#可用模板变量" class="headerlink" title="可用模板变量"></a>可用模板变量</h4><ul>
-<li>site_title</li>
-<li>site_subtitle</li>
-<li>site_description</li>
-<li>site_author</li>
-<li>site_url</li>
-<li>post_title</li>
-<li>post_slug</li>
-<li>post_created</li>
-<li>post_created_date</li>
-<li>post_created_time</li>
-<li>post_updated</li>
-<li>post_updated_date</li>
-<li>post_updated_time</li>
-<li>post_relative_url</li>
-<li>post_permalink</li>
-</ul>
-<h3 id="增加全局配置"><a href="#增加全局配置" class="headerlink" title="增加全局配置"></a>增加全局配置</h3><p>在配置文件_config.yml中添加如下配置：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_link:</span></span><br><span class="line">  <span class="comment">#insert_before_post: header</span></span><br><span class="line">  <span class="attr">insert_after_post:</span> <span class="string">footer</span></span><br></pre></td></tr></table></figure>
-
-<p>以上配置完成，即可在文章末尾看到文章声明和原文地址。</p>
-<h2 id="更多使用方法"><a href="#更多使用方法" class="headerlink" title="更多使用方法"></a>更多使用方法</h2><p>可参考Github中的项目说明：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
-<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html" target="_blank">自动为Hexo博客添加文章链接</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Post Links</tag>
-        <tag>Github Pages</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
     <url>/nginx/letsencrypt-for-free-ssl-cert.html</url>
     <content><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><a href="https://letsencrypt.org/">Let’s Encrypt</a>是一个免费颁发SSL证书的非盈利组织，其颁布的证书已被Chrome等主流浏览器认可。GitHub Pages站点默认使用的SSL证书也是<a href="https://letsencrypt.org/">Let’s Encrypt</a>提供的。</p>
@@ -4311,10 +4257,64 @@ with these **parameters**
       </categories>
       <tags>
         <tag>Ubuntu</tag>
-        <tag>Github Pages</tag>
         <tag>Ubuntu 20.04</tag>
         <tag>Nignx</tag>
         <tag>SSL</tag>
+        <tag>Github Pages</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自动为Hexo博客添加文章链接</title>
+    <url>/hexo/hexo-add-post-links.html</url>
+    <content><![CDATA[<p>文章链接是写博客时一个非常常用的东西，因为如果每次写博客都需要在文章前后加上一个几乎格式一模一样的东西，还是很烦人的，特别如果你突然决定改变文章的永久链接，那么就更加烦人了，因为默认在Hexo里面，我们需要一篇文章一篇文章的把所有的文章链接改了（虽然这种情况我们需要尽量避免）。</p>
+<p>这里我们介绍一个插件，可以自动为博客添加文章链接：</p>
+<blockquote>
+<p>hexo-tag-post-link</p>
+</blockquote>
+<p>项目地址：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>和其他的hexo插件一样，hexo-tag-post-link安装起来十分简单，只需要在博客目录下执行如下命令即可：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-post-link --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="配置模板"><a href="#配置模板" class="headerlink" title="配置模板"></a>配置模板</h3><h4 id="添加模板文件：post-link-yml"><a href="#添加模板文件：post-link-yml" class="headerlink" title="添加模板文件：post_link.yml"></a>添加模板文件：post_link.yml</h4><ol>
+<li>首先我们需要在<code>source</code>目录下创建一个<code>_data</code>目录，如果没有的话。<code>source/_data</code>这个目录是Hexo的数据目录，用来存放一些公用的全局数据，所以的模板文件也放在这里。</li>
+<li>现在在<code>_data</code>目录下创建一个名为<code>post_link.yml</code>的文件，这个文件就是我们的配置文件了。</li>
+<li>现在我们可以来添加模板了！模板的格式非常简单，如下：</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">format</span></span><br></pre></td></tr></table></figure>
+
+<p>比如我的博客使用的配置如下，而最后的效果就如本文最上方显示的那样。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">footer: <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>转载请注明出处：<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%= post_permalink %&gt;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>&lt;%= post_title %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>原文地址：<span class="tag">&lt;/<span class="name">b</span>&gt;</span>&lt;%= post_permalink %&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="可用模板变量"><a href="#可用模板变量" class="headerlink" title="可用模板变量"></a>可用模板变量</h4><ul>
+<li>site_title</li>
+<li>site_subtitle</li>
+<li>site_description</li>
+<li>site_author</li>
+<li>site_url</li>
+<li>post_title</li>
+<li>post_slug</li>
+<li>post_created</li>
+<li>post_created_date</li>
+<li>post_created_time</li>
+<li>post_updated</li>
+<li>post_updated_date</li>
+<li>post_updated_time</li>
+<li>post_relative_url</li>
+<li>post_permalink</li>
+</ul>
+<h3 id="增加全局配置"><a href="#增加全局配置" class="headerlink" title="增加全局配置"></a>增加全局配置</h3><p>在配置文件_config.yml中添加如下配置：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_link:</span></span><br><span class="line">  <span class="comment">#insert_before_post: header</span></span><br><span class="line">  <span class="attr">insert_after_post:</span> <span class="string">footer</span></span><br></pre></td></tr></table></figure>
+
+<p>以上配置完成，即可在文章末尾看到文章声明和原文地址。</p>
+<h2 id="更多使用方法"><a href="#更多使用方法" class="headerlink" title="更多使用方法"></a>更多使用方法</h2><p>可参考Github中的项目说明：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html" target="_blank">自动为Hexo博客添加文章链接</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Github Pages</tag>
+        <tag>Post Links</tag>
       </tags>
   </entry>
   <entry>
