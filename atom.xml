@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2022-07-04T16:00:00.000Z</updated>
+  <updated>2022-07-05T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据仓库【六】：事实表</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html</id>
+    <published>2022-07-05T16:00:00.000Z</published>
+    <updated>2022-07-05T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">事实表作为数据仓库维度建模的核心，紧紧围绕着业务过程来设计，通过获取描述业务过程的度量来表达业务过程，包含了引用的维度和与业务过程有关的度量。</summary>
+    
+    
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+    <category term="Data Warehouse" scheme="https://www.xiaotanzhu.com/tags/data-warehouse/"/>
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>数据仓库【五】：通用的数据仓库分层方法</title>
@@ -398,9 +419,9 @@
     
     <category term="Hexo" scheme="https://www.xiaotanzhu.com/tags/hexo/"/>
     
-    <category term="Github Pages" scheme="https://www.xiaotanzhu.com/tags/github-pages/"/>
-    
     <category term="Post Links" scheme="https://www.xiaotanzhu.com/tags/post-links/"/>
+    
+    <category term="Github Pages" scheme="https://www.xiaotanzhu.com/tags/github-pages/"/>
     
   </entry>
   
@@ -424,27 +445,6 @@
     <category term="AC88U" scheme="https://www.xiaotanzhu.com/tags/ac88u/"/>
     
     <category term="IPTV" scheme="https://www.xiaotanzhu.com/tags/iptv/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java中的DelayQueue</title>
-    <link href="https://www.xiaotanzhu.com/java/delayqueue-in-java.html"/>
-    <id>https://www.xiaotanzhu.com/java/delayqueue-in-java.html</id>
-    <published>2021-06-27T16:00:00.000Z</published>
-    <updated>2021-06-27T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">Java中的DelayQueue</summary>
-    
-    
-    
-    <category term="Java" scheme="https://www.xiaotanzhu.com/categories/java/"/>
-    
-    
-    <category term="Java" scheme="https://www.xiaotanzhu.com/tags/java/"/>
-    
-    <category term="DelayQueue" scheme="https://www.xiaotanzhu.com/tags/delayqueue/"/>
     
   </entry>
   

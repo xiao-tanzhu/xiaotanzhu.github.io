@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#x6a;&#105;&#110;&#x67;&#102;&#101;&#x69;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;">&#x77;&#97;&#110;&#x67;&#x6a;&#105;&#110;&#x67;&#102;&#101;&#x69;&#x40;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#101;&#x69;&#x40;&#x32;&#x36;&#x33;&#46;&#x63;&#x6f;&#109;">&#x77;&#97;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#101;&#x69;&#x40;&#x32;&#x36;&#x33;&#46;&#x63;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#x61;&#109;&#97;&#x40;&#119;&#x68;&#105;&#116;&#x65;&#104;&#111;&#x75;&#115;&#101;&#x2e;&#99;&#x6f;&#x6d;">&#111;&#x62;&#x61;&#109;&#97;&#x40;&#119;&#x68;&#105;&#116;&#x65;&#104;&#111;&#x75;&#115;&#101;&#x2e;&#99;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#x69;&#106;&#105;&#110;&#x70;&#x69;&#x6e;&#103;&#64;&#x7a;&#104;&#x6f;&#110;&#x67;&#110;&#97;&#x6e;&#104;&#x61;&#x69;&#46;&#99;&#x6f;&#x6d;">&#120;&#x69;&#106;&#105;&#110;&#x70;&#x69;&#x6e;&#103;&#64;&#x7a;&#104;&#x6f;&#110;&#x67;&#110;&#97;&#x6e;&#104;&#x61;&#x69;&#46;&#99;&#x6f;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#97;&#110;&#103;&#x6a;&#x69;&#x6e;&#x67;&#x66;&#101;&#105;&#64;&#x31;&#x36;&#51;&#x2e;&#x63;&#x6f;&#109;">&#119;&#97;&#110;&#103;&#x6a;&#x69;&#x6e;&#x67;&#x66;&#101;&#105;&#64;&#x31;&#x36;&#51;&#x2e;&#x63;&#x6f;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#97;&#x6e;&#103;&#x6a;&#x69;&#x6e;&#103;&#102;&#101;&#x69;&#64;&#x32;&#54;&#51;&#x2e;&#99;&#x6f;&#109;">&#119;&#97;&#x6e;&#103;&#x6a;&#x69;&#x6e;&#103;&#102;&#101;&#x69;&#64;&#x32;&#54;&#51;&#x2e;&#99;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#x61;&#x6d;&#97;&#x40;&#119;&#104;&#105;&#116;&#x65;&#x68;&#111;&#x75;&#x73;&#101;&#x2e;&#99;&#111;&#109;">&#111;&#x62;&#x61;&#x6d;&#97;&#x40;&#119;&#104;&#105;&#116;&#x65;&#x68;&#111;&#x75;&#x73;&#101;&#x2e;&#99;&#111;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#106;&#x69;&#x6e;&#x70;&#x69;&#x6e;&#x67;&#64;&#122;&#104;&#111;&#x6e;&#103;&#110;&#x61;&#x6e;&#104;&#97;&#x69;&#46;&#99;&#x6f;&#x6d;">&#x78;&#x69;&#106;&#x69;&#x6e;&#x70;&#x69;&#x6e;&#x67;&#64;&#122;&#104;&#111;&#x6e;&#103;&#110;&#x61;&#x6e;&#104;&#97;&#x69;&#46;&#99;&#x6f;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -862,6 +862,32 @@ with these **parameters**
       </tags>
   </entry>
   <entry>
+    <title>Partial selection of Spring Data JPA</title>
+    <url>/spring/2016-08-10-partial-selection-with-jpa.html</url>
+    <content><![CDATA[<p>When we use <code>select</code> to retrive some data from MySQL, we do not want to get the whole row with all columns.<br>For example, I have the following <code>tab_staff_info</code> table with nearly 100 columns:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;tab_staff_info&quot;)</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StaffInfo</span> <span class="keyword">extends</span> <span class="title class_">BaseEntity</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * qq号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String qqNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 公司Id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String companyId;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 工号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 姓名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffName;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 30)</span></span><br><span class="line">    <span class="keyword">private</span> String idCardNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 20)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> IdCardType idCardType;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生日</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 性别</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 10)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> SexType sex;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 手机号码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 18)</span></span><br><span class="line">    <span class="keyword">private</span> String mobileNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A lot more columns..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>In most cases, I only want to get some (not all) of the columns. For example, I want to get the basic information, which are: <code>companyId</code>, <code>staffNo</code>, <code>staffName</code> and <code>idCardNo</code>.</p>
+<p>In order to do this, I need to modify the <code>StaffInfoDao</code> interface.</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">StaffInfoDao</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;StaffInfo, String&gt; &#123;</span><br><span class="line">      <span class="meta">@Query(&quot;select new StaffInfo(s.companyId, s.staffNo, s.staffName, s.idCardNo) from StaffInfo s where s.companyId = :companyId&quot;)</span></span><br><span class="line">      List&lt;StaffInfo&gt; <span class="title function_">findStaffBasicInfoByCompanyId</span><span class="params">(<span class="meta">@Param(&quot;companyId&quot;)</span> String companyId)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>And of couse we need to add a constructor to support <code>new StaffInfo(s.companyId, s.staffNo, s.staffName, s.idCardNo)</code> in the JPA QL:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">StaffInfo</span><span class="params">(String companyId, String staffNo, String staffName, String idCardNo)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.companyId = companyId;</span><br><span class="line">      <span class="built_in">this</span>.staffNo = staffNo;</span><br><span class="line">      <span class="built_in">this</span>.staffName = staffName;</span><br><span class="line">      <span class="built_in">this</span>.idCardNo = idCardNo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Change log level of hibernate library to debug and we can see the following output:</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.<span class="keyword">SQL</span>](SqlStatementLogger.java:<span class="number">109</span>) - <span class="keyword">select</span> staffinfo0_.companyId <span class="keyword">as</span> col_0_0_, staffinfo0_.staffNo <span class="keyword">as</span> col_1_0_, staffinfo0_.staffName <span class="keyword">as</span> col_2_0_, staffinfo0_.idCardNo <span class="keyword">as</span> col_3_0_ <span class="keyword">from</span> tab_staff_info staffinfo0_ <span class="keyword">where</span> staffinfo0_.companyId=?</span><br><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:<span class="number">226</span>) - Obtaining JDBC <span class="keyword">connection</span></span><br><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:<span class="number">232</span>) - Obtained JDBC <span class="keyword">connection</span></span><br></pre></td></tr></table></figure>
+
+
+
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/spring/2016-08-10-partial-selection-with-jpa.html" target="_blank">Partial selection of Spring Data JPA</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/spring/2016-08-10-partial-selection-with-jpa.html]]></content>
+      <categories>
+        <category>Spring</category>
+      </categories>
+      <tags>
+        <tag>Spring</tag>
+        <tag>Spring Data JPA</tag>
+        <tag>ORM</tag>
+        <tag>Hibernate</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用Goaccess监控Nginx的运行状态</title>
     <url>/%E8%BF%90%E7%BB%B4/2016-08-12-monitor-nginx-with-goaccess.html</url>
     <content><![CDATA[<h2 id="最终启动命令"><a href="#最终启动命令" class="headerlink" title="最终启动命令"></a>最终启动命令</h2><p>如果你只需要知道最终的启动命令，可以跳过下边所有内容。启动命令：</p>
@@ -946,32 +972,6 @@ with these **parameters**
         <tag>监控</tag>
         <tag>Nginx</tag>
         <tag>Goaccess</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Partial selection of Spring Data JPA</title>
-    <url>/spring/2016-08-10-partial-selection-with-jpa.html</url>
-    <content><![CDATA[<p>When we use <code>select</code> to retrive some data from MySQL, we do not want to get the whole row with all columns.<br>For example, I have the following <code>tab_staff_info</code> table with nearly 100 columns:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Entity</span></span><br><span class="line"><span class="meta">@Table(name = &quot;tab_staff_info&quot;)</span></span><br><span class="line"><span class="meta">@DynamicUpdate</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">StaffInfo</span> <span class="keyword">extends</span> <span class="title class_">BaseEntity</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * qq号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String qqNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 公司Id</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 40)</span></span><br><span class="line">    <span class="keyword">private</span> String companyId;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 工号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 姓名</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 32)</span></span><br><span class="line">    <span class="keyword">private</span> String staffName;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件号</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 30)</span></span><br><span class="line">    <span class="keyword">private</span> String idCardNo;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 证件类型</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 20)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> IdCardType idCardType;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 生日</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column</span></span><br><span class="line">    <span class="keyword">private</span> Date birthday;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 性别</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 10)</span></span><br><span class="line">    <span class="meta">@Enumerated(EnumType.STRING)</span></span><br><span class="line">    <span class="keyword">private</span> SexType sex;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 手机号码</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@Column(length = 18)</span></span><br><span class="line">    <span class="keyword">private</span> String mobileNo;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// A lot more columns..</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>In most cases, I only want to get some (not all) of the columns. For example, I want to get the basic information, which are: <code>companyId</code>, <code>staffNo</code>, <code>staffName</code> and <code>idCardNo</code>.</p>
-<p>In order to do this, I need to modify the <code>StaffInfoDao</code> interface.</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">StaffInfoDao</span> <span class="keyword">extends</span> <span class="title class_">JpaRepository</span>&lt;StaffInfo, String&gt; &#123;</span><br><span class="line">      <span class="meta">@Query(&quot;select new StaffInfo(s.companyId, s.staffNo, s.staffName, s.idCardNo) from StaffInfo s where s.companyId = :companyId&quot;)</span></span><br><span class="line">      List&lt;StaffInfo&gt; <span class="title function_">findStaffBasicInfoByCompanyId</span><span class="params">(<span class="meta">@Param(&quot;companyId&quot;)</span> String companyId)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>And of couse we need to add a constructor to support <code>new StaffInfo(s.companyId, s.staffNo, s.staffName, s.idCardNo)</code> in the JPA QL:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="title function_">StaffInfo</span><span class="params">(String companyId, String staffNo, String staffName, String idCardNo)</span> &#123;</span><br><span class="line">      <span class="built_in">this</span>.companyId = companyId;</span><br><span class="line">      <span class="built_in">this</span>.staffNo = staffNo;</span><br><span class="line">      <span class="built_in">this</span>.staffName = staffName;</span><br><span class="line">      <span class="built_in">this</span>.idCardNo = idCardNo;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>Change log level of hibernate library to debug and we can see the following output:</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.<span class="keyword">SQL</span>](SqlStatementLogger.java:<span class="number">109</span>) - <span class="keyword">select</span> staffinfo0_.companyId <span class="keyword">as</span> col_0_0_, staffinfo0_.staffNo <span class="keyword">as</span> col_1_0_, staffinfo0_.staffName <span class="keyword">as</span> col_2_0_, staffinfo0_.idCardNo <span class="keyword">as</span> col_3_0_ <span class="keyword">from</span> tab_staff_info staffinfo0_ <span class="keyword">where</span> staffinfo0_.companyId=?</span><br><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:<span class="number">226</span>) - Obtaining JDBC <span class="keyword">connection</span></span><br><span class="line">[<span class="number">20160808</span> <span class="number">14</span>:<span class="number">30</span>:<span class="number">14</span>][<span class="keyword">DEBUG</span>][org.hibernate.engine.jdbc.internal.LogicalConnectionImpl](LogicalConnectionImpl.java:<span class="number">232</span>) - Obtained JDBC <span class="keyword">connection</span></span><br></pre></td></tr></table></figure>
-
-
-
-<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/spring/2016-08-10-partial-selection-with-jpa.html" target="_blank">Partial selection of Spring Data JPA</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/spring/2016-08-10-partial-selection-with-jpa.html]]></content>
-      <categories>
-        <category>Spring</category>
-      </categories>
-      <tags>
-        <tag>Spring</tag>
-        <tag>Spring Data JPA</tag>
-        <tag>ORM</tag>
-        <tag>Hibernate</tag>
       </tags>
   </entry>
   <entry>
@@ -4012,36 +4012,6 @@ with these **parameters**
       </tags>
   </entry>
   <entry>
-    <title>Ansible常用命令</title>
-    <url>/%E8%BF%90%E7%BB%B4/ansible-commands.html</url>
-    <content><![CDATA[<h2 id="Host匹配方式"><a href="#Host匹配方式" class="headerlink" title="Host匹配方式"></a>Host匹配方式</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">web_server:!http1:&amp;http2</span><br><span class="line">http*:web_server</span><br><span class="line">web_server<span class="section">[0]</span></span><br><span class="line">web_server<span class="section">[0:3]</span></span><br><span class="line">&#x27;~(web|http)*&#x27;</span><br></pre></td></tr></table></figure>
-
-<h2 id="用户名密码验证方式"><a href="#用户名密码验证方式" class="headerlink" title="用户名密码验证方式"></a>用户名密码验证方式</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -a <span class="string">&quot;shell命令&quot;</span> -k</span><br><span class="line">ansible web_server -a <span class="string">&quot;shell命令&quot;</span> -u username -k</span><br><span class="line">ansible web_server -a <span class="string">&quot;shell命令&quot;</span> -u username --sudo [--ask-sudo-pass]</span><br></pre></td></tr></table></figure>
-
-<h2 id="多进程并发执行"><a href="#多进程并发执行" class="headerlink" title="多进程并发执行"></a>多进程并发执行</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -a <span class="string">&quot;/sbin/reboot&quot;</span> -f 10</span><br></pre></td></tr></table></figure>
-
-<h2 id="Ansible模块"><a href="#Ansible模块" class="headerlink" title="Ansible模块"></a>Ansible模块</h2><p>Shell操作</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -m shell -a <span class="string">&quot;grep &#x27;/sbin/nologin&#x27; /etc/passwd | wc -l&quot;</span></span><br><span class="line">ansible web_server -m shell -a <span class="string">&#x27;echo $PATH&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<p>文件操作</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -m copy -a <span class="string">&quot;src=/etc/hosts dest=/tmp/&quot;</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;dest=/tmp/hosts mode=600 owner=xuad group=xuad&quot;</span> <span class="comment"># chmod chown</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;dest=/tmp/test mode=755 owner=xuad group=xuad state=directory&quot;</span> <span class="comment"># mkdir -p /tmp/test</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;dest=/tmp/test.txt mode=755 owner=xuad group=xuad state=touch&quot;</span> <span class="comment"># touch /tmp/test.txt</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;src=/root/test.txt dest=/tmp/test.txt state=link&quot;</span> <span class="comment"># ln -s</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;dest=/tmp/test.txt state=absent&quot;</span> <span class="comment"># rm -rf</span></span><br></pre></td></tr></table></figure>
-
-<p>软件安装</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=present&quot;</span> <span class="comment"># check if exist</span></span><br><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=latest&quot;</span> <span class="comment"># upgrade</span></span><br><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=removed&quot;</span> <span class="comment"># remove</span></span><br><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=absent&quot;</span> <span class="comment"># check if nonexist</span></span><br><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=installed&quot;</span> <span class="comment"># install</span></span><br></pre></td></tr></table></figure>
-
-<p>用户名密码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -m user -a <span class="string">&quot;name=andy state=absent&quot;</span> <span class="comment"># remove user</span></span><br><span class="line">ansible web_server -m user -a <span class="string">&quot;name=andy state=present&quot;</span> <span class="comment"># create on absence</span></span><br><span class="line">ansible web_server -m user -a <span class="string">&#x27;name=andy password=&quot;&amp;lt;crypted password here&amp;gt;&quot;&#x27;</span></span><br></pre></td></tr></table></figure>
-
-
-<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html" target="_blank">Ansible常用命令</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html]]></content>
-      <categories>
-        <category>运维</category>
-      </categories>
-      <tags>
-        <tag>Ansible</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>数据仓库【四】：四种常见数据模型</title>
     <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</url>
     <content><![CDATA[<p>大数据时代，维度建模已成为各大厂的主流方式。</p>
@@ -4080,6 +4050,166 @@ with these **parameters**
       <tags>
         <tag>Data Warehouse</tag>
         <tag>数据仓库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据仓库【六】：事实表</title>
+    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html</url>
+    <content><![CDATA[<p>事实表作为数据仓库维度建模的核心，紧紧围绕着业务过程来设 计，通过获取描述业务过程的度量来表达业务过程，包含了引用的维度 和与业务过程有关的度量。</p>
+<h2 id="三种事实表概述"><a href="#三种事实表概述" class="headerlink" title="三种事实表概述"></a>三种事实表概述</h2><p>事实表有三种类型 : <strong>事务事实表</strong>、<strong>周期快照事实表</strong>和<strong>累积快照事实表</strong>。</p>
+<h3 id="事务事实表"><a href="#事务事实表" class="headerlink" title="事务事实表"></a>事务事实表</h3><p>也称原子事实表，描述业务过程，跟踪控件或时间上某点的度量事件，保存的是最原子的数据；</p>
+<blockquote>
+<p>个人理解：类似于mysql binlog日志，每一次相关的 change 都记录下来，生成一行新的数据</p>
+</blockquote>
+<h3 id="周期快照事实表"><a href="#周期快照事实表" class="headerlink" title="周期快照事实表"></a>周期快照事实表</h3><p>以一个周期为时间间隔，来记录事实，一般周期可以是每天、每周、每月、每年等；</p>
+<blockquote>
+<p>个人理解：只看某个业务过程，比如订单收货，数据按订单收货时间来切分，周期可以为每天、每月等。</p>
+</blockquote>
+<h3 id="累积快照事实"><a href="#累积快照事实" class="headerlink" title="累积快照事实"></a>累积快照事实</h3><p>用来描述过程开始和结束之间的关键步骤事件，覆盖过程的整个生命周期，通常具有多个日期字段来记录关键时间点；当过程随着生命周期不断变化时，记录也会随着过程的变化而被修改；</p>
+<blockquote>
+<p>个人理解：要看整个生命周期的多个业务过程，比如：创建订单 → 买家付款 → 卖家发货 → 买家确认收货。粒度是一个订单一行数据，创建订单时间，付款时间，发货时间，收货时间，分别作为一个字段，便于计算不同业务过程的时间间隔。</p>
+</blockquote>
+<h2 id="三种事实表对比"><a href="#三种事实表对比" class="headerlink" title="三种事实表对比"></a>三种事实表对比</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>事务事实表</th>
+<th>周期快照事实表</th>
+<th>累积快照事实表</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时期/时间</td>
+<td>离散事务时间点</td>
+<td>以有规律的、可预测的</td>
+<td>用于时间跨度不确定的不断变化的工作流</td>
+</tr>
+<tr>
+<td>日期维度</td>
+<td>事务日期</td>
+<td>快照日期</td>
+<td>相关业务过程涉及的多个日期</td>
+</tr>
+<tr>
+<td>粒度</td>
+<td>每行代表实体的一个事务</td>
+<td>每行代表某时间周期的一个实体</td>
+<td>每行代表一个实体的生命周期</td>
+</tr>
+<tr>
+<td>事实</td>
+<td>事务事实</td>
+<td>累积事实</td>
+<td>相关业务过程事实和时间间隔事实</td>
+</tr>
+<tr>
+<td>事实表加载</td>
+<td>插入</td>
+<td>插入</td>
+<td>插入与更新</td>
+</tr>
+<tr>
+<td>事实表更新</td>
+<td>不更新</td>
+<td>不更新</td>
+<td>业务过程变更时更新</td>
+</tr>
+</tbody></table>
+<h2 id="事实表设计-8-大原则"><a href="#事实表设计-8-大原则" class="headerlink" title="事实表设计 8 大原则"></a>事实表设计 8 大原则</h2><h3 id="尽可能包含所有与业务过程相关的事实"><a href="#尽可能包含所有与业务过程相关的事实" class="headerlink" title="尽可能包含所有与业务过程相关的事实"></a>尽可能包含所有与业务过程相关的事实</h3><p>分析哪些事实与业务过程相关，是设计过程中非常重要的关注点；<br>在事实表中，尽量包含所有与业务过程相关的事实，即使存在冗余，由于事实通常是数字型，存储开销不会太大；</p>
+<h3 id="只选择与业务过程相关的事实"><a href="#只选择与业务过程相关的事实" class="headerlink" title="只选择与业务过程相关的事实"></a>只选择与业务过程相关的事实</h3><p>如，订单的下单这个业务过程，事实表中不应该存在支付金额这个表示支付业务过程的事实；</p>
+<h3 id="分解不可加性事实为可加的组件"><a href="#分解不可加性事实为可加的组件" class="headerlink" title="分解不可加性事实为可加的组件"></a>分解不可加性事实为可加的组件</h3><p>如，订单的优惠率，应分解为订单原价金额与订单优惠金额两个事实存储在事实表中；</p>
+<h3 id="在选择维度和事实之前必须先声明粒度"><a href="#在选择维度和事实之前必须先声明粒度" class="headerlink" title="在选择维度和事实之前必须先声明粒度"></a>在选择维度和事实之前必须先声明粒度</h3><ul>
+<li>因为原子粒度提供了最大限度的灵活性，可以支持无法预期的各种细节层次的用户需求；</li>
+<li>粒度用于确定事实表中一行所表示业务的细节层次，决定了维度模型的扩展性；</li>
+<li>每个维度和事实必须与所定义的粒度保持一致；</li>
+<li>设计事实表时，粒度定义越细越好，一般从最低级别的原子粒度开始；</li>
+</ul>
+<h3 id="在同一个事实表中不能有多种不同粒度的事实"><a href="#在同一个事实表中不能有多种不同粒度的事实" class="headerlink" title="在同一个事实表中不能有多种不同粒度的事实"></a>在同一个事实表中不能有多种不同粒度的事实</h3><ul>
+<li>粒度为票一级；（实际业务中，一个订单可以同时支付多张票）</li>
+<li>票支付金额和票折扣金额，两个事实的粒度为 “票级”，与定义的粒度一致；</li>
+<li>订单支付金额和订单票数，两个事实的粒度为 “订单级”，属于上一层订单级数据，与 “票级” 事实表的粒度不一致，且不能进行汇总；</li>
+<li>如果，以订单金额和订单票数这两个维度汇总总金额和总票数，会造成大量的重复计算；</li>
+</ul>
+<h3 id="事实的单位要保持一致"><a href="#事实的单位要保持一致" class="headerlink" title="事实的单位要保持一致"></a>事实的单位要保持一致</h3><p>如，订单金额、订单优惠金额、订单运费这 3 个事实，应该采用统一的计量单位，统一为元或者分，以方便使用；</p>
+<h3 id="对事实的-null-值要处理"><a href="#对事实的-null-值要处理" class="headerlink" title="对事实的 null 值要处理"></a>对事实的 null 值要处理</h3><ul>
+<li>原因：在数据库中，null 值对常用数字型字段的 SQL 过滤条件都不生效；如，大于、小于、等于、大于或等于、小于或等于；</li>
+<li>处理：用 0 代替 null ；</li>
+</ul>
+<h3 id="使用退化维度提高事实表的易用性"><a href="#使用退化维度提高事实表的易用性" class="headerlink" title="使用退化维度提高事实表的易用性"></a>使用退化维度提高事实表的易用性</h3><p>易用性：对事实表，更较少关联操作、过滤查询、控制聚合层次、排序数据、定义主从关系等；</p>
+<p>事实表中存储各种类型的常用维度信息，较少下游用户使用时关联多个表的操作；<br>通过退化维度，可以实现对事实表的过滤查询、控制聚合层次、排序数据、定义主从关系等；</p>
+<p>在 Kimball 的维度建模中，通常按照星形模型的方式设计，通过事实表的外键关联专门的维表，这种方式来获取维度，谨慎使用退化维表；这与大数据领域的事实表设计不一样；</p>
+<p>思路：通过增加冗余存储，减少计算开销，提高使用效率；</p>
+<h2 id="事实表设计方法"><a href="#事实表设计方法" class="headerlink" title="事实表设计方法"></a>事实表设计方法</h2><p>Kimball 的维度模型设计 4 步法：</p>
+<ol>
+<li>选择业务过程</li>
+<li>声明粒度</li>
+<li>确定维度</li>
+<li>确定事实；</li>
+</ol>
+<p>当前的互联网大数据环境，维度模型的设计，是基于 Kimball 的四步维度建模方法进行了更进一步的改进：</p>
+<h3 id="第一步：选择业务过程及确定事实表类型"><a href="#第一步：选择业务过程及确定事实表类型" class="headerlink" title="第一步：选择业务过程及确定事实表类型"></a>第一步：选择业务过程及确定事实表类型</h3><ul>
+<li>如淘宝的一个交易订单，选择 “买家付款” 这个业务过程，则事实表类型应为只包含买家付款这一个业务过程的 “单事务事实表”；</li>
+<li>如选择了所有 4 个业务过程，并且需要分享各业务过程的时间间隔，则事实表类型应为包含了所有 4 个业务过程的 “累积快照事实表”；</li>
+<li>如是选择 “买家付款” 这个业务过程，还是选择 “创建订单” 和 “买家付款” 这两个业务过程，具体根据业务情况来定；</li>
+</ul>
+<p>思路：详细分析需求，对业务的整个生命周期进行分析，明确关键的业务步骤，从而选择与需求有关的业务过程；</p>
+<p>  实例说明：</p>
+<ol>
+<li>分析业务的生命周期，业务过程通常使用行为动词表示业务执行的活动；</li>
+<li>明确关键的业务步骤：该订单流转的业务过程有 4 个：创建订单 → 买家付款 → 卖家发货 → 买家确认收货；</li>
+<li>根据业务需求，选择与维度建模有关的业务过程；</li>
+<li>根据所选的业务过程确定事实表类型；</li>
+</ol>
+<h3 id="第二步：声明粒度"><a href="#第二步：声明粒度" class="headerlink" title="第二步：声明粒度"></a>第二步：声明粒度</h3><p>粒度的选择：尽量选择最细级别的原子粒度，以确保事实表的应用具有最大的灵活性；</p>
+<ul>
+<li>灵活性：支持无法预期的各种细节层次的用户需求；</li>
+<li>对于订单级别，粒度可以定义为最细的订单级别；（如，父子订单，事实表的粒度可以定 “子订单级别” ；）</li>
+<li>粒度的声明，意味着精确定义事实表的每一行所表示的业务含义；</li>
+</ul>
+<p>明确的粒度能够确保对实表中行的意思的理解不会产生混淆，保证所有的事实按照同样的细节层次记录；</p>
+<h3 id="第三步：确定维度"><a href="#第三步：确定维度" class="headerlink" title="第三步：确定维度"></a>第三步：确定维度</h3><p>如，淘宝订单 “付款事务事实表” 中，粒度为 “子订单”，相关的维度有买家、卖家、商品、收货人信息、业务类型、订单时间等；</p>
+<p>完成了粒度声明，就意味着确定了主键，对应的维度组合以及相关的维度字段也可以确定了；</p>
+<p>选择维度的原则：应该选择能够描述清楚业务过程所处的环境的维度信息；</p>
+<h3 id="第四步：确定事实"><a href="#第四步：确定事实" class="headerlink" title="第四步：确定事实"></a>第四步：确定事实</h3><p>确定原则：选择与业务过程有关的所有事实，且事实的粒度要与所声明的事实表的粒度一致；</p>
+<p>思路：可以通过回答 “过程的度量是什么” 来确定；</p>
+<p>注意：将不可加性事实分解为可加的组件；（分解的原则：可以通过分解后的可加的属性值，计算得到不可加性事实）</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html" target="_blank">数据仓库【六】：事实表</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html]]></content>
+      <categories>
+        <category>数据仓库</category>
+      </categories>
+      <tags>
+        <tag>Data Warehouse</tag>
+        <tag>数据仓库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ansible常用命令</title>
+    <url>/%E8%BF%90%E7%BB%B4/ansible-commands.html</url>
+    <content><![CDATA[<h2 id="Host匹配方式"><a href="#Host匹配方式" class="headerlink" title="Host匹配方式"></a>Host匹配方式</h2><figure class="highlight ini"><table><tr><td class="code"><pre><span class="line">web_server:!http1:&amp;http2</span><br><span class="line">http*:web_server</span><br><span class="line">web_server<span class="section">[0]</span></span><br><span class="line">web_server<span class="section">[0:3]</span></span><br><span class="line">&#x27;~(web|http)*&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="用户名密码验证方式"><a href="#用户名密码验证方式" class="headerlink" title="用户名密码验证方式"></a>用户名密码验证方式</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -a <span class="string">&quot;shell命令&quot;</span> -k</span><br><span class="line">ansible web_server -a <span class="string">&quot;shell命令&quot;</span> -u username -k</span><br><span class="line">ansible web_server -a <span class="string">&quot;shell命令&quot;</span> -u username --sudo [--ask-sudo-pass]</span><br></pre></td></tr></table></figure>
+
+<h2 id="多进程并发执行"><a href="#多进程并发执行" class="headerlink" title="多进程并发执行"></a>多进程并发执行</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -a <span class="string">&quot;/sbin/reboot&quot;</span> -f 10</span><br></pre></td></tr></table></figure>
+
+<h2 id="Ansible模块"><a href="#Ansible模块" class="headerlink" title="Ansible模块"></a>Ansible模块</h2><p>Shell操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -m shell -a <span class="string">&quot;grep &#x27;/sbin/nologin&#x27; /etc/passwd | wc -l&quot;</span></span><br><span class="line">ansible web_server -m shell -a <span class="string">&#x27;echo $PATH&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>文件操作</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -m copy -a <span class="string">&quot;src=/etc/hosts dest=/tmp/&quot;</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;dest=/tmp/hosts mode=600 owner=xuad group=xuad&quot;</span> <span class="comment"># chmod chown</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;dest=/tmp/test mode=755 owner=xuad group=xuad state=directory&quot;</span> <span class="comment"># mkdir -p /tmp/test</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;dest=/tmp/test.txt mode=755 owner=xuad group=xuad state=touch&quot;</span> <span class="comment"># touch /tmp/test.txt</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;src=/root/test.txt dest=/tmp/test.txt state=link&quot;</span> <span class="comment"># ln -s</span></span><br><span class="line">ansible web_server -m file -a <span class="string">&quot;dest=/tmp/test.txt state=absent&quot;</span> <span class="comment"># rm -rf</span></span><br></pre></td></tr></table></figure>
+
+<p>软件安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=present&quot;</span> <span class="comment"># check if exist</span></span><br><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=latest&quot;</span> <span class="comment"># upgrade</span></span><br><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=removed&quot;</span> <span class="comment"># remove</span></span><br><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=absent&quot;</span> <span class="comment"># check if nonexist</span></span><br><span class="line">ansible web_server -m yum -a <span class="string">&quot;name=wget state=installed&quot;</span> <span class="comment"># install</span></span><br></pre></td></tr></table></figure>
+
+<p>用户名密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ansible web_server -m user -a <span class="string">&quot;name=andy state=absent&quot;</span> <span class="comment"># remove user</span></span><br><span class="line">ansible web_server -m user -a <span class="string">&quot;name=andy state=present&quot;</span> <span class="comment"># create on absence</span></span><br><span class="line">ansible web_server -m user -a <span class="string">&#x27;name=andy password=&quot;&amp;lt;crypted password here&amp;gt;&quot;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html" target="_blank">Ansible常用命令</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E8%BF%90%E7%BB%B4/ansible-commands.html]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>Ansible</tag>
       </tags>
   </entry>
   <entry>
@@ -4200,6 +4330,60 @@ with these **parameters**
       </tags>
   </entry>
   <entry>
+    <title>自动为Hexo博客添加文章链接</title>
+    <url>/hexo/hexo-add-post-links.html</url>
+    <content><![CDATA[<p>文章链接是写博客时一个非常常用的东西，因为如果每次写博客都需要在文章前后加上一个几乎格式一模一样的东西，还是很烦人的，特别如果你突然决定改变文章的永久链接，那么就更加烦人了，因为默认在Hexo里面，我们需要一篇文章一篇文章的把所有的文章链接改了（虽然这种情况我们需要尽量避免）。</p>
+<p>这里我们介绍一个插件，可以自动为博客添加文章链接：</p>
+<blockquote>
+<p>hexo-tag-post-link</p>
+</blockquote>
+<p>项目地址：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>和其他的hexo插件一样，hexo-tag-post-link安装起来十分简单，只需要在博客目录下执行如下命令即可：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-post-link --save</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="配置模板"><a href="#配置模板" class="headerlink" title="配置模板"></a>配置模板</h3><h4 id="添加模板文件：post-link-yml"><a href="#添加模板文件：post-link-yml" class="headerlink" title="添加模板文件：post_link.yml"></a>添加模板文件：post_link.yml</h4><ol>
+<li>首先我们需要在<code>source</code>目录下创建一个<code>_data</code>目录，如果没有的话。<code>source/_data</code>这个目录是Hexo的数据目录，用来存放一些公用的全局数据，所以的模板文件也放在这里。</li>
+<li>现在在<code>_data</code>目录下创建一个名为<code>post_link.yml</code>的文件，这个文件就是我们的配置文件了。</li>
+<li>现在我们可以来添加模板了！模板的格式非常简单，如下：</li>
+</ol>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">format</span></span><br></pre></td></tr></table></figure>
+
+<p>比如我的博客使用的配置如下，而最后的效果就如本文最上方显示的那样。</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">footer: <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>转载请注明出处：<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%= post_permalink %&gt;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>&lt;%= post_title %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>原文地址：<span class="tag">&lt;/<span class="name">b</span>&gt;</span>&lt;%= post_permalink %&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="可用模板变量"><a href="#可用模板变量" class="headerlink" title="可用模板变量"></a>可用模板变量</h4><ul>
+<li>site_title</li>
+<li>site_subtitle</li>
+<li>site_description</li>
+<li>site_author</li>
+<li>site_url</li>
+<li>post_title</li>
+<li>post_slug</li>
+<li>post_created</li>
+<li>post_created_date</li>
+<li>post_created_time</li>
+<li>post_updated</li>
+<li>post_updated_date</li>
+<li>post_updated_time</li>
+<li>post_relative_url</li>
+<li>post_permalink</li>
+</ul>
+<h3 id="增加全局配置"><a href="#增加全局配置" class="headerlink" title="增加全局配置"></a>增加全局配置</h3><p>在配置文件_config.yml中添加如下配置：</p>
+<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_link:</span></span><br><span class="line">  <span class="comment">#insert_before_post: header</span></span><br><span class="line">  <span class="attr">insert_after_post:</span> <span class="string">footer</span></span><br></pre></td></tr></table></figure>
+
+<p>以上配置完成，即可在文章末尾看到文章声明和原文地址。</p>
+<h2 id="更多使用方法"><a href="#更多使用方法" class="headerlink" title="更多使用方法"></a>更多使用方法</h2><p>可参考Github中的项目说明：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html" target="_blank">自动为Hexo博客添加文章链接</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Post Links</tag>
+        <tag>Github Pages</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用Let&#39;s Encrypt免费证书让你的网站SSL化</title>
     <url>/nginx/letsencrypt-for-free-ssl-cert.html</url>
     <content><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p><a href="https://letsencrypt.org/">Let’s Encrypt</a>是一个免费颁发SSL证书的非盈利组织，其颁布的证书已被Chrome等主流浏览器认可。GitHub Pages站点默认使用的SSL证书也是<a href="https://letsencrypt.org/">Let’s Encrypt</a>提供的。</p>
@@ -4257,64 +4441,10 @@ with these **parameters**
       </categories>
       <tags>
         <tag>Ubuntu</tag>
+        <tag>Github Pages</tag>
         <tag>Ubuntu 20.04</tag>
         <tag>Nignx</tag>
         <tag>SSL</tag>
-        <tag>Github Pages</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自动为Hexo博客添加文章链接</title>
-    <url>/hexo/hexo-add-post-links.html</url>
-    <content><![CDATA[<p>文章链接是写博客时一个非常常用的东西，因为如果每次写博客都需要在文章前后加上一个几乎格式一模一样的东西，还是很烦人的，特别如果你突然决定改变文章的永久链接，那么就更加烦人了，因为默认在Hexo里面，我们需要一篇文章一篇文章的把所有的文章链接改了（虽然这种情况我们需要尽量避免）。</p>
-<p>这里我们介绍一个插件，可以自动为博客添加文章链接：</p>
-<blockquote>
-<p>hexo-tag-post-link</p>
-</blockquote>
-<p>项目地址：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>和其他的hexo插件一样，hexo-tag-post-link安装起来十分简单，只需要在博客目录下执行如下命令即可：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-tag-post-link --save</span><br></pre></td></tr></table></figure>
-
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="配置模板"><a href="#配置模板" class="headerlink" title="配置模板"></a>配置模板</h3><h4 id="添加模板文件：post-link-yml"><a href="#添加模板文件：post-link-yml" class="headerlink" title="添加模板文件：post_link.yml"></a>添加模板文件：post_link.yml</h4><ol>
-<li>首先我们需要在<code>source</code>目录下创建一个<code>_data</code>目录，如果没有的话。<code>source/_data</code>这个目录是Hexo的数据目录，用来存放一些公用的全局数据，所以的模板文件也放在这里。</li>
-<li>现在在<code>_data</code>目录下创建一个名为<code>post_link.yml</code>的文件，这个文件就是我们的配置文件了。</li>
-<li>现在我们可以来添加模板了！模板的格式非常简单，如下：</li>
-</ol>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">format</span></span><br></pre></td></tr></table></figure>
-
-<p>比如我的博客使用的配置如下，而最后的效果就如本文最上方显示的那样。</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">footer: <span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">hr</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>转载请注明出处：<span class="tag">&lt;/<span class="name">b</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&lt;%= post_permalink %&gt;&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span>&lt;%= post_title %&gt;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">b</span>&gt;</span>原文地址：<span class="tag">&lt;/<span class="name">b</span>&gt;</span>&lt;%= post_permalink %&gt;</span><br></pre></td></tr></table></figure>
-
-<h4 id="可用模板变量"><a href="#可用模板变量" class="headerlink" title="可用模板变量"></a>可用模板变量</h4><ul>
-<li>site_title</li>
-<li>site_subtitle</li>
-<li>site_description</li>
-<li>site_author</li>
-<li>site_url</li>
-<li>post_title</li>
-<li>post_slug</li>
-<li>post_created</li>
-<li>post_created_date</li>
-<li>post_created_time</li>
-<li>post_updated</li>
-<li>post_updated_date</li>
-<li>post_updated_time</li>
-<li>post_relative_url</li>
-<li>post_permalink</li>
-</ul>
-<h3 id="增加全局配置"><a href="#增加全局配置" class="headerlink" title="增加全局配置"></a>增加全局配置</h3><p>在配置文件_config.yml中添加如下配置：</p>
-<figure class="highlight yml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_link:</span></span><br><span class="line">  <span class="comment">#insert_before_post: header</span></span><br><span class="line">  <span class="attr">insert_after_post:</span> <span class="string">footer</span></span><br></pre></td></tr></table></figure>
-
-<p>以上配置完成，即可在文章末尾看到文章声明和原文地址。</p>
-<h2 id="更多使用方法"><a href="#更多使用方法" class="headerlink" title="更多使用方法"></a>更多使用方法</h2><p>可参考Github中的项目说明：<a href="https://github.com/r12f/hexo-tag-post-link">https://github.com/r12f/hexo-tag-post-link</a></p>
-<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html" target="_blank">自动为Hexo博客添加文章链接</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html]]></content>
-      <categories>
-        <category>Hexo</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Github Pages</tag>
-        <tag>Post Links</tag>
       </tags>
   </entry>
   <entry>

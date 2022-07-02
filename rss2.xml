@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Mon, 04 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Tue, 05 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>数据仓库【六】：事实表</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html</guid>
+      <pubDate>Tue, 05 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>事实表作为数据仓库维度建模的核心，紧紧围绕着业务过程来设计，通过获取描述业务过程的度量来表达业务过程，包含了引用的维度和与业务过程有关的度量。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据仓库【五】：通用的数据仓库分层方法</title>
@@ -433,9 +456,9 @@
       
       <category domain="https://www.xiaotanzhu.com/tags/hexo/">Hexo</category>
       
-      <category domain="https://www.xiaotanzhu.com/tags/github-pages/">Github Pages</category>
-      
       <category domain="https://www.xiaotanzhu.com/tags/post-links/">Post Links</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/github-pages/">Github Pages</category>
       
       
       <comments>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html#disqus_thread</comments>
@@ -464,29 +487,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/merlin/2021-07-02-enable-iptv-through-merlin.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Java中的DelayQueue</title>
-      <link>https://www.xiaotanzhu.com/java/delayqueue-in-java.html</link>
-      <guid>https://www.xiaotanzhu.com/java/delayqueue-in-java.html</guid>
-      <pubDate>Sun, 27 Jun 2021 16:00:00 GMT</pubDate>
-      
-      <description>Java中的DelayQueue</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/java/">Java</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/java/">Java</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/delayqueue/">DelayQueue</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/java/delayqueue-in-java.html#disqus_thread</comments>
       
     </item>
     
