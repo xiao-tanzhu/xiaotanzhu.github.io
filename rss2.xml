@@ -15,37 +15,14 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Fri, 01 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Mon, 04 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
-    
-    <item>
-      <title>数据仓库【三】：基本概念</title>
-      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html</link>
-      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html</guid>
-      <pubDate>Fri, 01 Jul 2022 16:00:00 GMT</pubDate>
-      
-      <description>众所周知，做数据分析、BI建设，都离不开数据仓库建设，数仓建设的本质目的是支撑分析决策。今天跟着我来学学数据仓库的基础知识</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html#disqus_thread</comments>
-      
-    </item>
     
     <item>
       <title>数据仓库【五】：通用的数据仓库分层方法</title>
       <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html</link>
       <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html</guid>
-      <pubDate>Fri, 01 Jul 2022 16:00:00 GMT</pubDate>
+      <pubDate>Mon, 04 Jul 2022 16:00:00 GMT</pubDate>
       
       <description>数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。</description>
       
@@ -61,6 +38,52 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数据仓库【四】：四种常见数据模型</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</guid>
+      <pubDate>Sun, 03 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>维度建模从分析决策的需求出发构建模型，为分析需求服务。重点关注用户如何快速的完成数据分析，可以直观的反应业务模型中的业务问题，需要大量的数据预处理、数据冗余，有较好的大规模复杂查询的响应性能。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>数据仓库【三】：基本概念</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html</guid>
+      <pubDate>Sat, 02 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>众所周知，做数据分析、BI建设，都离不开数据仓库建设，数仓建设的本质目的是支撑分析决策。今天跟着我来学学数据仓库的基础知识</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html#disqus_thread</comments>
       
     </item>
     
@@ -91,7 +114,7 @@
       <title>数据仓库【一】：数据仓库的8个发展阶段</title>
       <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html</link>
       <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html</guid>
-      <pubDate>Fri, 01 Jul 2022 16:00:00 GMT</pubDate>
+      <pubDate>Thu, 30 Jun 2022 16:00:00 GMT</pubDate>
       
       <description>数据仓库的8个发展阶段：概念、萌芽、集成、确立、数据集市、争吵与混乱、合并</description>
       
@@ -107,29 +130,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>数据仓库【四】：四种常见数据模型</title>
-      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</link>
-      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</guid>
-      <pubDate>Fri, 01 Jul 2022 16:00:00 GMT</pubDate>
-      
-      <description>维度建模从分析决策的需求出发构建模型，为分析需求服务。重点关注用户如何快速的完成数据分析，可以直观的反应业务模型中的业务问题，需要大量的数据预处理、数据冗余，有较好的大规模复杂查询的响应性能。</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html#disqus_thread</comments>
       
     </item>
     

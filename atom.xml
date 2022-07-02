@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2022-07-01T16:00:00.000Z</updated>
+  <updated>2022-07-04T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -17,14 +17,14 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>数据仓库【三】：基本概念</title>
-    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html"/>
-    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html</id>
-    <published>2022-07-01T16:00:00.000Z</published>
-    <updated>2022-07-01T16:00:00.000Z</updated>
+    <title>数据仓库【五】：通用的数据仓库分层方法</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html</id>
+    <published>2022-07-04T16:00:00.000Z</published>
+    <updated>2022-07-04T16:00:00.000Z</updated>
     
     
-    <summary type="html">众所周知，做数据分析、BI建设，都离不开数据仓库建设，数仓建设的本质目的是支撑分析决策。今天跟着我来学学数据仓库的基础知识</summary>
+    <summary type="html">数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。</summary>
     
     
     
@@ -38,14 +38,35 @@
   </entry>
   
   <entry>
-    <title>数据仓库【五】：通用的数据仓库分层方法</title>
-    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html"/>
-    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html</id>
-    <published>2022-07-01T16:00:00.000Z</published>
-    <updated>2022-07-01T16:00:00.000Z</updated>
+    <title>数据仓库【四】：四种常见数据模型</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</id>
+    <published>2022-07-03T16:00:00.000Z</published>
+    <updated>2022-07-03T16:00:00.000Z</updated>
     
     
-    <summary type="html">数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。</summary>
+    <summary type="html">维度建模从分析决策的需求出发构建模型，为分析需求服务。重点关注用户如何快速的完成数据分析，可以直观的反应业务模型中的业务问题，需要大量的数据预处理、数据冗余，有较好的大规模复杂查询的响应性能。</summary>
+    
+    
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+    <category term="Data Warehouse" scheme="https://www.xiaotanzhu.com/tags/data-warehouse/"/>
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>数据仓库【三】：基本概念</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html</id>
+    <published>2022-07-02T16:00:00.000Z</published>
+    <updated>2022-07-02T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">众所周知，做数据分析、BI建设，都离不开数据仓库建设，数仓建设的本质目的是支撑分析决策。今天跟着我来学学数据仓库的基础知识</summary>
     
     
     
@@ -83,32 +104,11 @@
     <title>数据仓库【一】：数据仓库的8个发展阶段</title>
     <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html"/>
     <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html</id>
-    <published>2022-07-01T16:00:00.000Z</published>
-    <updated>2022-07-01T16:00:00.000Z</updated>
+    <published>2022-06-30T16:00:00.000Z</published>
+    <updated>2022-06-30T16:00:00.000Z</updated>
     
     
     <summary type="html">数据仓库的8个发展阶段：概念、萌芽、集成、确立、数据集市、争吵与混乱、合并</summary>
-    
-    
-    
-    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
-    
-    
-    <category term="Data Warehouse" scheme="https://www.xiaotanzhu.com/tags/data-warehouse/"/>
-    
-    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>数据仓库【四】：四种常见数据模型</title>
-    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html"/>
-    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</id>
-    <published>2022-07-01T16:00:00.000Z</published>
-    <updated>2022-07-01T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">维度建模从分析决策的需求出发构建模型，为分析需求服务。重点关注用户如何快速的完成数据分析，可以直观的反应业务模型中的业务问题，需要大量的数据预处理、数据冗余，有较好的大规模复杂查询的响应性能。</summary>
     
     
     

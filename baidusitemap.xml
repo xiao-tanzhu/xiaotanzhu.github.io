@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html</loc>
-    <lastmod>2022-07-01</lastmod>
+    <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html</loc>
+    <lastmod>2022-07-04</lastmod>
   </url>
   <url>
-    <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html</loc>
-    <lastmod>2022-07-01</lastmod>
+    <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</loc>
+    <lastmod>2022-07-03</lastmod>
+  </url>
+  <url>
+    <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html</loc>
+    <lastmod>2022-07-02</lastmod>
   </url>
   <url>
     <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html</loc>
@@ -14,11 +18,7 @@
   </url>
   <url>
     <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html</loc>
-    <lastmod>2022-07-01</lastmod>
-  </url>
-  <url>
-    <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-models.html</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-06-30</lastmod>
   </url>
   <url>
     <loc>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html</loc>
