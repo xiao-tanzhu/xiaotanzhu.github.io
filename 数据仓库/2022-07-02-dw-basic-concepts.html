@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaotanzhu.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="众所周知，做数据分析、BI建设，都离不开数据仓库建设，数仓建设的本质目的是支撑分析决策。今天跟着我来学学数据仓库的基础知识">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据仓库【三】：基本概念">
+<meta property="og:url" content="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="众所周知，做数据分析、BI建设，都离不开数据仓库建设，数仓建设的本质目的是支撑分析决策。今天跟着我来学学数据仓库的基础知识">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-01T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="Data Warehouse">
+<meta property="article:tag" content="数据仓库">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html","path":"数据仓库/2022-07-02-dw-basic-concepts.html","title":"数据仓库【三】：基本概念"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据仓库【三】：基本概念 | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-139248857-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小炭猪</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">数据仓库概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="nav-number">2.</span> <span class="nav-text">数据仓库核心概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%B4%E5%BA%A6"><span class="nav-number">2.1.</span> <span class="nav-text">维度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BA%A6%E9%87%8F"><span class="nav-number">2.2.</span> <span class="nav-text">度量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BA%8B%E5%AE%9E%E8%A1%A8"><span class="nav-number">2.3.</span> <span class="nav-text">事实表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%88%86%E5%B1%82%E6%9E%B6%E6%9E%84"><span class="nav-number">2.4.</span> <span class="nav-text">数据仓库分层架构</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">75</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">115</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据仓库【三】：基本概念 | 小炭猪">
+      <meta itemprop="description" content="众所周知，做数据分析、BI建设，都离不开数据仓库建设，数仓建设的本质目的是支撑分析决策。今天跟着我来学学数据仓库的基础知识">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据仓库【三】：基本概念
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-02 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-02T00:00:00+08:00">2022-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据仓库</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html" class="post-meta-item leancloud_visitors" data-flag-title="数据仓库【三】：基本概念" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+            <div class="post-description">众所周知，做数据分析、BI建设，都离不开数据仓库建设，数仓建设的本质目的是支撑分析决策。今天跟着我来学学数据仓库的基础知识</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>众所周知，做数据分析、BI建设，都离不开数据仓库建设，数仓建设的本质目的是支撑分析决策。今天跟着我来学学数据仓库的基础知识，通过本文的阅读，你将获得以下方面的认知：</p>
+<ol>
+<li>什么是数仓</li>
+<li>数仓的核心概念</li>
+<li>数仓的分层架构</li>
+</ol>
+<h2 id="数据仓库概述"><a href="#数据仓库概述" class="headerlink" title="数据仓库概述"></a>数据仓库概述</h2><p>数据仓库，顾名思义，就是存储数据的仓库。</p>
+<p>现实中的仓库会有不同的分区和归类，分区下有多个货架，货架上堆放着各种各样的商品。对于数据仓库来说，分区归类就类似于数据仓库的基础架构，数据仓库的数据存储结构（如表）就是仓库的货架，而商品则是对应数据仓库实际存储的各种数据。无论是什么样的仓库，无论仓库大小，其目的都是为了实现物品的集中管理、有序存取，数据仓库也是一样，它管理存储的是数据以及数据结构。</p>
+<p>其实业界对于数据仓库早已有了广泛认可的定义，即：<strong>数据仓库是一个面向主题的(Subject Oriented)、集成的(Integrated)、相对稳定的(Non-Volatile)、反映历史变化(Time Variant)的数据集合，用于支持管理决策</strong>。</p>
+<p>数据仓库本质上是一种特殊的数据组织形式：</p>
+<ol>
+<li>面向主题，即数据仓库中表的设计是按照一个个主题进行组织的而非按照业务流程设计；</li>
+<li>集成性，是指将企业中各大业务系统进行数据集中、整合、加工从而形成全局统一的数据视图；</li>
+<li>相对稳定，则是指数据仓库中的数据不会做频繁的增删改操作，相对于业务系统中频繁的事务处理，其数据变化相对稳定；</li>
+<li>反应历史变化，表明数据仓库通常会保存数据的历史备份，因此就可以从中获取数据历史变化情况。</li>
+</ol>
+<p>数据仓库的这些特性满足了分析型应用的需求，可以更好的帮助企业制定管理决策。</p>
+<h2 id="数据仓库核心概念"><a href="#数据仓库核心概念" class="headerlink" title="数据仓库核心概念"></a>数据仓库核心概念</h2><p>理解完数据仓库基本概念和特性，接着我们来学习下数据仓库的核心概念。</p>
+<h3 id="维度"><a href="#维度" class="headerlink" title="维度"></a>维度</h3><p>维度是一个<strong>与业务相关的观察角度</strong>，比如我们从地区角度观察哪个地区的销售额最多，那么地区就是一个维度。在数据仓库中我们将这些维度信息存储成一张张数据库表，我们称之为维表。</p>
+<p>维表主要分为：单级维、层级维、变化维。</p>
+<ul>
+<li><strong>单级维</strong>是指一对一的代码表，不存在层级关系，最主要的作用是<strong>将事实表中的代码显示为标题（名称）</strong>。</li>
+<li><strong>层级维</strong>是具有分层结构的维度表，比如地区维，层级往上可以到区、市、省、国家等。</li>
+<li><strong>缓慢变化维</strong>是随着时间属性变化的，如机构维，机构名称会随时间而改变。</li>
+</ul>
+<p>维表通常由维主键编码和维度名称以及其他属性字段组成。</p>
+<h3 id="度量"><a href="#度量" class="headerlink" title="度量"></a>度量</h3><p>度量是<strong>反映企业运行情况或状态的一些数值指标，是业务量化的表示，可以用来监测业务的成效</strong>，比如销售额、利润来反应企业业绩。</p>
+<h3 id="事实表"><a href="#事实表" class="headerlink" title="事实表"></a>事实表</h3><p>事实表<strong>也被称为主题表，它是由若干维度和度量组合而成，表达期望分析的主题</strong>。事实表中的多个维度的组合决定了事实表的数据详细程度，这种详细程度我们称之为颗粒度。以颗粒度来划分主题表的话，通常会有三种事实表：<strong>事务粒度事实表</strong>、<strong>周期快照粒度事实表</strong>、<strong>累积快照粒度事实表</strong>。</p>
+<p>以一个例子来说明，比如某个商品的一笔销售记录，我们用表记录下来，这条记录已经是<strong>最小的数据记录单元，不可再分，因此它是一个事务粒度的事实表</strong>，我们将这张表按自然月进行汇总得到该商品月度销售情况，那么这张表就是<strong>按一定周期记录事实，我们称之为周期快照粒度事实表</strong>。最后一种<strong>累积快照事实表，则记录覆盖整个生命周期过程中的不同阶段的关键信息</strong>，如订单累积快照事实表，包括下单时间、付款时间、发货时间、收货时间等，通过多个时间字段记录订单从产生到业务完结的关键节点，在订单的不同阶段，这些时间字段逐步被填充。</p>
+<p>在数据仓库中，维度表和事实表的设计需要遵循一些重要原则，即<strong>一致性维度</strong>和<strong>一致性事实</strong>。</p>
+<p>所谓<strong>一致性维度</strong>是指在同一个集市内，两个维度如果有关系，要么就是完全一样的，要么就是一个维度在数学意义上是另一个维度的子集，例如，如果建立月维度话，月维度的各种描述必须与日期维度中的完全一致，最常用的做法就是在日期维度上建立视图生成月维度。这样月维度就可以是日期维度的子集，在后续钻取等操作时可以保持一致；</p>
+<p>所谓<strong>一致性事实</strong>，即是指表达相同业务含义的度量（或称为指标）需要在描述定义和计算口径、度量单位等保持一致，杜绝系统间同词不同义或同义不同词的问题。</p>
+<h3 id="数据仓库分层架构"><a href="#数据仓库分层架构" class="headerlink" title="数据仓库分层架构"></a>数据仓库分层架构</h3><p>数据仓库有分层结构，每个分层结构都有各自的作用，大抵上分层结构分为：<strong>贴源层、整合层、集市层、汇总层</strong>。</p>
+<ul>
+<li>贴源层，就是将所有涉及业务系统的数据抽取到这一层集中存放，同时也会保留历史数据，这一层基本<strong>保留了与源系统一样的结构和数据</strong>。</li>
+<li>整合层，会保留最细颗粒的所有历史数据，它面向主题、规范化建模，站在全局的视角上规划主题、整合业务模型，在数据模型维度上完成重大的转变。</li>
+<li>集市层，面向某个业务主题的多维模型集合。通过预计算、预连接、维度规范化等方式进一步将业务系统的范式模型转变成面向主题的多维模型。</li>
+<li>汇总层，它应技术或业务需要而建，直面需求，方便展现，同时提高数据的存储性能。</li>
+</ul>
+<p>数据仓库分层架构从整体上来看，是将数据从分散到集中、从细粒度到高度汇总、从业务模型到分析型模型转变的过程，从而更好的为分析型系统提供后台数据支撑。</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html" target="_blank">数据仓库【三】：基本概念</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/data-warehouse/" rel="tag"># Data Warehouse</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" rel="tag"># 数据仓库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html" rel="prev" title="数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？">
+                  <i class="fa fa-chevron-left"></i> 数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.wangjingfei.com/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.wangjingfei.com/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://cdn.wangjingfei.com/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '16px',
+  right: '20px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"xiaotanzhu","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>
