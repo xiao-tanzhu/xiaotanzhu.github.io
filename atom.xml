@@ -38,6 +38,27 @@
   </entry>
   
   <entry>
+    <title>数据仓库【五】：通用的数据仓库分层方法</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html</id>
+    <published>2022-07-01T16:00:00.000Z</published>
+    <updated>2022-07-01T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。</summary>
+    
+    
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+    <category term="Data Warehouse" scheme="https://www.xiaotanzhu.com/tags/data-warehouse/"/>
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
+  
+  <entry>
     <title>数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？</title>
     <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html"/>
     <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html</id>
@@ -424,27 +445,6 @@
     <category term="Java" scheme="https://www.xiaotanzhu.com/tags/java/"/>
     
     <category term="DelayQueue" scheme="https://www.xiaotanzhu.com/tags/delayqueue/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>千亿数据扛不住，三思后还是从MySQL迁走了……</title>
-    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html"/>
-    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</id>
-    <published>2021-05-25T16:00:00.000Z</published>
-    <updated>2021-05-25T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程</summary>
-    
-    
-    
-    <category term="数据库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
-    
-    <category term="MySQL" scheme="https://www.xiaotanzhu.com/tags/mysql/"/>
-    
-    <category term="MongoDB" scheme="https://www.xiaotanzhu.com/tags/mongodb/"/>
     
   </entry>
   

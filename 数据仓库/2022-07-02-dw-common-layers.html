@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaotanzhu.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据仓库【五】：通用的数据仓库分层方法">
+<meta property="og:url" content="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0068.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0069.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0065.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0066.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0067.png">
+<meta property="article:published_time" content="2022-07-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-01T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="Data Warehouse">
+<meta property="article:tag" content="数据仓库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.xiaotanzhu.com/images/0068.png">
+
+
+<link rel="canonical" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html","path":"数据仓库/2022-07-02-dw-common-layers.html","title":"数据仓库【五】：通用的数据仓库分层方法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据仓库【五】：通用的数据仓库分层方法 | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-139248857-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小炭猪</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A6%82%E8%BF%B0"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%88%86%E5%B1%82%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">数据分层？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E7%A7%8D%E9%80%9A%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E5%88%86%E5%B1%82%E8%AE%BE%E8%AE%A1"><span class="nav-number">2.</span> <span class="nav-text">一种通用的数据分层设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%BF%90%E8%90%A5%E5%B1%82%EF%BC%9AODS%EF%BC%88Operational-Data-Store%EF%BC%89"><span class="nav-number">2.1.</span> <span class="nav-text">数据运营层：ODS（Operational Data Store）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93%E5%B1%82%EF%BC%9ADW%EF%BC%88Data-Warehouse%EF%BC%89"><span class="nav-number">2.2.</span> <span class="nav-text">数据仓库层：DW（Data Warehouse）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%98%8E%E7%BB%86%E5%B1%82%EF%BC%9ADWD%EF%BC%88Data-Warehouse-Detail%EF%BC%89"><span class="nav-number">2.2.1.</span> <span class="nav-text">数据明细层：DWD（Data Warehouse Detail）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E4%B8%AD%E9%97%B4%E5%B1%82%EF%BC%9ADWM%EF%BC%88Data-WareHouse-Middle%EF%BC%89"><span class="nav-number">2.2.2.</span> <span class="nav-text">数据中间层：DWM（Data WareHouse Middle）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%9C%8D%E5%8A%A1%E5%B1%82%EF%BC%9ADWS%EF%BC%88Data-WareHouse-Servce%EF%BC%89"><span class="nav-number">2.2.3.</span> <span class="nav-text">数据服务层：DWS（Data WareHouse Servce）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%94%E7%94%A8%E5%B1%82%EF%BC%9AAPP%EF%BC%88Application%EF%BC%89"><span class="nav-number">2.3.</span> <span class="nav-text">数据应用层：APP（Application）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%B4%E8%A1%A8%E5%B1%82%EF%BC%88Dimension%EF%BC%89"><span class="nav-number">2.4.</span> <span class="nav-text">维表层（Dimension）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%BE%E4%B8%AA%E6%A0%97%E5%AD%90"><span class="nav-number">3.</span> <span class="nav-text">举个栗子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8A%80%E6%9C%AF%E5%AE%9E%E8%B7%B5"><span class="nav-number">4.</span> <span class="nav-text">技术实践</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">77</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">115</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据仓库【五】：通用的数据仓库分层方法 | 小炭猪">
+      <meta itemprop="description" content="数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据仓库【五】：通用的数据仓库分层方法
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-02 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-02T00:00:00+08:00">2022-07-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据仓库</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html" class="post-meta-item leancloud_visitors" data-flag-title="数据仓库【五】：通用的数据仓库分层方法" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+            <div class="post-description">数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。</p>
+<h3 id="数据分层？"><a href="#数据分层？" class="headerlink" title="数据分层？"></a>数据分层？</h3><blockquote>
+<p>“为什么要设计数据分层？”</p>
+</blockquote>
+<p>这应该是数据仓库同学在设计数据分层时首先要被挑战的问题，类似的问题可能会有很多，比如说“为什么要做数据仓库？”、“为什么要做元数据管理？”、“为什么要做数据质量管理？”。当然，这里我们只聊一下为什么要做设计数据分层。</p>
+<p>作为一名数据的规划者，我们肯定希望自己的数据能够有秩序地流转，数据的整个生命周期能够清晰明确被设计者和使用者感知到。直观来讲就是如下的左图这般层次清晰、依赖关系直观。</p>
+<p>但是，大多数情况下，我们完成的数据体系却是依赖复杂、层级混乱的。如下的右图，在不知不觉的情况下，我们可能会做出一套表依赖结构混乱，甚至出现循环依赖的数据体系。</p>
+<p><img src="/images/0068.png"></p>
+<p>因此，我们需要一套行之有效的数据组织和管理方法来让我们的数据体系更有序，这就是谈到的数据分层。数据分层并不能解决所有的数据问题，但是，数据分层却可以给我们带来如下的好处：</p>
+<ul>
+<li><p>清晰数据结构：每一个数据分层都有它的作用域和职责，在使用表的时候能更方便地定位和理解</p>
+</li>
+<li><p>减少重复开发：规范数据分层，开发一些通用的中间层数据，能够减少极大的重复计算</p>
+</li>
+<li><p>统一数据口径：通过数据分层，提供统一的数据出口，统一对外输出的数据口径</p>
+</li>
+<li><p>复杂问题简单化：将一个复杂的任务分解成多个步骤来完成，每一层解决特定的问题</p>
+</li>
+</ul>
+<h2 id="一种通用的数据分层设计"><a href="#一种通用的数据分层设计" class="headerlink" title="一种通用的数据分层设计"></a>一种通用的数据分层设计</h2><p>为了满足前面提到数据分层带来的好处，我们将数据模型分为三层：数据运营层（ ODS ）、数据仓库层（DW）和数据应用层（APP）。如下图所示。简单来讲，我们可以理解为：<strong>ODS层存放的是接入的原始数据，DW层是存放我们要重点设计的数据仓库中间层数据，APP是面向业务定制的应用数据。</strong> 下面详细介绍这三层的设计。</p>
+<p><img src="/images/0069.png"></p>
+<h3 id="数据运营层：ODS（Operational-Data-Store）"><a href="#数据运营层：ODS（Operational-Data-Store）" class="headerlink" title="数据运营层：ODS（Operational Data Store）"></a>数据运营层：ODS（Operational Data Store）</h3><p>“面向主题的”数据运营层，也叫ODS层，是最接近数据源中数据的一层，数据源中的数据，经过抽取、洗净、传输，也就说传说中的 ETL 之后，装入本层。本层的数据，总体上大多是按照源头业务系统的分类方式而分类的。</p>
+<p>一般来讲，为了考虑后续可能需要追溯数据问题，因此对于这一层就不建议做过多的数据清洗工作，原封不动地接入原始数据即可，至于数据的去噪、去重、异常值处理等过程可以放在后面的DWD层来做。</p>
+<h3 id="数据仓库层：DW（Data-Warehouse）"><a href="#数据仓库层：DW（Data-Warehouse）" class="headerlink" title="数据仓库层：DW（Data Warehouse）"></a>数据仓库层：DW（Data Warehouse）</h3><p>数据仓库层是我们在做数据仓库时要核心设计的一层，在这里，从 ODS 层中获得的数据按照主题建立各种数据模型。</p>
+<p>DW层又细分为 DWD（Data Warehouse Detail）层、DWM（Data WareHouse Middle）层和DWS（Data WareHouse Servce）层。</p>
+<h4 id="数据明细层：DWD（Data-Warehouse-Detail）"><a href="#数据明细层：DWD（Data-Warehouse-Detail）" class="headerlink" title="数据明细层：DWD（Data Warehouse Detail）"></a>数据明细层：DWD（Data Warehouse Detail）</h4><p>该层一般保持和ODS层一样的数据粒度，并且提供一定的数据质量保证。同时，为了提高数据明细层的易用性，该层会采用一些维度退化手法，将维度退化至事实表中，减少事实表和维表的关联。</p>
+<p>另外，在该层也会做一部分的数据聚合，将相同主题的数据汇集到一张表中，提高数据的可用性，后文会举例说明。</p>
+<h4 id="数据中间层：DWM（Data-WareHouse-Middle）"><a href="#数据中间层：DWM（Data-WareHouse-Middle）" class="headerlink" title="数据中间层：DWM（Data WareHouse Middle）"></a>数据中间层：DWM（Data WareHouse Middle）</h4><p>该层会在DWD层的数据基础上，对数据做轻度的聚合操作，生成一系列的中间表，提升公共指标的复用性，减少重复加工。</p>
+<p>直观来讲，就是对通用的核心维度进行聚合操作，算出相应的统计指标。</p>
+<h4 id="数据服务层：DWS（Data-WareHouse-Servce）"><a href="#数据服务层：DWS（Data-WareHouse-Servce）" class="headerlink" title="数据服务层：DWS（Data WareHouse Servce）"></a>数据服务层：DWS（Data WareHouse Servce）</h4><p>又称数据集市或宽表。按照业务划分，如流量、订单、用户等，生成字段比较多的宽表，用于提供后续的业务查询，OLAP分析，数据分发等。</p>
+<p>一般来讲，该层的数据表会相对比较少，一张表会涵盖比较多的业务内容，由于其字段较多，因此一般也会称该层的表为宽表。</p>
+<p>在实际计算中，如果直接从DWD或者ODS计算出宽表的统计指标，会存在计算量太大并且维度太少的问题，因此一般的做法是，在DWM层先计算出多个小的中间表，然后再拼接成一张DWS的宽表。由于宽和窄的界限不易界定，也可以去掉DWM这一层，只留DWS层，将所有的数据在放在DWS亦可。</p>
+<h3 id="数据应用层：APP（Application）"><a href="#数据应用层：APP（Application）" class="headerlink" title="数据应用层：APP（Application）"></a>数据应用层：APP（Application）</h3><p>在这里，主要是提供给数据产品和数据分析使用的数据，一般会存放在 ES、PostgreSql、Redis等系统中供线上系统使用，也可能会存在 Hive 或者 Druid 中供数据分析和数据挖掘使用。比如我们经常说的报表数据，一般就放在这里。</p>
+<h3 id="维表层（Dimension）"><a href="#维表层（Dimension）" class="headerlink" title="维表层（Dimension）"></a>维表层（Dimension）</h3><p>最后补充一个维表层，维表层主要包含两部分数据：</p>
+<ul>
+<li><p>高基数维度数据：一般是用户资料表、商品资料表类似的资料表。数据量可能是千万级或者上亿级别。</p>
+</li>
+<li><p>低基数维度数据：一般是配置表，比如枚举值对应的中文含义，或者日期维表。数据量可能是个位数或者几千几万。</p>
+</li>
+</ul>
+<p>至此，我们讲完了数据分层设计中每一层的含义，这里做一个总结便于理解，如下图。</p>
+<p><img src="/images/0065.png"></p>
+<h2 id="举个栗子"><a href="#举个栗子" class="headerlink" title="举个栗子"></a>举个栗子</h2><p>趁热打铁，举个栗子说明一下，如下图，可以认为是一个电商网站的数据体系设计。我们暂且只关注用户访问日志这一部分数据。</p>
+<p><img src="/images/0066.png"></p>
+<ol>
+<li><p>在ODS层中，由于各端的开发团队不同或者各种其它问题，用户的访问日志被分成了好几张表上报到了我们的ODS层。</p>
+</li>
+<li><p>为了方便大家的使用，我们在DWD层做了一张用户访问行为天表，在这里，我们将PC网页、H5、小程序和原生APP访问日志汇聚到一张表里面，统一字段名，提升数据质量，这样就有了一张可供大家方便使用的明细表了。</p>
+</li>
+<li><p>在DWM层，我们会从DWD层中选取业务关注的核心维度来做聚合操作，比如只保留人、商品、设备和页面区域维度。类似的，我们这样做了很多个DWM的中间表</p>
+</li>
+<li><p>然后在DWS层，我们将一个人在整个网站中的行为数据放到一张表中，这就是我们的宽表了，有了这张表，就可以快速满足大部分的通用型业务需求了。</p>
+</li>
+<li><p>最后，在APP应用层，根据需求从DWS层的一张或者多张表取出数据拼接成一张应用表即可。</p>
+</li>
+</ol>
+<p>备注：例子只是为了简单地说明每一层的作用，并不是最合理的解决方案，大家辩证地看待即可。</p>
+<h2 id="技术实践"><a href="#技术实践" class="headerlink" title="技术实践"></a>技术实践</h2><p>既然谈到了数据分层，那不同的层次中会用到什么计算引擎和存储系统呢，本节来简单分享一下。</p>
+<p>数据层的存储一般如下：</p>
+<ul>
+<li>Data Source：数据源一般是业务库和埋点，当然也会有第三方购买数据等多种数据来源方式。业务库的存储一般是Mysql 和 PostgreSql。</li>
+<li>ODS 层：ODS 的数据量一般非常大，所以大多数公司会选择存在HDFS上，即Hive或者Hbase，Hive居多。</li>
+<li>DW 层：一般和 ODS 的存储一致，但是为了满足更多的需求，也会有存放在 PG 和 ES 中的情况。</li>
+<li>APP 层：应用层的数据，一般都要求比较快的响应速度，因此一般是放在 Mysql、PG、Redis中。</li>
+</ul>
+<p>计算引擎的话，可以简单参考图中所列就行。目前大数据相关的技术更新迭代比较快，本节所列仅为简单参考。</p>
+<p><img src="/images/0067.png"></p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html" target="_blank">数据仓库【五】：通用的数据仓库分层方法</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/data-warehouse/" rel="tag"># Data Warehouse</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" rel="tag"># 数据仓库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html" rel="prev" title="数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？">
+                  <i class="fa fa-chevron-left"></i> 数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-basic-concepts.html" rel="next" title="数据仓库【三】：基本概念">
+                  数据仓库【三】：基本概念 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.wangjingfei.com/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.wangjingfei.com/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://cdn.wangjingfei.com/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '16px',
+  right: '20px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"xiaotanzhu","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

@@ -42,6 +42,29 @@
     </item>
     
     <item>
+      <title>数据仓库【五】：通用的数据仓库分层方法</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html</guid>
+      <pubDate>Fri, 01 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>数据分层是数据仓库设计中十分重要的一个环节，优秀的分层设计能够让整个数据体系更易理解和使用。而目前网络中大部分可以被检索到相关文章只是简单地提及数据分层的设计，或缺少明确而详细的说明，或缺少可落地实施的方案，或缺少具体的示例说明。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-common-layers.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>数据仓库【二】：数据库、数据仓库、数据平台、数据中台、数据湖到底是什么？</title>
       <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html</link>
       <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-concepts-comparsion.html</guid>
@@ -464,29 +487,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/java/delayqueue-in-java.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>千亿数据扛不住，三思后还是从MySQL迁走了……</title>
-      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</link>
-      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html</guid>
-      <pubDate>Tue, 25 May 2021 16:00:00 GMT</pubDate>
-      
-      <description>千亿级数据从MySQL迁移至MongoDB的分析、执行、优化全过程</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/mysql/">MySQL</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/mongodb/">MongoDB</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E5%BA%93/mysql-mongodb-migration.html#disqus_thread</comments>
       
     </item>
     
