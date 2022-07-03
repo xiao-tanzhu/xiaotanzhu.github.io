@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 数据仓库【六】：维度表
+title: 数据仓库【七】：维度表
 date: 2022-07-07
 tags:
 - Data Warehouse
