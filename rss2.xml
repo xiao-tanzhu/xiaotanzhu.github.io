@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Tue, 05 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Wed, 06 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>数据仓库【六】：维度表</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html</guid>
+      <pubDate>Wed, 06 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据仓库【六】：事实表</title>
@@ -462,31 +485,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>上海电信桥接模式下使用IPTV</title>
-      <link>https://www.xiaotanzhu.com/merlin/2021-07-02-enable-iptv-through-merlin.html</link>
-      <guid>https://www.xiaotanzhu.com/merlin/2021-07-02-enable-iptv-through-merlin.html</guid>
-      <pubDate>Thu, 01 Jul 2021 16:00:00 GMT</pubDate>
-      
-      <description>上海电信桥接模式下使用IPTV，通过Merlin版AC88U路由器</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/merlin/">Merlin</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/merlin/">Merlin</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/ac88u/">AC88U</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/iptv/">IPTV</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/merlin/2021-07-02-enable-iptv-through-merlin.html#disqus_thread</comments>
       
     </item>
     

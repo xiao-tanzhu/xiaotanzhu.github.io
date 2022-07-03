@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#97;&#110;&#103;&#x6a;&#x69;&#x6e;&#x67;&#x66;&#101;&#105;&#64;&#x31;&#x36;&#51;&#x2e;&#x63;&#x6f;&#109;">&#119;&#97;&#110;&#103;&#x6a;&#x69;&#x6e;&#x67;&#x66;&#101;&#105;&#64;&#x31;&#x36;&#51;&#x2e;&#x63;&#x6f;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#97;&#x6e;&#103;&#x6a;&#x69;&#x6e;&#103;&#102;&#101;&#x69;&#64;&#x32;&#54;&#51;&#x2e;&#99;&#x6f;&#109;">&#119;&#97;&#x6e;&#103;&#x6a;&#x69;&#x6e;&#103;&#102;&#101;&#x69;&#64;&#x32;&#54;&#51;&#x2e;&#99;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#x61;&#x6d;&#97;&#x40;&#119;&#104;&#105;&#116;&#x65;&#x68;&#111;&#x75;&#x73;&#101;&#x2e;&#99;&#111;&#109;">&#111;&#x62;&#x61;&#x6d;&#97;&#x40;&#119;&#104;&#105;&#116;&#x65;&#x68;&#111;&#x75;&#x73;&#101;&#x2e;&#99;&#111;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#x69;&#106;&#x69;&#x6e;&#x70;&#x69;&#x6e;&#x67;&#64;&#122;&#104;&#111;&#x6e;&#103;&#110;&#x61;&#x6e;&#104;&#97;&#x69;&#46;&#99;&#x6f;&#x6d;">&#x78;&#x69;&#106;&#x69;&#x6e;&#x70;&#x69;&#x6e;&#x67;&#64;&#122;&#104;&#111;&#x6e;&#103;&#110;&#x61;&#x6e;&#104;&#97;&#x69;&#46;&#99;&#x6f;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#x61;&#x6e;&#103;&#106;&#105;&#x6e;&#103;&#x66;&#x65;&#x69;&#64;&#x31;&#x36;&#51;&#46;&#x63;&#111;&#x6d;">&#119;&#x61;&#x6e;&#103;&#106;&#105;&#x6e;&#103;&#x66;&#x65;&#x69;&#64;&#x31;&#x36;&#51;&#46;&#x63;&#111;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#x61;&#110;&#x67;&#x6a;&#x69;&#110;&#103;&#x66;&#101;&#x69;&#x40;&#x32;&#54;&#51;&#x2e;&#99;&#x6f;&#109;">&#119;&#x61;&#110;&#x67;&#x6a;&#x69;&#110;&#103;&#x66;&#101;&#x69;&#x40;&#x32;&#54;&#51;&#x2e;&#99;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#111;&#x62;&#x61;&#109;&#97;&#x40;&#x77;&#x68;&#x69;&#x74;&#101;&#x68;&#x6f;&#117;&#115;&#x65;&#x2e;&#99;&#111;&#109;">&#111;&#x62;&#x61;&#109;&#97;&#x40;&#x77;&#x68;&#x69;&#x74;&#101;&#x68;&#x6f;&#117;&#115;&#x65;&#x2e;&#99;&#111;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#x6a;&#x69;&#110;&#x70;&#105;&#110;&#x67;&#x40;&#x7a;&#x68;&#x6f;&#110;&#x67;&#110;&#97;&#110;&#x68;&#x61;&#105;&#x2e;&#99;&#x6f;&#x6d;">&#x78;&#105;&#x6a;&#x69;&#110;&#x70;&#105;&#110;&#x67;&#x40;&#x7a;&#x68;&#x6f;&#110;&#x67;&#110;&#97;&#110;&#x68;&#x61;&#105;&#x2e;&#99;&#x6f;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -4174,6 +4174,138 @@ with these **parameters**
 <p>思路：可以通过回答 “过程的度量是什么” 来确定；</p>
 <p>注意：将不可加性事实分解为可加的组件；（分解的原则：可以通过分解后的可加的属性值，计算得到不可加性事实）</p>
 <br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html" target="_blank">数据仓库【六】：事实表</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html]]></content>
+      <categories>
+        <category>数据仓库</category>
+      </categories>
+      <tags>
+        <tag>Data Warehouse</tag>
+        <tag>数据仓库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据仓库【六】：维度表</title>
+    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html</url>
+    <content><![CDATA[<h2 id="什么是维度表"><a href="#什么是维度表" class="headerlink" title="什么是维度表"></a>什么是维度表</h2><p>维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。</p>
+<p>维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。</p>
+<p><strong>日期维表：</strong></p>
+<table>
+<thead>
+<tr>
+<th>num</th>
+<th>字段名</th>
+<th>字段中文名</th>
+<th>描述</th>
+<th>数据类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>date</td>
+<td>日期</td>
+<td>日期 yyyMMdd格式</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>2</td>
+<td>week</td>
+<td>星期，数字型</td>
+<td>星期，数字型 0-6</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>3</td>
+<td>week_cn</td>
+<td>星期中文名</td>
+<td>星期中文名 星期一……</td>
+<td>string</td>
+</tr>
+<tr>
+<td>4</td>
+<td>year_weeks</td>
+<td>一年中的第几周</td>
+<td>一年中的第几周 1 2 3……</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>5</td>
+<td>mon_dt</td>
+<td>本周周一日期</td>
+<td>本周周一日期</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>6</td>
+<td>sun_dt</td>
+<td>本周周日日期</td>
+<td>本周周日日期</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>7</td>
+<td>month</td>
+<td>年月</td>
+<td>年月，yyyyMM格式</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>8</td>
+<td>month_short</td>
+<td>月份简写</td>
+<td>月份简写，MM格式1~12</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>9</td>
+<td>month_cn</td>
+<td>月份中文名</td>
+<td>月份中文名 一月……</td>
+<td>string</td>
+</tr>
+<tr>
+<td>10</td>
+<td>quarter</td>
+<td>季度</td>
+<td>季度，yyyyQ1\2\3\4</td>
+<td>string</td>
+</tr>
+<tr>
+<td>11</td>
+<td>quarter_short</td>
+<td>季度 数字型</td>
+<td>季度 数字型 1-4</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>12</td>
+<td>quarter_cn</td>
+<td>季度中文名</td>
+<td>季度中文名 第一季度……</td>
+<td>string</td>
+</tr>
+<tr>
+<td>13</td>
+<td>year</td>
+<td>年份</td>
+<td>年份，yyyy格式</td>
+<td>bigint</td>
+</tr>
+</tbody></table>
+<h2 id="维度表设计原则"><a href="#维度表设计原则" class="headerlink" title="维度表设计原则"></a>维度表设计原则</h2><p>维度的作用一般是查询约束、分类汇总以及排序等，我们在进行维度表设计时，应当提前考虑：</p>
+<h3 id="维度属性尽量丰富，为数据使用打下基础"><a href="#维度属性尽量丰富，为数据使用打下基础" class="headerlink" title="维度属性尽量丰富，为数据使用打下基础"></a>维度属性尽量丰富，为数据使用打下基础</h3><p>比如淘宝商品维度有近百个维度属性，为下游的数据统计、分析、探查提供了良好的基础。</p>
+<h3 id="给出详实的、富有意义的文字描述"><a href="#给出详实的、富有意义的文字描述" class="headerlink" title="给出详实的、富有意义的文字描述"></a>给出详实的、富有意义的文字描述</h3><p>属性不应该是编码，而应该是真正的文字。在间里巴巴维度建模中， 一般是编码和文字同时存在，比如商品维度中的商品 ID 和商品标题、 类目 ID 和 类目名称等。ID 一 般用于不同表之间的关联，而名称一般用 于报表标签</p>
+<h3 id="区分数值型属性和事实"><a href="#区分数值型属性和事实" class="headerlink" title="区分数值型属性和事实"></a>区分数值型属性和事实</h3><p>数值型字段是作为事实还是维度属性，可以参考字段的一般用途。如果通常<strong>用于查询约束条件或分组统计，则是作为维度属性</strong>；如果通常<strong>用于参与度量的计算，则是作为事实</strong>。</p>
+<p>比如商品价格，可以用于查询约束条件或统计价格区间的商品数量，此时是作为维度属性使用的；也可以用于统计某类目下商品的平均价格，此时是作为事实使用的。另外，如果数值型字段是离散值，则作为维度属性存在的可能性较大；如果数值型宇段是连续值，则作为度量存在的可能性较大，但并不绝对，需要同时参考宇段的具体用途。</p>
+<h3 id="沉淀出通用的维度属性，为建立一致性维度做好铺垫"><a href="#沉淀出通用的维度属性，为建立一致性维度做好铺垫" class="headerlink" title="沉淀出通用的维度属性，为建立一致性维度做好铺垫"></a>沉淀出通用的维度属性，为建立一致性维度做好铺垫</h3><p>有些维度属性获取需要进行比较复杂的逻辑处理，有些需要通过多表关联得到，或者通过单表的不同字段混合处理得到，或者通过对单表的某个字段进行解析得到。此时，需要将尽可能多的通用的维度属性进行沉淀。一方面，可以提高下游使用的方便性，减少复杂度；另一方面，可以避免下游使用解析时由于各自逻辑不同而导致口径不一致。</p>
+<h3 id="退化维度（Degenerate-Dimension）"><a href="#退化维度（Degenerate-Dimension）" class="headerlink" title="退化维度（Degenerate Dimension）"></a>退化维度（Degenerate Dimension）</h3><p>在维度类型中，有一种重要的维度称作为退化维度。这种维度指的是直接<strong>把一些简单的维度放在事实表中</strong>。退化维度是维度建模领域中的一个非常重要的概念，它对理解维度建模有着非常重要的作用，退化维度一般在分析中可以用来做分组使用。</p>
+<h3 id="缓慢变化维（Slowly-Changing-Dimensions）"><a href="#缓慢变化维（Slowly-Changing-Dimensions）" class="headerlink" title="缓慢变化维（Slowly Changing Dimensions）"></a>缓慢变化维（Slowly Changing Dimensions）</h3><p>维度的属性并不是始终不变的，它会随着时间的流逝发生缓慢的变化，这种随时间发生变化的维度我们一般称之为缓慢变化维（SCD），<strong>缓慢变化维一般使用代理健作为维度表的主健</strong>。</p>
+<blockquote>
+<p><a href="https://mp.weixin.qq.com/s?__biz=MzkxNTI2MzMyMA==&mid=2247505768&idx=1&sn=6773b4930448625671fb87446db576fe&chksm=c1634d5ff614c449f560f6139df2a7a40f9684ad5613fbbe635c3bbcc3feeca681c29ab782b5&scene=21#wechat_redirect">缓慢变化维度的10种处理方式</a></p>
+</blockquote>
+<h2 id="维度表设计方法"><a href="#维度表设计方法" class="headerlink" title="维度表设计方法"></a>维度表设计方法</h2><h3 id="第一步：选择维度或新建维度。"><a href="#第一步：选择维度或新建维度。" class="headerlink" title="第一步：选择维度或新建维度。"></a>第一步：选择维度或新建维度。</h3><p>作为维度建模的核心，在企业级数据仓库中必须保证维度的唯一性。以淘宝商品维度为例，有且只允许有一个维度定义。</p>
+<h3 id="第二步：确定主维表。"><a href="#第二步：确定主维表。" class="headerlink" title="第二步：确定主维表。"></a>第二步：确定主维表。</h3><p>此处的主维表一般是ODS表，直接与业务系统同步。以淘宝商品维度为例，s_auction_auctions是与前台商品中心系统同步的商品表，此表即是主维表。</p>
+<h3 id="第三步：确定相关维表。"><a href="#第三步：确定相关维表。" class="headerlink" title="第三步：确定相关维表。"></a>第三步：确定相关维表。</h3><p>数据仓库是业务源系统的数据整合，不同业务系统或者同一业务系统中的表之间存在关联性。根据对业务的梳理，确定哪些表和主维表存在关联关系，并选择其中的某些表用于生成维度属性。</p>
+<h3 id="第四步：确定维度属性。"><a href="#第四步：确定维度属性。" class="headerlink" title="第四步：确定维度属性。"></a>第四步：确定维度属性。</h3><p>本步骤主要包括两个阶段，其中第一个阶段是从主维表中选择维度属性或生成新的维度属性；第二个阶段是从相关维表中选择维度属性或生成新的维度属性。以淘宝商品维度为例，从主维表(s_auction_auctions)和类目、SPU、卖家、店铺等相关维表中选择维度属性或生成新的维度属性。</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html" target="_blank">数据仓库【六】：维度表</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html]]></content>
       <categories>
         <category>数据仓库</category>
       </categories>

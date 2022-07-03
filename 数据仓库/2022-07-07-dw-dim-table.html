@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaotanzhu.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据仓库【六】：维度表">
+<meta property="og:url" content="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-06T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-06T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="Data Warehouse">
+<meta property="article:tag" content="数据仓库">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html","path":"数据仓库/2022-07-07-dw-dim-table.html","title":"数据仓库【六】：维度表"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据仓库【六】：维度表 | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-139248857-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小炭猪</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%BB%B4%E5%BA%A6%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">什么是维度表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%B4%E5%BA%A6%E8%A1%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99"><span class="nav-number">2.</span> <span class="nav-text">维度表设计原则</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%B4%E5%BA%A6%E5%B1%9E%E6%80%A7%E5%B0%BD%E9%87%8F%E4%B8%B0%E5%AF%8C%EF%BC%8C%E4%B8%BA%E6%95%B0%E6%8D%AE%E4%BD%BF%E7%94%A8%E6%89%93%E4%B8%8B%E5%9F%BA%E7%A1%80"><span class="nav-number">2.1.</span> <span class="nav-text">维度属性尽量丰富，为数据使用打下基础</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%99%E5%87%BA%E8%AF%A6%E5%AE%9E%E7%9A%84%E3%80%81%E5%AF%8C%E6%9C%89%E6%84%8F%E4%B9%89%E7%9A%84%E6%96%87%E5%AD%97%E6%8F%8F%E8%BF%B0"><span class="nav-number">2.2.</span> <span class="nav-text">给出详实的、富有意义的文字描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8C%BA%E5%88%86%E6%95%B0%E5%80%BC%E5%9E%8B%E5%B1%9E%E6%80%A7%E5%92%8C%E4%BA%8B%E5%AE%9E"><span class="nav-number">2.3.</span> <span class="nav-text">区分数值型属性和事实</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B2%89%E6%B7%80%E5%87%BA%E9%80%9A%E7%94%A8%E7%9A%84%E7%BB%B4%E5%BA%A6%E5%B1%9E%E6%80%A7%EF%BC%8C%E4%B8%BA%E5%BB%BA%E7%AB%8B%E4%B8%80%E8%87%B4%E6%80%A7%E7%BB%B4%E5%BA%A6%E5%81%9A%E5%A5%BD%E9%93%BA%E5%9E%AB"><span class="nav-number">2.4.</span> <span class="nav-text">沉淀出通用的维度属性，为建立一致性维度做好铺垫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%80%80%E5%8C%96%E7%BB%B4%E5%BA%A6%EF%BC%88Degenerate-Dimension%EF%BC%89"><span class="nav-number">2.5.</span> <span class="nav-text">退化维度（Degenerate Dimension）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%93%E6%85%A2%E5%8F%98%E5%8C%96%E7%BB%B4%EF%BC%88Slowly-Changing-Dimensions%EF%BC%89"><span class="nav-number">2.6.</span> <span class="nav-text">缓慢变化维（Slowly Changing Dimensions）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BB%B4%E5%BA%A6%E8%A1%A8%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">维度表设计方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E9%80%89%E6%8B%A9%E7%BB%B4%E5%BA%A6%E6%88%96%E6%96%B0%E5%BB%BA%E7%BB%B4%E5%BA%A6%E3%80%82"><span class="nav-number">3.1.</span> <span class="nav-text">第一步：选择维度或新建维度。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E7%A1%AE%E5%AE%9A%E4%B8%BB%E7%BB%B4%E8%A1%A8%E3%80%82"><span class="nav-number">3.2.</span> <span class="nav-text">第二步：确定主维表。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E7%A1%AE%E5%AE%9A%E7%9B%B8%E5%85%B3%E7%BB%B4%E8%A1%A8%E3%80%82"><span class="nav-number">3.3.</span> <span class="nav-text">第三步：确定相关维表。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E7%A1%AE%E5%AE%9A%E7%BB%B4%E5%BA%A6%E5%B1%9E%E6%80%A7%E3%80%82"><span class="nav-number">3.4.</span> <span class="nav-text">第四步：确定维度属性。</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">79</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">115</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据仓库【六】：维度表 | 小炭猪">
+      <meta itemprop="description" content="维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据仓库【六】：维度表
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-07 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-07T00:00:00+08:00">2022-07-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据仓库</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html" class="post-meta-item leancloud_visitors" data-flag-title="数据仓库【六】：维度表" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+            <div class="post-description">维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="什么是维度表"><a href="#什么是维度表" class="headerlink" title="什么是维度表"></a>什么是维度表</h2><p>维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。</p>
+<p>维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。</p>
+<p><strong>日期维表：</strong></p>
+<table>
+<thead>
+<tr>
+<th>num</th>
+<th>字段名</th>
+<th>字段中文名</th>
+<th>描述</th>
+<th>数据类型</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>date</td>
+<td>日期</td>
+<td>日期 yyyMMdd格式</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>2</td>
+<td>week</td>
+<td>星期，数字型</td>
+<td>星期，数字型 0-6</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>3</td>
+<td>week_cn</td>
+<td>星期中文名</td>
+<td>星期中文名 星期一……</td>
+<td>string</td>
+</tr>
+<tr>
+<td>4</td>
+<td>year_weeks</td>
+<td>一年中的第几周</td>
+<td>一年中的第几周 1 2 3……</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>5</td>
+<td>mon_dt</td>
+<td>本周周一日期</td>
+<td>本周周一日期</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>6</td>
+<td>sun_dt</td>
+<td>本周周日日期</td>
+<td>本周周日日期</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>7</td>
+<td>month</td>
+<td>年月</td>
+<td>年月，yyyyMM格式</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>8</td>
+<td>month_short</td>
+<td>月份简写</td>
+<td>月份简写，MM格式1~12</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>9</td>
+<td>month_cn</td>
+<td>月份中文名</td>
+<td>月份中文名 一月……</td>
+<td>string</td>
+</tr>
+<tr>
+<td>10</td>
+<td>quarter</td>
+<td>季度</td>
+<td>季度，yyyyQ1\2\3\4</td>
+<td>string</td>
+</tr>
+<tr>
+<td>11</td>
+<td>quarter_short</td>
+<td>季度 数字型</td>
+<td>季度 数字型 1-4</td>
+<td>bigint</td>
+</tr>
+<tr>
+<td>12</td>
+<td>quarter_cn</td>
+<td>季度中文名</td>
+<td>季度中文名 第一季度……</td>
+<td>string</td>
+</tr>
+<tr>
+<td>13</td>
+<td>year</td>
+<td>年份</td>
+<td>年份，yyyy格式</td>
+<td>bigint</td>
+</tr>
+</tbody></table>
+<h2 id="维度表设计原则"><a href="#维度表设计原则" class="headerlink" title="维度表设计原则"></a>维度表设计原则</h2><p>维度的作用一般是查询约束、分类汇总以及排序等，我们在进行维度表设计时，应当提前考虑：</p>
+<h3 id="维度属性尽量丰富，为数据使用打下基础"><a href="#维度属性尽量丰富，为数据使用打下基础" class="headerlink" title="维度属性尽量丰富，为数据使用打下基础"></a>维度属性尽量丰富，为数据使用打下基础</h3><p>比如淘宝商品维度有近百个维度属性，为下游的数据统计、分析、探查提供了良好的基础。</p>
+<h3 id="给出详实的、富有意义的文字描述"><a href="#给出详实的、富有意义的文字描述" class="headerlink" title="给出详实的、富有意义的文字描述"></a>给出详实的、富有意义的文字描述</h3><p>属性不应该是编码，而应该是真正的文字。在间里巴巴维度建模中， 一般是编码和文字同时存在，比如商品维度中的商品 ID 和商品标题、 类目 ID 和 类目名称等。ID 一 般用于不同表之间的关联，而名称一般用 于报表标签</p>
+<h3 id="区分数值型属性和事实"><a href="#区分数值型属性和事实" class="headerlink" title="区分数值型属性和事实"></a>区分数值型属性和事实</h3><p>数值型字段是作为事实还是维度属性，可以参考字段的一般用途。如果通常<strong>用于查询约束条件或分组统计，则是作为维度属性</strong>；如果通常<strong>用于参与度量的计算，则是作为事实</strong>。</p>
+<p>比如商品价格，可以用于查询约束条件或统计价格区间的商品数量，此时是作为维度属性使用的；也可以用于统计某类目下商品的平均价格，此时是作为事实使用的。另外，如果数值型字段是离散值，则作为维度属性存在的可能性较大；如果数值型宇段是连续值，则作为度量存在的可能性较大，但并不绝对，需要同时参考宇段的具体用途。</p>
+<h3 id="沉淀出通用的维度属性，为建立一致性维度做好铺垫"><a href="#沉淀出通用的维度属性，为建立一致性维度做好铺垫" class="headerlink" title="沉淀出通用的维度属性，为建立一致性维度做好铺垫"></a>沉淀出通用的维度属性，为建立一致性维度做好铺垫</h3><p>有些维度属性获取需要进行比较复杂的逻辑处理，有些需要通过多表关联得到，或者通过单表的不同字段混合处理得到，或者通过对单表的某个字段进行解析得到。此时，需要将尽可能多的通用的维度属性进行沉淀。一方面，可以提高下游使用的方便性，减少复杂度；另一方面，可以避免下游使用解析时由于各自逻辑不同而导致口径不一致。</p>
+<h3 id="退化维度（Degenerate-Dimension）"><a href="#退化维度（Degenerate-Dimension）" class="headerlink" title="退化维度（Degenerate Dimension）"></a>退化维度（Degenerate Dimension）</h3><p>在维度类型中，有一种重要的维度称作为退化维度。这种维度指的是直接<strong>把一些简单的维度放在事实表中</strong>。退化维度是维度建模领域中的一个非常重要的概念，它对理解维度建模有着非常重要的作用，退化维度一般在分析中可以用来做分组使用。</p>
+<h3 id="缓慢变化维（Slowly-Changing-Dimensions）"><a href="#缓慢变化维（Slowly-Changing-Dimensions）" class="headerlink" title="缓慢变化维（Slowly Changing Dimensions）"></a>缓慢变化维（Slowly Changing Dimensions）</h3><p>维度的属性并不是始终不变的，它会随着时间的流逝发生缓慢的变化，这种随时间发生变化的维度我们一般称之为缓慢变化维（SCD），<strong>缓慢变化维一般使用代理健作为维度表的主健</strong>。</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s?__biz=MzkxNTI2MzMyMA==&mid=2247505768&idx=1&sn=6773b4930448625671fb87446db576fe&chksm=c1634d5ff614c449f560f6139df2a7a40f9684ad5613fbbe635c3bbcc3feeca681c29ab782b5&scene=21#wechat_redirect">缓慢变化维度的10种处理方式</a></p>
+</blockquote>
+<h2 id="维度表设计方法"><a href="#维度表设计方法" class="headerlink" title="维度表设计方法"></a>维度表设计方法</h2><h3 id="第一步：选择维度或新建维度。"><a href="#第一步：选择维度或新建维度。" class="headerlink" title="第一步：选择维度或新建维度。"></a>第一步：选择维度或新建维度。</h3><p>作为维度建模的核心，在企业级数据仓库中必须保证维度的唯一性。以淘宝商品维度为例，有且只允许有一个维度定义。</p>
+<h3 id="第二步：确定主维表。"><a href="#第二步：确定主维表。" class="headerlink" title="第二步：确定主维表。"></a>第二步：确定主维表。</h3><p>此处的主维表一般是ODS表，直接与业务系统同步。以淘宝商品维度为例，s_auction_auctions是与前台商品中心系统同步的商品表，此表即是主维表。</p>
+<h3 id="第三步：确定相关维表。"><a href="#第三步：确定相关维表。" class="headerlink" title="第三步：确定相关维表。"></a>第三步：确定相关维表。</h3><p>数据仓库是业务源系统的数据整合，不同业务系统或者同一业务系统中的表之间存在关联性。根据对业务的梳理，确定哪些表和主维表存在关联关系，并选择其中的某些表用于生成维度属性。</p>
+<h3 id="第四步：确定维度属性。"><a href="#第四步：确定维度属性。" class="headerlink" title="第四步：确定维度属性。"></a>第四步：确定维度属性。</h3><p>本步骤主要包括两个阶段，其中第一个阶段是从主维表中选择维度属性或生成新的维度属性；第二个阶段是从相关维表中选择维度属性或生成新的维度属性。以淘宝商品维度为例，从主维表(s_auction_auctions)和类目、SPU、卖家、店铺等相关维表中选择维度属性或生成新的维度属性。</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html" target="_blank">数据仓库【六】：维度表</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/data-warehouse/" rel="tag"># Data Warehouse</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" rel="tag"># 数据仓库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-06-dw-fact-table.html" rel="prev" title="数据仓库【六】：事实表">
+                  <i class="fa fa-chevron-left"></i> 数据仓库【六】：事实表
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.wangjingfei.com/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.wangjingfei.com/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://cdn.wangjingfei.com/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '16px',
+  right: '20px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"xiaotanzhu","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

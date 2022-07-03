@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2022-07-05T16:00:00.000Z</updated>
+  <updated>2022-07-06T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据仓库【六】：维度表</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html</id>
+    <published>2022-07-06T16:00:00.000Z</published>
+    <updated>2022-07-06T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。</summary>
+    
+    
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+    <category term="Data Warehouse" scheme="https://www.xiaotanzhu.com/tags/data-warehouse/"/>
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>数据仓库【六】：事实表</title>
@@ -422,29 +443,6 @@
     <category term="Post Links" scheme="https://www.xiaotanzhu.com/tags/post-links/"/>
     
     <category term="Github Pages" scheme="https://www.xiaotanzhu.com/tags/github-pages/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>上海电信桥接模式下使用IPTV</title>
-    <link href="https://www.xiaotanzhu.com/merlin/2021-07-02-enable-iptv-through-merlin.html"/>
-    <id>https://www.xiaotanzhu.com/merlin/2021-07-02-enable-iptv-through-merlin.html</id>
-    <published>2021-07-01T16:00:00.000Z</published>
-    <updated>2021-07-01T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">上海电信桥接模式下使用IPTV，通过Merlin版AC88U路由器</summary>
-    
-    
-    
-    <category term="Merlin" scheme="https://www.xiaotanzhu.com/categories/merlin/"/>
-    
-    
-    <category term="Merlin" scheme="https://www.xiaotanzhu.com/tags/merlin/"/>
-    
-    <category term="AC88U" scheme="https://www.xiaotanzhu.com/tags/ac88u/"/>
-    
-    <category term="IPTV" scheme="https://www.xiaotanzhu.com/tags/iptv/"/>
     
   </entry>
   
