@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2022-07-09T16:00:00.000Z</updated>
+  <updated>2022-07-10T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据仓库【十一】：OLAP</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-11-dw-olap.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-11-dw-olap.html</id>
+    <published>2022-07-10T16:00:00.000Z</published>
+    <updated>2022-07-10T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">OLAP：Online Analytical Processing</summary>
+    
+    
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+    <category term="Data Warehouse" scheme="https://www.xiaotanzhu.com/tags/data-warehouse/"/>
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>数据仓库【十】：ETL</title>
@@ -418,27 +439,6 @@
     <category term="产品经理" scheme="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
     
     <category term="RPA" scheme="https://www.xiaotanzhu.com/tags/rpa/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>安装MySQL并设置lower_case_table_names参数</title>
-    <link href="https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html"/>
-    <id>https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html</id>
-    <published>2021-07-23T16:00:00.000Z</published>
-    <updated>2021-07-23T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">安装MySQL并设置lower_case_table_names参数</summary>
-    
-    
-    
-    <category term="MySQL" scheme="https://www.xiaotanzhu.com/categories/mysql/"/>
-    
-    
-    <category term="MySQL" scheme="https://www.xiaotanzhu.com/tags/mysql/"/>
-    
-    <category term="Ubuntu" scheme="https://www.xiaotanzhu.com/tags/ubuntu/"/>
     
   </entry>
   

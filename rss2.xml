@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Sat, 09 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Sun, 10 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>数据仓库【十一】：OLAP</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-11-dw-olap.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-11-dw-olap.html</guid>
+      <pubDate>Sun, 10 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>OLAP：Online Analytical Processing</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-11-dw-olap.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据仓库【十】：ETL</title>
@@ -458,29 +481,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/whatis-rpa.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>安装MySQL并设置lower_case_table_names参数</title>
-      <link>https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html</link>
-      <guid>https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html</guid>
-      <pubDate>Fri, 23 Jul 2021 16:00:00 GMT</pubDate>
-      
-      <description>安装MySQL并设置lower_case_table_names参数</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/mysql/">MySQL</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/mysql/">MySQL</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html#disqus_thread</comments>
       
     </item>
     

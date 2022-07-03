@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#x61;&#x6e;&#103;&#x6a;&#x69;&#110;&#103;&#102;&#x65;&#x69;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#109;">&#x77;&#x61;&#x6e;&#103;&#x6a;&#x69;&#110;&#103;&#102;&#x65;&#x69;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#97;&#x6e;&#103;&#106;&#x69;&#110;&#x67;&#x66;&#101;&#105;&#64;&#50;&#x36;&#51;&#46;&#x63;&#x6f;&#109;">&#x77;&#97;&#x6e;&#103;&#106;&#x69;&#110;&#x67;&#x66;&#101;&#105;&#64;&#50;&#x36;&#51;&#46;&#x63;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#98;&#97;&#109;&#x61;&#64;&#x77;&#104;&#x69;&#116;&#101;&#x68;&#111;&#117;&#x73;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x6f;&#98;&#97;&#109;&#x61;&#64;&#x77;&#104;&#x69;&#116;&#101;&#x68;&#111;&#117;&#x73;&#101;&#46;&#x63;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#106;&#x69;&#x6e;&#112;&#105;&#110;&#103;&#x40;&#x7a;&#x68;&#x6f;&#x6e;&#103;&#x6e;&#x61;&#x6e;&#104;&#97;&#105;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#105;&#106;&#x69;&#x6e;&#112;&#105;&#110;&#103;&#x40;&#x7a;&#x68;&#x6f;&#x6e;&#103;&#x6e;&#x61;&#x6e;&#104;&#97;&#105;&#x2e;&#x63;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#110;&#x67;&#x66;&#x65;&#105;&#64;&#x31;&#54;&#x33;&#x2e;&#x63;&#111;&#109;">&#x77;&#x61;&#110;&#x67;&#x6a;&#105;&#110;&#x67;&#x66;&#x65;&#105;&#64;&#x31;&#54;&#x33;&#x2e;&#x63;&#111;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#119;&#x61;&#x6e;&#x67;&#x6a;&#x69;&#x6e;&#103;&#102;&#x65;&#x69;&#64;&#x32;&#x36;&#x33;&#46;&#x63;&#111;&#x6d;">&#119;&#x61;&#x6e;&#x67;&#x6a;&#x69;&#x6e;&#103;&#102;&#x65;&#x69;&#64;&#x32;&#x36;&#x33;&#46;&#x63;&#111;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#98;&#x61;&#x6d;&#97;&#x40;&#x77;&#104;&#105;&#x74;&#101;&#104;&#111;&#x75;&#115;&#101;&#46;&#x63;&#111;&#x6d;">&#x6f;&#98;&#x61;&#x6d;&#97;&#x40;&#x77;&#104;&#105;&#x74;&#101;&#104;&#111;&#x75;&#115;&#101;&#46;&#x63;&#111;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#105;&#106;&#x69;&#110;&#x70;&#105;&#110;&#103;&#x40;&#122;&#104;&#x6f;&#x6e;&#103;&#x6e;&#97;&#x6e;&#x68;&#97;&#x69;&#x2e;&#99;&#x6f;&#109;">&#120;&#105;&#106;&#x69;&#110;&#x70;&#105;&#110;&#103;&#x40;&#122;&#104;&#x6f;&#x6e;&#103;&#x6e;&#97;&#x6e;&#x68;&#97;&#x69;&#x2e;&#99;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -4484,6 +4484,81 @@ with these **parameters**
 <p>无论是全量还是增量的方式，都会浪费多余的存储或通过计算去重，得到最新的全量数据。为解决这一问题，西红柿墙裂建议kafka的数据同步方案，源表变化一条，目标表消费一条，目标表数据始终是一份最新全量数据，且为实时同步的。</p>
 <p>ps.极端情况下可能会丢数，需要写几个监控脚本（详见上文数据质量部分）和补数脚本即可~</p>
 <br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html" target="_blank">数据仓库【十】：ETL</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html]]></content>
+      <categories>
+        <category>数据仓库</category>
+      </categories>
+      <tags>
+        <tag>Data Warehouse</tag>
+        <tag>数据仓库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据仓库【十一】：OLAP</title>
+    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-11-dw-olap.html</url>
+    <content><![CDATA[<h2 id="OLAP和OLTP的区别"><a href="#OLAP和OLTP的区别" class="headerlink" title="OLAP和OLTP的区别"></a>OLAP和OLTP的区别</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>OLTP</th>
+<th>OLAP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>对象</td>
+<td>业务开发人员</td>
+<td>分析决策人员</td>
+</tr>
+<tr>
+<td>功能</td>
+<td>日常事务处理</td>
+<td>面向分析决策</td>
+</tr>
+<tr>
+<td>模型</td>
+<td>关系模型</td>
+<td>多维模型</td>
+</tr>
+<tr>
+<td>数据量</td>
+<td>几条或几十条记录</td>
+<td>＞百万于万条记录</td>
+</tr>
+<tr>
+<td>操作类型</td>
+<td>增、删、查、改(CRUD)</td>
+<td>查询为主</td>
+</tr>
+<tr>
+<td>总体概括</td>
+<td>联机事务处理</td>
+<td>在线分析处理</td>
+</tr>
+</tbody></table>
+<h2 id="OLAP分类"><a href="#OLAP分类" class="headerlink" title="OLAP分类"></a>OLAP分类</h2><h3 id="MOLAP：基于多维数组的存储模型"><a href="#MOLAP：基于多维数组的存储模型" class="headerlink" title="MOLAP：基于多维数组的存储模型"></a>MOLAP：基于多维数组的存储模型</h3><p>基于多维数组的存储模型，也是OLAP最初的形态，特点是对数据进行预计算，以空间换效率，明细和聚合数据都保存在cube中。但生成cube需要大量时间和空间。</p>
+<h3 id="ROLAP：基于关系模型进行存储数据"><a href="#ROLAP：基于关系模型进行存储数据" class="headerlink" title="ROLAP：基于关系模型进行存储数据"></a>ROLAP：基于关系模型进行存储数据</h3><p>ROLAP，基于关系模型进行存储数据，不需要预计算，按需即时查询。明细和汇总数据都保存在关系型数据库事实表中。其特点是与事务实体对应，关系清晰；但一般需要较为复杂的数据准备。在响应前端需求时，一般较快，但取决于计算引擎能力。</p>
+<h3 id="HOLAP：混合模型"><a href="#HOLAP：混合模型" class="headerlink" title="HOLAP：混合模型"></a>HOLAP：混合模型</h3><p>HOLAP，混合模型，<strong>细节数据以ROLAP存放，聚合数据以MOLAP存放</strong>。这种方式相对灵活，且更加高效。可按企业业务场景和数据粒度进行取舍，没有最好，只有最适合。</p>
+<p><img src="/images/0002.jfif"></p>
+<h2 id="OLAP基本操作"><a href="#OLAP基本操作" class="headerlink" title="OLAP基本操作"></a>OLAP基本操作</h2><h3 id="★钻取"><a href="#★钻取" class="headerlink" title="★钻取"></a>★钻取</h3><p>维的层次变化，从粗粒度到细粒度，汇总数据下钻到明细数据。如通过季度销售数据钻取每个月的销售数据。</p>
+<h3 id="★上卷"><a href="#★上卷" class="headerlink" title="★上卷"></a>★上卷</h3><p>钻取的逆，向上钻取。从细粒度到粗粒度，细粒度数据到不同维层级的汇总。eg. 通过每个月的销售数据汇总季度、年销售数据。</p>
+<h3 id="★切片"><a href="#★切片" class="headerlink" title="★切片"></a>★切片</h3><p>特定维数据（剩余维两个）。eg. 只选电子产品销售数据。</p>
+<h3 id="★切块"><a href="#★切块" class="headerlink" title="★切块"></a>★切块</h3><p>维区间数据（剩余维三个）。eg. 第一季度到第二季度销售数据。</p>
+<h3 id="★旋转"><a href="#★旋转" class="headerlink" title="★旋转"></a>★旋转</h3><p>维位置互换（数据行列互换），通过旋转可以得到不同视角的数据。</p>
+<p><img src="/images/0075.png"></p>
+<h2 id="OLAP选型"><a href="#OLAP选型" class="headerlink" title="OLAP选型"></a>OLAP选型</h2><h3 id="druid"><a href="#druid" class="headerlink" title="druid"></a>druid</h3><ul>
+<li>实时查询和分析的高容错、高性能开源分布式系统，用于解决如何在大规模数据集下进行快速的、交互式的查询和分析。</li>
+<li>实时的数据消费，真正做到数据摄入实时、查询结果实时。</li>
+<li>扩展性强，支持 PB 级数据</li>
+<li>极高的高可用保障，支持滚动升级。</li>
+<li>druid属于时间存储，删除操作比较繁琐，且不支持查询条件删除数据，只能根据时间范围删除数据。Druid能接受的数据的格式相对简单，比如不能处理嵌套结构的数据。</li>
+</ul>
+<h3 id="kylin"><a href="#kylin" class="headerlink" title="kylin"></a>kylin</h3><ul>
+<li>可扩展超快olap引擎，Hadoop/Spark上百亿数据规模</li>
+<li>提供 Hadoop ANSI SQL 接口</li>
+<li>交互式查询能力，用户可以与Hadoop数据进行亚秒级交互</li>
+<li>百亿以上数据集构建多维立方体（MOLAP CUBE）</li>
+<li>与BI工具无缝整合，如Tableau，PowerBI/Excel，MSTR，QlikSense，Hue和SuperSet</li>
+</ul>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-11-dw-olap.html" target="_blank">数据仓库【十一】：OLAP</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-11-dw-olap.html]]></content>
       <categories>
         <category>数据仓库</category>
       </categories>
