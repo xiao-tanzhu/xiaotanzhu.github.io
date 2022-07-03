@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaotanzhu.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="数据治理（Data Governance）是组织中涉及数据使用的一整套管理行为。由企业数据治理部门发起并推行，关于如何制定和实施针对整个企业内部数据的商业应用和技术管理的一系列政策和流程。数据的质量直接影响着数据的价值，并且直接影响着数据分析的结果以及我们以此做出的决策的质量。我们常说，用数据说话，用数据支撑决策管理，但低质量的数据、甚至存在错误的数据，必然会&quot;说假话&quot;！！！数据治理即提高数据的质">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据仓库【九】：数据治理（目的、方法、流程）">
+<meta property="og:url" content="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="数据治理（Data Governance）是组织中涉及数据使用的一整套管理行为。由企业数据治理部门发起并推行，关于如何制定和实施针对整个企业内部数据的商业应用和技术管理的一系列政策和流程。数据的质量直接影响着数据的价值，并且直接影响着数据分析的结果以及我们以此做出的决策的质量。我们常说，用数据说话，用数据支撑决策管理，但低质量的数据、甚至存在错误的数据，必然会&quot;说假话&quot;！！！数据治理即提高数据的质">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0070.png">
+<meta property="article:published_time" content="2022-07-08T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-08T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="Data Warehouse">
+<meta property="article:tag" content="数据仓库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.xiaotanzhu.com/images/0070.png">
+
+
+<link rel="canonical" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html","path":"数据仓库/2022-07-09-dw-data-governance.html","title":"数据仓库【九】：数据治理（目的、方法、流程）"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据仓库【九】：数据治理（目的、方法、流程） | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-139248857-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小炭猪</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">什么是数据治理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E7%9A%84%E7%9B%AE%E7%9A%84"><span class="nav-number">2.</span> <span class="nav-text">数据治理的目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">3.</span> <span class="nav-text">数据治理的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%B5%84%E6%BA%90%E6%A2%B3%E7%90%86"><span class="nav-number">3.1.</span> <span class="nav-text">数据资源梳理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%B8%85%E6%B4%97"><span class="nav-number">3.2.</span> <span class="nav-text">数据采集清洗</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E5%BA%93%E4%B8%BB%E9%A2%98%E5%BA%93%E5%BB%BA%E8%AE%BE"><span class="nav-number">3.3.</span> <span class="nav-text">基础库主题库建设</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%83%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86"><span class="nav-number">3.4.</span> <span class="nav-text">元数据管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%80%E7%BC%98%E8%BF%BD%E8%B8%AA"><span class="nav-number">3.5.</span> <span class="nav-text">血缘追踪</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95"><span class="nav-number">3.6.</span> <span class="nav-text">数据资源目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86"><span class="nav-number">3.7.</span> <span class="nav-text">质量管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%95%86%E4%B8%9A%E6%99%BA%E8%83%BD%EF%BC%88BI%EF%BC%89"><span class="nav-number">3.8.</span> <span class="nav-text">商业智能（BI）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB%E4%BA%A4%E6%8D%A2"><span class="nav-number">3.9.</span> <span class="nav-text">数据共享交换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E8%B4%A8%E9%87%8F8%E4%B8%AA%E8%A1%A1%E9%87%8F%E6%A0%87%E5%87%86"><span class="nav-number">4.</span> <span class="nav-text">数据质量8个衡量标准</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%87%86%E7%A1%AE%E6%80%A7"><span class="nav-number">4.1.</span> <span class="nav-text">数据的准确性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E7%B2%BE%E7%A1%AE%E6%80%A7"><span class="nav-number">4.2.</span> <span class="nav-text">数据的精确性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E7%9C%9F%E5%AE%9E%E6%80%A7"><span class="nav-number">4.3.</span> <span class="nav-text">数据的真实性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8F%8A%E6%97%B6%E6%80%A7"><span class="nav-number">4.4.</span> <span class="nav-text">数据的及时性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%8D%B3%E6%97%B6%E6%80%A7"><span class="nav-number">4.5.</span> <span class="nav-text">数据的即时性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%AE%8C%E6%95%B4%E6%80%A7"><span class="nav-number">4.6.</span> <span class="nav-text">数据的完整性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%85%A8%E9%9D%A2%E6%80%A7"><span class="nav-number">4.7.</span> <span class="nav-text">数据的全面性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%9A%84%E5%85%B3%E8%81%94%E6%80%A7"><span class="nav-number">4.8.</span> <span class="nav-text">数据的关联性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E6%B2%BB%E7%90%86%E6%B5%81%E7%A8%8B"><span class="nav-number">5.</span> <span class="nav-text">数据治理流程</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">81</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">115</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据仓库【九】：数据治理（目的、方法、流程） | 小炭猪">
+      <meta itemprop="description" content="数据治理（Data Governance）是组织中涉及数据使用的一整套管理行为。由企业数据治理部门发起并推行，关于如何制定和实施针对整个企业内部数据的商业应用和技术管理的一系列政策和流程。数据的质量直接影响着数据的价值，并且直接影响着数据分析的结果以及我们以此做出的决策的质量。我们常说，用数据说话，用数据支撑决策管理，但低质量的数据、甚至存在错误的数据，必然会"说假话"！！！数据治理即提高数据的质量，发挥数据资产价值。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据仓库【九】：数据治理（目的、方法、流程）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-09 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-09T00:00:00+08:00">2022-07-09</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据仓库</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html" class="post-meta-item leancloud_visitors" data-flag-title="数据仓库【九】：数据治理（目的、方法、流程）" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+            <div class="post-description">数据治理（Data Governance）是组织中涉及数据使用的一整套管理行为。由企业数据治理部门发起并推行，关于如何制定和实施针对整个企业内部数据的商业应用和技术管理的一系列政策和流程。数据的质量直接影响着数据的价值，并且直接影响着数据分析的结果以及我们以此做出的决策的质量。我们常说，用数据说话，用数据支撑决策管理，但低质量的数据、甚至存在错误的数据，必然会"说假话"！！！数据治理即提高数据的质量，发挥数据资产价值。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="什么是数据治理"><a href="#什么是数据治理" class="headerlink" title="什么是数据治理"></a>什么是数据治理</h2><p>数据治理（Data Governance）是组织中涉及数据使用的一整套管理行为。由企业数据治理部门发起并推行，关于如何制定和实施针对整个企业内部数据的商业应用和技术管理的一系列政策和流程。</p>
+<p>数据的质量直接影响着数据的价值，并且直接影响着数据分析的结果以及我们以此做出的决策的质量。</p>
+<p>我们常说，用数据说话，用数据支撑决策管理，但低质量的数据、甚至存在错误的数据，必然会”说假话”！！！数据治理即提高数据的质量，发挥数据资产价值。</p>
+<h2 id="数据治理的目的"><a href="#数据治理的目的" class="headerlink" title="数据治理的目的"></a>数据治理的目的</h2><ul>
+<li>降低风险</li>
+<li>建立数据使用内部规则</li>
+<li>实施合规要求</li>
+<li>改善内部和外部沟通</li>
+<li>增加数据价值</li>
+<li>方便数据管理</li>
+<li>降低成本</li>
+<li>通过风险管理和优化来帮助确保公司的持续生存</li>
+</ul>
+<h2 id="数据治理的方法"><a href="#数据治理的方法" class="headerlink" title="数据治理的方法"></a>数据治理的方法</h2><p>从技术实施角度看，数据治理包含 <strong>“理”“采”“存”“管”“用”</strong> 这五个步骤，即<strong>业务和数据资源梳理、数据采集清洗、数据库设计和存储、数据管理、数据使用</strong>。</p>
+<h3 id="数据资源梳理"><a href="#数据资源梳理" class="headerlink" title="数据资源梳理"></a>数据资源梳理</h3><p>数据治理的第一个步骤是从业务的视角厘清组织的数据资源环境和数据资源清单，包含组织机构、业务事项、信息系统，以及以数据库、网页、文件和 API 接口形式存在的数据项资源，本步骤的输出物为分门别类的数据资源清单。</p>
+<h3 id="数据采集清洗"><a href="#数据采集清洗" class="headerlink" title="数据采集清洗"></a>数据采集清洗</h3><p>通过可视化的 ETL 工具（例如阿里的 DataX，Pentaho Data Integration）将数据从来源端经过 <strong>抽取 (extract)、转换 (transform)、加载 (load)</strong> 至目的端的过程，目的是将散落和零乱的数据集中存储起来。</p>
+<h3 id="基础库主题库建设"><a href="#基础库主题库建设" class="headerlink" title="基础库主题库建设"></a>基础库主题库建设</h3><p>一般情况下，可以将数据分为<strong>基础数据、业务主题数据和分析数据</strong>。</p>
+<p>基础数据一般指的是核心实体数据，或称主数据，例如智慧城市中的人口、法人、地理信息、信用、电子证照等数据。</p>
+<p>主题数据一般指的是某个业务主题数据，例如市场监督管理局的食品监管、质量监督检查、企业综合监管等数据。</p>
+<p>而分析数据指的是基于业务主题数据综合分析而得的分析结果数据，例如市场监督管理局的企业综合评价、产业区域分布、高危企业分布等。</p>
+<p>那么基础库和主题库的建设就是在对业务理解的基础上，基于易存储、易管理、易使用的原则抽像数据存储结构，说白了，就是基于一定的原则设计数据库表结构，然后再根据数据资源清单设计数据采集清洗流程，将整洁干净的数据存储到数据库或数据仓库中。</p>
+<h3 id="元数据管理"><a href="#元数据管理" class="headerlink" title="元数据管理"></a>元数据管理</h3><p>元数据管理是对基础库和主题库中的<strong>数据项属性的管理</strong>，同时，将数据项的业务含义与数据项进行了关联，便于业务人员也能够理解数据库中的数据字段含义。并且，元数据是后面提到的自动化数据共享、数据交换和商业智能（BI）的基础。需要注意的是， <strong>元数据管理</strong>一般是对基础库和主题库中（即核心数据资产）的数据项属性的管理，而<strong>数据资源清单</strong>是对各类数据来源的数据项的管理。</p>
+<h3 id="血缘追踪"><a href="#血缘追踪" class="headerlink" title="血缘追踪"></a>血缘追踪</h3><p>数据被业务场景使用时，发现数据错误，数据治理团队需要快速定位数据来源，修复数据错误。那么数据治理团队需要知道业务团队的数据来自于哪个核心库，核心库的数据又来自于哪个数据源头。我们的实践是在元数据和数据资源清单之间建立关联关系，且业务团队使用的数据项由元数据组合配置而来，这样，就建立了数据使用场景与数据源头之间的血缘关系。</p>
+<h3 id="数据资源目录"><a href="#数据资源目录" class="headerlink" title="数据资源目录"></a>数据资源目录</h3><p>数据资源目录一般应用于数据共享的场景，例如政府部门之间的数据共享，数据资源目录是基于业务场景和行业规范而创建，同时依托于元数据和基础库主题而实现自动化的数据申请和使用。</p>
+<h3 id="质量管理"><a href="#质量管理" class="headerlink" title="质量管理"></a>质量管理</h3><p>数据价值的成功发掘必须依托于高质量的数据，唯有<strong>准确、完整、一致</strong>的数据才有使用价值。因此，需要从多维度来分析数据的质量，例如：<strong>偏移量、非空检查、值域检查、规范性检查、重复性检查、关联关系检查、离群值检查、波动检查等等</strong>。需要注意的是，优秀的数据质量模型的设计必须依赖于对业务的深刻理解，在技术上也推荐使用大数据相关技术来保障检测性能和降低对业务系统的性能影响，例如 Hadoop，MapReduce，HBase 等。</p>
+<h3 id="商业智能（BI）"><a href="#商业智能（BI）" class="headerlink" title="商业智能（BI）"></a>商业智能（BI）</h3><p>数据治理的目的是使用，对于一个大型的数据仓库来说，数据使用的场景和需求是多变的，那么可以使用 BI 类的产品快速获取需要的数据，并分析形成报表，比较知名的产品有 Microsoft Power BI，QlikView，Tableau，帆软等。</p>
+<h3 id="数据共享交换"><a href="#数据共享交换" class="headerlink" title="数据共享交换"></a>数据共享交换</h3><p>数据共享包括组织内部和组织之间的数据共享，共享方式也分为<strong>库表、文件和 API 接口</strong>三种共享方式，库表共享比较直接粗暴，文件共享方式通过 ETL 工具做一个反向的数据交换也就可以实现。我们比较推荐的是 API 接口共享方式，在这种方式下，能够让中心数据仓库保留数据所有权，把数据使用权通过 API 接口的形式进行了转移。API 接口共享可以使用 API 网关实现，常见的功能是自动化的<strong>接口生成、申请审核、限流、限并发、多用户隔离、调用统计、调用审计、黑白名单、调用监控、质量监控等等</strong>。</p>
+<h2 id="数据质量8个衡量标准"><a href="#数据质量8个衡量标准" class="headerlink" title="数据质量8个衡量标准"></a>数据质量8个衡量标准</h2><h3 id="数据的准确性"><a href="#数据的准确性" class="headerlink" title="数据的准确性"></a>数据的准确性</h3><p>数据采集值或者观测值和真实值之间的接近程度，也叫做误差值，误差越大，准确度越低。</p>
+<h3 id="数据的精确性"><a href="#数据的精确性" class="headerlink" title="数据的精确性"></a>数据的精确性</h3><p>指对同一对象的观测数据在重复测量时所得到不同数据间的接近程度。</p>
+<h3 id="数据的真实性"><a href="#数据的真实性" class="headerlink" title="数据的真实性"></a>数据的真实性</h3><h3 id="数据的及时性"><a href="#数据的及时性" class="headerlink" title="数据的及时性"></a>数据的及时性</h3><p>数据能否在需要的时候得到保证，比如月初的财务对账，能不能在月初就完成</p>
+<h3 id="数据的即时性"><a href="#数据的即时性" class="headerlink" title="数据的即时性"></a>数据的即时性</h3><p>指数据采集时间节点和数据传输的时间节点，一个数据在数据源头采集后立即存储，并立即加工呈现，就是即时数据，而经过一段时间之后再传输到信息系统中，则数据即时性就稍差。</p>
+<h3 id="数据的完整性"><a href="#数据的完整性" class="headerlink" title="数据的完整性"></a>数据的完整性</h3><p>应采集和实际采集到数据之间的比例。</p>
+<h3 id="数据的全面性"><a href="#数据的全面性" class="headerlink" title="数据的全面性"></a>数据的全面性</h3><p>完整性衡量的是应采集和实际采集的差异。而全面性指的是数据采集点的遗漏情况。</p>
+<h3 id="数据的关联性"><a href="#数据的关联性" class="headerlink" title="数据的关联性"></a>数据的关联性</h3><p>指各个数据集之间的关联关系。比如员工工资数据和员工绩效考核数据是通过员工这个资源关联在一起来的。</p>
+<h2 id="数据治理流程"><a href="#数据治理流程" class="headerlink" title="数据治理流程"></a>数据治理流程</h2><p><img src="/images/0070.png"></p>
+<p>基本流程：发现数据质量问题 &gt; 定义数据质量规则 &gt; 质量控制 &gt; 质量评估 &gt; 质量优化</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html" target="_blank">数据仓库【九】：数据治理（目的、方法、流程）</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/data-warehouse/" rel="tag"># Data Warehouse</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" rel="tag"># 数据仓库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-08-dw-nf.html" rel="prev" title="数据仓库【八】：三范式与反范式">
+                  <i class="fa fa-chevron-left"></i> 数据仓库【八】：三范式与反范式
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.wangjingfei.com/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.wangjingfei.com/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://cdn.wangjingfei.com/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '16px',
+  right: '20px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"xiaotanzhu","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

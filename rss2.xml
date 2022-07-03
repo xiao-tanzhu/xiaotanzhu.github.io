@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Thu, 07 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Fri, 08 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>数据仓库【九】：数据治理（目的、方法、流程）</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html</guid>
+      <pubDate>Fri, 08 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>数据治理（Data Governance）是组织中涉及数据使用的一整套管理行为。由企业数据治理部门发起并推行，关于如何制定和实施针对整个企业内部数据的商业应用和技术管理的一系列政策和流程。数据的质量直接影响着数据的价值，并且直接影响着数据分析的结果以及我们以此做出的决策的质量。我们常说，用数据说话，用数据支撑决策管理，但低质量的数据、甚至存在错误的数据，必然会&quot;说假话&quot;！！！数据治理即提高数据的质量，发挥数据资产价值。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据仓库【八】：三范式与反范式</title>
@@ -42,7 +65,7 @@
     </item>
     
     <item>
-      <title>数据仓库【六】：维度表</title>
+      <title>数据仓库【七】：维度表</title>
       <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html</link>
       <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html</guid>
       <pubDate>Wed, 06 Jul 2022 16:00:00 GMT</pubDate>
@@ -460,29 +483,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>做产品为什么要画这些图？</title>
-      <link>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html</link>
-      <guid>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html</guid>
-      <pubDate>Fri, 09 Jul 2021 16:00:00 GMT</pubDate>
-      
-      <description>做产品为什么要画这些图？</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/uml/">UML</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html#disqus_thread</comments>
       
     </item>
     

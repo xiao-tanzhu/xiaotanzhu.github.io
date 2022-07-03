@@ -23,7 +23,7 @@
 
     <meta name="description" content="维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据仓库【六】：维度表">
+<meta property="og:title" content="数据仓库【七】：维度表">
 <meta property="og:url" content="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html">
 <meta property="og:site_name" content="小炭猪">
 <meta property="og:description" content="维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。">
@@ -40,10 +40,10 @@
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html","path":"数据仓库/2022-07-07-dw-dim-table.html","title":"数据仓库【六】：维度表"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html","path":"数据仓库/2022-07-07-dw-dim-table.html","title":"数据仓库【七】：维度表"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>数据仓库【六】：维度表 | 小炭猪</title>
+<title>数据仓库【七】：维度表 | 小炭猪</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
   <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-139248857-1","only_pageview":false}</script>
@@ -166,7 +166,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">80</span>
+          <span class="site-state-item-count">81</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -236,12 +236,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="数据仓库【六】：维度表 | 小炭猪">
+      <meta itemprop="name" content="数据仓库【七】：维度表 | 小炭猪">
       <meta itemprop="description" content="维度是维度建模的基础和灵魂。在维度建模中，将度量称为“事实” ， 将环境描述为“维度”。维度表包含了事实表中指定属性的相关详细信息，最常用的维度表有日期维度、城市维度等。">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          数据仓库【六】：维度表
+          数据仓库【七】：维度表
         </h1>
 
         <div class="post-meta-container">
@@ -265,7 +265,7 @@
     </span>
 
   
-    <span id="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html" class="post-meta-item leancloud_visitors" data-flag-title="数据仓库【六】：维度表" title="阅读次数">
+    <span id="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html" class="post-meta-item leancloud_visitors" data-flag-title="数据仓库【七】：维度表" title="阅读次数">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
@@ -402,7 +402,7 @@
 <h3 id="第二步：确定主维表。"><a href="#第二步：确定主维表。" class="headerlink" title="第二步：确定主维表。"></a>第二步：确定主维表。</h3><p>此处的主维表一般是ODS表，直接与业务系统同步。以淘宝商品维度为例，s_auction_auctions是与前台商品中心系统同步的商品表，此表即是主维表。</p>
 <h3 id="第三步：确定相关维表。"><a href="#第三步：确定相关维表。" class="headerlink" title="第三步：确定相关维表。"></a>第三步：确定相关维表。</h3><p>数据仓库是业务源系统的数据整合，不同业务系统或者同一业务系统中的表之间存在关联性。根据对业务的梳理，确定哪些表和主维表存在关联关系，并选择其中的某些表用于生成维度属性。</p>
 <h3 id="第四步：确定维度属性。"><a href="#第四步：确定维度属性。" class="headerlink" title="第四步：确定维度属性。"></a>第四步：确定维度属性。</h3><p>本步骤主要包括两个阶段，其中第一个阶段是从主维表中选择维度属性或生成新的维度属性；第二个阶段是从相关维表中选择维度属性或生成新的维度属性。以淘宝商品维度为例，从主维表(s_auction_auctions)和类目、SPU、卖家、店铺等相关维表中选择维度属性或生成新的维度属性。</p>
-<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html" target="_blank">数据仓库【六】：维度表</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html" target="_blank">数据仓库【七】：维度表</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-07-dw-dim-table.html
     </div>
 
     
