@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2022-07-06T16:00:00.000Z</updated>
+  <updated>2022-07-07T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>数据仓库【八】：三范式与反范式</title>
+    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-08-dw-nf.html"/>
+    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-08-dw-nf.html</id>
+    <published>2022-07-07T16:00:00.000Z</published>
+    <updated>2022-07-07T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">范式是符合某一种级别的关系模式的集合。构造数据库必须遵循一定的规则。在关系数据库中，这种规则就是范式。关系数据库中的关系必须满足一定的要求，即满足不同的范式。大数据生态中，各类强大的查询引擎层出不穷，相对廉价的磁盘和分布式技术，也让数据冗余变得可接受甚至更加方便。</summary>
+    
+    
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+    
+    <category term="Data Warehouse" scheme="https://www.xiaotanzhu.com/tags/data-warehouse/"/>
+    
+    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
+    
+  </entry>
   
   <entry>
     <title>数据仓库【六】：维度表</title>
@@ -420,29 +441,6 @@
     <category term="产品经理" scheme="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/"/>
     
     <category term="UML" scheme="https://www.xiaotanzhu.com/tags/uml/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>自动为Hexo博客添加文章链接</title>
-    <link href="https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html"/>
-    <id>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html</id>
-    <published>2021-07-03T16:00:00.000Z</published>
-    <updated>2021-07-03T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">为Hexo博客添加文章链接，或文章版权说明等</summary>
-    
-    
-    
-    <category term="Hexo" scheme="https://www.xiaotanzhu.com/categories/hexo/"/>
-    
-    
-    <category term="Hexo" scheme="https://www.xiaotanzhu.com/tags/hexo/"/>
-    
-    <category term="Post Links" scheme="https://www.xiaotanzhu.com/tags/post-links/"/>
-    
-    <category term="Github Pages" scheme="https://www.xiaotanzhu.com/tags/github-pages/"/>
     
   </entry>
   

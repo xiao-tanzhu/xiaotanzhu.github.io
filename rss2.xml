@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Wed, 06 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Thu, 07 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>数据仓库【八】：三范式与反范式</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-08-dw-nf.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-08-dw-nf.html</guid>
+      <pubDate>Thu, 07 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>范式是符合某一种级别的关系模式的集合。构造数据库必须遵循一定的规则。在关系数据库中，这种规则就是范式。关系数据库中的关系必须满足一定的要求，即满足不同的范式。大数据生态中，各类强大的查询引擎层出不穷，相对廉价的磁盘和分布式技术，也让数据冗余变得可接受甚至更加方便。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-08-dw-nf.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据仓库【六】：维度表</title>
@@ -460,31 +483,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/uml-for-product-manager.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>自动为Hexo博客添加文章链接</title>
-      <link>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html</link>
-      <guid>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html</guid>
-      <pubDate>Sat, 03 Jul 2021 16:00:00 GMT</pubDate>
-      
-      <description>为Hexo博客添加文章链接，或文章版权说明等</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/hexo/">Hexo</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/hexo/">Hexo</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/post-links/">Post Links</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/github-pages/">Github Pages</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/hexo/hexo-add-post-links.html#disqus_thread</comments>
       
     </item>
     
