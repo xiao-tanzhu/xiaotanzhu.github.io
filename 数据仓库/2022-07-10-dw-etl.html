@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaotanzhu.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="ETL，是英文Extract-Transform-Load的缩写，用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程，是数据仓库的生命线。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据仓库【十】：ETL">
+<meta property="og:url" content="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="ETL，是英文Extract-Transform-Load的缩写，用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程，是数据仓库的生命线。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0071.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0001.jfif">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0072.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0073.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0074.png">
+<meta property="article:published_time" content="2022-07-09T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-09T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="Data Warehouse">
+<meta property="article:tag" content="数据仓库">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.xiaotanzhu.com/images/0071.png">
+
+
+<link rel="canonical" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html","path":"数据仓库/2022-07-10-dw-etl.html","title":"数据仓库【十】：ETL"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据仓库【十】：ETL | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-139248857-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小炭猪</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AFETL"><span class="nav-number">1.</span> <span class="nav-text">什么是ETL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8A%BD%E5%8F%96%EF%BC%88Extract%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">抽取（Extract）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BD%AC%E6%8D%A2%EF%BC%88transform%EF%BC%89"><span class="nav-number">1.2.</span> <span class="nav-text">转换（transform）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A3%85%E8%BD%BD%EF%BC%88Load%EF%BC%89"><span class="nav-number">1.3.</span> <span class="nav-text">装载（Load）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ETL-amp-ELT"><span class="nav-number">2.</span> <span class="nav-text">ETL &amp; ELT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84ETL%E5%B7%A5%E5%85%B7"><span class="nav-number">3.</span> <span class="nav-text">常用的ETL工具</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#sqoop"><span class="nav-number">3.1.</span> <span class="nav-text">sqoop</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DataX"><span class="nav-number">3.2.</span> <span class="nav-text">DataX</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kettle"><span class="nav-number">3.3.</span> <span class="nav-text">Kettle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#canal"><span class="nav-number">3.4.</span> <span class="nav-text">canal</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#StreamSets"><span class="nav-number">3.5.</span> <span class="nav-text">StreamSets</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ETL%E5%8A%A0%E8%BD%BD%E7%AD%96%E7%95%A5"><span class="nav-number">4.</span> <span class="nav-text">ETL加载策略</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A2%9E%E9%87%8F"><span class="nav-number">4.1.</span> <span class="nav-text">增量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%A2%9E-%E5%88%A0%E9%99%A4"><span class="nav-number">4.2.</span> <span class="nav-text">新增+删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%A8%E9%87%8F"><span class="nav-number">4.3.</span> <span class="nav-text">全量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%81%E5%BC%8F"><span class="nav-number">4.4.</span> <span class="nav-text">流式</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">82</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">115</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据仓库【十】：ETL | 小炭猪">
+      <meta itemprop="description" content="ETL，是英文Extract-Transform-Load的缩写，用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程，是数据仓库的生命线。">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据仓库【十】：ETL
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-10 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-10T00:00:00+08:00">2022-07-10</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据仓库</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html" class="post-meta-item leancloud_visitors" data-flag-title="数据仓库【十】：ETL" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+            <div class="post-description">ETL，是英文Extract-Transform-Load的缩写，用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程，是数据仓库的生命线。</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="什么是ETL"><a href="#什么是ETL" class="headerlink" title="什么是ETL"></a>什么是ETL</h2><p>ETL，是英文Extract-Transform-Load的缩写，用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程，是数据仓库的生命线。</p>
+<h3 id="抽取（Extract）"><a href="#抽取（Extract）" class="headerlink" title="抽取（Extract）"></a>抽取（Extract）</h3><p>主要是针对各个业务系统及不同服务器的分散数据，充分理解数据定义后，规划需要的数据源及数据定义，制定可操作的数据源，制定增量抽取和缓慢渐变的规则。</p>
+<h3 id="转换（transform）"><a href="#转换（transform）" class="headerlink" title="转换（transform）"></a>转换（transform）</h3><p>主要是针对数据仓库建立的模型，通过一系列的转换来实现将数据从业务模型到分析模型，通过ETL工具可视化拖拽操作可以直接使用标准的内置代码片段功能、自定义脚本、函数、存储过程以及其他的扩展方式，实现了各种复杂的转换，并且支持自动分析日志，清楚的监控数据转换的状态并优化分析模型。</p>
+<h3 id="装载（Load）"><a href="#装载（Load）" class="headerlink" title="装载（Load）"></a>装载（Load）</h3><p>主要是将经过转换的数据装载到数据仓库里面，可以通过直连数据库的方式来进行数据装载，可以充分体现高效性。在应用的时候可以随时调整数据抽取工作的运行方式，可以灵活的集成到其他管理系统中。</p>
+<h2 id="ETL-amp-ELT"><a href="#ETL-amp-ELT" class="headerlink" title="ETL &amp; ELT"></a>ETL &amp; ELT</h2><p>伴随着数据仓库的发展（传送门：<a href="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html">数据仓库的八个发展阶段</a>），数据量从小到大，数据实时性从T+1到准实时、实时，ETL也在不断演进。</p>
+<p><strong>在传统数仓中</strong>，数据量小，计算逻辑相对简单，我们可以直接用ETL工具实现数据转换（T），转换之后再加载到目标库，即（Extract-Transform-Load）。但<strong>在大数据场景下</strong>，数据量越大越大，计算逻辑愈发复杂，数据清洗需放在运算能力更强的分布式计算引擎中完成，ETL也就变成了ELT（Extract-Load-Transform）。</p>
+<p>即：</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">Extract</span>-Transform-<span class="keyword">Load</span>  &gt;&gt;  <span class="keyword">Extract</span>-<span class="keyword">Load</span>-Transform</span><br></pre></td></tr></table></figure>
+
+<p>通常我们所说的ETL，已经泛指数据同步、数据清洗全过程，而不仅限于数据的抽取-转换-加载。</p>
+<h2 id="常用的ETL工具"><a href="#常用的ETL工具" class="headerlink" title="常用的ETL工具"></a>常用的ETL工具</h2><p>下面将介绍几类ETL工具（sqoop，DataX，Kettle，canal，StreamSets）。</p>
+<h3 id="sqoop"><a href="#sqoop" class="headerlink" title="sqoop"></a>sqoop</h3><ul>
+<li>是Apache开源的一款在Hadoop和关系数据库服务器之间传输数据的工具。</li>
+<li>可以将一个关系型数据库（MySQL ,Oracle等）中的数据导入到Hadoop的HDFS中，也可以将HDFS的数据导出到关系型数据库中。</li>
+<li>sqoop命令的本质是转化为MapReduce程序。</li>
+<li>sqoop分为导入（import）和导出（export），</li>
+<li>策略分为table和query</li>
+<li>模式分为增量和全量。</li>
+</ul>
+<p><img src="/images/0071.png"></p>
+<p><img src="/images/0001.jfif"></p>
+<h3 id="DataX"><a href="#DataX" class="headerlink" title="DataX"></a>DataX</h3><p>DataX 是阿里巴巴集团内被广泛使用的离线数据同步工具/平台，实现包括 MySQL、Oracle、SqlServer、Postgre、HDFS、Hive、ADS、HBase、TableStore(OTS)、MaxCompute(ODPS)、DRDS 等各种异构数据源之间高效的数据同步功能。</p>
+<p><img src="/images/0072.png"></p>
+<h3 id="Kettle"><a href="#Kettle" class="headerlink" title="Kettle"></a>Kettle</h3><p>一款国外免费开源的、可视化的、功能强大的ETL工具，纯java编写，可以在Windows、Linux、Unix上运行，数据抽取高效稳定。</p>
+<h3 id="canal"><a href="#canal" class="headerlink" title="canal"></a>canal</h3><p>canal是阿里巴巴旗下的一款开源项目，纯Java开发。基于数据库增量日志解析，提供增量数据实时订阅和消费，目前主要支持了MySQL，也支持mariaDB。</p>
+<p><img src="/images/0073.png"></p>
+<h3 id="StreamSets"><a href="#StreamSets" class="headerlink" title="StreamSets"></a>StreamSets</h3><p>是大数据实时采集ETL工具，可以实现不写一行代码完成数据的采集和流转。通过拖拽式的可视化界面，实现数据管道(Pipelines)的设计和定时任务调度。</p>
+<p>创建一个Pipelines管道需要配置数据源(Origins)、操作(Processors)、目的地(Destinations)三部分。</p>
+<h2 id="ETL加载策略"><a href="#ETL加载策略" class="headerlink" title="ETL加载策略"></a>ETL加载策略</h2><h3 id="增量"><a href="#增量" class="headerlink" title="增量"></a>增量</h3><p>有些表巨大，我们需要选择增量策略，新增delta数据需要和存量数据merge合并。</p>
+<p>只有新增（full join。能拿更新表就拿更新表）</p>
+<p><img src="/images/0074.png"></p>
+<h3 id="新增-删除"><a href="#新增-删除" class="headerlink" title="新增+删除"></a>新增+删除</h3><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">history-<span class="keyword">table</span> <span class="keyword">Left join</span> delet-<span class="keyword">table</span> <span class="keyword">where</span> delta-<span class="keyword">table</span>.<span class="keyword">value</span> <span class="keyword">is</span> <span class="keyword">null</span> == 表a</span><br></pre></td></tr></table></figure>
+<p>表a full join update-table (能拿update就拿update)</p>
+<h3 id="全量"><a href="#全量" class="headerlink" title="全量"></a>全量</h3><p>每天一个全量表，也可一个hive天分区一个全量。</p>
+<h3 id="流式"><a href="#流式" class="headerlink" title="流式"></a>流式</h3><p>使用kafka，消费mysql binlog日志到目标库，源表和目标库是1：1的镜像。</p>
+<p>无论是全量还是增量的方式，都会浪费多余的存储或通过计算去重，得到最新的全量数据。为解决这一问题，西红柿墙裂建议kafka的数据同步方案，源表变化一条，目标表消费一条，目标表数据始终是一份最新全量数据，且为实时同步的。</p>
+<p>ps.极端情况下可能会丢数，需要写几个监控脚本（详见上文数据质量部分）和补数脚本即可~</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html" target="_blank">数据仓库【十】：ETL</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/data-warehouse/" rel="tag"># Data Warehouse</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" rel="tag"># 数据仓库</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html" rel="prev" title="数据仓库【九】：数据治理（目的、方法、流程）">
+                  <i class="fa fa-chevron-left"></i> 数据仓库【九】：数据治理（目的、方法、流程）
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.wangjingfei.com/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.wangjingfei.com/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://cdn.wangjingfei.com/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '16px',
+  right: '20px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"xiaotanzhu","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

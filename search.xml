@@ -8,7 +8,7 @@
 
 <p>开始登录并使用SMTP发送邮件：</p>
 <blockquote>
-<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#119;&#97;&#x6e;&#x67;&#106;&#x69;&#x6e;&#x67;&#x66;&#x65;&#x69;&#64;&#49;&#54;&#51;&#46;&#99;&#111;&#x6d;">&#119;&#97;&#x6e;&#x67;&#106;&#x69;&#x6e;&#x67;&#x66;&#x65;&#x69;&#64;&#49;&#54;&#51;&#46;&#99;&#111;&#x6d;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#97;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#101;&#105;&#64;&#50;&#54;&#x33;&#46;&#x63;&#x6f;&#x6d;">&#x77;&#97;&#110;&#x67;&#106;&#105;&#x6e;&#103;&#102;&#101;&#105;&#64;&#50;&#54;&#x33;&#46;&#x63;&#x6f;&#x6d;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#x62;&#97;&#x6d;&#97;&#x40;&#x77;&#104;&#105;&#116;&#101;&#104;&#x6f;&#x75;&#115;&#x65;&#46;&#x63;&#x6f;&#109;">&#x6f;&#x62;&#97;&#x6d;&#97;&#x40;&#x77;&#104;&#105;&#116;&#101;&#104;&#x6f;&#x75;&#115;&#x65;&#46;&#x63;&#x6f;&#109;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#120;&#x69;&#x6a;&#x69;&#x6e;&#x70;&#x69;&#x6e;&#103;&#64;&#122;&#104;&#x6f;&#110;&#103;&#110;&#97;&#110;&#x68;&#97;&#105;&#46;&#x63;&#111;&#x6d;">&#120;&#x69;&#x6a;&#x69;&#x6e;&#x70;&#x69;&#x6e;&#103;&#64;&#122;&#104;&#x6f;&#110;&#103;&#110;&#97;&#110;&#x68;&#97;&#105;&#46;&#x63;&#111;&#x6d;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
+<p><strong>fify@fify-Vostro-3902:~$ telnet smtp.163.com 25</strong><br>Trying 123.125.50.133…<br>Connected to smtp.163.com.<br>Escape character is ‘^]’.<br>220 163.com Anti-spam GT for Coremail System (163com[20141201])<br><strong>EHLO smtp.163.com</strong> # 开始连接前握手<br>250-mail<br>250-PIPELINING<br>250-AUTH LOGIN PLAIN<br>250-AUTH=LOGIN PLAIN<br>250-coremail 1Uxr2xKj7kG0xkI17xGrU7I0s8FY2U3Uj8Cz28x1UUUUU7Ic2I0Y2UFCvVepUCa0xDrUUUUj<br>250-STARTTLS<br>250 8BITMIME<br><strong>AUTH LOGIN</strong> # 开始登录，使用LOGIN方式<br>334 dXNlcm5hbWU6<br><strong>d2FuZ2ppbmdmZWk=</strong> # 用户名的Base64<br>334 UGFzc3dvcmQ6<br><strong>ZmFrZXBhc3N3b3Jk</strong> # 密码的Base64<br>235 Authentication successful<br><strong>MAIL FROM: &lt;<a href="mailto:&#x77;&#x61;&#x6e;&#103;&#x6a;&#x69;&#110;&#103;&#102;&#x65;&#x69;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#109;">&#x77;&#x61;&#x6e;&#103;&#x6a;&#x69;&#110;&#103;&#102;&#x65;&#x69;&#64;&#49;&#x36;&#x33;&#x2e;&#99;&#x6f;&#109;</a>&gt;</strong> # 发件箱地址<br>250 Mail OK<br><strong>RCPT TO: &lt;<a href="mailto:&#x77;&#97;&#x6e;&#103;&#106;&#x69;&#110;&#x67;&#x66;&#101;&#105;&#64;&#50;&#x36;&#51;&#46;&#x63;&#x6f;&#109;">&#x77;&#97;&#x6e;&#103;&#106;&#x69;&#110;&#x67;&#x66;&#101;&#105;&#64;&#50;&#x36;&#51;&#46;&#x63;&#x6f;&#109;</a>&gt;</strong> # 收件箱地址<br>250 Mail OK<br><strong>DATA</strong> # 开始编写邮件正文<br>354 End data with &lt;CR&gt;&lt;LF&gt;.&lt;CR&gt;&lt;LF&gt;<br><strong>TO: <a href="mailto:&#x6f;&#98;&#97;&#109;&#x61;&#64;&#x77;&#104;&#x69;&#116;&#101;&#x68;&#111;&#117;&#x73;&#101;&#46;&#x63;&#x6f;&#x6d;">&#x6f;&#98;&#97;&#109;&#x61;&#64;&#x77;&#104;&#x69;&#116;&#101;&#x68;&#111;&#117;&#x73;&#101;&#46;&#x63;&#x6f;&#x6d;</a></strong> # 这里的数据可以随便写<br><strong>FROM: <a href="mailto:&#x78;&#105;&#106;&#x69;&#x6e;&#112;&#105;&#110;&#103;&#x40;&#x7a;&#x68;&#x6f;&#x6e;&#103;&#x6e;&#x61;&#x6e;&#104;&#97;&#105;&#x2e;&#x63;&#x6f;&#109;">&#x78;&#105;&#106;&#x69;&#x6e;&#112;&#105;&#110;&#103;&#x40;&#x7a;&#x68;&#x6f;&#x6e;&#103;&#x6e;&#x61;&#x6e;&#104;&#97;&#105;&#x2e;&#x63;&#x6f;&#109;</a></strong> # 这里也是<br><strong>SUBJECT: A very important conference.</strong></p>
 <p><strong>Please note that!</strong></p>
 <p><strong>.</strong></p>
 <p>250 Mail OK queued as smtp10,wKjADQ2ApxRnnqBE0CWaEw==.38326S3 # 返回250 表示发送成功。<br><strong>NOOP</strong> # 空语句，不执行任何操作，一般用来保持和服务器连接，不要掉线<br>250 OK<br><strong>QUIT</strong> # 退出<br>221 Closing connection. Good bye.<br>Connection closed by foreign host.</p>
@@ -4435,6 +4435,55 @@ with these **parameters**
 <h2 id="数据治理流程"><a href="#数据治理流程" class="headerlink" title="数据治理流程"></a>数据治理流程</h2><p><img src="/images/0070.png"></p>
 <p>基本流程：发现数据质量问题 &gt; 定义数据质量规则 &gt; 质量控制 &gt; 质量评估 &gt; 质量优化</p>
 <br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html" target="_blank">数据仓库【九】：数据治理（目的、方法、流程）</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-09-dw-data-governance.html]]></content>
+      <categories>
+        <category>数据仓库</category>
+      </categories>
+      <tags>
+        <tag>Data Warehouse</tag>
+        <tag>数据仓库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据仓库【十】：ETL</title>
+    <url>/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html</url>
+    <content><![CDATA[<h2 id="什么是ETL"><a href="#什么是ETL" class="headerlink" title="什么是ETL"></a>什么是ETL</h2><p>ETL，是英文Extract-Transform-Load的缩写，用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程，是数据仓库的生命线。</p>
+<h3 id="抽取（Extract）"><a href="#抽取（Extract）" class="headerlink" title="抽取（Extract）"></a>抽取（Extract）</h3><p>主要是针对各个业务系统及不同服务器的分散数据，充分理解数据定义后，规划需要的数据源及数据定义，制定可操作的数据源，制定增量抽取和缓慢渐变的规则。</p>
+<h3 id="转换（transform）"><a href="#转换（transform）" class="headerlink" title="转换（transform）"></a>转换（transform）</h3><p>主要是针对数据仓库建立的模型，通过一系列的转换来实现将数据从业务模型到分析模型，通过ETL工具可视化拖拽操作可以直接使用标准的内置代码片段功能、自定义脚本、函数、存储过程以及其他的扩展方式，实现了各种复杂的转换，并且支持自动分析日志，清楚的监控数据转换的状态并优化分析模型。</p>
+<h3 id="装载（Load）"><a href="#装载（Load）" class="headerlink" title="装载（Load）"></a>装载（Load）</h3><p>主要是将经过转换的数据装载到数据仓库里面，可以通过直连数据库的方式来进行数据装载，可以充分体现高效性。在应用的时候可以随时调整数据抽取工作的运行方式，可以灵活的集成到其他管理系统中。</p>
+<h2 id="ETL-amp-ELT"><a href="#ETL-amp-ELT" class="headerlink" title="ETL &amp; ELT"></a>ETL &amp; ELT</h2><p>伴随着数据仓库的发展（传送门：<a href="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-02-dw-history.html">数据仓库的八个发展阶段</a>），数据量从小到大，数据实时性从T+1到准实时、实时，ETL也在不断演进。</p>
+<p><strong>在传统数仓中</strong>，数据量小，计算逻辑相对简单，我们可以直接用ETL工具实现数据转换（T），转换之后再加载到目标库，即（Extract-Transform-Load）。但<strong>在大数据场景下</strong>，数据量越大越大，计算逻辑愈发复杂，数据清洗需放在运算能力更强的分布式计算引擎中完成，ETL也就变成了ELT（Extract-Load-Transform）。</p>
+<p>即：</p>
+<figure class="highlight coq"><table><tr><td class="code"><pre><span class="line"><span class="keyword">Extract</span>-Transform-<span class="keyword">Load</span>  &gt;&gt;  <span class="keyword">Extract</span>-<span class="keyword">Load</span>-Transform</span><br></pre></td></tr></table></figure>
+
+<p>通常我们所说的ETL，已经泛指数据同步、数据清洗全过程，而不仅限于数据的抽取-转换-加载。</p>
+<h2 id="常用的ETL工具"><a href="#常用的ETL工具" class="headerlink" title="常用的ETL工具"></a>常用的ETL工具</h2><p>下面将介绍几类ETL工具（sqoop，DataX，Kettle，canal，StreamSets）。</p>
+<h3 id="sqoop"><a href="#sqoop" class="headerlink" title="sqoop"></a>sqoop</h3><ul>
+<li>是Apache开源的一款在Hadoop和关系数据库服务器之间传输数据的工具。</li>
+<li>可以将一个关系型数据库（MySQL ,Oracle等）中的数据导入到Hadoop的HDFS中，也可以将HDFS的数据导出到关系型数据库中。</li>
+<li>sqoop命令的本质是转化为MapReduce程序。</li>
+<li>sqoop分为导入（import）和导出（export），</li>
+<li>策略分为table和query</li>
+<li>模式分为增量和全量。</li>
+</ul>
+<p><img src="/images/0071.png"></p>
+<p><img src="/images/0001.jfif"></p>
+<h3 id="DataX"><a href="#DataX" class="headerlink" title="DataX"></a>DataX</h3><p>DataX 是阿里巴巴集团内被广泛使用的离线数据同步工具/平台，实现包括 MySQL、Oracle、SqlServer、Postgre、HDFS、Hive、ADS、HBase、TableStore(OTS)、MaxCompute(ODPS)、DRDS 等各种异构数据源之间高效的数据同步功能。</p>
+<p><img src="/images/0072.png"></p>
+<h3 id="Kettle"><a href="#Kettle" class="headerlink" title="Kettle"></a>Kettle</h3><p>一款国外免费开源的、可视化的、功能强大的ETL工具，纯java编写，可以在Windows、Linux、Unix上运行，数据抽取高效稳定。</p>
+<h3 id="canal"><a href="#canal" class="headerlink" title="canal"></a>canal</h3><p>canal是阿里巴巴旗下的一款开源项目，纯Java开发。基于数据库增量日志解析，提供增量数据实时订阅和消费，目前主要支持了MySQL，也支持mariaDB。</p>
+<p><img src="/images/0073.png"></p>
+<h3 id="StreamSets"><a href="#StreamSets" class="headerlink" title="StreamSets"></a>StreamSets</h3><p>是大数据实时采集ETL工具，可以实现不写一行代码完成数据的采集和流转。通过拖拽式的可视化界面，实现数据管道(Pipelines)的设计和定时任务调度。</p>
+<p>创建一个Pipelines管道需要配置数据源(Origins)、操作(Processors)、目的地(Destinations)三部分。</p>
+<h2 id="ETL加载策略"><a href="#ETL加载策略" class="headerlink" title="ETL加载策略"></a>ETL加载策略</h2><h3 id="增量"><a href="#增量" class="headerlink" title="增量"></a>增量</h3><p>有些表巨大，我们需要选择增量策略，新增delta数据需要和存量数据merge合并。</p>
+<p>只有新增（full join。能拿更新表就拿更新表）</p>
+<p><img src="/images/0074.png"></p>
+<h3 id="新增-删除"><a href="#新增-删除" class="headerlink" title="新增+删除"></a>新增+删除</h3><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">history-<span class="keyword">table</span> <span class="keyword">Left join</span> delet-<span class="keyword">table</span> <span class="keyword">where</span> delta-<span class="keyword">table</span>.<span class="keyword">value</span> <span class="keyword">is</span> <span class="keyword">null</span> == 表a</span><br></pre></td></tr></table></figure>
+<p>表a full join update-table (能拿update就拿update)</p>
+<h3 id="全量"><a href="#全量" class="headerlink" title="全量"></a>全量</h3><p>每天一个全量表，也可一个hive天分区一个全量。</p>
+<h3 id="流式"><a href="#流式" class="headerlink" title="流式"></a>流式</h3><p>使用kafka，消费mysql binlog日志到目标库，源表和目标库是1：1的镜像。</p>
+<p>无论是全量还是增量的方式，都会浪费多余的存储或通过计算去重，得到最新的全量数据。为解决这一问题，西红柿墙裂建议kafka的数据同步方案，源表变化一条，目标表消费一条，目标表数据始终是一份最新全量数据，且为实时同步的。</p>
+<p>ps.极端情况下可能会丢数，需要写几个监控脚本（详见上文数据质量部分）和补数脚本即可~</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html" target="_blank">数据仓库【十】：ETL</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html]]></content>
       <categories>
         <category>数据仓库</category>
       </categories>

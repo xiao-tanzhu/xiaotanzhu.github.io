@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Fri, 08 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Sat, 09 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>数据仓库【十】：ETL</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html</guid>
+      <pubDate>Sat, 09 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>ETL，是英文Extract-Transform-Load的缩写，用来描述将数据从来源端经过抽取（extract）、转换（transform）、加载（load）至目的端的过程，是数据仓库的生命线。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-10-dw-etl.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据仓库【九】：数据治理（目的、方法、流程）</title>
@@ -458,31 +481,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/mysql/2021-07-24-install-mysql-with_lowercasetablenames.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>Controlling Nginx with Supervisor</title>
-      <link>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html</link>
-      <guid>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html</guid>
-      <pubDate>Fri, 16 Jul 2021 16:00:00 GMT</pubDate>
-      
-      <description>This example shows us how to control nginx with supervisor so when nginx goes down for whatever reason, supervisor will bring it up again as a &quot;foreground&quot; process not as a &quot;daemon&quot;.</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/linux/">Linux</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/linux/">Linux</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/nginx/">Nginx</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/supervisor/">Supervisor</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/linux/control-nginx-with-supervisor.html#disqus_thread</comments>
       
     </item>
     
