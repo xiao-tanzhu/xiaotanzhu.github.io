@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 5.4.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" integrity="sha256-DfWjNxDkM94fVBWx1H5BMMp0Zq7luBlV8QRcSES7s+0=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"www.xiaotanzhu.com","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.11.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="我们已经维护了 Kylin 和 Druid 两个开源 OLAP 系统，Kylin 主要满足离线固化多维分析的需求，Druid 主要满足实时多维分析的需求。所谓的固化多维分析，指需要提前预定义维度和指标，然后查询时需要根据定义好的维度和指标进行查询，这样就无法满足即席的灵活多维分析需求，比如任意字段聚合，任意多表 Join。还有一点就是 Kylin 和 Druid 都是基于预计算的系统，没有保留明细">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据仓库【十三】：数据仓库选型，Doris">
+<meta property="og:url" content="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html">
+<meta property="og:site_name" content="小炭猪">
+<meta property="og:description" content="我们已经维护了 Kylin 和 Druid 两个开源 OLAP 系统，Kylin 主要满足离线固化多维分析的需求，Druid 主要满足实时多维分析的需求。所谓的固化多维分析，指需要提前预定义维度和指标，然后查询时需要根据定义好的维度和指标进行查询，这样就无法满足即席的灵活多维分析需求，比如任意字段聚合，任意多表 Join。还有一点就是 Kylin 和 Druid 都是基于预计算的系统，没有保留明细">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0077.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0078.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0079.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0080.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0081.png">
+<meta property="og:image" content="https://www.xiaotanzhu.com/images/0082.png">
+<meta property="article:published_time" content="2022-07-12T16:00:00.000Z">
+<meta property="article:modified_time" content="2022-07-12T16:00:00.000Z">
+<meta property="article:author" content="Fify">
+<meta property="article:tag" content="Data Warehouse">
+<meta property="article:tag" content="数据仓库">
+<meta property="article:tag" content="Doris">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://www.xiaotanzhu.com/images/0077.png">
+
+
+<link rel="canonical" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html","path":"数据仓库/2022-07-13-dw-doris.html","title":"数据仓库【十三】：数据仓库选型，Doris"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>数据仓库【十三】：数据仓库选型，Doris | 小炭猪</title>
+  
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-139248857-1"></script>
+  <script class="next-config" data-name="google_analytics" type="application/json">{"tracking_id":"UA-139248857-1","only_pageview":false}</script>
+  <script src="/js/third-party/analytics/google-analytics.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="小炭猪" type="application/atom+xml">
+<link rel="alternate" href="/rss2.xml" title="小炭猪" type="application/rss+xml">
+<style>.darkmode--activated{--body-bg-color:#282828;--content-bg-color:#333;--card-bg-color:#555;--text-color:#ccc;--blockquote-color:#bbb;--link-color:#ccc;--link-hover-color:#eee;--brand-color:#ddd;--brand-hover-color:#ddd;--table-row-odd-bg-color:#282828;--table-row-hover-bg-color:#363636;--menu-item-bg-color:#555;--btn-default-bg:#222;--btn-default-color:#ccc;--btn-default-border-color:#555;--btn-default-hover-bg:#666;--btn-default-hover-color:#ccc;--btn-default-hover-border-color:#666;--highlight-background:#282b2e;--highlight-foreground:#a9b7c6;--highlight-gutter-background:#34393d;--highlight-gutter-foreground:#9ca9b6}.darkmode--activated img{opacity:.75}.darkmode--activated img:hover{opacity:.9}.darkmode--activated code{color:#69dbdc;background:0 0}button.darkmode-toggle{z-index:9999}.darkmode-ignore,img{display:flex!important}.beian img{display:inline-block!important}</style></head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">小炭猪</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">一夕一绽一缕芳，一生一叹一痕沙</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-book fa-fw"></i>分类</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-sitemap"><a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E9%9C%80%E6%B1%82"><span class="nav-number">2.</span> <span class="nav-text">用户需求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Not-Other-ROLAP"><span class="nav-number">3.</span> <span class="nav-text">Why Not Other ROLAP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Why-Doris"><span class="nav-number">4.</span> <span class="nav-text">Why Doris</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E5%BA%94%E7%94%A8"><span class="nav-number">5.</span> <span class="nav-text">典型应用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%98%E5%8C%96%E7%BB%B4%E8%A1%A8-Join"><span class="nav-number">5.1.</span> <span class="nav-text">变化维表 Join</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%98%8E%E7%BB%86-%E8%81%9A%E5%90%88"><span class="nav-number">5.2.</span> <span class="nav-text">明细 + 聚合</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%A4%96%E5%8D%96%E5%87%86%E5%AE%9E%E6%97%B6%E6%95%B0%E4%BB%93"><span class="nav-number">5.3.</span> <span class="nav-text">外卖准实时数仓</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Fify"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Fify</p>
+  <div class="site-description" itemprop="description">曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">85</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">116</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/wangjingfei" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;wangjingfei" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Fify">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小炭猪">
+      <meta itemprop="description" content="曾经沧海难为水，除却巫山不是云。</br>取次花丛懒回顾，半缘修道半缘君。">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="数据仓库【十三】：数据仓库选型，Doris | 小炭猪">
+      <meta itemprop="description" content="我们已经维护了 Kylin 和 Druid 两个开源 OLAP 系统，Kylin 主要满足离线固化多维分析的需求，Druid 主要满足实时多维分析的需求。所谓的固化多维分析，指需要提前预定义维度和指标，然后查询时需要根据定义好的维度和指标进行查询，这样就无法满足即席的灵活多维分析需求，比如任意字段聚合，任意多表 Join。还有一点就是 Kylin 和 Druid 都是基于预计算的系统，没有保留明细数据，无法进行明细查询。（注：Kylin 和 Druid 都可以通过一定的间接方式实现明细查询，但限制较多）">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          数据仓库【十三】：数据仓库选型，Doris
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-07-13 00:00:00" itemprop="dateCreated datePublished" datetime="2022-07-13T00:00:00+08:00">2022-07-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据仓库</span></a>
+        </span>
+    </span>
+
+  
+    <span id="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html" class="post-meta-item leancloud_visitors" data-flag-title="数据仓库【十三】：数据仓库选型，Doris" title="阅读次数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span class="leancloud-visitors-count"></span>
+    </span>
+</div>
+
+            <div class="post-description">我们已经维护了 Kylin 和 Druid 两个开源 OLAP 系统，Kylin 主要满足离线固化多维分析的需求，Druid 主要满足实时多维分析的需求。所谓的固化多维分析，指需要提前预定义维度和指标，然后查询时需要根据定义好的维度和指标进行查询，这样就无法满足即席的灵活多维分析需求，比如任意字段聚合，任意多表 Join。还有一点就是 Kylin 和 Druid 都是基于预计算的系统，没有保留明细数据，无法进行明细查询。（注：Kylin 和 Druid 都可以通过一定的间接方式实现明细查询，但限制较多）</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>我们已经维护了 Kylin 和 Druid 两个开源 OLAP 系统，<strong>Kylin 主要满足离线固化多维分析的需求，Druid 主要满足实时多维分析的需求</strong>。</p>
+<p>所谓的固化多维分析，指需要提前预定义维度和指标，然后查询时需要根据定义好的维度和指标进行查询，这样就无法满足<strong>即席的灵活多维分析需求</strong>，比如任意字段聚合，任意多表 Join。</p>
+<p>还有一点就是 Kylin 和 Druid 都是基于预计算的系统，没有<strong>保留明细数据，无法进行明细查询</strong>。（注：Kylin 和 Druid 都可以通过一定的间接方式实现明细查询，但限制较多）</p>
+<h2 id="用户需求"><a href="#用户需求" class="headerlink" title="用户需求"></a>用户需求</h2><ol>
+<li>灵活多维分析</li>
+<li>明细+聚合</li>
+<li>主键更新</li>
+</ol>
+<p>随着我们用户上面 3 类的需求越来越多，我们决定在 2018 年初的时候调研当时开源的 ROLAP 系统，并进行落地。</p>
+<h2 id="Why-Not-Other-ROLAP"><a href="#Why-Not-Other-ROLAP" class="headerlink" title="Why Not Other ROLAP"></a>Why Not Other ROLAP</h2><p>我们当时主要调研了 SQL on Hadoop，ClickHouse，SnappyData，TiDB，Doris 等系统， 这些系统都是优秀的开源系统，并且都有其适用场景。我们在选型时主要从功能，架构，性能，易用性，运维成本等几个维度去考虑。</p>
+<p>下面我先介绍下我们为什么没有选择这些系统，再介绍我们为什么选择了 Doris。</p>
+<ul>
+<li>SQL on Hadoop 系统：无法支持更新，性能也较差。</li>
+<li>TiDB： TiDB 虽然当初号称可以支撑 100%的 TP 和 80%的 AP，但是架构设计主要是面向 TP 场景，缺少针对 AP 场景专门的优化，所以 OLAP 查询性能较差，TiDB 团队目前正在研发专门的 OLAP 产品：TiFlash，TiFlash 具有以下特点：列存，向量化执行，MPP，而这些特点 Doris 也都有。</li>
+<li>SnappyData：SnappyData 是基于 Spark + GemFire 实现的内存数据库，机器成本较高，而我们机器资源很有限，此外 SnappyData 的计算是基于 JVM 的，会有 GC 问题，影响查询稳定性。</li>
+<li>ClickHouse：Clickhouse 是一款单机性能十分彪悍的 OLAP 系统，但是当集群加减节点后，系统不能自动感知集群拓扑变化，也不能自动 balance 数据，导致运维成本很高，此外 Clickhouse 也不支持标准 SQL，我们用户接入的成本也很高。</li>
+</ul>
+<h2 id="Why-Doris"><a href="#Why-Doris" class="headerlink" title="Why Doris"></a>Why Doris</h2><p>对我们用户来说，Doris 的优点是功能强大，易用性好。 功能强大指可以满足我们用户的需求，易用性好主要指<strong>兼容 Mysql 协议和语法</strong>，以及<strong>Online Schema Change</strong>。 兼容 Mysql 协议和语法让用户的学习成本和开发成本很低， Online Schema Change 也是一个很吸引人的 feature，因为在业务快速发展和频繁迭代的情况下，Schema 变更会是一个高频的操作。</p>
+<p>对我们平台侧来说，Doris 的优点是<strong>易运维，易扩展和高可用</strong>：</p>
+<ul>
+<li>易运维指 Doris 无外部系统依赖，部署和配置都很简单。</li>
+<li>易扩展指 Doris 可以一键加减节点，并自动均衡数据。</li>
+<li>高可用值 Dors 的 FE 和 BE 都可以容忍少数节点挂掉。</li>
+</ul>
+<h2 id="典型应用"><a href="#典型应用" class="headerlink" title="典型应用"></a>典型应用</h2><h3 id="变化维表-Join"><a href="#变化维表-Join" class="headerlink" title="变化维表 Join"></a>变化维表 Join</h3><p><img src="/images/0077.png"></p>
+<p>变化维表的 Join 是我们外卖业务很典型的一个应用，我们外卖中的蜂窝，商家类型等维表属性会经常更新，并且需要用最新的维表属性去关联商家事实表的历史数据。 还有一点是外卖的商家属性是按照日，周，月，7，15，30 这 6 个时间口径统计的，而且这里面的周，月，7，15，30 不能按天直接累加，所以之前在 MOLAP 系统中，用户需要先建 6 张宽表，再基于 6 张宽表构建 6 个 Cube。 为了满足用最新的维表数据去关联事实表的历史数据的需求，就需要每天重刷几百天的历史数据。其实用户的高频查询都是近 1 个月的数据，但是为了满足极个别查很久历史数据的需求，就必须得重刷几百天的历史。 这样就会浪费大量的计算资源，而且数据冗余比较严重，开发效率低下。</p>
+<p><img src="/images/0078.png"></p>
+<p>有了 Doris 之后，我们就只需要按天同步事实表和维表，然后查询时现场 Join 就可以。 不需要每天重刷历史数据，开发效率也会提升很多。</p>
+<p><img src="/images/0079.png"></p>
+<p>上图中展示的是 Doris 和 MOALP 系统对同一个商家分析应用在数据导入和数据存储方面的对比，可以看到，在保持查询性能不变的前提下，Doris 在导入速度和存储效率上都有了很大的提升。</p>
+<h3 id="明细-聚合"><a href="#明细-聚合" class="headerlink" title="明细 + 聚合"></a>明细 + 聚合</h3><p><img src="/images/0080.png"></p>
+<p>同时查询明细和聚合是用户比较常见的需求，但是由于 Kylin 和 Druid 不能支持明细查询，所以用户就需要用 Mysql 或者 ES 来满足明细需求，再用 Kylin 和 Druid 来满足聚合需求，这样就有两条开发链路，数据也有冗余，并且可能还会有数据一致性的问题。</p>
+<p>有了 Doris 之后，我们只需要 Doris 一个引擎就可以同时 Cover 明细 + 聚合的需求，用户的开发流程就会简化许多。</p>
+<h3 id="外卖准实时数仓"><a href="#外卖准实时数仓" class="headerlink" title="外卖准实时数仓"></a>外卖准实时数仓</h3><p><img src="/images/0081.png"></p>
+<p>上图中是我们外卖准实时数仓的一个示意图，数据会从 Kafka 和 Hive 进入 Doris 中，然后每 15 分钟会通过 Doris to Doris ETL 计算实时和离线的同环比（外卖的特殊业务需求）。</p>
+<p>这个应用中主要依赖了 Doris 以下特性：</p>
+<ul>
+<li>同时支持实时和离线数据导入。</li>
+<li>Doris To Doris ETL， 这个指的是 Doris insert into select 的功能</li>
+<li>还有一个是主键去重，建模时用的是 Doris 的 UNIQUE KEY 模型，Doris 的主键去重和主键更新也是我们用户广泛使用的功能。</li>
+</ul>
+<p><img src="/images/0082.png"></p>
+<p>上图中展示的是我们外卖基于 Doris 构建准实时数仓，和基于 Storm 构建的实时应用的开发效率对比，用 Storm 开发需要 20 人日，用 Doris 开发需要 10 人日，这个效率的差别应该主要来自写 SQL 和写代码的效率差别。</p>
+<br><hr><b>转载请注明出处：</b><a href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html" target="_blank">数据仓库【十三】：数据仓库选型，Doris</a><br><b>原文地址：</b>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/data-warehouse/" rel="tag"># Data Warehouse</a>
+              <a href="/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/" rel="tag"># 数据仓库</a>
+              <a href="/tags/doris/" rel="tag"># Doris</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-12-dw-dim-fact-example.html" rel="prev" title="数据仓库【十二】：星型模型设计实例">
+                  <i class="fa fa-chevron-left"></i> 数据仓库【十二】：星型模型设计实例
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 2012 – 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Fify</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.wangjingfei.com/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.wangjingfei.com/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script><script src="/js/bookmark.js"></script>
+
+  
+<script src="https://cdn.wangjingfei.com/npm/hexo-generator-searchdb@1.4.0/dist/search.js" integrity="sha256-vXZMYLEqsROAXkEw93GGIvaB2ab+QW6w3+1ahD9nXXA=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+  
+
+
+  <script class="next-config" data-name="leancloud_visitors" type="application/json">{"enable":true,"app_id":"jNm9RvVK687BefTDdg0tXgvf-MdYXbMMI","app_key":"7ejdgq34iVUrKwhqPjLYqAQX","server_url":null,"security":false}</script>
+  <script src="/js/third-party/statistics/lean-analytics.js"></script>
+
+
+<script src="https://cdn.wangjingfei.com/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '16px',
+  right: '20px',
+  left: 'unset',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
+<script class="next-config" data-name="disqus" type="application/json">{"enable":true,"shortname":"xiaotanzhu","count":false,"i18n":{"disqus":"disqus"}}</script>
+<script src="/js/third-party/comments/disqus.js"></script>
+
+</body>
+</html>

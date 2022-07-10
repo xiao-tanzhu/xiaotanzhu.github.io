@@ -15,8 +15,33 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Mon, 11 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Tue, 12 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>数据仓库【十三】：数据仓库选型，Doris</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html</guid>
+      <pubDate>Tue, 12 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>我们已经维护了 Kylin 和 Druid 两个开源 OLAP 系统，Kylin 主要满足离线固化多维分析的需求，Druid 主要满足实时多维分析的需求。所谓的固化多维分析，指需要提前预定义维度和指标，然后查询时需要根据定义好的维度和指标进行查询，这样就无法满足即席的灵活多维分析需求，比如任意字段聚合，任意多表 Join。还有一点就是 Kylin 和 Druid 都是基于预计算的系统，没有保留明细数据，无法进行明细查询。（注：Kylin 和 Druid 都可以通过一定的间接方式实现明细查询，但限制较多）</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/doris/">Doris</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-13-dw-doris.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据仓库【十二】：星型模型设计实例</title>
@@ -456,31 +481,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>一文读懂电商产品架构</title>
-      <link>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/2022-02-17-product-structure-for-oneline-shop.html</link>
-      <guid>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/2022-02-17-product-structure-for-oneline-shop.html</guid>
-      <pubDate>Wed, 16 Feb 2022 16:00:00 GMT</pubDate>
-      
-      <description>刚接触电商领域的你是否有很多疑惑？对于许多电商产品是否感到无从下手？这篇文章作者详细介绍了电商产品的构架，推荐想要了解电商产品构架的童鞋阅读。</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E7%94%B5%E5%95%86/">电商</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E6%9E%B6%E6%9E%84/">产品架构</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/2022-02-17-product-structure-for-oneline-shop.html#disqus_thread</comments>
       
     </item>
     
