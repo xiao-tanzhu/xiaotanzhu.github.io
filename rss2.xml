@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Sun, 10 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Mon, 11 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>数据仓库【十二】：星型模型设计实例</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-12-dw-dim-fact-example.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-12-dw-dim-fact-example.html</guid>
+      <pubDate>Mon, 11 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>星型模式将业务流程分为事实和维度。事实包含业务的度量，是定量的数据，如销售价格、销售数量、距离、速度、重量等是事实。维度是对事实数据属性的描述，如日期、产品、客户、地理位置等是维度。一个含有很多维度表的星型模式有时被称为蜈蚣模式，显然这个名字也是因其形状而得来的。蜈蚣模式的维度表往往只有很少的几个属性，这样可以简化对维度表的维护，但查询数据时会有更多的表连接，严重时会使模型难于使用，因此在设计中应该尽量避免蜈蚣模式。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/data-warehouse/">Data Warehouse</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-12-dw-dim-fact-example.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据仓库【十一】：OLAP</title>
@@ -458,29 +481,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/2022-02-17-product-structure-for-oneline-shop.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>RPA是什么？解析AI和RPA结合方式和架构</title>
-      <link>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/whatis-rpa.html</link>
-      <guid>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/whatis-rpa.html</guid>
-      <pubDate>Fri, 06 Aug 2021 16:00:00 GMT</pubDate>
-      
-      <description>RPA是什么？解析AI和RPA结合方式和架构</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/">产品经理</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/rpa/">RPA</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86/whatis-rpa.html#disqus_thread</comments>
       
     </item>
     
