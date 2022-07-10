@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Tue, 12 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Wed, 13 Jul 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>编译和安装Doris</title>
+      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-14-doris-installation.html</link>
+      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-14-doris-installation.html</guid>
+      <pubDate>Wed, 13 Jul 2022 16:00:00 GMT</pubDate>
+      
+      <description>本文档主要介绍如何通过源码编译 Doris，并安装Doris到服务器。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/doris/">Doris</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-14-doris-installation.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>数据仓库【十三】：数据仓库选型，Doris</title>
@@ -460,29 +483,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>使用为文章标题自动编号</title>
-      <link>https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html</link>
-      <guid>https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html</guid>
-      <pubDate>Sat, 30 Apr 2022 16:00:00 GMT</pubDate>
-      
-      <description>使用css自动为文章的H1-H6标题自动编号</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/hexo/">Hexo</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/hexo/">Hexo</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/css/">CSS</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/hexo/2022-05-01-auto-numbering-in-hexo.html#disqus_thread</comments>
       
     </item>
     
