@@ -378,6 +378,29 @@
   </entry>
   
   <entry>
+    <title>构建含有OpenSSH服务器的Ubuntu基础镜像</title>
+    <link href="https://www.xiaotanzhu.com/docker/2022-05-07-docker-ubuntu-with-openssh.html"/>
+    <id>https://www.xiaotanzhu.com/docker/2022-05-07-docker-ubuntu-with-openssh.html</id>
+    <published>2022-05-06T16:00:00.000Z</published>
+    <updated>2022-05-06T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">构建含有OpenSSH服务器的Ubuntu基础镜像</summary>
+    
+    
+    
+    <category term="Docker" scheme="https://www.xiaotanzhu.com/categories/docker/"/>
+    
+    
+    <category term="Docker" scheme="https://www.xiaotanzhu.com/tags/docker/"/>
+    
+    <category term="Ubuntu" scheme="https://www.xiaotanzhu.com/tags/ubuntu/"/>
+    
+    <category term="OpenSSH" scheme="https://www.xiaotanzhu.com/tags/openssh/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu安装php+nginx环境</title>
     <link href="https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html"/>
     <id>https://www.xiaotanzhu.com/ubuntu/2022-05-07-install-php-basis.html</id>
@@ -418,27 +441,6 @@
     <category term="Hexo" scheme="https://www.xiaotanzhu.com/tags/hexo/"/>
     
     <category term="CSS" scheme="https://www.xiaotanzhu.com/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>接连创造高估值、高增长神话的PLG SaaS</title>
-    <link href="https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html"/>
-    <id>https://www.xiaotanzhu.com/saas/2022-05-01-plg-in-saas.html</id>
-    <published>2022-04-30T16:00:00.000Z</published>
-    <updated>2022-04-30T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">1.6万字深度研究：接连创造高估值、高增长神话的PLG SaaS</summary>
-    
-    
-    
-    <category term="SaaS" scheme="https://www.xiaotanzhu.com/categories/saas/"/>
-    
-    
-    <category term="PLG" scheme="https://www.xiaotanzhu.com/tags/plg/"/>
-    
-    <category term="SaaS" scheme="https://www.xiaotanzhu.com/tags/saas/"/>
     
   </entry>
   
