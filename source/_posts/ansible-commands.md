@@ -108,6 +108,8 @@ ansible web_server -m file -a "dest=/tmp/test.txt state=absent" # rm -rf
 #### 文件编辑
 ```bash
 ansible web_server -m lineinfile =a "path=/etc/hosts line='0.0.0.0 facebook.com'" -b --become-method sudo -K
+ansible doris_all -m lineinfile -a "path=/etc/hosts line='' insertafter=.*ip6-allrouters" -b --become-method sudo -K
+ansible doris_all -m lineinfile -a "path=/etc/hosts state=absent regex=^$" -b --become-method sudo -K # remove empty lines
 ```
 
 #### 软件安装
