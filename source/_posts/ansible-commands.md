@@ -105,6 +105,11 @@ ansible web_server -m file -a "src=/root/test.txt dest=/tmp/test.txt state=link"
 ansible web_server -m file -a "dest=/tmp/test.txt state=absent" # rm -rf
 ```
 
+#### 文件编辑
+```bash
+ansible web_server -m lineinfile =a "path=/etc/hosts line='0.0.0.0 facebook.com'" -b --become-method sudo -K
+```
+
 #### 软件安装
 
 yum系列安装（federal、centos、redhat）
