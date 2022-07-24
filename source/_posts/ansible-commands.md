@@ -89,13 +89,13 @@ ansible web_server -a "/sbin/reboot" -f 10
 ```
 
 ### Ansible模块
-Shell操作
+#### Shell操作
 ```bash
 ansible web_server -m shell -a "grep '/sbin/nologin' /etc/passwd | wc -l"
 ansible web_server -m shell -a 'echo $PATH'
 ```
 
-文件操作
+#### 文件操作
 ```bash
 ansible web_server -m copy -a "src=/etc/hosts dest=/tmp/"
 ansible web_server -m file -a "dest=/tmp/hosts mode=600 owner=xuad group=xuad" # chmod chown
@@ -105,7 +105,9 @@ ansible web_server -m file -a "src=/root/test.txt dest=/tmp/test.txt state=link"
 ansible web_server -m file -a "dest=/tmp/test.txt state=absent" # rm -rf
 ```
 
-软件安装
+#### 软件安装
+
+yum系列安装（federal、centos、redhat）
 ```bash
 ansible web_server -m yum -a "name=wget state=present" # check if exist
 ansible web_server -m yum -a "name=wget state=latest" # upgrade
@@ -114,7 +116,12 @@ ansible web_server -m yum -a "name=wget state=absent" # check if nonexist
 ansible web_server -m yum -a "name=wget state=installed" # install
 ```
 
-用户名密码
+apt系列安装（debian、ubuntu）
+```bash
+ansible doris_all -m apt -a "name=openjdk-8-jdk update_cache=yes" -b --become-method sudo -K
+```
+
+#### 用户名密码
 ```bash
 ansible web_server -m user -a "name=andy state=absent" # remove user
 ansible web_server -m user -a "name=andy state=present" # create on absence
