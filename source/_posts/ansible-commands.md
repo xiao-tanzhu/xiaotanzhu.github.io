@@ -79,7 +79,8 @@ web_server[0:3]
 ```bash
 ansible web_server -a "shell命令" -k
 ansible web_server -a "shell命令" -u username -k
-ansible web_server -a "shell命令" -u username --sudo [--ask-sudo-pass]
+# ansible web_server -a "shell命令" -u username --sudo [--ask-sudo-pass]
+ansible web_server -a "apt-get -y update" --become --become-method sudo -K
 ```
 
 ### 多进程并发执行
