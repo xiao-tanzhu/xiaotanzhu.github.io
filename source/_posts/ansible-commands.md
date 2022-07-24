@@ -21,6 +21,7 @@ web_server[0:3]
 
 ### /etc/ansible/ansible.cfg
 
+更多常用配置文件参考：https://segmentfault.com/a/1190000020522428
 ```
 [defaults]
 
