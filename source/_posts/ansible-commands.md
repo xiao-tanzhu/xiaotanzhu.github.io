@@ -13,7 +13,7 @@ description: Ansible在批量服务器管理中常用的命令
 ### /etc/ansible/ansible.cfg
 
 更多常用配置文件参考：https://segmentfault.com/a/1190000020522428
-```
+```ini
 [defaults]
 
 # some basic default values...
@@ -50,7 +50,7 @@ log_path = /var/log/ansible.log
 
 ### /etc/ansible/hosts
 
-```
+```ini
 [base]
 ubuntu-base
 
