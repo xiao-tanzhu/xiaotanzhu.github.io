@@ -119,6 +119,8 @@ ansible web_server -m yum -a "name=wget state=installed" # install
 apt系列安装（debian、ubuntu）
 ```bash
 ansible doris_all -m apt -a "name=openjdk-8-jdk update_cache=yes" -b --become-method sudo -K
+ansible doris_all -m apt -a "name=openjdk-11-jdk state=absent" -b --become-method sudo -K
+ansible doris_all -m apt -a "autoremove=yes" -b --become-method sudo -K
 ```
 
 #### 用户名密码
