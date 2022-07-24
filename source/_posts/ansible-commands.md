@@ -8,15 +8,6 @@ categories: 运维
 description: Ansible在批量服务器管理中常用的命令
 ---
 
-### Host匹配方式
-```ini
-web_server:!http1:&http2
-http*:web_server
-web_server[0]
-web_server[0:3]
-'~(web|http)*'
-```
-
 ## 基础配置
 
 ### /etc/ansible/ansible.cfg
@@ -72,6 +63,15 @@ doris-fe
 
 [doris_be]
 doris-be-[01:03]
+```
+
+## Host匹配方式
+```ini
+web_server:!http1:&http2
+http*:web_server
+web_server[0]
+web_server[0:3]
+'~(web|http)*'
 ```
 
 ## 常用命令
