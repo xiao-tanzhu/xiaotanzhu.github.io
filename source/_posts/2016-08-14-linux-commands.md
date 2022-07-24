@@ -91,6 +91,12 @@ fify : fify adm cdrom sudo dip plugdev lpadmin sambashare docker
 sudo -u jenkins -H jstack 36730
 ```
 
+#### 添加用户到组
+将当前用户添加到`docker`用户组
+```bash
+sudo usermod -aG docker $USER
+```
+
 ## 实用工具
 
 ### 文字处理
