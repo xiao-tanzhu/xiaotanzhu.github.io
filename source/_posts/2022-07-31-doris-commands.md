@@ -9,6 +9,14 @@ categories: 数据仓库
 description: Doris常用命令
 ---
 
+## 连接Doris
+
+```bash
+mysql -h doris-fe -P 9030 -uroot
+```
+
+默认root密码为空。
+
 ## 节点管理
 
 ### 增加Backend
