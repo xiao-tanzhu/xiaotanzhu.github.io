@@ -56,6 +56,8 @@ sudo netplan apply
 
 ## 确认生效
 
+### 确认IP地址
+
 ```bash
 ifconfig
 ```
@@ -98,6 +100,8 @@ lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
         TX packets 84  bytes 6368 (6.3 KB)
         TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
 ``` 
+
+### 确认默认网关
 
 ```bash
 route -n
