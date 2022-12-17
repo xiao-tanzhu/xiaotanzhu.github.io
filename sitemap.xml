@@ -146,6 +146,15 @@
   </url>
   
   <url>
+    <loc>https://www.xiaotanzhu.com/linux/2022-06-20-set-static-ip-ubuntu-22.04.html</loc>
+    
+    <lastmod>2022-06-19</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html</loc>
     
     <lastmod>2022-06-10</lastmod>
@@ -1500,6 +1509,13 @@
   
   <url>
     <loc>https://www.xiaotanzhu.com/tags/greenplum/</loc>
+    <lastmod>2022-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaotanzhu.com/tags/netplan/</loc>
     <lastmod>2022-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

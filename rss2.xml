@@ -389,6 +389,29 @@
     </item>
     
     <item>
+      <title>为Ubuntu 22.04设置静态IP（NetPlan）</title>
+      <link>https://www.xiaotanzhu.com/linux/2022-06-20-set-static-ip-ubuntu-22.04.html</link>
+      <guid>https://www.xiaotanzhu.com/linux/2022-06-20-set-static-ip-ubuntu-22.04.html</guid>
+      <pubDate>Sun, 19 Jun 2022 16:00:00 GMT</pubDate>
+      
+      <description>使用NetPlan工具，为Ubuntu 22.04设置静态IP</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/netplan/">NetPlan</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/linux/2022-06-20-set-static-ip-ubuntu-22.04.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Docker Desktop WSL 2 backend</title>
       <link>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html</link>
       <guid>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html</guid>
@@ -456,29 +479,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>十分钟快速入门 Pandas</title>
-      <link>https://www.xiaotanzhu.com/python/2022-05-22-introduction-to-pandas.html</link>
-      <guid>https://www.xiaotanzhu.com/python/2022-05-22-introduction-to-pandas.html</guid>
-      <pubDate>Sat, 21 May 2022 16:00:00 GMT</pubDate>
-      
-      <description>通过带有标签的列和索引，Pandas 使我们可以以一种所有人都能理解的方式来处理数据。它可以让我们毫不费力地从诸如 csv 类型的文件中导入数据。我们可以用它快速地对数据进行复杂的转换和过滤等操作。Pandas 真是超级棒。</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/python/">Python</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/python/">Python</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/pandas/">Pandas</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/python/2022-05-22-introduction-to-pandas.html#disqus_thread</comments>
       
     </item>
     
