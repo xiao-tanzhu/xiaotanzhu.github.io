@@ -19,6 +19,27 @@
     <generator>http://hexo.io/</generator>
     
     <item>
+      <title>CentOS最小化安装后初始化</title>
+      <link>https://www.xiaotanzhu.com/linux/2022-12-17-centos-8-initialization.html</link>
+      <guid>https://www.xiaotanzhu.com/linux/2022-12-17-centos-8-initialization.html</guid>
+      <pubDate>Fri, 16 Dec 2022 16:00:00 GMT</pubDate>
+      
+      <description>CentOS最小化安装之后，软件特别少，需要做一下初始化配置。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/centos/">CentOS</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/linux/2022-12-17-centos-8-initialization.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Ubuntu逻辑分区（LVM）扩容</title>
       <link>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html</link>
       <guid>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html</guid>
@@ -454,31 +475,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>（英文版）Windows 10 WSL 2中文乱码问题解决</title>
-      <link>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html</link>
-      <guid>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html</guid>
-      <pubDate>Fri, 27 May 2022 16:00:00 GMT</pubDate>
-      
-      <description>英文版Windows 10中，安装WSL和Ubuntu之后，终端中显示的中文都变成了豆腐。这篇文档介绍如何解决这个问题。</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/windows/">Windows</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/windows/">Windows</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/wsl/">WSL</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html#disqus_thread</comments>
       
     </item>
     

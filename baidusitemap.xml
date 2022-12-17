@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.xiaotanzhu.com/linux/2022-12-17-centos-8-initialization.html</loc>
+    <lastmod>2022-12-16</lastmod>
+  </url>
+  <url>
     <loc>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html</loc>
     <lastmod>2022-12-16</lastmod>
   </url>

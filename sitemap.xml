@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.xiaotanzhu.com/linux/2022-12-17-centos-8-initialization.html</loc>
+    
+    <lastmod>2022-12-16</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html</loc>
     
     <lastmod>2022-12-16</lastmod>
@@ -1537,6 +1546,13 @@
   
   <url>
     <loc>https://www.xiaotanzhu.com/tags/doris/</loc>
+    <lastmod>2022-12-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://www.xiaotanzhu.com/tags/centos/</loc>
     <lastmod>2022-12-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>

@@ -17,6 +17,25 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>CentOS最小化安装后初始化</title>
+    <link href="https://www.xiaotanzhu.com/linux/2022-12-17-centos-8-initialization.html"/>
+    <id>https://www.xiaotanzhu.com/linux/2022-12-17-centos-8-initialization.html</id>
+    <published>2022-12-16T16:00:00.000Z</published>
+    <updated>2022-12-16T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">CentOS最小化安装之后，软件特别少，需要做一下初始化配置。</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/categories/linux/"/>
+    
+    
+    <category term="CentOS" scheme="https://www.xiaotanzhu.com/tags/centos/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Ubuntu逻辑分区（LVM）扩容</title>
     <link href="https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html"/>
     <id>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html</id>
@@ -414,29 +433,6 @@
     
     
     <category term="GreenPlum" scheme="https://www.xiaotanzhu.com/tags/greenplum/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>（英文版）Windows 10 WSL 2中文乱码问题解决</title>
-    <link href="https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html"/>
-    <id>https://www.xiaotanzhu.com/windows/2022-05-28-chinese-in-wsl-windows.html</id>
-    <published>2022-05-27T16:00:00.000Z</published>
-    <updated>2022-05-27T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">英文版Windows 10中，安装WSL和Ubuntu之后，终端中显示的中文都变成了豆腐。这篇文档介绍如何解决这个问题。</summary>
-    
-    
-    
-    <category term="Windows" scheme="https://www.xiaotanzhu.com/categories/windows/"/>
-    
-    
-    <category term="Ubuntu" scheme="https://www.xiaotanzhu.com/tags/ubuntu/"/>
-    
-    <category term="Windows" scheme="https://www.xiaotanzhu.com/tags/windows/"/>
-    
-    <category term="WSL" scheme="https://www.xiaotanzhu.com/tags/wsl/"/>
     
   </entry>
   
