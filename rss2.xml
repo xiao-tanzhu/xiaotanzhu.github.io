@@ -15,8 +15,31 @@
     <atom:link href="https://www.xiaotanzhu.com/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>曾经沧海难为水，除却巫山不是云。&lt;/br&gt;取次花丛懒回顾，半缘修道半缘君。</description>
-    <pubDate>Sat, 30 Jul 2022 16:00:00 GMT</pubDate>
+    <pubDate>Fri, 16 Dec 2022 16:00:00 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>Ubuntu逻辑分区（LVM）扩容</title>
+      <link>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html</link>
+      <guid>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html</guid>
+      <pubDate>Fri, 16 Dec 2022 16:00:00 GMT</pubDate>
+      
+      <description>默认情况下，Ubuntu的LVM只用了一部分硬盘（不知道为啥这个设定），这里记录如何让LVM启用所有硬盘空间。</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/lvm/">LVM</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>Doris常用命令</title>
@@ -456,31 +479,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/python/2022-05-22-introduction-to-pandas.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>构建含有OpenSSH服务器的Ubuntu基础镜像</title>
-      <link>https://www.xiaotanzhu.com/docker/2022-05-07-docker-ubuntu-with-openssh.html</link>
-      <guid>https://www.xiaotanzhu.com/docker/2022-05-07-docker-ubuntu-with-openssh.html</guid>
-      <pubDate>Fri, 06 May 2022 16:00:00 GMT</pubDate>
-      
-      <description>构建含有OpenSSH服务器的Ubuntu基础镜像</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/docker/">Docker</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/docker/">Docker</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/ubuntu/">Ubuntu</category>
-      
-      <category domain="https://www.xiaotanzhu.com/tags/openssh/">OpenSSH</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/docker/2022-05-07-docker-ubuntu-with-openssh.html#disqus_thread</comments>
       
     </item>
     

@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html</loc>
+    <lastmod>2022-12-16</lastmod>
+  </url>
+  <url>
     <loc>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-31-doris-commands.html</loc>
     <lastmod>2022-07-30</lastmod>
   </url>

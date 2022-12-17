@@ -6,7 +6,7 @@
   <link href="https://www.xiaotanzhu.com/atom.xml" rel="self"/>
   
   <link href="https://www.xiaotanzhu.com/"/>
-  <updated>2022-07-30T16:00:00.000Z</updated>
+  <updated>2022-12-16T16:00:00.000Z</updated>
   <id>https://www.xiaotanzhu.com/</id>
   
   <author>
@@ -15,6 +15,27 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ubuntu逻辑分区（LVM）扩容</title>
+    <link href="https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html"/>
+    <id>https://www.xiaotanzhu.com/linux/2022-12-17-extend-ubuntu-lvm.html</id>
+    <published>2022-12-16T16:00:00.000Z</published>
+    <updated>2022-12-16T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">默认情况下，Ubuntu的LVM只用了一部分硬盘（不知道为啥这个设定），这里记录如何让LVM启用所有硬盘空间。</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/categories/linux/"/>
+    
+    
+    <category term="Ubuntu" scheme="https://www.xiaotanzhu.com/tags/ubuntu/"/>
+    
+    <category term="LVM" scheme="https://www.xiaotanzhu.com/tags/lvm/"/>
+    
+  </entry>
   
   <entry>
     <title>Doris常用命令</title>
@@ -416,29 +437,6 @@
     <category term="Python" scheme="https://www.xiaotanzhu.com/tags/python/"/>
     
     <category term="Pandas" scheme="https://www.xiaotanzhu.com/tags/pandas/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>构建含有OpenSSH服务器的Ubuntu基础镜像</title>
-    <link href="https://www.xiaotanzhu.com/docker/2022-05-07-docker-ubuntu-with-openssh.html"/>
-    <id>https://www.xiaotanzhu.com/docker/2022-05-07-docker-ubuntu-with-openssh.html</id>
-    <published>2022-05-06T16:00:00.000Z</published>
-    <updated>2022-05-06T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">构建含有OpenSSH服务器的Ubuntu基础镜像</summary>
-    
-    
-    
-    <category term="Docker" scheme="https://www.xiaotanzhu.com/categories/docker/"/>
-    
-    
-    <category term="Docker" scheme="https://www.xiaotanzhu.com/tags/docker/"/>
-    
-    <category term="Ubuntu" scheme="https://www.xiaotanzhu.com/tags/ubuntu/"/>
-    
-    <category term="OpenSSH" scheme="https://www.xiaotanzhu.com/tags/openssh/"/>
     
   </entry>
   
