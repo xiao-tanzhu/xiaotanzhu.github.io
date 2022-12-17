@@ -63,6 +63,29 @@
     </item>
     
     <item>
+      <title>在CentOS上安装GreenPlum</title>
+      <link>https://www.xiaotanzhu.com/linux/2022-12-17-gpdb-6-install-on-centos.html</link>
+      <guid>https://www.xiaotanzhu.com/linux/2022-12-17-gpdb-6-install-on-centos.html</guid>
+      <pubDate>Fri, 16 Dec 2022 16:00:00 GMT</pubDate>
+      
+      <description>在CentOS服务器上安装GreenPlum服务</description>
+      
+      
+      
+      
+      <category domain="https://www.xiaotanzhu.com/categories/linux/">Linux</category>
+      
+      
+      <category domain="https://www.xiaotanzhu.com/tags/greenplum/">GreenPlum</category>
+      
+      <category domain="https://www.xiaotanzhu.com/tags/centos/">CentOS</category>
+      
+      
+      <comments>https://www.xiaotanzhu.com/linux/2022-12-17-gpdb-6-install-on-centos.html#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
       <title>Doris常用命令</title>
       <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-31-doris-commands.html</link>
       <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-31-doris-commands.html</guid>
@@ -454,27 +477,6 @@
       
       
       <comments>https://www.xiaotanzhu.com/docker/2022-06-11-docker-install-on-windows-wsl.html#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>GreenPlum单节点版安装</title>
-      <link>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html</link>
-      <guid>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html</guid>
-      <pubDate>Fri, 10 Jun 2022 16:00:00 GMT</pubDate>
-      
-      <description>安装单节点版GreenPlum</description>
-      
-      
-      
-      
-      <category domain="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/">数据仓库</category>
-      
-      
-      <category domain="https://www.xiaotanzhu.com/tags/greenplum/">GreenPlum</category>
-      
-      
-      <comments>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html#disqus_thread</comments>
       
     </item>
     

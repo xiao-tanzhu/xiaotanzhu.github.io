@@ -57,6 +57,27 @@
   </entry>
   
   <entry>
+    <title>在CentOS上安装GreenPlum</title>
+    <link href="https://www.xiaotanzhu.com/linux/2022-12-17-gpdb-6-install-on-centos.html"/>
+    <id>https://www.xiaotanzhu.com/linux/2022-12-17-gpdb-6-install-on-centos.html</id>
+    <published>2022-12-16T16:00:00.000Z</published>
+    <updated>2022-12-16T16:00:00.000Z</updated>
+    
+    
+    <summary type="html">在CentOS服务器上安装GreenPlum服务</summary>
+    
+    
+    
+    <category term="Linux" scheme="https://www.xiaotanzhu.com/categories/linux/"/>
+    
+    
+    <category term="GreenPlum" scheme="https://www.xiaotanzhu.com/tags/greenplum/"/>
+    
+    <category term="CentOS" scheme="https://www.xiaotanzhu.com/tags/centos/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Doris常用命令</title>
     <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-31-doris-commands.html"/>
     <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-07-31-doris-commands.html</id>
@@ -414,25 +435,6 @@
     <category term="Windows" scheme="https://www.xiaotanzhu.com/tags/windows/"/>
     
     <category term="WSL" scheme="https://www.xiaotanzhu.com/tags/wsl/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GreenPlum单节点版安装</title>
-    <link href="https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html"/>
-    <id>https://www.xiaotanzhu.com/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/2022-06-11-introduction-to-greenplum.html</id>
-    <published>2022-06-10T16:00:00.000Z</published>
-    <updated>2022-06-10T16:00:00.000Z</updated>
-    
-    
-    <summary type="html">安装单节点版GreenPlum</summary>
-    
-    
-    
-    <category term="数据仓库" scheme="https://www.xiaotanzhu.com/categories/%E6%95%B0%E6%8D%AE%E4%BB%93%E5%BA%93/"/>
-    
-    
-    <category term="GreenPlum" scheme="https://www.xiaotanzhu.com/tags/greenplum/"/>
     
   </entry>
   
