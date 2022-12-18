@@ -93,31 +93,49 @@ sysctl -a
 
 调整之后`/etc/sysctl.con`如下：
 ```ini
-# kernel.shmall = _PHYS_PAGES / 2 # See Shared Memory Pages
-# Segment的配置，通过这个命令获取：echo $(expr $(getconf _PHYS_PAGES) / 2) 
+## Shared Memory: 用于操作系统不同进程之间的内存共享。可通过`ipcs -lm`查看
+##
+## kernel.shmall = _PHYS_PAGES / 2 # See Shared Memory Pages
+## Segment的配置，通过这个命令获取：echo $(expr $(getconf _PHYS_PAGES) / 2) 
 kernel.shmall = 993697
 # kernel.shmmax = kernel.shmall * PAGE_SIZE 
-# Segment的配置，通过这个命令获取：echo $(expr $(getconf _PHYS_PAGES) / 2 \* $(getconf PAGE_SIZE))
+## Segment的配置，通过这个命令获取：echo $(expr $(getconf _PHYS_PAGES) / 2 \* $(getconf PAGE_SIZE))
 kernel.shmmax = 4070182912
+## 操作系统内，共享内存片段（Shared Memory Segment）的数量。
 kernel.shmmni = 4096
-# kernel.shmall = 18446744073692774399
-# kernel.shmmax = 18446744073692774399
-# kernel.shmmni = 4096
-# 固定设置为2即可
+#kernel.shmall = 18446744073692774399
+#kernel.shmmax = 18446744073692774399
+#kernel.shmmni = 4096
+
+## Virtal Memory的一些参数
+# 2：允许应用程序分配不多于swap剩余可用空间 并且 不高于overcommit_ratio*物理内存
 vm.overcommit_memory = 2 # See Segment Host Memory
 #vm.overcommit_memory = 0
 vm.overcommit_ratio = 80 # See Segment Host Memory
 #vm.overcommit_ratio = 50
 
+## 允许本地使用的端口号
 net.ipv4.ip_local_port_range = 10000 65535 # See Port Settings
 #net.ipv4.ip_local_port_range = 32768	60999
 
-# TODO: Kernel的几个参数还没有明确
+## SEMMSL, SEMMNS, SEMOPM, and SEMMNI
+## SEMMSL：每个信号量集中最多的信号量数量
+## SEMMNS：系统中所有信号量的数量上限
+## SEMOPM：每个系统调用可以操作的信号量数量
+## SEMMNI：信号量集的数量上限
 kernel.sem = 250 2048000 200 8192
+#kernel.sem = 32000	1024000000	500	32000
+
+## 1: 启用所有的sysrq
 kernel.sysrq = 1
+#kernel.sysrq=16
 kernel.core_uses_pid = 1
+
+## 单个消息队列的总大小上限
 kernel.msgmnb = 65536
+## 消息队列中单个消息大小的上限
 kernel.msgmax = 65536
+## 消息队列中消息的个数上限
 kernel.msgmni = 2048
 
 # TODO: tcp的这几个优化还没有明确
